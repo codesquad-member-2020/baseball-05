@@ -19,7 +19,6 @@
 		5A7DD540246035F7002ECB3A /* GameInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD53F246035F7002ECB3A /* GameInfoView.swift */; };
 		5A7DD54224603715002ECB3A /* GameInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54124603715002ECB3A /* GameInfoLabel.swift */; };
 		5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54524603A0E002ECB3A /* VersusLabel.swift */; };
-		5A7DD54824603D0C002ECB3A /* GameInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54724603D0C002ECB3A /* GameInfoStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		5A7DD53F246035F7002ECB3A /* GameInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoView.swift; sourceTree = "<group>"; };
 		5A7DD54124603715002ECB3A /* GameInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoLabel.swift; sourceTree = "<group>"; };
 		5A7DD54524603A0E002ECB3A /* VersusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusLabel.swift; sourceTree = "<group>"; };
-		5A7DD54724603D0C002ECB3A /* GameInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				5A7DD53D24602B9F002ECB3A /* TitleLabel.swift */,
-				5A7DD54724603D0C002ECB3A /* GameInfoStackView.swift */,
 				5A7DD53F246035F7002ECB3A /* GameInfoView.swift */,
 				5A7DD54124603715002ECB3A /* GameInfoLabel.swift */,
 				5A7DD54524603A0E002ECB3A /* VersusLabel.swift */,
@@ -283,7 +280,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */,
-				5A7DD54824603D0C002ECB3A /* GameInfoStackView.swift in Sources */,
 				5A7DD50E24601708002ECB3A /* GameRecordViewController.swift in Sources */,
 				5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */,
 				5A7DD540246035F7002ECB3A /* GameInfoView.swift in Sources */,
