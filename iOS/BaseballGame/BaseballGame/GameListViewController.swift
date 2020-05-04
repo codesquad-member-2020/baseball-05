@@ -41,18 +41,4 @@ final class GameListViewController: UIViewController {
         gameInfoStackView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor,
                                                   constant:  -10).isActive = true
     }
-    
-    
 }
-
-final class GameInfoStackView: UIStackView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    required init(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-}
-
