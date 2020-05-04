@@ -20,6 +20,6 @@ final class TitleLabel: UILabel {
     }
     
     private func configureText() {
-        font = UIFont.boldSystemFont(ofSize: 32)
+        font = UIFont.boldSystemFont(ofSize: 28)
     }
 }
