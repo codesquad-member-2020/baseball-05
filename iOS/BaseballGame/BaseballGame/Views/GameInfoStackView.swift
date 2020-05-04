@@ -20,6 +20,7 @@ final class GameInfoStackView<T: GameInfoView>: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
         configureVerticalStackView()
     }
 
