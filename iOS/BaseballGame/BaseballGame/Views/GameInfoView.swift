@@ -16,7 +16,8 @@ final class GameInfoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false 
+        translatesAutoresizingMaskIntoConstraints = false
+        configureView()
         configureGameInfoLabel()
         configureVersusLabel()
         configureAwayTeamLabel()
@@ -25,10 +26,16 @@ final class GameInfoView: UIView {
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configureView()
         configureGameInfoLabel()
         configureVersusLabel()
         configureAwayTeamLabel()
         configureHomeTeamLabel()
+    }
+    
+    private func configureView() {
+        backgroundColor = .white
+        layer.cornerRadius = 12
     }
     
     private func configureGameInfoLabel() {

@@ -17,6 +17,9 @@ final class GameListViewController: UIViewController {
         super.viewDidLoad()
         configureGameListLabel()
         configureGameInfoStackView()
+        for _ in 0 ..< 4 {
+            gameInfoStackView.add(gameInfoView: GameInfoView())
+        }
     }
     
     private func configureGameListLabel() {
@@ -35,6 +38,6 @@ final class GameListViewController: UIViewController {
         gameInfoStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                    constant: 10).isActive = true
         gameInfoStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        gameInfoStackView.topAnchor.constraint(equalTo: gameListLabel.bottomAnchor, constant: 26).isActive = true
+        gameInfoStackView.topAnchor.constraint(equalTo: gameListLabel.bottomAnchor, constant: 43).isActive = true
     }
 }

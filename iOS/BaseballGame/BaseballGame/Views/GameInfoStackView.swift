@@ -23,5 +23,13 @@ final class GameInfoStackView: UIStackView {
     private func configure() {
         axis = .vertical
         distribution = .fillEqually
+        spacing = 17
+    }
+    
+    func add(gameInfoView: GameInfoView) {
+        addArrangedSubview(gameInfoView)
+        
+        gameInfoView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        gameInfoView.heightAnchor.constraint(equalTo: gameInfoView.widthAnchor, multiplier: 0.28).isActive = true
     }
 }
