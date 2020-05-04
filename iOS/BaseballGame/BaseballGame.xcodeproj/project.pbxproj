@@ -16,6 +16,8 @@
 		5A7DD5212460170A002ECB3A /* BaseballGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD5202460170A002ECB3A /* BaseballGameTests.swift */; };
 		5A7DD52C2460170A002ECB3A /* BaseballGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD52B2460170A002ECB3A /* BaseballGameUITests.swift */; };
 		5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD53D24602B9F002ECB3A /* TitleLabel.swift */; };
+		5A7DD540246035F7002ECB3A /* GameInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD53F246035F7002ECB3A /* GameInfoView.swift */; };
+		5A7DD54224603715002ECB3A /* GameInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54124603715002ECB3A /* GameInfoLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		5A7DD52B2460170A002ECB3A /* BaseballGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseballGameUITests.swift; sourceTree = "<group>"; };
 		5A7DD52D2460170A002ECB3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A7DD53D24602B9F002ECB3A /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
+		5A7DD53F246035F7002ECB3A /* GameInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoView.swift; sourceTree = "<group>"; };
+		5A7DD54124603715002ECB3A /* GameInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				5A7DD53D24602B9F002ECB3A /* TitleLabel.swift */,
+				5A7DD53F246035F7002ECB3A /* GameInfoView.swift */,
+				5A7DD54124603715002ECB3A /* GameInfoLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -272,7 +278,9 @@
 			files = (
 				5A7DD50E24601708002ECB3A /* GameRecordViewController.swift in Sources */,
 				5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */,
+				5A7DD540246035F7002ECB3A /* GameInfoView.swift in Sources */,
 				5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */,
+				5A7DD54224603715002ECB3A /* GameInfoLabel.swift in Sources */,
 				5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
