@@ -8,13 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+final class GameRecordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-
-
 }
 
