@@ -10,7 +10,12 @@ import UIKit
 
 final class GameListViewController: UIViewController {
     //MARK:- Internal properties
-    private let gameListLabel = TitleLabel()
+    private let gameListTitleLabel: TitleLabel = {
+        let label = TitleLabel()
+        label.text = GameListViewModel.titleText
+        label.textColor = GameListViewModel.titleColor
+        return label
+    }()
     private let gameInfoStackView = GameInfoStackView()
     
     override func viewDidLoad() {
@@ -23,14 +28,12 @@ final class GameListViewController: UIViewController {
     }
     
     private func configureGameListLabel() {
-        gameListLabel.text = "게임 목록"
-        gameListLabel.textColor = .white
-        view.addSubview(gameListLabel)
+        view.addSubview(gameListTitleLabel)
         
-        gameListLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        gameListTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         let safeArea = view.safeAreaLayoutGuide
-        gameListLabel.topAnchor.constraint(equalTo: safeArea.topAnchor,
-                                           constant: 26).isActive = true
+        gameListTitleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor,
+                                                constant: 26).isActive = true
     }
     
     private func configureGameInfoStackView() {
@@ -38,6 +41,6 @@ final class GameListViewController: UIViewController {
         gameInfoStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
                                                    constant: 10).isActive = true
         gameInfoStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        gameInfoStackView.topAnchor.constraint(equalTo: gameListLabel.bottomAnchor, constant: 43).isActive = true
+        gameInfoStackView.topAnchor.constraint(equalTo: gameListTitleLabel.bottomAnchor, constant: 43).isActive = true
     }
 }
