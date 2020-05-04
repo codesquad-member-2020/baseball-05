@@ -6,7 +6,7 @@
 - FrontEnd: [Huey](https://github.com/hu2y)🐱
 - iOS: [Jason]() 🦊
 
-## Ground Rule
+## [Ground Rule](https://github.com/codesquad-member-2020/baseball-05/wiki/%EA%B7%B8%EB%9D%BC%EC%9A%B4%EB%93%9C-%EB%A3%B0)
 
 - 매일 11시 스크럼 - 진행상황 및 계획 등 공유, 늦을 것 같으면 **미리** 공지한다.
 - 버전 업데이트를 위해 API 서버를 정지할 때, 팀원들에게 **사전**에 공지한다.
