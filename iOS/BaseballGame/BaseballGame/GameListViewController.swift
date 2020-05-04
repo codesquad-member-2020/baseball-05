@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GameRecordViewController: UIViewController {
+final class GameListViewController: UIViewController {
     //MARK:- IBOutlet properties
     @IBOutlet weak var gameListLabel: TitleLabel!
     
