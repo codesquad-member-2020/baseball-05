@@ -10,15 +10,18 @@ import UIKit
 
 final class GameInfoView: UIView {
     private let gameInfoLabel = GameInfoLabel()
+    private let versusLabel = VersusLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureGameInfoLabel()
+        configureVersusLabel()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureGameInfoLabel()
+        configureVersusLabel()
     }
     
     private func configureGameInfoLabel() {
@@ -26,5 +29,12 @@ final class GameInfoView: UIView {
         
         gameInfoLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         gameInfoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+    }
+    
+    private func configureVersusLabel() {
+        addSubview(versusLabel)
+        
+        versusLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        versusLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
     }
 }
