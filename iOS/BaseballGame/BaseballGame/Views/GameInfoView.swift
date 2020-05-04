@@ -16,6 +16,7 @@ final class GameInfoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false 
         configureGameInfoLabel()
         configureVersusLabel()
         configureAwayTeamLabel()
