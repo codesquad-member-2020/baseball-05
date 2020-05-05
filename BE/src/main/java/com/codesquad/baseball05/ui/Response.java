@@ -5,6 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class Test {
-    String test;
+public class Response {
+
+    Object message;
 }

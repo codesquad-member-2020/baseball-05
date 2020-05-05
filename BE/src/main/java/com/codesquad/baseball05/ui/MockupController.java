@@ -1,21 +1,63 @@
 package com.codesquad.baseball05.ui;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@RequestMapping("/mock")
 @RestController
 public class MockupController {
 
-    @GetMapping("/")
-    public Object test() {
-        List<Test> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            Test test = new Test("시험" + i);
-            list.add(test);
-        }
-        return list;
+    @GetMapping("/matches")
+    public Object matches() {
+        List<MatchTable> tables = new ArrayList<>();
+
+        MatchTable firstMatch = new MatchTable(
+                1L,
+                "Marvel",
+                "Captain",
+                true
+        );
+
+        MatchTable secondMatch = new MatchTable(
+                2L,
+                "Tigers",
+                "Twins",
+                true
+        );
+
+        MatchTable thirdMatch = new MatchTable(
+                3L,
+                "Dodgers",
+                "Rockets",
+                false
+        );
+
+        tables.add(firstMatch);
+        tables.add(secondMatch);
+        tables.add(thirdMatch);
+
+        return tables;
+    }
+
+    @PostMapping("/games")
+    public Object selectTeam(@RequestBody Long gameId, String playerTeam) {
+        return new ResponseEntity<Response>(new Response(true), HttpStatus.CREATED);
+    }
+
+    //게임 끝났을 떄 selectable 을 변경함
+    @PutMapping("/games")
+    public Object start() {
+        return new ResponseEntity<Response>(new Response(true), HttpStatus.OK);
+    }
+
+    //게임 끝났을 떄 selectable 을 변경함
+    //클래스를 만들어서 RequestBody로 넘겨야 함
+    @PatchMapping("/games")
+    public Object end(@RequestBody Object gameId) {
+        return new ResponseEntity<Response>(new Response(true), HttpStatus.OK);
     }
 }
