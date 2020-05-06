@@ -10,5 +10,6 @@ import UIKit
 
 final class GameListViewModel {
     static let titleText = "게임 목록"
+    static let gameInfoDefaultText = "GAME"
     static let titleColor = UIColor.white
 }

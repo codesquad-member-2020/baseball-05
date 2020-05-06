@@ -14,9 +14,10 @@ final class GameInfoView: UIView {
     private let awayTeamLabel = TitleLabel()
     private let homeTeamLabel = TitleLabel()
     
-    override init(frame: CGRect) {
+    init(number: Int, frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
+        configureGameInfoLabel(number: number)
         configureView()
         configureGameInfoLabel()
         configureVersusLabel()
@@ -33,6 +34,10 @@ final class GameInfoView: UIView {
         configureHomeTeamLabel()
     }
     
+    private func configureGameInfoLabel(number: Int) {
+        gameInfoLabel.text = "\(GameListViewModel.gameInfoDefaultText) \(String(number))"
+    }
+    
     private func configureView() {
         backgroundColor = .white
         layer.cornerRadius = 12
@@ -40,10 +45,8 @@ final class GameInfoView: UIView {
     
     private func configureGameInfoLabel() {
         addSubview(gameInfoLabel)
-        
         gameInfoLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        gameInfoLabel.topAnchor.constraint(equalTo: topAnchor,
-                                           constant: 10).isActive = true
+        gameInfoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
     }
     
     private func configureVersusLabel() {

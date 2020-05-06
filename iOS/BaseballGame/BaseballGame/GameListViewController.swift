@@ -22,8 +22,8 @@ final class GameListViewController: UIViewController {
         super.viewDidLoad()
         configureGameListLabel()
         configureGameInfoStackView()
-        for _ in 0 ..< 4 {
-            gameInfoStackView.add(gameInfoView: GameInfoView())
+        (0..<4).forEach {
+            gameInfoStackView.add(gameInfoView: GameInfoView(number: $0 + 1, frame: .zero))
         }
     }
     

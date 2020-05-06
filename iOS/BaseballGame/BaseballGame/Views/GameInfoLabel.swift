@@ -21,6 +21,7 @@ final class GameInfoLabel: UILabel {
     }
     
     private func configureText() {
-        backgroundColor = .systemRed
+        font = UIFont.systemFont(ofSize: 11, weight: .light)
+        textColor = .red
     }
 }
