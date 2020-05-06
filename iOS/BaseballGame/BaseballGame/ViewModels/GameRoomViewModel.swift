@@ -1,15 +1,18 @@
 //
-//  GameListViewModel.swift
+//  GameViewModel.swift
 //  BaseballGame
 //
-//  Created by kimdo2297 on 2020/05/04.
+//  Created by kimdo2297 on 2020/05/06.
 //  Copyright © 2020 Jason. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-final class GameRoomViewModel {
-    static let titleText = "게임 목록"
-    static let titleColor = UIColor.white
-    static let gameRoomDefaultText = "GAME"
+final class GameRoomViewModel: ViewModelBinding {
+    typealias Key = GameRoom
+    let gameRoom: Key
+    
+    init(gameRoom: Key) {
+        self.gameRoom = gameRoom
+    }
 }

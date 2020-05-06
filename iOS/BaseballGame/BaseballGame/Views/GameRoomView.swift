@@ -80,7 +80,7 @@ final class GameRoomView: UIView {
     }
     
     func configure(gameRoom: GameRoom) {
-        gameRoomLabel.text = "\(GameRoomViewModel.gameRoomDefaultText) \(gameRoom.id)"
+        gameRoomLabel.text = "\(GameRoomViewModels.gameRoomDefaultText) \(gameRoom.id)"
         awayTeamLabel.text = gameRoom.awayTeam
         homeTeamLabel.text = gameRoom.homeTeam
     }

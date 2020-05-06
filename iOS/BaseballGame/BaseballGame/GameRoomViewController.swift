@@ -12,8 +12,8 @@ final class GameRoomViewController: UIViewController {
     //MARK:- Internal properties
     private let gameRoomTitleLabel: TitleLabel = {
         let label = TitleLabel()
-        label.text = GameRoomViewModel.titleText
-        label.textColor = GameRoomViewModel.titleColor
+        label.text = GameRoomViewModels.titleText
+        label.textColor = GameRoomViewModels.titleColor
         return label
     }()
     private let gameRoomStackView = GameRoomStackView()
@@ -47,9 +47,10 @@ final class GameRoomViewController: UIViewController {
                                         with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomSuccess()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
-            gameRooms.forEach {
+            let gameViewModels = GameRoomViewModels(gameViewModels: gameRooms.map { GameRoomViewModel(gameRoom: $0)})
+            gameViewModels.repeatGameRoomViewModels {
                 let gameRoomView = GameRoomView()
-                gameRoomView.configure(gameRoom: $0)
+                gameRoomView.configure(gameRoom: $0.gameRoom)
                 self.gameRoomStackView.add(gameRoomView: gameRoomView)
             }
         }
