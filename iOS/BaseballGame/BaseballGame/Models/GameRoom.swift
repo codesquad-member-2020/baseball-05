@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GameInfo: Codable {
+struct GameRoom: Codable {
     let id: Int
     let homeTeam: String
     let awayTeam: String

@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct GameInfoUseCase {
-    struct GameInfoRequest: Request {
+struct GameRoomUseCase {
+    struct GameRoomRequest: Request {
         var path: String
     }
     
-    final class GameInfoTask: NetworkTask {
-        typealias Output = [GameInfo]
+    final class GameRoomTask: NetworkTask {
+        typealias Output = [GameRoom]
         
         private let networkDispatcher: NetworkDispatcher
         
@@ -31,9 +31,9 @@ struct GameInfoUseCase {
         }
     }
     
-    static func requestGameInfo(from gameInfoRequest: GameInfoRequest, with gameInfoTask: GameInfoTask,
-                                completionHandler: @escaping ([GameInfo]?) -> ()) {
-        gameInfoTask.perform(gameInfoRequest) { gameInfo in
+    static func requestGameRoom(from gameRoomRequest: GameRoomRequest, with gameRoomTask: GameRoomTask,
+                                completionHandler: @escaping ([GameRoom]?) -> ()) {
+        gameRoomTask.perform(gameRoomRequest) { gameInfo in
             completionHandler(gameInfo)
         }
     }

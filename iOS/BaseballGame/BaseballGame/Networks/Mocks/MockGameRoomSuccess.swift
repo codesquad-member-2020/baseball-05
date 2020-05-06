@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct MockGameInfoSuccess: NetworkDispatcher {
+struct MockGameRoomSuccess: NetworkDispatcher {
     func execute(request: Request, completionHandler: @escaping (Data?, URLResponse?, Error?) -> ()) {
         let jsonData = Data.jsonData(forResource: "TeamInfoSuccessStub")
         completionHandler(jsonData, nil, nil)

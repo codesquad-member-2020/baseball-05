@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GameInfoLabel: UILabel {
+final class GameRoomLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false

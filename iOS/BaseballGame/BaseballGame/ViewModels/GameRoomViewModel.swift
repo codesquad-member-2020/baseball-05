@@ -8,8 +8,8 @@
 
 import UIKit
 
-final class GameListViewModel {
+final class GameRoomViewModel {
     static let titleText = "게임 목록"
     static let titleColor = UIColor.white
-    static let gameInfoDefaultText = "GAME"
+    static let gameRoomDefaultText = "GAME"
 }

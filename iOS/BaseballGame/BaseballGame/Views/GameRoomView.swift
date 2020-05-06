@@ -8,8 +8,8 @@
 
 import UIKit
 
-final class GameInfoView: UIView {
-    private let gameInfoLabel = GameInfoLabel()
+final class GameRoomView: UIView {
+    private let gameRoomLabel = GameRoomLabel()
     private let versusLabel: VersusLabel = {
        let label = VersusLabel()
         label.text = VersusViewModel.versusText
@@ -30,7 +30,7 @@ final class GameInfoView: UIView {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         configureView()
-        configureGameInfoLabel()
+        configureGameRoomLabel()
         configureVersusLabel()
         configureAwayTeamLabel()
         configureHomeTeamLabel()
@@ -39,7 +39,7 @@ final class GameInfoView: UIView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configureView()
-        configureGameInfoLabel()
+        configureGameRoomLabel()
         configureVersusLabel()
         configureAwayTeamLabel()
         configureHomeTeamLabel()
@@ -50,11 +50,11 @@ final class GameInfoView: UIView {
         layer.cornerRadius = 12
     }
     
-    private func configureGameInfoLabel() {
-        addSubview(gameInfoLabel)
+    private func configureGameRoomLabel() {
+        addSubview(gameRoomLabel)
         
-        gameInfoLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        gameInfoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
+        gameRoomLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        gameRoomLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
     }
     
     private func configureVersusLabel() {
@@ -79,9 +79,9 @@ final class GameInfoView: UIView {
         homeTeamLabel.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
     }
     
-    func configure(gameInfo: GameInfo) {
-        gameInfoLabel.text = "\(GameListViewModel.gameInfoDefaultText) \(gameInfo.id)"
-        awayTeamLabel.text = gameInfo.awayTeam
-        homeTeamLabel.text = gameInfo.homeTeam
+    func configure(gameRoom: GameRoom) {
+        gameRoomLabel.text = "\(GameRoomViewModel.gameRoomDefaultText) \(gameRoom.id)"
+        awayTeamLabel.text = gameRoom.awayTeam
+        homeTeamLabel.text = gameRoom.homeTeam
     }
 }

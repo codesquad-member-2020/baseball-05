@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GameInfoStackView: UIStackView {
+final class GameRoomStackView: UIStackView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -26,10 +26,10 @@ final class GameInfoStackView: UIStackView {
         spacing = 17
     }
     
-    func add(gameInfoView: GameInfoView) {
-        addArrangedSubview(gameInfoView)
+    func add(gameRoomView: GameRoomView) {
+        addArrangedSubview(gameRoomView)
         
-        gameInfoView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
-        gameInfoView.heightAnchor.constraint(equalTo: gameInfoView.widthAnchor, multiplier: 0.28).isActive = true
+        gameRoomView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        gameRoomView.heightAnchor.constraint(equalTo: gameRoomView.widthAnchor, multiplier: 0.28).isActive = true
     }
 }
