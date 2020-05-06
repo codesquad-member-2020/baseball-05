@@ -10,7 +10,11 @@ import UIKit
 
 final class GameInfoView: UIView {
     private let gameInfoLabel = GameInfoLabel()
-    private let versusLabel = VersusLabel()
+    private let versusLabel: VersusLabel = {
+       let label = VersusLabel()
+        label.text = VersusViewModel.versusText
+        return label
+    }()
     private let awayTeamLabel = TitleLabel()
     private let homeTeamLabel = TitleLabel()
     
@@ -45,6 +49,7 @@ final class GameInfoView: UIView {
     
     private func configureGameInfoLabel() {
         addSubview(gameInfoLabel)
+        
         gameInfoLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         gameInfoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
     }

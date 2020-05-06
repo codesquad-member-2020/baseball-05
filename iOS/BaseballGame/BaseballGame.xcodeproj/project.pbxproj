@@ -21,6 +21,7 @@
 		5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54524603A0E002ECB3A /* VersusLabel.swift */; };
 		5A7DD54A24604DE9002ECB3A /* GameInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54924604DE9002ECB3A /* GameInfoStackView.swift */; };
 		5A7DD54C246056AD002ECB3A /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54B246056AD002ECB3A /* GameListViewModel.swift */; };
+		5A814EE724625703001C768D /* VersusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EE624625703001C768D /* VersusViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		5A7DD54524603A0E002ECB3A /* VersusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusLabel.swift; sourceTree = "<group>"; };
 		5A7DD54924604DE9002ECB3A /* GameInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoStackView.swift; sourceTree = "<group>"; };
 		5A7DD54B246056AD002ECB3A /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
+		5A814EE624625703001C768D /* VersusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7DD54B246056AD002ECB3A /* GameListViewModel.swift */,
+				5A814EE624625703001C768D /* VersusViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				5A7DD54A24604DE9002ECB3A /* GameInfoStackView.swift in Sources */,
 				5A7DD50E24601708002ECB3A /* GameListViewController.swift in Sources */,
 				5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */,
+				5A814EE724625703001C768D /* VersusViewModel.swift in Sources */,
 				5A7DD540246035F7002ECB3A /* GameInfoView.swift in Sources */,
 				5A7DD54C246056AD002ECB3A /* GameListViewModel.swift in Sources */,
 				5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */,
