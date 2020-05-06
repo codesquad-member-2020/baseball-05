@@ -22,6 +22,7 @@
 		5A7DD54A24604DE9002ECB3A /* GameInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54924604DE9002ECB3A /* GameInfoStackView.swift */; };
 		5A7DD54C246056AD002ECB3A /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54B246056AD002ECB3A /* GameListViewModel.swift */; };
 		5A814EE724625703001C768D /* VersusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EE624625703001C768D /* VersusViewModel.swift */; };
+		5A814EE924627B5B001C768D /* TeamListSuccessStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A814EE824627B5B001C768D /* TeamListSuccessStub.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		5A7DD54924604DE9002ECB3A /* GameInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoStackView.swift; sourceTree = "<group>"; };
 		5A7DD54B246056AD002ECB3A /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
 		5A814EE624625703001C768D /* VersusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusViewModel.swift; sourceTree = "<group>"; };
+		5A814EE824627B5B001C768D /* TeamListSuccessStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TeamListSuccessStub.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 		5A7DD50824601708002ECB3A /* BaseballGame */ = {
 			isa = PBXGroup;
 			children = (
+				5A814EEA24627B6B001C768D /* Networks */,
 				5A7DD54D246056B2002ECB3A /* ViewModels */,
 				5A7DD53C24602B83002ECB3A /* Views */,
 				5A7DD50924601708002ECB3A /* AppDelegate.swift */,
@@ -163,6 +166,22 @@
 				5A814EE624625703001C768D /* VersusViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5A814EEA24627B6B001C768D /* Networks */ = {
+			isa = PBXGroup;
+			children = (
+				5A814EEB24627B89001C768D /* StubDatas */,
+			);
+			path = Networks;
+			sourceTree = "<group>";
+		};
+		5A814EEB24627B89001C768D /* StubDatas */ = {
+			isa = PBXGroup;
+			children = (
+				5A814EE824627B5B001C768D /* TeamListSuccessStub.json */,
+			);
+			path = StubDatas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +290,7 @@
 			files = (
 				5A7DD5162460170A002ECB3A /* LaunchScreen.storyboard in Resources */,
 				5A7DD5132460170A002ECB3A /* Assets.xcassets in Resources */,
+				5A814EE924627B5B001C768D /* TeamListSuccessStub.json in Resources */,
 				5A7DD51124601708002ECB3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
