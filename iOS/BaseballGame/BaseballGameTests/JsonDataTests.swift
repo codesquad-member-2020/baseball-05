@@ -10,9 +10,8 @@ import XCTest
 @testable import BaseballGame
 
 final class JsonDataTests: XCTestCase {
-    func testTeamListSuccessStubJsonFile() {
+    func testTeamListSuccessStubJsonFileSuccess() {
         let jsonData = Data.jsonData(forResource: "TeamListSuccessStub")
         XCTAssertNotNil(jsonData)
-        print(String(bytes: jsonData!, encoding: .utf8)!)
     }
 }

@@ -25,6 +25,8 @@
 		5A814EE924627B5B001C768D /* TeamListSuccessStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A814EE824627B5B001C768D /* TeamListSuccessStub.json */; };
 		5A814EED24627BD5001C768D /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EEC24627BD5001C768D /* DataExtensions.swift */; };
 		5A814EEF24627CB3001C768D /* JsonDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EEE24627CB3001C768D /* JsonDataTests.swift */; };
+		5A814EF224627EB0001C768D /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EF124627EB0001C768D /* GameInfo.swift */; };
+		5A814EF424627F2B001C768D /* CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EF324627F2B001C768D /* CodableTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		5A814EE824627B5B001C768D /* TeamListSuccessStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TeamListSuccessStub.json; sourceTree = "<group>"; };
 		5A814EEC24627BD5001C768D /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
 		5A814EEE24627CB3001C768D /* JsonDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataTests.swift; sourceTree = "<group>"; };
+		5A814EF124627EB0001C768D /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
+		5A814EF324627F2B001C768D /* CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 		5A7DD50824601708002ECB3A /* BaseballGame */ = {
 			isa = PBXGroup;
 			children = (
+				5A814EF024627E67001C768D /* Models */,
 				5A814EEA24627B6B001C768D /* Networks */,
 				5A7DD54D246056B2002ECB3A /* ViewModels */,
 				5A7DD53C24602B83002ECB3A /* Views */,
@@ -138,6 +143,7 @@
 			children = (
 				5A7DD5202460170A002ECB3A /* BaseballGameTests.swift */,
 				5A814EEE24627CB3001C768D /* JsonDataTests.swift */,
+				5A814EF324627F2B001C768D /* CodableTests.swift */,
 				5A7DD5222460170A002ECB3A /* Info.plist */,
 			);
 			path = BaseballGameTests;
@@ -188,6 +194,14 @@
 				5A814EE824627B5B001C768D /* TeamListSuccessStub.json */,
 			);
 			path = StubDatas;
+			sourceTree = "<group>";
+		};
+		5A814EF024627E67001C768D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5A814EF124627EB0001C768D /* GameInfo.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +347,7 @@
 				5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */,
 				5A7DD54224603715002ECB3A /* GameInfoLabel.swift in Sources */,
 				5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */,
+				5A814EF224627EB0001C768D /* GameInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +357,7 @@
 			files = (
 				5A7DD5212460170A002ECB3A /* BaseballGameTests.swift in Sources */,
 				5A814EEF24627CB3001C768D /* JsonDataTests.swift in Sources */,
+				5A814EF424627F2B001C768D /* CodableTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
