@@ -73,14 +73,14 @@ final class GameInfoView: UIView {
     private func configureAwayTeamLabel() {
         addSubview(awayTeamLabel)
         
-        awayTeamLabel.trailingAnchor.constraint(equalTo: versusLabel.leadingAnchor, constant: -33).isActive = true
+        awayTeamLabel.trailingAnchor.constraint(equalTo: versusLabel.leadingAnchor, constant: -30).isActive = true
         awayTeamLabel.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
     }
     
     private func configureHomeTeamLabel() {
         addSubview(homeTeamLabel)
         
-        homeTeamLabel.leadingAnchor.constraint(equalTo: versusLabel.trailingAnchor, constant: 33).isActive = true
+        homeTeamLabel.leadingAnchor.constraint(equalTo: versusLabel.trailingAnchor, constant: 30).isActive = true
         homeTeamLabel.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
     }
 }
