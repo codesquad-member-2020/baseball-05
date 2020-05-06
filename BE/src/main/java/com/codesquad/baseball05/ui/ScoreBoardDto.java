@@ -9,12 +9,12 @@ import java.util.List;
 
 @Getter
 @JsonPropertyOrder({"Team", "inningScore", "totalScore"})
-public class ScoreBoard {
+public class ScoreBoardDto {
     private String Team;
     private List<Integer> inningScore = new ArrayList<>();
     private int totalScore;
 
-    public ScoreBoard(String team) {
+    public ScoreBoardDto(String team) {
         Team = team;
     }
 
@@ -30,8 +30,4 @@ public class ScoreBoard {
         inningScore.add(teamScore);
         totalScore += teamScore;
     }
-
-//    public int getTotalScore() {
-//        return inningScore.stream().mapToInt(Integer::intValue).sum();
-//    }
 }

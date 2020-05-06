@@ -14,7 +14,7 @@ public class RosterBoard {
     private String team;
     private Boolean isOffense;
     private String currentPlayer;
-    private List<RoundRecord> roundRecords = new ArrayList<>();
+    private List<RoundRecordDto> roundRecordDtos = new ArrayList<>();
     private Map<String, Integer> totals = new HashMap<>();
 
     public RosterBoard(String team) {
