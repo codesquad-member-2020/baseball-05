@@ -13,10 +13,8 @@ struct GameInfoUseCase {
         var path: String
     }
     
-    static func requestGameInfo(from path: String, with networkDispatcher: NetworkDispatcher,
+    static func requestGameInfo(from gameInfoRequest: GameInfoRequest, with gameInfoTask: NetworkTask<GameInfo>,
                                 completionHandler: @escaping (GameInfo?) -> ()) {
-        let gameInfoTask = NetworkTask<GameInfo>(networkDispatcher: networkDispatcher)
-        let gameInfoRequest = GameInfoRequest(path: path)
         gameInfoTask.perform(gameInfoRequest) { gameInfo in
             guard let gameInfo = gameInfo else { return }
             completionHandler(gameInfo)
