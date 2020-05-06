@@ -15,8 +15,16 @@ final class GameInfoView: UIView {
         label.text = VersusViewModel.versusText
         return label
     }()
-    private let awayTeamLabel = TitleLabel()
-    private let homeTeamLabel = TitleLabel()
+    private let awayTeamLabel: TitleLabel = {
+       let label = TitleLabel()
+        label.text = "Heros"
+        return label
+    }()
+    private let homeTeamLabel: TitleLabel = {
+       let label = TitleLabel()
+        label.text = "Pintos"
+        return label
+    }()
     
     init(number: Int, frame: CGRect) {
         super.init(frame: frame)
@@ -51,29 +59,28 @@ final class GameInfoView: UIView {
         addSubview(gameInfoLabel)
         
         gameInfoLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        gameInfoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 8).isActive = true
+        gameInfoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
     }
     
     private func configureVersusLabel() {
         addSubview(versusLabel)
         
         versusLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        versusLabel.bottomAnchor.constraint(equalTo: bottomAnchor,
-                                            constant: -20).isActive = true
+        versusLabel.centerYAnchor.constraint(equalTo: centerYAnchor,
+                                            constant: 15).isActive = true
     }
     
     private func configureAwayTeamLabel() {
         addSubview(awayTeamLabel)
         
-        awayTeamLabel.trailingAnchor.constraint(equalTo: versusLabel.leadingAnchor, constant: -20).isActive = true
-        awayTeamLabel.bottomAnchor.constraint(equalTo: bottomAnchor,
-                                              constant: -20).isActive = true
+        awayTeamLabel.trailingAnchor.constraint(equalTo: versusLabel.leadingAnchor, constant: -33).isActive = true
+        awayTeamLabel.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
     }
     
     private func configureHomeTeamLabel() {
         addSubview(homeTeamLabel)
         
-        homeTeamLabel.leadingAnchor.constraint(equalTo: versusLabel.trailingAnchor, constant: 20).isActive = true
-        homeTeamLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20).isActive = true
+        homeTeamLabel.leadingAnchor.constraint(equalTo: versusLabel.trailingAnchor, constant: 33).isActive = true
+        homeTeamLabel.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
     }
 }
