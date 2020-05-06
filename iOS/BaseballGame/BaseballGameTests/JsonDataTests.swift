@@ -11,7 +11,7 @@ import XCTest
 
 final class JsonDataTests: XCTestCase {
     func testTeamListSuccessStubJsonFileSuccess() {
-        let jsonData = Data.jsonData(forResource: "TeamListSuccessStub")
+        let jsonData = Data.jsonData(forResource: "TeamInfoSuccessStub")
         XCTAssertNotNil(jsonData)
     }
 }
