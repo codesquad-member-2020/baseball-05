@@ -30,6 +30,7 @@
 		5A814EF62462810B001C768D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EF52462810B001C768D /* Request.swift */; };
 		5A814EF824629BF7001C768D /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EF724629BF7001C768D /* NetworkDispatcher.swift */; };
 		5A814EFA2462A0D9001C768D /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EF92462A0D9001C768D /* NetworkTask.swift */; };
+		5A814F032462AB84001C768D /* GameInfoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F022462AB84001C768D /* GameInfoUseCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		5A814EF52462810B001C768D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		5A814EF724629BF7001C768D /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
 		5A814EF92462A0D9001C768D /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
+		5A814F022462AB84001C768D /* GameInfoUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoUseCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		5A7DD50824601708002ECB3A /* BaseballGame */ = {
 			isa = PBXGroup;
 			children = (
+				5A814F012462AB6C001C768D /* Usecases */,
 				5A814EF024627E67001C768D /* Models */,
 				5A814EEA24627B6B001C768D /* Networks */,
 				5A7DD54D246056B2002ECB3A /* ViewModels */,
@@ -211,6 +214,14 @@
 				5A814EF124627EB0001C768D /* GameInfo.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		5A814F012462AB6C001C768D /* Usecases */ = {
+			isa = PBXGroup;
+			children = (
+				5A814F022462AB84001C768D /* GameInfoUseCase.swift */,
+			);
+			path = Usecases;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +371,7 @@
 				5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */,
 				5A814EF224627EB0001C768D /* GameInfo.swift in Sources */,
 				5A814EF62462810B001C768D /* Request.swift in Sources */,
+				5A814F032462AB84001C768D /* GameInfoUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

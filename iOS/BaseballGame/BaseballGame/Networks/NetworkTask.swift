@@ -15,7 +15,7 @@ final class NetworkTask<Output: Codable> {
         self.networkDispatcher = networkDispatcher
     }
     
-    func perform(_ request: Request, completionHandler: (Output?) -> ()) {
+    func perform(_ request: Request, completionHandler: @escaping (Output?) -> ()) {
         networkDispatcher.execute(request: request) { data, urlResponse, error in
             guard error == nil, let data = data else { return }
             guard let output = try? JSONDecoder().decode(Output.self, from: data) else { return }
@@ -23,5 +23,4 @@ final class NetworkTask<Output: Codable> {
         }
     }
 }
-
 
