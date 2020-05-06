@@ -29,6 +29,7 @@
 		5A814EF424627F2B001C768D /* CodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EF324627F2B001C768D /* CodableTests.swift */; };
 		5A814EF62462810B001C768D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EF52462810B001C768D /* Request.swift */; };
 		5A814EF824629BF7001C768D /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EF724629BF7001C768D /* NetworkDispatcher.swift */; };
+		5A814EFA2462A0D9001C768D /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EF92462A0D9001C768D /* NetworkTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		5A814EF324627F2B001C768D /* CodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableTests.swift; sourceTree = "<group>"; };
 		5A814EF52462810B001C768D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		5A814EF724629BF7001C768D /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
+		5A814EF92462A0D9001C768D /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				5A814EEC24627BD5001C768D /* DataExtensions.swift */,
 				5A814EF52462810B001C768D /* Request.swift */,
 				5A814EF724629BF7001C768D /* NetworkDispatcher.swift */,
+				5A814EF92462A0D9001C768D /* NetworkTask.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				5A7DD50E24601708002ECB3A /* GameListViewController.swift in Sources */,
 				5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */,
 				5A814EE724625703001C768D /* VersusViewModel.swift in Sources */,
+				5A814EFA2462A0D9001C768D /* NetworkTask.swift in Sources */,
 				5A7DD540246035F7002ECB3A /* GameInfoView.swift in Sources */,
 				5A7DD54C246056AD002ECB3A /* GameListViewModel.swift in Sources */,
 				5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */,

@@ -11,4 +11,3 @@ import Foundation
 protocol NetworkDispatcher {
     func execute(request: Request, completionHandler: (Data?, URLResponse?, Error?) -> ())
 }
-
