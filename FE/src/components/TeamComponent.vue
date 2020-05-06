@@ -52,4 +52,17 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.warp {
+  padding: 10px;
+}
+
+.title-container > h2 {
+  font-size: 34px;
+}
+
+.match-container {
+  padding: 10px;
+  font-size: 24px;
+}
+</style>
