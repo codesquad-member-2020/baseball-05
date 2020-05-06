@@ -60,4 +60,24 @@ public class MockupController {
     public Object end(@RequestBody Object gameId) {
         return new ResponseEntity<Response>(new Response(true), HttpStatus.OK);
     }
+
+    @GetMapping("/scores")
+    public Object viewScoreBoard() {
+        List<ScoreBoard> matchScore = new ArrayList<>();
+        ScoreBoard tigersScoreBoard = new ScoreBoard("Tigers");
+        tigersScoreBoard.score(1);
+        tigersScoreBoard.score(0);
+        tigersScoreBoard.score(2);
+        ScoreBoard twinsScoreBoard = new ScoreBoard("twins");
+        twinsScoreBoard.score(0);
+        twinsScoreBoard.score(3);
+        matchScore.add(tigersScoreBoard);
+        matchScore.add(twinsScoreBoard);
+        return matchScore;
+    }
+
+    @GetMapping("/rosters")
+    public Object viewRosters() {
+
+    }
 }
