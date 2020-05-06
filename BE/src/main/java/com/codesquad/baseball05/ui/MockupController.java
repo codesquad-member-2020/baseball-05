@@ -78,6 +78,33 @@ public class MockupController {
 
     @GetMapping("/rosters")
     public Object viewRosters() {
+        RoundRecord rr1 = new RoundRecord("김광진", 1, 1, 0, (long) 1.000);
+        RoundRecord rr2 = new RoundRecord("이동규", 1, 0, 1, (long) 1.000);
+        RoundRecord rr3 = new RoundRecord("김진수", 1, 0, 1, (long) 1.000);
+        RoundRecord rr4 = new RoundRecord("박영권", 1, 1, 0, (long) 1.000);
+        RoundRecord rr5 = new RoundRecord("추진수", 1, 1, 0, (long) 1.000);
+        RoundRecord rr6 = new RoundRecord("이용대", 1, 0, 1, (long) 1.000);
+        RoundRecord rr7 = new RoundRecord("류현진", 1, 0, 1, (long) 1.000);
+        RoundRecord rr8 = new RoundRecord("최동수", 1, 0, 1, (long) 1.000);
+        RoundRecord rr9 = new RoundRecord("한양범", 1, 1, 0, (long) 1.000);
+        List<RoundRecord> roundRecords = new ArrayList<>();
+        roundRecords.add(rr1);
+        roundRecords.add(rr2);
+        roundRecords.add(rr3);
+        roundRecords.add(rr4);
+        roundRecords.add(rr5);
+        roundRecords.add(rr6);
+        roundRecords.add(rr7);
+        roundRecords.add(rr8);
+        roundRecords.add(rr9);
+        RosterBoard rosterBoard1 = new RosterBoard("Captain");
+        rosterBoard1.setRoundRecords(roundRecords);
+        RosterBoard rosterBoard2 = new RosterBoard("Marvel");
+        rosterBoard2.setRoundRecords(roundRecords);
 
+        RosterBoard[] rosterBoards = new RosterBoard[2];
+        rosterBoards[0] = rosterBoard1;
+        rosterBoards[1] = rosterBoard2;
+        return rosterBoards;
     }
 }
