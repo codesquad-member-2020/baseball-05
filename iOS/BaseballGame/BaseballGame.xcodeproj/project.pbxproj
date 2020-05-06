@@ -23,6 +23,8 @@
 		5A7DD54C246056AD002ECB3A /* GameListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54B246056AD002ECB3A /* GameListViewModel.swift */; };
 		5A814EE724625703001C768D /* VersusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EE624625703001C768D /* VersusViewModel.swift */; };
 		5A814EE924627B5B001C768D /* TeamListSuccessStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A814EE824627B5B001C768D /* TeamListSuccessStub.json */; };
+		5A814EED24627BD5001C768D /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EEC24627BD5001C768D /* DataExtensions.swift */; };
+		5A814EEF24627CB3001C768D /* JsonDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EEE24627CB3001C768D /* JsonDataTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		5A7DD54B246056AD002ECB3A /* GameListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListViewModel.swift; sourceTree = "<group>"; };
 		5A814EE624625703001C768D /* VersusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusViewModel.swift; sourceTree = "<group>"; };
 		5A814EE824627B5B001C768D /* TeamListSuccessStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TeamListSuccessStub.json; sourceTree = "<group>"; };
+		5A814EEC24627BD5001C768D /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		5A814EEE24627CB3001C768D /* JsonDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonDataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7DD5202460170A002ECB3A /* BaseballGameTests.swift */,
+				5A814EEE24627CB3001C768D /* JsonDataTests.swift */,
 				5A7DD5222460170A002ECB3A /* Info.plist */,
 			);
 			path = BaseballGameTests;
@@ -172,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				5A814EEB24627B89001C768D /* StubDatas */,
+				5A814EEC24627BD5001C768D /* DataExtensions.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */,
+				5A814EED24627BD5001C768D /* DataExtensions.swift in Sources */,
 				5A7DD54A24604DE9002ECB3A /* GameInfoStackView.swift in Sources */,
 				5A7DD50E24601708002ECB3A /* GameListViewController.swift in Sources */,
 				5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */,
@@ -334,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7DD5212460170A002ECB3A /* BaseballGameTests.swift in Sources */,
+				5A814EEF24627CB3001C768D /* JsonDataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
