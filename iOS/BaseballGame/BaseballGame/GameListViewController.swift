@@ -22,9 +22,7 @@ final class GameListViewController: UIViewController {
         super.viewDidLoad()
         configureGameListLabel()
         configureGameInfoStackView()
-        (0..<4).forEach {
-            gameInfoStackView.add(gameInfoView: GameInfoView(number: $0 + 1, frame: .zero))
-        }
+        configureUseCase()
     }
     
     private func configureGameListLabel() {
@@ -42,5 +40,18 @@ final class GameListViewController: UIViewController {
                                                    constant: 10).isActive = true
         gameInfoStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
         gameInfoStackView.topAnchor.constraint(equalTo: gameListTitleLabel.bottomAnchor, constant: 43).isActive = true
+    }
+    
+    private func configureUseCase() {
+        GameInfoUseCase.requestGameInfo(from: GameInfoUseCase.GameInfoRequest(path: "mock"),
+                                        with: GameInfoUseCase.GameInfoTask(networkDispatcher: MockGameInfoSuccess()))
+        { gameInfos in
+            guard let gameInfos = gameInfos else { return }
+            gameInfos.forEach {
+                let gameInfoView = GameInfoView()
+                gameInfoView.configure(gameInfo: $0)
+                self.gameInfoStackView.add(gameInfoView: gameInfoView)
+            }
+        }
     }
 }
