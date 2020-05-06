@@ -179,11 +179,9 @@
 		5A7DD53C24602B83002ECB3A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A814F132462EB9F001C768D /* GameRoom */,
 				5A7DD53D24602B9F002ECB3A /* TitleLabel.swift */,
-				5A7DD53F246035F7002ECB3A /* GameRoomView.swift */,
-				5A7DD54124603715002ECB3A /* GameRoomLabel.swift */,
 				5A7DD54524603A0E002ECB3A /* VersusLabel.swift */,
-				5A7DD54924604DE9002ECB3A /* GameRoomStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,9 +189,8 @@
 		5A7DD54D246056B2002ECB3A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5A7DD54B246056AD002ECB3A /* GameRoomViewModels.swift */,
+				5A814F142462EBBB001C768D /* GameRoom */,
 				5A814EE624625703001C768D /* VersusViewModel.swift */,
-				5A814F0F2462DED2001C768D /* GameRoomViewModel.swift */,
 				5A814F112462DEDF001C768D /* ViewModelBinding.swift */,
 			);
 			path = ViewModels;
@@ -242,6 +239,25 @@
 				5A814F092462AD99001C768D /* MockGameRoomSuccess.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		5A814F132462EB9F001C768D /* GameRoom */ = {
+			isa = PBXGroup;
+			children = (
+				5A7DD53F246035F7002ECB3A /* GameRoomView.swift */,
+				5A7DD54124603715002ECB3A /* GameRoomLabel.swift */,
+				5A7DD54924604DE9002ECB3A /* GameRoomStackView.swift */,
+			);
+			path = GameRoom;
+			sourceTree = "<group>";
+		};
+		5A814F142462EBBB001C768D /* GameRoom */ = {
+			isa = PBXGroup;
+			children = (
+				5A7DD54B246056AD002ECB3A /* GameRoomViewModels.swift */,
+				5A814F0F2462DED2001C768D /* GameRoomViewModel.swift */,
+			);
+			path = GameRoom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
