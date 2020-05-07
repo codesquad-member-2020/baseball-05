@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-public class ScoreBoard {
+public class ScoreBoardDto {
 
     @JsonProperty
     private String team;
@@ -19,7 +19,7 @@ public class ScoreBoard {
     private List<Integer> inningScore = new ArrayList<>();
 
 
-    public ScoreBoard(String team) {
+    public ScoreBoardDto(String team) {
         this.team = team;
     }
 
@@ -35,8 +35,4 @@ public class ScoreBoard {
         inningScore.add(teamScore);
         totalScore += teamScore;
     }
-
-//    public int getTotalScore() {
-//        return inningScore.stream().mapToInt(Integer::intValue).sum();
-//    }
 }

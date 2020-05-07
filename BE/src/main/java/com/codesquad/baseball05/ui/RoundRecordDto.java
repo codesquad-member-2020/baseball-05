@@ -5,9 +5,8 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class RoundRecord {
+public class RoundRecordDto {
     private String player;
-    //타석, 안타, 아웃, 평균
     private int mounts;
     private int hits;
     private int outs;
