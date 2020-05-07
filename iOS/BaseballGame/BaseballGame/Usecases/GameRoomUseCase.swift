@@ -10,7 +10,9 @@ import Foundation
 
 struct GameRoomUseCase {
     struct GameRoomRequest: Request {
-        var path: String
+        var path: String {
+            return "http://15.165.69.44:8080/mock/matches"
+        }
     }
     
     final class GameRoomTask: NetworkTask {

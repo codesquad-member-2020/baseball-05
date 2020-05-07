@@ -43,7 +43,7 @@ final class GameRoomViewController: UIViewController {
     }
     
     private func configureUseCase() {
-        GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(path: "mock"),
+        GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
                                         with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomSuccess()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
