@@ -16,4 +16,7 @@ body {
   background-size: cover;
   color: #fff;
 }
+li {
+  list-style: none;
+}
 </style>
