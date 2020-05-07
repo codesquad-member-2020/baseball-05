@@ -31,18 +31,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디 또는 이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wVr-Uk-bIh" userLabel="IDTextField">
-                                <rect key="frame" x="15" y="119" width="384" height="34"/>
+                                <rect key="frame" x="15" y="323" width="384" height="34"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3IV-7t-fDh" userLabel="PasswordTextField">
-                                <rect key="frame" x="15" y="183" width="384" height="34"/>
+                                <rect key="frame" x="15" y="372" width="384" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-YI-cXb" customClass="LoginButton" customModule="BaseballGame" customModuleProvider="target">
-                                <rect key="frame" x="15" y="247" width="384" height="45"/>
+                                <rect key="frame" x="15" y="421" width="384" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ZiL-lF-Vkn"/>
                                 </constraints>
@@ -54,12 +54,12 @@
                         <constraints>
                             <constraint firstItem="bHz-Oi-Fnq" firstAttribute="trailing" secondItem="wVr-Uk-bIh" secondAttribute="trailing" constant="15" id="JF1-iX-llX"/>
                             <constraint firstItem="3IV-7t-fDh" firstAttribute="trailing" secondItem="wVr-Uk-bIh" secondAttribute="trailing" id="L1T-r8-9WV"/>
-                            <constraint firstItem="xUP-YI-cXb" firstAttribute="top" secondItem="3IV-7t-fDh" secondAttribute="bottom" constant="30" id="Rf4-oA-Ela"/>
-                            <constraint firstItem="3IV-7t-fDh" firstAttribute="top" secondItem="wVr-Uk-bIh" secondAttribute="bottom" constant="30" id="T2C-xC-LKx"/>
+                            <constraint firstItem="xUP-YI-cXb" firstAttribute="top" secondItem="3IV-7t-fDh" secondAttribute="bottom" constant="15" id="Rf4-oA-Ela"/>
+                            <constraint firstItem="3IV-7t-fDh" firstAttribute="top" secondItem="wVr-Uk-bIh" secondAttribute="bottom" constant="15" id="T2C-xC-LKx"/>
                             <constraint firstItem="wVr-Uk-bIh" firstAttribute="leading" secondItem="bHz-Oi-Fnq" secondAttribute="leading" constant="15" id="YwE-er-wGU"/>
                             <constraint firstItem="3IV-7t-fDh" firstAttribute="leading" secondItem="wVr-Uk-bIh" secondAttribute="leading" id="dMc-4R-6Rw"/>
                             <constraint firstItem="xUP-YI-cXb" firstAttribute="trailing" secondItem="wVr-Uk-bIh" secondAttribute="trailing" id="hgU-a0-ViC"/>
-                            <constraint firstItem="wVr-Uk-bIh" firstAttribute="centerY" secondItem="bHz-Oi-Fnq" secondAttribute="centerY" multiplier="0.3" id="s8c-zD-htR"/>
+                            <constraint firstItem="wVr-Uk-bIh" firstAttribute="centerY" secondItem="bHz-Oi-Fnq" secondAttribute="centerY" multiplier="0.75" id="s8c-zD-htR"/>
                             <constraint firstItem="xUP-YI-cXb" firstAttribute="leading" secondItem="wVr-Uk-bIh" secondAttribute="leading" id="sGm-zS-L1z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bHz-Oi-Fnq"/>
