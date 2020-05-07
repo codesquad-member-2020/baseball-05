@@ -76,7 +76,7 @@ public class MockupController {
     //게임 객체 생성하므로 POST
     //다른 사람이 하고 있는 걸 선택하였을 경우 BAD REQUEST
     @PostMapping("/games")
-    public Object selectTeam() {
+    public Object selectTeam(@RequestBody Map<String, String> teamName) {
         return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
     }
 
