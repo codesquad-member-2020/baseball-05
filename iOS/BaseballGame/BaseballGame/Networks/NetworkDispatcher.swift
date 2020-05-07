@@ -17,6 +17,6 @@ struct NetworkManager: NetworkDispatcher {
         guard let urlRequest = request.urlRequest() else { return }
         URLSession.shared.dataTask(with: urlRequest) { data, urlResponse, error in
             completionHandler(data, urlResponse, error)
-        }
+        }.resume()
     }
 }

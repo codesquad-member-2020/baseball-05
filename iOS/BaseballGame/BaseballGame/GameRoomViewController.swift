@@ -44,7 +44,7 @@ final class GameRoomViewController: UIViewController {
     
     private func configureUseCase() {
         GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
-                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomSuccess()))
+                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: NetworkManager()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             let gameViewModels = GameRoomViewModels(gameViewModels: gameRooms.map { GameRoomViewModel(gameRoom: $0)})
