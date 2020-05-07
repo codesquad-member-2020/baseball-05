@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class NormalLoginButton: UIButton {
+final class BorderedButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -23,5 +23,6 @@ final class NormalLoginButton: UIButton {
     func configureLayer() {
         layer.borderWidth = 0.6
         layer.borderColor = UIColor.GreyBeigeColor.cgColor
+        layer.cornerRadius = 10
     }
 }

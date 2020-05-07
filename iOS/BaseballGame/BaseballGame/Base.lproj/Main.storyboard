@@ -49,14 +49,38 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5p-zu-nMg" customClass="BorderedButton" customModule="BaseballGame" customModuleProvider="target">
+                                <rect key="frame" x="15" y="418" width="345" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bJR-rf-Q6X"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="게임하기"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjI-2N-etU" customClass="BorderedButton" customModule="BaseballGame" customModuleProvider="target">
+                                <rect key="frame" x="15" y="473" width="345" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="zzB-Tk-QKR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="tintColor" red="0.29803921570000003" green="0.29803921570000003" blue="0.27058823529999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="프로필 설정"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="yIB-ep-Rll" firstAttribute="top" secondItem="zK2-VR-5Nb" secondAttribute="bottom" constant="-7" id="126-ky-So9"/>
+                            <constraint firstItem="16L-3j-31O" firstAttribute="trailing" secondItem="Q5p-zu-nMg" secondAttribute="trailing" constant="15" id="AfM-o3-gOh"/>
                             <constraint firstItem="zK2-VR-5Nb" firstAttribute="centerY" secondItem="16L-3j-31O" secondAttribute="centerY" multiplier="0.6" id="KVW-dk-m4l"/>
+                            <constraint firstItem="IjI-2N-etU" firstAttribute="leading" secondItem="16L-3j-31O" secondAttribute="leading" constant="15" id="T8C-aY-1z4"/>
                             <constraint firstItem="zK2-VR-5Nb" firstAttribute="centerX" secondItem="16L-3j-31O" secondAttribute="centerX" id="Ws8-3t-diL"/>
+                            <constraint firstItem="Q5p-zu-nMg" firstAttribute="leading" secondItem="16L-3j-31O" secondAttribute="leading" constant="15" id="YGq-Qt-ipf"/>
                             <constraint firstItem="zK2-VR-5Nb" firstAttribute="width" secondItem="16L-3j-31O" secondAttribute="width" multiplier="0.83" id="coe-Pa-Ugg"/>
                             <constraint firstItem="yIB-ep-Rll" firstAttribute="centerX" secondItem="16L-3j-31O" secondAttribute="centerX" id="f7N-zW-v19"/>
+                            <constraint firstItem="Q5p-zu-nMg" firstAttribute="top" secondItem="yIB-ep-Rll" secondAttribute="bottom" constant="30" id="lKf-p1-Ipx"/>
+                            <constraint firstItem="16L-3j-31O" firstAttribute="trailing" secondItem="IjI-2N-etU" secondAttribute="trailing" constant="15" id="tm3-gZ-Mhi"/>
+                            <constraint firstItem="IjI-2N-etU" firstAttribute="top" secondItem="Q5p-zu-nMg" secondAttribute="bottom" constant="15" id="unp-Rn-xVT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="16L-3j-31O"/>
                     </view>
@@ -84,37 +108,37 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-YI-cXb" customClass="NormalLoginButton" customModule="BaseballGame" customModuleProvider="target">
-                                <rect key="frame" x="15" y="331" width="345" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-YI-cXb" customClass="BorderedButton" customModule="BaseballGame" customModuleProvider="target">
+                                <rect key="frame" x="15" y="331" width="345" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="ZiL-lF-Vkn"/>
+                                    <constraint firstAttribute="height" constant="40" id="ZiL-lF-Vkn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="로그인"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bj-KN-3QL">
-                                <rect key="frame" x="178.5" y="391" width="18" height="23"/>
+                                <rect key="frame" x="178.5" y="386" width="18" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0j-wY-PSj">
-                                <rect key="frame" x="15" y="402" width="157.5" height="1"/>
+                                <rect key="frame" x="15" y="397" width="157.5" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="l0X-KA-495"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8s-Zd-lZ4">
-                                <rect key="frame" x="202.5" y="402" width="157.5" height="1"/>
+                                <rect key="frame" x="202.5" y="397" width="157.5" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="zQS-fI-m2M"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYD-5F-1kT" customClass="OauthLoginButton" customModule="BaseballGame" customModuleProvider="target">
-                                <rect key="frame" x="108.5" y="429" width="158.5" height="22"/>
+                                <rect key="frame" x="108.5" y="424" width="158.5" height="22"/>
                                 <state key="normal" title="Github으로 로그인" image="github">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
