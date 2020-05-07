@@ -41,7 +41,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-YI-cXb" customClass="LoginButton" customModule="BaseballGame" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-YI-cXb" customClass="NormalLoginButton" customModule="BaseballGame" customModuleProvider="target">
                                 <rect key="frame" x="15" y="421" width="384" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ZiL-lF-Vkn"/>
