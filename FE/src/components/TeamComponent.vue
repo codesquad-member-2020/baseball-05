@@ -3,49 +3,59 @@
     <div class="title-container">
       <h2>BASEBALL GAME ONLINE</h2>
     </div>
-    <div class="team-container">
-      <div v-for="team in matchArr" :key="team.id" class="match-container">
-        <span class="" @click="onClickSelectTeam">{{ team.home }}</span> vs
-        <span @click="onClickSelectTeam">{{ team.away }}</span>
+    <h2>참가할 게임을 선택하세요!</h2>
+    <div class="list-container">
+      <div
+        class="team-container"
+        v-for="(team, index) in matchList"
+        :key="team.id"
+      >
+        <button class="match-container" :class="{ active: team.selectable }">
+          <div class="game-number">GAME{{ index + 1 }}</div>
+          <span class="home-team team" @click="onClickSelectTeam">{{
+            team.homeTeam
+          }}</span>
+          vs
+          <span class="away-team team" @click="onClickSelectTeam">{{
+            team.awayTeam
+          }}</span>
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios';
+import { mapState } from 'vuex';
+import { fetchMatches } from '@/api/game';
+
 export default {
   data() {
     return {
-      matchArr: [
-        {
-          id: 1,
-          home: '삼성',
-          away: '두산',
-        },
-        {
-          id: 2,
-          home: '한화',
-          away: '넥센',
-        },
-        {
-          id: 3,
-          home: '롯데',
-          away: '기아',
-        },
-        {
-          id: 4,
-          home: 'NC',
-          away: 'SK',
-        },
-      ],
+      matchList: [],
     };
   },
+
+  computed: {
+    ...mapState(['matchesList']),
+  },
+
+  created() {
+    this.fetchData();
+  },
+
   methods: {
+    async fetchData() {
+      const { data } = await fetchMatches();
+      console.log(data);
+      this.matchList = data;
+    },
+
     onClickSelectTeam: function ({ target: { innerText } }) {
-      const matchObj = this.matchArr.find(
+      const matchObj = this.matchList.find(
         el => el.home == innerText || el.away == innerText,
       );
-      // console.log(matchObj);
       this.$router.push(`main/${innerText}`);
     },
   },
@@ -55,8 +65,11 @@ export default {
 <style scoped>
 .warp {
   padding: 10px;
-  background-color: #000;
-  opacity: 50%;
+  background-color: #00000080;
+}
+
+.game-number {
+  font-size: 15px;
 }
 
 .title-container > h2 {
@@ -65,7 +78,43 @@ export default {
 }
 
 .match-container {
+  background-color: #ffffff80;
+  margin: 15px auto;
+  display: block;
+  width: 400px;
   padding: 10px;
   font-size: 24px;
+}
+
+.list-container {
+  overflow: auto;
+  height: 220px;
+}
+
+.list-container::-webkit-scrollbar {
+  display: none;
+}
+
+.active {
+  background-color: #ff0000;
+  color: #fff;
+  pointer-events: none;
+  position: relative;
+}
+
+.active::after {
+  position: absolute;
+  left: 15px;
+  font-size: 15px;
+  content: '게임중';
+  color: #fff;
+}
+
+.team {
+  margin: 0 10px;
+}
+
+.team:hover {
+  color: red;
 }
 </style>
