@@ -6,6 +6,11 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     matchArr: {
+      inningMeaage: '2회초 공격',
+      inning: {
+        firstHalf: 2,
+        secondHalf: 2,
+      },
       homeTeam: {
         name: 'testA',
         score: 0,
@@ -81,8 +86,135 @@ export default new Vuex.Store({
         ],
       },
     },
+    plate: [
+      {
+        id: 1,
+        plate: 7,
+        batter: {
+          name: '김광진',
+          mount: 1,
+          hit: 0,
+          pitcher: false,
+        },
+        rounds: [
+          {
+            decision: '스트라이크',
+            strike: 1,
+            ball: 0,
+          },
+          {
+            decision: '볼',
+            strike: 1,
+            ball: 1,
+          },
+          {
+            decision: '볼',
+            strike: 1,
+            ball: 2,
+          },
+          {
+            decision: '볼',
+            strike: 1,
+            ball: 3,
+          },
+          {
+            decision: '스트라이크',
+            strike: 2,
+            ball: 3,
+          },
+          {
+            decision: '안타!',
+            strike: 0,
+            ball: 0,
+          },
+        ],
+      },
+      {
+        id: 2,
+        plate: 7,
+        batter: {
+          name: '김광진',
+          mount: 1,
+          hit: 0,
+          pitcher: false,
+        },
+        rounds: [
+          {
+            decision: '스트라이크',
+            strike: 1,
+            ball: 0,
+          },
+          {
+            decision: '볼',
+            strike: 1,
+            ball: 1,
+          },
+          {
+            decision: '볼',
+            strike: 1,
+            ball: 2,
+          },
+          {
+            decision: '볼',
+            strike: 1,
+            ball: 3,
+          },
+          {
+            decision: '스트라이크',
+            strike: 2,
+            ball: 3,
+          },
+          {
+            decision: '안타!',
+            strike: 0,
+            ball: 0,
+          },
+        ],
+      },
+      {
+        id: 3,
+        plate: 7,
+        batter: {
+          name: '김광진',
+          mount: 1,
+          hit: 0,
+          pitcher: false,
+        },
+        rounds: [
+          {
+            decision: '스트라이크',
+            strike: 1,
+            ball: 0,
+          },
+          {
+            decision: '볼',
+            strike: 1,
+            ball: 1,
+          },
+          {
+            decision: '볼',
+            strike: 1,
+            ball: 2,
+          },
+          {
+            decision: '볼',
+            strike: 1,
+            ball: 3,
+          },
+          {
+            decision: '스트라이크',
+            strike: 2,
+            ball: 3,
+          },
+          {
+            decision: '안타!',
+            strike: 0,
+            ball: 0,
+          },
+        ],
+      },
+    ],
   },
-  getters: {},
   mutations: {},
   actions: {},
 });
