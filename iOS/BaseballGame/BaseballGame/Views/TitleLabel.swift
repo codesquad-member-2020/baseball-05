@@ -22,5 +22,7 @@ final class TitleLabel: UILabel {
     
     private func configureText() {
         font = UIFont.boldSystemFont(ofSize: 28)
+        text = GameRoomViewModels.titleText
+        textColor = GameRoomViewModels.titleColor
     }
 }
