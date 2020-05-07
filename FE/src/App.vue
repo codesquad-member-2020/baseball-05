@@ -10,7 +10,10 @@ export default {};
 
 <style>
 body {
-  background-color: #41b883;
+  background-image: url('./assets/bg.jpg');
+  /* background-color: #41b883; */
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #fff;
 }
 </style>

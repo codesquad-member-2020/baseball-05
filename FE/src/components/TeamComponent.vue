@@ -5,7 +5,7 @@
     </div>
     <div class="team-container">
       <div v-for="team in matchArr" :key="team.id" class="match-container">
-        <span @click="onClickSelectTeam">{{ team.home }}</span> vs
+        <span class="" @click="onClickSelectTeam">{{ team.home }}</span> vs
         <span @click="onClickSelectTeam">{{ team.away }}</span>
       </div>
     </div>
@@ -55,10 +55,13 @@ export default {
 <style scoped>
 .warp {
   padding: 10px;
+  background-color: #000;
+  opacity: 50%;
 }
 
 .title-container > h2 {
   font-size: 34px;
+  opacity: 1;
 }
 
 .match-container {
