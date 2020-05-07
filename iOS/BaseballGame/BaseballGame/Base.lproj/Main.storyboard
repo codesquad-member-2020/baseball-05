@@ -70,6 +70,12 @@
                                     <constraint firstAttribute="height" constant="1" id="zQS-fI-m2M"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYD-5F-1kT" customClass="OauthLoginButton" customModule="BaseballGame" customModuleProvider="target">
+                                <rect key="frame" x="122.5" y="519" width="169" height="32"/>
+                                <state key="normal" title="Github으로 로그인" image="github">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -83,10 +89,12 @@
                             <constraint firstItem="wVr-Uk-bIh" firstAttribute="leading" secondItem="bHz-Oi-Fnq" secondAttribute="leading" constant="15" id="YwE-er-wGU"/>
                             <constraint firstItem="E8s-Zd-lZ4" firstAttribute="trailing" secondItem="wVr-Uk-bIh" secondAttribute="trailing" id="aUd-Qp-VSn"/>
                             <constraint firstItem="3IV-7t-fDh" firstAttribute="leading" secondItem="wVr-Uk-bIh" secondAttribute="leading" id="dMc-4R-6Rw"/>
+                            <constraint firstItem="xYD-5F-1kT" firstAttribute="centerX" secondItem="bHz-Oi-Fnq" secondAttribute="centerX" id="hY6-MF-bHF"/>
                             <constraint firstItem="xUP-YI-cXb" firstAttribute="trailing" secondItem="wVr-Uk-bIh" secondAttribute="trailing" id="hgU-a0-ViC"/>
                             <constraint firstItem="E8s-Zd-lZ4" firstAttribute="centerY" secondItem="2bj-KN-3QL" secondAttribute="centerY" id="kW4-pP-G3H"/>
                             <constraint firstItem="a0j-wY-PSj" firstAttribute="width" secondItem="bHz-Oi-Fnq" secondAttribute="width" multiplier="0.42029" id="kyf-bg-LR2"/>
                             <constraint firstItem="a0j-wY-PSj" firstAttribute="centerY" secondItem="2bj-KN-3QL" secondAttribute="centerY" id="oGE-aZ-Qn7"/>
+                            <constraint firstItem="xYD-5F-1kT" firstAttribute="top" secondItem="2bj-KN-3QL" secondAttribute="bottom" constant="15" id="pOp-Eh-9WE"/>
                             <constraint firstItem="a0j-wY-PSj" firstAttribute="leading" secondItem="wVr-Uk-bIh" secondAttribute="leading" id="rWv-ab-gTR"/>
                             <constraint firstItem="wVr-Uk-bIh" firstAttribute="centerY" secondItem="bHz-Oi-Fnq" secondAttribute="centerY" multiplier="0.75" id="s8c-zD-htR"/>
                             <constraint firstItem="xUP-YI-cXb" firstAttribute="leading" secondItem="wVr-Uk-bIh" secondAttribute="leading" id="sGm-zS-L1z"/>
@@ -99,4 +107,7 @@
             <point key="canvasLocation" x="865" y="-647"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="github" width="32" height="32"/>
+    </resources>
 </document>

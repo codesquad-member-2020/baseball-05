@@ -38,6 +38,7 @@
 		5A814F532464016D001C768D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F522464016D001C768D /* ReusableView.swift */; };
 		5A814F55246439B2001C768D /* NormalLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F54246439B2001C768D /* NormalLoginButton.swift */; };
 		5A814F5824643A9D001C768D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5724643A9D001C768D /* UIColorExtension.swift */; };
+		5A814F5A24644B15001C768D /* OauthLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5924644B15001C768D /* OauthLoginButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		5A814F522464016D001C768D /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		5A814F54246439B2001C768D /* NormalLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalLoginButton.swift; sourceTree = "<group>"; };
 		5A814F5724643A9D001C768D /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		5A814F5924644B15001C768D /* OauthLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthLoginButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 				5A7DD54524603A0E002ECB3A /* VersusLabel.swift */,
 				5A814F522464016D001C768D /* ReusableView.swift */,
 				5A814F54246439B2001C768D /* NormalLoginButton.swift */,
+				5A814F5924644B15001C768D /* OauthLoginButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */,
 				5A814F55246439B2001C768D /* NormalLoginButton.swift in Sources */,
 				5A814EF224627EB0001C768D /* GameRoom.swift in Sources */,
+				5A814F5A24644B15001C768D /* OauthLoginButton.swift in Sources */,
 				5A814EF62462810B001C768D /* Request.swift in Sources */,
 				5A814F5824643A9D001C768D /* UIColorExtension.swift in Sources */,
 				5A814F032462AB84001C768D /* GameRoomUseCase.swift in Sources */,
