@@ -5,11 +5,13 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class GameStatusDTO {
+public class Player {
 
-    private Team homeTeam;
+    private String name;
 
-    private Team awayTeam;
+    private int mount;
 
-    private Inning inning;
+    private int hit;
+
+    private boolean isPitcher;
 }

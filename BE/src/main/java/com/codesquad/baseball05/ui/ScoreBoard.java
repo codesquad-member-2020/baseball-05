@@ -1,25 +1,30 @@
 package com.codesquad.baseball05.ui;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-@JsonPropertyOrder({"Team", "inningScore", "totalScore"})
 public class ScoreBoard {
-    private String Team;
-    private List<Integer> inningScore = new ArrayList<>();
+
+    @JsonProperty
+    private String team;
+
+    @JsonProperty
     private int totalScore;
 
+    @JsonProperty
+    private List<Integer> inningScore = new ArrayList<>();
+
+
     public ScoreBoard(String team) {
-        Team = team;
+        this.team = team;
     }
 
     public void setTeam(String team) {
-        Team = team;
+        this.team = team;
     }
 
     public void setInningScore(List<Integer> inningScore) {
