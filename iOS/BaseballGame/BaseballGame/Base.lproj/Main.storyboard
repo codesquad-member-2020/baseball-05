@@ -22,10 +22,10 @@
             </objects>
             <point key="canvasLocation" x="866" y="37"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="kyg-LX-e7M">
             <objects>
-                <viewController id="QXQ-4t-51P" sceneMemberID="viewController">
+                <viewController id="QXQ-4t-51P" customClass="LoginViewController" customModule="BaseballGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nyt-ff-rlX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,6 +75,9 @@
                                 <state key="normal" title="Github으로 로그인" image="github">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="githubLoginButtonTouched:" destination="QXQ-4t-51P" eventType="touchUpInside" id="MJI-Mj-qi1"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wys-LL-uxP">
                                 <rect key="frame" x="49.5" y="243.5" width="315" height="39.5"/>

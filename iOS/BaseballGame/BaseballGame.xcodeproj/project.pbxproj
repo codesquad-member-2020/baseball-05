@@ -39,6 +39,7 @@
 		5A814F55246439B2001C768D /* NormalLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F54246439B2001C768D /* NormalLoginButton.swift */; };
 		5A814F5824643A9D001C768D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5724643A9D001C768D /* UIColorExtension.swift */; };
 		5A814F5A24644B15001C768D /* OauthLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5924644B15001C768D /* OauthLoginButton.swift */; };
+		5A814F5C24645052001C768D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5B24645052001C768D /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 		5A814F54246439B2001C768D /* NormalLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalLoginButton.swift; sourceTree = "<group>"; };
 		5A814F5724643A9D001C768D /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		5A814F5924644B15001C768D /* OauthLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthLoginButton.swift; sourceTree = "<group>"; };
+		5A814F5B24645052001C768D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */,
+				5A814F5B24645052001C768D /* LoginViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				5A814EFA2462A0D9001C768D /* NetworkTask.swift in Sources */,
 				5A7DD540246035F7002ECB3A /* GameRoomCell.swift in Sources */,
 				5A814F532464016D001C768D /* ReusableView.swift in Sources */,
+				5A814F5C24645052001C768D /* LoginViewController.swift in Sources */,
 				5A7DD54C246056AD002ECB3A /* GameRoomViewModels.swift in Sources */,
 				5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */,
 				5A7DD54224603715002ECB3A /* GameRoomLabel.swift in Sources */,
