@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QXQ-4t-51P">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4qG-2e-g0p">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +12,7 @@
             <objects>
                 <viewController id="xl2-2U-nfi" customClass="GameRoomViewController" customModule="BaseballGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mJ7-rS-pgE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="Wny-TU-azI"/>
@@ -22,27 +22,70 @@
             </objects>
             <point key="canvasLocation" x="866" y="37"/>
         </scene>
+        <!--Main View Controller-->
+        <scene sceneID="vCQ-bo-Oet">
+            <objects>
+                <viewController id="4qG-2e-g0p" customClass="MainViewController" customModule="BaseballGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cOi-Ug-8eN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="batter" translatesAutoresizingMaskIntoConstraints="NO" id="zK2-VR-5Nb">
+                                <rect key="frame" x="32" y="44.5" width="311" height="311"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="zK2-VR-5Nb" secondAttribute="height" multiplier="1:1" id="3iZ-3E-7dH"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIB-ep-Rll">
+                                <rect key="frame" x="30" y="348.5" width="315" height="39.5"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="KBO Baseball game">
+                                        <attributes>
+                                            <color key="NSColor" red="0.050980392156862744" green="0.16078431372549018" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="33" name="HelveticaNeue-BoldItalic"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="yIB-ep-Rll" firstAttribute="top" secondItem="zK2-VR-5Nb" secondAttribute="bottom" constant="-7" id="126-ky-So9"/>
+                            <constraint firstItem="zK2-VR-5Nb" firstAttribute="centerY" secondItem="16L-3j-31O" secondAttribute="centerY" multiplier="0.6" id="KVW-dk-m4l"/>
+                            <constraint firstItem="zK2-VR-5Nb" firstAttribute="centerX" secondItem="16L-3j-31O" secondAttribute="centerX" id="Ws8-3t-diL"/>
+                            <constraint firstItem="zK2-VR-5Nb" firstAttribute="width" secondItem="16L-3j-31O" secondAttribute="width" multiplier="0.83" id="coe-Pa-Ugg"/>
+                            <constraint firstItem="yIB-ep-Rll" firstAttribute="centerX" secondItem="16L-3j-31O" secondAttribute="centerX" id="f7N-zW-v19"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="16L-3j-31O"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kCh-Vm-WJu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8.6956521739130448" y="-648.21428571428567"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="kyg-LX-e7M">
             <objects>
                 <viewController id="QXQ-4t-51P" customClass="LoginViewController" customModule="BaseballGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nyt-ff-rlX">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="아이디 또는 이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wVr-Uk-bIh" userLabel="IDTextField">
-                                <rect key="frame" x="15" y="323" width="384" height="34"/>
+                                <rect key="frame" x="15" y="233" width="345" height="34"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3IV-7t-fDh" userLabel="PasswordTextField">
-                                <rect key="frame" x="15" y="372" width="384" height="34"/>
+                                <rect key="frame" x="15" y="282" width="345" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-YI-cXb" customClass="NormalLoginButton" customModule="BaseballGame" customModuleProvider="target">
-                                <rect key="frame" x="15" y="421" width="384" height="45"/>
+                                <rect key="frame" x="15" y="331" width="345" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="ZiL-lF-Vkn"/>
                                 </constraints>
@@ -51,27 +94,27 @@
                                 <state key="normal" title="로그인"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bj-KN-3QL">
-                                <rect key="frame" x="198" y="481" width="18" height="23"/>
+                                <rect key="frame" x="178.5" y="391" width="18" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0j-wY-PSj">
-                                <rect key="frame" x="15" y="492" width="174" height="1"/>
+                                <rect key="frame" x="15" y="402" width="157.5" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="l0X-KA-495"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8s-Zd-lZ4">
-                                <rect key="frame" x="225" y="492" width="174" height="1"/>
+                                <rect key="frame" x="202.5" y="402" width="157.5" height="1"/>
                                 <color key="backgroundColor" systemColor="systemGray2Color" red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="zQS-fI-m2M"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xYD-5F-1kT" customClass="OauthLoginButton" customModule="BaseballGame" customModuleProvider="target">
-                                <rect key="frame" x="122.5" y="519" width="169" height="32"/>
+                                <rect key="frame" x="108.5" y="429" width="158.5" height="22"/>
                                 <state key="normal" title="Github으로 로그인" image="github">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -80,7 +123,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wys-LL-uxP">
-                                <rect key="frame" x="49.5" y="243.5" width="315" height="39.5"/>
+                                <rect key="frame" x="30" y="153.5" width="315" height="39.5"/>
                                 <attributedString key="attributedText">
                                     <fragment content="KBO Baseball game">
                                         <attributes>
@@ -126,6 +169,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="github" width="32" height="32"/>
+        <image name="batter" width="400" height="400"/>
+        <image name="github" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
 </document>
