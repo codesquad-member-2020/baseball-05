@@ -12,10 +12,12 @@ final class GameRoomCollectionView: UICollectionView {
     override init(frame: CGRect = .zero, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
         translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .none
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        backgroundColor = .none
     }
 }
 

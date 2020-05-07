@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xl2-2U-nfi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QXQ-4t-51P">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -14,7 +14,7 @@
                     <view key="view" contentMode="scaleToFill" id="mJ7-rS-pgE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="Wny-TU-azI"/>
                     </view>
                 </viewController>
@@ -41,15 +41,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUP-YI-cXb" customClass="LoginButton" customModule="BaseballGame" customModuleProvider="target">
+                                <rect key="frame" x="15" y="247" width="384" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="ZiL-lF-Vkn"/>
+                                </constraints>
+                                <color key="tintColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="로그인"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="bHz-Oi-Fnq" firstAttribute="trailing" secondItem="wVr-Uk-bIh" secondAttribute="trailing" constant="15" id="JF1-iX-llX"/>
                             <constraint firstItem="3IV-7t-fDh" firstAttribute="trailing" secondItem="wVr-Uk-bIh" secondAttribute="trailing" id="L1T-r8-9WV"/>
+                            <constraint firstItem="xUP-YI-cXb" firstAttribute="top" secondItem="3IV-7t-fDh" secondAttribute="bottom" constant="30" id="Rf4-oA-Ela"/>
                             <constraint firstItem="3IV-7t-fDh" firstAttribute="top" secondItem="wVr-Uk-bIh" secondAttribute="bottom" constant="30" id="T2C-xC-LKx"/>
                             <constraint firstItem="wVr-Uk-bIh" firstAttribute="leading" secondItem="bHz-Oi-Fnq" secondAttribute="leading" constant="15" id="YwE-er-wGU"/>
                             <constraint firstItem="3IV-7t-fDh" firstAttribute="leading" secondItem="wVr-Uk-bIh" secondAttribute="leading" id="dMc-4R-6Rw"/>
+                            <constraint firstItem="xUP-YI-cXb" firstAttribute="trailing" secondItem="wVr-Uk-bIh" secondAttribute="trailing" id="hgU-a0-ViC"/>
                             <constraint firstItem="wVr-Uk-bIh" firstAttribute="centerY" secondItem="bHz-Oi-Fnq" secondAttribute="centerY" multiplier="0.3" id="s8c-zD-htR"/>
+                            <constraint firstItem="xUP-YI-cXb" firstAttribute="leading" secondItem="wVr-Uk-bIh" secondAttribute="leading" id="sGm-zS-L1z"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bHz-Oi-Fnq"/>
                     </view>

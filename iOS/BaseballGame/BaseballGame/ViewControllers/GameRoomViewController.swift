@@ -12,7 +12,12 @@ final class GameRoomViewController: UIViewController {
     //MARK:- Internal properties
     private var gameRoomViewModels: GameRoomViewModels!
     private var gameRoomCollectionView: GameRoomCollectionView!
-    private let gameRoomTitleLabel = TitleLabel()
+    private let gameRoomTitleLabel: TitleLabel = {
+        let label = TitleLabel()
+        label.text = GameRoomViewModels.titleText
+        label.textColor = GameRoomViewModels.titleColor
+        return label
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
