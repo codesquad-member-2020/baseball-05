@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GameRoomViewController: UIViewController {
+final class GameRoomViewController: UICollectionViewController {
     //MARK:- Internal properties
     private let gameRoomTitleLabel: TitleLabel = {
         let label = TitleLabel()
@@ -20,9 +20,14 @@ final class GameRoomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCollectionView()
         configureGameListLabel()
         configureGameInfoStackView()
         configureUseCase()
+    }
+    
+    private func configureCollectionView() {
+        collectionView.backgroundColor = .black
     }
     
     private func configureGameListLabel() {
@@ -48,10 +53,12 @@ final class GameRoomViewController: UIViewController {
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             let gameViewModels = GameRoomViewModels(gameViewModels: gameRooms.map { GameRoomViewModel(gameRoom: $0)})
-            gameViewModels.repeatGameRoomViewModels {
-                let gameRoomView = GameRoomView()
-                gameRoomView.configure(gameRoom: $0.gameRoom)
-                self.gameRoomStackView.add(gameRoomView: gameRoomView)
+            gameViewModels.repeatGameRoomViewModels { gameViewModel in
+                DispatchQueue.main.async {
+                    let gameRoomView = GameRoomView()
+                    gameRoomView.configure(gameRoom: gameViewModel.gameRoom)
+                    self.gameRoomStackView.add(gameRoomView: gameRoomView)
+                }
             }
         }
     }
