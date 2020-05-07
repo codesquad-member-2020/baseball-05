@@ -21,7 +21,7 @@ final class LoginButton: UIButton {
     }
     
     func configureLayer() {
-        layer.borderWidth = 0.7
+        layer.borderWidth = 0.6
         layer.borderColor = UIColor.GreyBeigeColor.cgColor
     }
 }
