@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    matchesList: [],
     matchArr: {
       inningMeaage: '2회초 공격',
       inning: {
