@@ -16,10 +16,10 @@
 		5A7DD5212460170A002ECB3A /* BaseballGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD5202460170A002ECB3A /* BaseballGameTests.swift */; };
 		5A7DD52C2460170A002ECB3A /* BaseballGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD52B2460170A002ECB3A /* BaseballGameUITests.swift */; };
 		5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD53D24602B9F002ECB3A /* TitleLabel.swift */; };
-		5A7DD540246035F7002ECB3A /* GameRoomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD53F246035F7002ECB3A /* GameRoomView.swift */; };
+		5A7DD540246035F7002ECB3A /* GameRoomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD53F246035F7002ECB3A /* GameRoomCell.swift */; };
 		5A7DD54224603715002ECB3A /* GameRoomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54124603715002ECB3A /* GameRoomLabel.swift */; };
 		5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54524603A0E002ECB3A /* VersusLabel.swift */; };
-		5A7DD54A24604DE9002ECB3A /* GameRoomStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54924604DE9002ECB3A /* GameRoomStackView.swift */; };
+		5A7DD54A24604DE9002ECB3A /* GameRoomCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54924604DE9002ECB3A /* GameRoomCollectionView.swift */; };
 		5A7DD54C246056AD002ECB3A /* GameRoomViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD54B246056AD002ECB3A /* GameRoomViewModels.swift */; };
 		5A814EE724625703001C768D /* VersusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814EE624625703001C768D /* VersusViewModel.swift */; };
 		5A814EE924627B5B001C768D /* TeamInfoSuccessStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A814EE824627B5B001C768D /* TeamInfoSuccessStub.json */; };
@@ -35,6 +35,7 @@
 		5A814F0A2462AD99001C768D /* MockGameRoomSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F092462AD99001C768D /* MockGameRoomSuccess.swift */; };
 		5A814F102462DED2001C768D /* GameRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F0F2462DED2001C768D /* GameRoomViewModel.swift */; };
 		5A814F122462DEDF001C768D /* ViewModelBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F112462DEDF001C768D /* ViewModelBinding.swift */; };
+		5A814F532464016D001C768D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F522464016D001C768D /* ReusableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,10 +71,10 @@
 		5A7DD52B2460170A002ECB3A /* BaseballGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseballGameUITests.swift; sourceTree = "<group>"; };
 		5A7DD52D2460170A002ECB3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A7DD53D24602B9F002ECB3A /* TitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleLabel.swift; sourceTree = "<group>"; };
-		5A7DD53F246035F7002ECB3A /* GameRoomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoomView.swift; sourceTree = "<group>"; };
+		5A7DD53F246035F7002ECB3A /* GameRoomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoomCell.swift; sourceTree = "<group>"; };
 		5A7DD54124603715002ECB3A /* GameRoomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoomLabel.swift; sourceTree = "<group>"; };
 		5A7DD54524603A0E002ECB3A /* VersusLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusLabel.swift; sourceTree = "<group>"; };
-		5A7DD54924604DE9002ECB3A /* GameRoomStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoomStackView.swift; sourceTree = "<group>"; };
+		5A7DD54924604DE9002ECB3A /* GameRoomCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoomCollectionView.swift; sourceTree = "<group>"; };
 		5A7DD54B246056AD002ECB3A /* GameRoomViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoomViewModels.swift; sourceTree = "<group>"; };
 		5A814EE624625703001C768D /* VersusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VersusViewModel.swift; sourceTree = "<group>"; };
 		5A814EE824627B5B001C768D /* TeamInfoSuccessStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TeamInfoSuccessStub.json; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		5A814F092462AD99001C768D /* MockGameRoomSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGameRoomSuccess.swift; sourceTree = "<group>"; };
 		5A814F0F2462DED2001C768D /* GameRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoomViewModel.swift; sourceTree = "<group>"; };
 		5A814F112462DEDF001C768D /* ViewModelBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBinding.swift; sourceTree = "<group>"; };
+		5A814F522464016D001C768D /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 				5A814F132462EB9F001C768D /* GameRoom */,
 				5A7DD53D24602B9F002ECB3A /* TitleLabel.swift */,
 				5A7DD54524603A0E002ECB3A /* VersusLabel.swift */,
+				5A814F522464016D001C768D /* ReusableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -244,9 +247,9 @@
 		5A814F132462EB9F001C768D /* GameRoom */ = {
 			isa = PBXGroup;
 			children = (
-				5A7DD53F246035F7002ECB3A /* GameRoomView.swift */,
+				5A7DD53F246035F7002ECB3A /* GameRoomCell.swift */,
 				5A7DD54124603715002ECB3A /* GameRoomLabel.swift */,
-				5A7DD54924604DE9002ECB3A /* GameRoomStackView.swift */,
+				5A7DD54924604DE9002ECB3A /* GameRoomCollectionView.swift */,
 			);
 			path = GameRoom;
 			sourceTree = "<group>";
@@ -403,14 +406,15 @@
 				5A814F102462DED2001C768D /* GameRoomViewModel.swift in Sources */,
 				5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */,
 				5A814EED24627BD5001C768D /* DataExtensions.swift in Sources */,
-				5A7DD54A24604DE9002ECB3A /* GameRoomStackView.swift in Sources */,
+				5A7DD54A24604DE9002ECB3A /* GameRoomCollectionView.swift in Sources */,
 				5A814EF824629BF7001C768D /* NetworkDispatcher.swift in Sources */,
 				5A814F0A2462AD99001C768D /* MockGameRoomSuccess.swift in Sources */,
 				5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */,
 				5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */,
 				5A814EE724625703001C768D /* VersusViewModel.swift in Sources */,
 				5A814EFA2462A0D9001C768D /* NetworkTask.swift in Sources */,
-				5A7DD540246035F7002ECB3A /* GameRoomView.swift in Sources */,
+				5A7DD540246035F7002ECB3A /* GameRoomCell.swift in Sources */,
+				5A814F532464016D001C768D /* ReusableView.swift in Sources */,
 				5A7DD54C246056AD002ECB3A /* GameRoomViewModels.swift in Sources */,
 				5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */,
 				5A7DD54224603715002ECB3A /* GameRoomLabel.swift in Sources */,

@@ -8,29 +8,26 @@
 
 import UIKit
 
-final class GameRoomViewController: UICollectionViewController {
+final class GameRoomViewController: UIViewController {
     //MARK:- Internal properties
+    private var gameRoomViewModels: GameRoomViewModels!
+    private var gameRoomCollectionView: GameRoomCollectionView!
     private let gameRoomTitleLabel: TitleLabel = {
         let label = TitleLabel()
         label.text = GameRoomViewModels.titleText
         label.textColor = GameRoomViewModels.titleColor
         return label
     }()
-    private let gameRoomStackView = GameRoomStackView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureGameTitleLabel()
         configureCollectionView()
-        configureGameListLabel()
-        configureGameInfoStackView()
+        configureObserver()
         configureUseCase()
     }
     
-    private func configureCollectionView() {
-        collectionView.backgroundColor = .black
-    }
-    
-    private func configureGameListLabel() {
+    private func configureGameTitleLabel() {
         view.addSubview(gameRoomTitleLabel)
         
         gameRoomTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -39,27 +36,61 @@ final class GameRoomViewController: UICollectionViewController {
                                                 constant: 26).isActive = true
     }
     
-    private func configureGameInfoStackView() {
-        view.addSubview(gameRoomStackView)
-        gameRoomStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor,
-                                                   constant: 10).isActive = true
-        gameRoomStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        gameRoomStackView.topAnchor.constraint(equalTo: gameRoomTitleLabel.bottomAnchor, constant: 43).isActive = true
+    private func configureCollectionView() {
+        gameRoomCollectionView = GameRoomCollectionView(collectionViewLayout:
+            GameRoomCollectionViewFlowLayout(superFrame: view.frame))
+        gameRoomCollectionView.register(GameRoomCell.self, forCellWithReuseIdentifier: GameRoomCell.reuseIdentifier)
+        gameRoomCollectionView.dataSource = self
+        configureCollectionViewConstraints()
     }
     
+    private func configureCollectionViewConstraints() {
+        view.addSubview(gameRoomCollectionView)
+        
+        gameRoomCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        gameRoomCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        gameRoomCollectionView.topAnchor.constraint(equalTo: gameRoomTitleLabel.bottomAnchor, constant: 43).isActive = true
+        gameRoomCollectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
+    private func configureObserver() {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateGameCollectionView),
+                                               name: GameRoomViewModels.Notification.gameViewModelsDidChange,
+                                               object: gameRoomViewModels)
+    }
+    
+    @objc private func updateGameCollectionView() {
+        DispatchQueue.main.async {
+            self.gameRoomCollectionView.reloadData()
+        }
+    }
+
     private func configureUseCase() {
         GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
                                         with: GameRoomUseCase.GameRoomTask(networkDispatcher: NetworkManager()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
-            let gameViewModels = GameRoomViewModels(gameViewModels: gameRooms.map { GameRoomViewModel(gameRoom: $0)})
-            gameViewModels.repeatGameRoomViewModels { gameViewModel in
-                DispatchQueue.main.async {
-                    let gameRoomView = GameRoomView()
-                    gameRoomView.configure(gameRoom: gameViewModel.gameRoom)
-                    self.gameRoomStackView.add(gameRoomView: gameRoomView)
-                }
-            }
+            self.gameRoomViewModels = GameRoomViewModels(gameViewModels:
+                gameRooms.map { GameRoomViewModel(gameRoom: $0)})
         }
+    }
+}
+
+extension GameRoomViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let gameRoomViewModels = gameRoomViewModels else { return 0 }
+        return gameRoomViewModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let gameRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: GameRoomCell.reuseIdentifier,
+                                                                    for: indexPath) as? GameRoomCell
+            else { return GameRoomCell() }
+        
+        guard let gameRoomViewModel = gameRoomViewModels.gameViewModel(at: indexPath.item)
+            else { return GameRoomCell() }
+        gameRoomCell.configure(gameRoom: gameRoomViewModel.gameRoom)
+        return gameRoomCell
     }
 }

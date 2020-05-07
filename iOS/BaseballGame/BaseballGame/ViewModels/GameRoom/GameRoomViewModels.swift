@@ -9,6 +9,10 @@
 import UIKit
 
 final class GameRoomViewModels {
+    enum Notification {
+        static let gameViewModelsDidChange = Foundation.Notification.Name("gameViewModelsDidChange")
+    }
+    
     static let titleText = "게임 목록"
     static let titleColor = UIColor.white
     static let gameRoomDefaultText = "GAME"
@@ -17,6 +21,8 @@ final class GameRoomViewModels {
     
     init(gameViewModels: [GameRoomViewModel]) {
         self.gameViewModels = gameViewModels
+        NotificationCenter.default.post(name: Notification.gameViewModelsDidChange,
+                                        object: self)
     }
     
     func gameViewModel(at index: Int) -> GameRoomViewModel? {
@@ -26,9 +32,5 @@ final class GameRoomViewModels {
     
     var count: Int {
         return gameViewModels.count
-    }
-    
-    func repeatGameRoomViewModels(handler: (GameRoomViewModel) -> ()) {
-        gameViewModels.forEach { handler($0) }
     }
 }
