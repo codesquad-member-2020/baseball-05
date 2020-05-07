@@ -139,6 +139,7 @@
 		5A7DD50824601708002ECB3A /* BaseballGame */ = {
 			isa = PBXGroup;
 			children = (
+				5A814F512463F93F001C768D /* ViewControllers */,
 				5A814F012462AB6C001C768D /* Usecases */,
 				5A814EF024627E67001C768D /* Models */,
 				5A814EEA24627B6B001C768D /* Networks */,
@@ -146,7 +147,6 @@
 				5A7DD53C24602B83002ECB3A /* Views */,
 				5A7DD50924601708002ECB3A /* AppDelegate.swift */,
 				5A7DD50B24601708002ECB3A /* SceneDelegate.swift */,
-				5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */,
 				5A7DD50F24601708002ECB3A /* Main.storyboard */,
 				5A7DD5122460170A002ECB3A /* Assets.xcassets */,
 				5A7DD5142460170A002ECB3A /* LaunchScreen.storyboard */,
@@ -258,6 +258,14 @@
 				5A814F0F2462DED2001C768D /* GameRoomViewModel.swift */,
 			);
 			path = GameRoom;
+			sourceTree = "<group>";
+		};
+		5A814F512463F93F001C768D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
