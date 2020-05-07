@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4qG-2e-g0p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NiE-Ip-oQf">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,7 +10,7 @@
         <!--Game Room View Controller-->
         <scene sceneID="gKM-QH-vbK">
             <objects>
-                <viewController id="xl2-2U-nfi" customClass="GameRoomViewController" customModule="BaseballGame" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameRoomViewController" id="xl2-2U-nfi" customClass="GameRoomViewController" customModule="BaseballGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mJ7-rS-pgE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxX-eE-OXR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="866" y="37"/>
+            <point key="canvasLocation" x="7" y="23"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="vCQ-bo-Oet">
@@ -57,6 +57,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="tintColor" red="0.29803921568627451" green="0.29803921568627451" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="게임하기"/>
+                                <connections>
+                                    <action selector="gamePlayButtonTouch:" destination="4qG-2e-g0p" eventType="touchUpInside" id="F5A-ad-B6F"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjI-2N-etU" customClass="BorderedButton" customModule="BaseballGame" customModuleProvider="target">
                                 <rect key="frame" x="15" y="473" width="345" height="40"/>
@@ -84,10 +87,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="16L-3j-31O"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fhD-q0-LYY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kCh-Vm-WJu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8.6956521739130448" y="-648.21428571428567"/>
+            <point key="canvasLocation" x="946.39999999999998" y="-649.02548725637189"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="kyg-LX-e7M">
@@ -143,7 +147,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="githubLoginButtonTouched:" destination="QXQ-4t-51P" eventType="touchUpInside" id="MJI-Mj-qi1"/>
+                                    <action selector="githubLoginButtonTouch:" destination="QXQ-4t-51P" eventType="touchUpInside" id="MJI-Mj-qi1"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wys-LL-uxP">
@@ -189,7 +193,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxq-AB-Y0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="-647"/>
+            <point key="canvasLocation" x="1804" y="-647.22638680659679"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sjk-mX-yFT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="NiE-Ip-oQf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0E8-nZ-XtR">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4qG-2e-g0p" kind="relationship" relationship="rootViewController" id="LcL-JZ-Ylc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wDc-TI-kIT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7.2000000000000002" y="-649.02548725637189"/>
         </scene>
     </scenes>
     <resources>

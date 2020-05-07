@@ -10,18 +10,20 @@ import UIKit
 
 final class GameRoomViewController: UIViewController {
     //MARK:- Internal properties
-    private var gameRoomViewModels: GameRoomViewModels!
-    private var gameRoomCollectionView: GameRoomCollectionView!
     private let gameRoomTitleLabel: TitleLabel = {
         let label = TitleLabel()
         label.text = GameRoomViewModels.titleText
         label.textColor = GameRoomViewModels.titleColor
         return label
     }()
+    private let prevButton = PrevButton()
+    private var gameRoomCollectionView: GameRoomCollectionView!
+    private var gameRoomViewModels: GameRoomViewModels!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureGameTitleLabel()
+        configurePrevButton()
         configureCollectionView()
         configureObserver()
         configureUseCase()
@@ -33,7 +35,21 @@ final class GameRoomViewController: UIViewController {
         gameRoomTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         let safeArea = view.safeAreaLayoutGuide
         gameRoomTitleLabel.topAnchor.constraint(equalTo: safeArea.topAnchor,
-                                                constant: 26).isActive = true
+                                                constant: 23).isActive = true
+    }
+    
+    private func configurePrevButton() {
+        prevButton.delegate = self
+        configurePrevButtonConstraints()
+    }
+    
+    private func configurePrevButtonConstraints() {
+        view.addSubview(prevButton)
+        
+        let safeArea = view.safeAreaLayoutGuide
+        prevButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor,
+                                            constant: 15).isActive = true
+        prevButton.centerYAnchor.constraint(equalTo: gameRoomTitleLabel.centerYAnchor).isActive = true
     }
     
     private func configureCollectionView() {
@@ -65,7 +81,7 @@ final class GameRoomViewController: UIViewController {
             self.gameRoomCollectionView.reloadData()
         }
     }
-
+    
     private func configureUseCase() {
         GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
                                         with: GameRoomUseCase.GameRoomTask(networkDispatcher: NetworkManager()))
@@ -92,5 +108,11 @@ extension GameRoomViewController: UICollectionViewDataSource {
             else { return GameRoomCell() }
         gameRoomCell.configure(gameRoom: gameRoomViewModel.gameRoom)
         return gameRoomCell
+    }
+}
+
+extension GameRoomViewController: PrevButtonDelegate {
+    func prevButtonDidTouch() {
+        navigationController?.popViewController(animated: true)
     }
 }

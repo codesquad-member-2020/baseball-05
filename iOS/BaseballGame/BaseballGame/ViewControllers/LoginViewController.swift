@@ -13,7 +13,7 @@ final class LoginViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    @IBAction func githubLoginButtonTouched(_ sender: OauthLoginButton) {
+    @IBAction func githubLoginButtonTouch(_ sender: OauthLoginButton) {
         dismiss(animated: true)
     }
 }

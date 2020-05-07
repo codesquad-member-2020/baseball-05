@@ -28,4 +28,13 @@ final class MainViewController: UIViewController {
         loginViewController.modalPresentationStyle = .fullScreen
         present(loginViewController, animated: false)
     }
+    
+    @IBAction func gamePlayButtonTouch(_ sender: BorderedButton) {
+        showGameRoomViewController()
+    }
+    
+    private func showGameRoomViewController() {
+        guard let gameRoomViewController = storyboard?.instantiateViewController(withIdentifier: "GameRoomViewController") as? GameRoomViewController else { return }
+        navigationController?.pushViewController(gameRoomViewController, animated: true)
+    }
 }
