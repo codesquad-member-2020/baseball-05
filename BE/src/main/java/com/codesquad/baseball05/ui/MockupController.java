@@ -1,6 +1,6 @@
 package com.codesquad.baseball05.ui;
 
-import com.codesquad.baseball05.domain.*;
+import com.codesquad.baseball05.domain.entity.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
