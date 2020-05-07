@@ -36,11 +36,19 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3IV-7t-fDh" userLabel="PasswordTextField">
+                                <rect key="frame" x="15" y="183" width="384" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="bHz-Oi-Fnq" firstAttribute="trailing" secondItem="wVr-Uk-bIh" secondAttribute="trailing" constant="15" id="JF1-iX-llX"/>
+                            <constraint firstItem="3IV-7t-fDh" firstAttribute="trailing" secondItem="wVr-Uk-bIh" secondAttribute="trailing" id="L1T-r8-9WV"/>
+                            <constraint firstItem="3IV-7t-fDh" firstAttribute="top" secondItem="wVr-Uk-bIh" secondAttribute="bottom" constant="30" id="T2C-xC-LKx"/>
                             <constraint firstItem="wVr-Uk-bIh" firstAttribute="leading" secondItem="bHz-Oi-Fnq" secondAttribute="leading" constant="15" id="YwE-er-wGU"/>
+                            <constraint firstItem="3IV-7t-fDh" firstAttribute="leading" secondItem="wVr-Uk-bIh" secondAttribute="leading" id="dMc-4R-6Rw"/>
                             <constraint firstItem="wVr-Uk-bIh" firstAttribute="centerY" secondItem="bHz-Oi-Fnq" secondAttribute="centerY" multiplier="0.3" id="s8c-zD-htR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bHz-Oi-Fnq"/>
