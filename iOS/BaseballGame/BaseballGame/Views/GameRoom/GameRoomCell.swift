@@ -10,11 +10,7 @@ import UIKit
 
 final class GameRoomCell: UICollectionViewCell, ReusableView {
     private let gameRoomLabel = GameRoomLabel()
-    private let versusLabel: VersusLabel = {
-       let label = VersusLabel()
-        label.text = VersusViewModel.versusText
-        return label
-    }()
+    private let versusLabel = VersusLabel()
     private let awayTeamLabel = TitleLabel()
     private let homeTeamLabel = TitleLabel()
     
@@ -58,6 +54,11 @@ final class GameRoomCell: UICollectionViewCell, ReusableView {
     }
     
     private func configureAwayTeamLabel() {
+        awayTeamLabel.textColor = .black
+        configureAwayTeamLabelConstraints()
+    }
+    
+    private func configureAwayTeamLabelConstraints() {
         contentView.addSubview(awayTeamLabel)
         
         awayTeamLabel.trailingAnchor.constraint(equalTo: versusLabel.leadingAnchor, constant: -30).isActive = true
@@ -65,6 +66,11 @@ final class GameRoomCell: UICollectionViewCell, ReusableView {
     }
     
     private func configureHomeTeamLabel() {
+        homeTeamLabel.textColor = .black
+        configureHomeTeamLabelConstraints()
+    }
+    
+    private func configureHomeTeamLabelConstraints() {
         contentView.addSubview(homeTeamLabel)
         
         homeTeamLabel.leadingAnchor.constraint(equalTo: versusLabel.trailingAnchor, constant: 30).isActive = true
