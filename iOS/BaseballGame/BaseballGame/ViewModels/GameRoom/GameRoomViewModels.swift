@@ -14,7 +14,7 @@ final class GameRoomViewModels {
     }
     
     static let titleText = "게임 목록"
-    static let titleColor = UIColor.white
+    static let titleColor = UIColor.black
     static let gameRoomDefaultText = "GAME"
     
     private let gameViewModels: [GameRoomViewModel]
