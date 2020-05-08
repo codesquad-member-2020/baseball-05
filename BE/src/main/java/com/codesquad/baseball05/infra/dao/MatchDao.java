@@ -10,11 +10,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
-public class MatchTableDao {
+public class MatchDao {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public MatchTableDao(DataSource dataSource) {
+    public MatchDao(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

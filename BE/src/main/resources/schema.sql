@@ -14,7 +14,7 @@ DROP TABLE IF EXISTS `myDB`.`match_table`;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myDB`.`team`
 (
-    id INT PRIMARY KEY AUTO_INCREMENT,
+    id   INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45)
 );
 
@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `myDB`.`team`
 CREATE TABLE IF NOT EXISTS `myDB`.`player`
 (
     number          INT PRIMARY KEY AUTO_INCREMENT,
-    team_id       VARCHAR(45) REFERENCES team (id),
+    team_id         VARCHAR(45) REFERENCES team (id),
     name            VARCHAR(45),
     batting_average DOUBLE,
     is_pitcher      BOOLEAN
@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `myDB`.`player`
 CREATE TABLE IF NOT EXISTS `myDB`.`record`
 (
     id              INT PRIMARY KEY AUTO_INCREMENT,
-    player_number     VARCHAR(32) REFERENCES player (number),
+    player_number   VARCHAR(32) REFERENCES player (number),
     mount           INT,
     hit             INT,
     strike          INT,
