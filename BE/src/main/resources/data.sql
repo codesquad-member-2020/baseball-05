@@ -77,3 +77,8 @@ INSERT INTO player (team_id, name, batting_average, is_pitcher) VALUE (6, '신�
 INSERT INTO player (team_id, name, batting_average, is_pitcher) VALUE (6, '허일', 0.255, false);
 INSERT INTO player (team_id, name, batting_average, is_pitcher) VALUE (6, '고승민', 0.253, false);
 INSERT INTO player (team_id, name, batting_average, is_pitcher) VALUE (6, '윌슨', 0.252, true);
+
+-- MATCH_TABLE TEST --
+INSERT INTO match_table (id, home_team, away_team, is_selected) VALUE (1, 'Marvel', 'Captain', true);
+INSERT INTO match_table (id, home_team, away_team, is_selected) VALUE (2, 'Tigers', 'Twins', true);
+INSERT INTO match_table (id, home_team, away_team, is_selected) VALUE (3, 'Dodgers', 'Rockets', false);

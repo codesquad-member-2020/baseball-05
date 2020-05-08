@@ -1,7 +1,18 @@
+DROP TABLE IF EXISTS `myDB`.`team`;
+DROP TABLE IF EXISTS `myDB`.`player`;
+DROP TABLE IF EXISTS `myDB`.`record`;
+DROP TABLE IF EXISTS `myDB`.`game`;
+DROP TABLE IF EXISTS `myDB`.`inning`;
+DROP TABLE IF EXISTS `myDB`.`half`;
+DROP TABLE IF EXISTS `myDB`.`plate`;
+DROP TABLE IF EXISTS `myDB`.`round`;
+DROP TABLE IF EXISTS `myDB`.`match_table`;
+
+
 -- -----------------------------------------------------
 -- Table `baseball`.`team`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `baseball`.`team`
+CREATE TABLE IF NOT EXISTS `myDB`.`team`
 (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45)
@@ -10,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`team`
 -- -----------------------------------------------------
 -- Table `baseball`.`player`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `baseball`.`player`
+CREATE TABLE IF NOT EXISTS `myDB`.`player`
 (
     number          INT PRIMARY KEY AUTO_INCREMENT,
     team_id       VARCHAR(45) REFERENCES team (id),
@@ -22,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`player`
 -- -----------------------------------------------------
 -- Table `baseball`.`record`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `baseball`.`record`
+CREATE TABLE IF NOT EXISTS `myDB`.`record`
 (
     id              INT PRIMARY KEY AUTO_INCREMENT,
     player_number     VARCHAR(32) REFERENCES player (number),
@@ -37,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`record`
 -- -----------------------------------------------------
 -- Table `baseball`.`game`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `baseball`.`game`
+CREATE TABLE IF NOT EXISTS `myDB`.`game`
 (
     id        INT PRIMARY KEY AUTO_INCREMENT,
     home_team VARCHAR(45) REFERENCES team (id),
@@ -48,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`game`
 -- -----------------------------------------------------
 -- Table `baseball`.`inning`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `baseball`.`inning`
+CREATE TABLE IF NOT EXISTS `myDB`.`inning`
 (
     id             INT PRIMARY KEY AUTO_INCREMENT,
     game_id        INT REFERENCES game (id),
@@ -60,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`inning`
 -- -----------------------------------------------------
 -- Table `baseball`.`half`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `baseball`.`half`
+CREATE TABLE IF NOT EXISTS `myDB`.`half`
 (
     id              INT PRIMARY KEY AUTO_INCREMENT,
     last_bat_player INT,
@@ -75,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`half`
 -- 타자 별 기록 (타자 교체 시기)
 -- 현재 타자 정보를 안가지고 있어도 되나? round에서 가지고 있어서?
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `baseball`.`plate`
+CREATE TABLE IF NOT EXISTS `myDB`.`plate`
 (
     id             INT PRIMARY KEY AUTO_INCREMENT,
     half_id        INT REFERENCES half (id),
@@ -90,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`plate`
 -- Table `baseball`.`round`
 -- 선수의 투구별 기록
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `baseball`.`round`
+CREATE TABLE IF NOT EXISTS `myDB`.`round`
 (
     id          INT PRIMARY KEY AUTO_INCREMENT,
     plate_id    INT REFERENCES plate (id),
@@ -104,7 +115,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`round`
 -- -----------------------------------------------------
 -- Table `baseball`.`MATCH_TABLE`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `baseball`.`MATCH_TABLE`
+CREATE TABLE IF NOT EXISTS `myDB`.`match_table`
 (
     id          INT PRIMARY KEY AUTO_INCREMENT,
     home_team   VARCHAR(45) NULL,
