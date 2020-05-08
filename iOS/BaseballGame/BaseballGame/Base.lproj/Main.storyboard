@@ -20,7 +20,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxX-eE-OXR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="23"/>
+            <point key="canvasLocation" x="7" y="59"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="vCQ-bo-Oet">
@@ -193,7 +193,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nxq-AB-Y0D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1804" y="-647.22638680659679"/>
+            <point key="canvasLocation" x="1884" y="-649"/>
+        </scene>
+        <!--Scores-->
+        <scene sceneID="oEH-SC-OQW">
+            <objects>
+                <viewController id="qaG-7m-vvT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aJF-G8-Naq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Xg0-XO-y3c"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Scores" image="chart.bar" catalog="system" id="KJ9-3a-nZn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BAh-Be-o6g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1884" y="-1352.473763118441"/>
+        </scene>
+        <!--Play-->
+        <scene sceneID="OBo-LC-OwZ">
+            <objects>
+                <viewController id="cSG-l2-sFt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kMd-Vk-jkA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Hvq-eV-AVL"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Play" image="gamecontroller" catalog="system" id="qTj-Jz-o3m"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aro-p9-AII" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944.79999999999995" y="-1352.473763118441"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sjk-mX-yFT">
@@ -212,9 +244,30 @@
             </objects>
             <point key="canvasLocation" x="7.2000000000000002" y="-649.02548725637189"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="kTD-IT-ySK">
+            <objects>
+                <tabBarController storyboardIdentifier="GameTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="Q1g-jb-zgg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E5Q-AV-pq1">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="cSG-l2-sFt" kind="relationship" relationship="viewControllers" id="ip2-aq-OjZ"/>
+                        <segue destination="qaG-7m-vvT" kind="relationship" relationship="viewControllers" id="S3a-dq-1kQ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5f7-ha-pru" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5.5999999999999996" y="-1352.473763118441"/>
+        </scene>
     </scenes>
     <resources>
         <image name="batter" width="400" height="400"/>
+        <image name="chart.bar" catalog="system" width="128" height="90"/>
+        <image name="gamecontroller" catalog="system" width="128" height="82"/>
         <image name="github" width="21.333333969116211" height="21.333333969116211"/>
     </resources>
 </document>

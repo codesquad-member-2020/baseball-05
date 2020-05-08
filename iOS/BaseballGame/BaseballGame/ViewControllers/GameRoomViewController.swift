@@ -114,7 +114,15 @@ extension GameRoomViewController: UICollectionViewDataSource {
 
 extension GameRoomViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        showGameTabBarController()
+    }
     
+    private func showGameTabBarController() {
+        guard let gameTabBarController = storyboard?.instantiateViewController(withIdentifier: "GameTabBarController")
+            else { return }
+        gameTabBarController.modalTransitionStyle = .crossDissolve
+        gameTabBarController.modalPresentationStyle = .fullScreen
+        present(gameTabBarController, animated: true)
     }
 }
 
