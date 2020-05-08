@@ -57,6 +57,7 @@ final class GameRoomViewController: UIViewController {
             GameRoomCollectionViewFlowLayout(superFrame: view.frame))
         gameRoomCollectionView.register(GameRoomCell.self, forCellWithReuseIdentifier: GameRoomCell.reuseIdentifier)
         gameRoomCollectionView.dataSource = self
+        gameRoomCollectionView.delegate = self
         configureCollectionViewConstraints()
     }
     
@@ -108,6 +109,12 @@ extension GameRoomViewController: UICollectionViewDataSource {
             else { return GameRoomCell() }
         gameRoomCell.configure(gameRoom: gameRoomViewModel.gameRoom)
         return gameRoomCell
+    }
+}
+
+extension GameRoomViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
     }
 }
 
