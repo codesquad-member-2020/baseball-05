@@ -13,24 +13,12 @@ protocol TitleViewDelegate {
     func closeButtonDidTouch()
 }
 
-final class TitleView: UIView, IdentifiableView {
+final class TitleView: UIView, WithXib {
     var delegate: TitleViewDelegate?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configure()
-    }
-    
-    private func configure() {
-        guard let view = loadViewFromNib() else { return }
-        view.frame = bounds
-        self.addSubview(view)
-    }
-    
-    private func loadViewFromNib() -> UIView? {
-        let bundle = Bundle(for: type(of: self))
-        let nib = UINib(nibName: TitleView.identifier, bundle: bundle)
-        return nib.instantiate(withOwner: self, options: nil).first as? UIView
+        insertXibView()
     }
     
     @IBAction func closeButtonDidTouch(_ sender: UIButton) {
