@@ -120,7 +120,6 @@ extension GameRoomViewController: UICollectionViewDelegate {
     private func showGameTabBarController() {
         guard let gameTabBarController = storyboard?.instantiateViewController(withIdentifier: "GameTabBarController")
             else { return }
-        gameTabBarController.modalTransitionStyle = .crossDissolve
         gameTabBarController.modalPresentationStyle = .fullScreen
         present(gameTabBarController, animated: true)
     }
