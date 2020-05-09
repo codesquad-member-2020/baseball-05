@@ -15,7 +15,7 @@ public class User {
     @Id
     private Long id;
 
-    private Team team;
+    private Long team_id;
 
     private String userId;
 
