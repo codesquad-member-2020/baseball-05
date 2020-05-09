@@ -15,12 +15,18 @@ protocol TitleViewDelegate {
 
 final class TitleView: UIView, IdentifiableView {
     var delegate: TitleViewDelegate?
+    @IBOutlet weak var closeButton: UIButton!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        translatesAutoresizingMaskIntoConstraints = false
     }
     
     @IBAction func closeButtonDidTouch(_ sender: UIButton) {
         delegate?.closeButtonDidTouch()
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        return closeButton.intrinsicContentSize
     }
 }

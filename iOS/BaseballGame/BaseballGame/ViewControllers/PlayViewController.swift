@@ -15,6 +15,12 @@ final class PlayViewController: UIViewController {
     }
     
     private func configureTitleView() {
-        let view = Bundle.main.loadNibNamed(TitleView.identifier, owner: self, options: nil)?.first as! TitleView
+        let titleView = Bundle.main.loadNibNamed(TitleView.identifier, owner: self, options: nil)?.first as! TitleView
+        view.addSubview(titleView)
+        
+        titleView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        let safeArea = view.safeAreaLayoutGuide
+        titleView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor).isActive = true
+        titleView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
     }
 }
