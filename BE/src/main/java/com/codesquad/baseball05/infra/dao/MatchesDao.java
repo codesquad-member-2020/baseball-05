@@ -20,27 +20,20 @@ public class MatchesDao {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
-    private List<MatchesDTO> listMatches() {
-        String sql = "SELECT * FROM matches";
-
-        RowMapper<MatchesDTO> matchesRowMapper = new RowMapper<MatchesDTO>() {
-            @Override
-            public MatchesDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                Long id = rs.getLong("id");
-                return null;
-            }
-        };
-
-        return this.jdbcTemplate.query(sql, matchesRowMapper);
+    public List<MatchesDTO> listMatches() {
+        List<Matches> matchesList = findAll();
+        for (Matches match : matchesList) {
+            isPossibleEnterGame(match);
+        }
+        return null;
     }
 
-    private boolean isPossibleEnterGame(Long id) {
-        Matches matches = findMatchesById(id);
+    private boolean isPossibleEnterGame(Matches match) {
         return false;
     }
 
-    private Matches findMatchesById(Long id) {
-        String sql = "SELECT m.id, m.home_team, m.away_team FROM matches m WHERE id = ?";
+    private List<Matches> findAll() {
+        String sql = "SELECT m.id, m.home_team, m.away_team FROM matches m";
 
         RowMapper<Matches> matchesRowMapper = new RowMapper<Matches>() {
             @Override
@@ -53,6 +46,6 @@ public class MatchesDao {
             }
         };
 
-        return this.jdbcTemplate.queryForObject(sql, new Object[]{id}, matchesRowMapper);
+        return this.jdbcTemplate.query(sql, matchesRowMapper);
     }
 }

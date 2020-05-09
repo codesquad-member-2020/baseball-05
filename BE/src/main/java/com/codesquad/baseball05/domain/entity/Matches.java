@@ -15,9 +15,9 @@ public class Matches {
     @Id
     private Long id;
 
-    private User homeTeamUser;
+    private User userA;
 
-    private User awayTeamUser;
+    private User userB;
 
     private String homeTeam;
 

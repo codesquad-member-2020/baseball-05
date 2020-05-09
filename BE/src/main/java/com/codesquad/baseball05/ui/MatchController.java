@@ -15,7 +15,6 @@ public class MatchController {
 
     @GetMapping("/api/matches")
     public Object listMatches() {
-        return null;
-//        return matchesDao.findAll();
+        return matchesDao.listMatches();
     }
 }
