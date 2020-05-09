@@ -15,18 +15,25 @@ protocol TitleViewDelegate {
 
 final class TitleView: UIView, IdentifiableView {
     var delegate: TitleViewDelegate?
-    @IBOutlet weak var closeButton: UIButton!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        translatesAutoresizingMaskIntoConstraints = false
+        configure()
+    }
+    
+    private func configure() {
+        guard let view = loadViewFromNib() else { return }
+        view.frame = bounds
+        self.addSubview(view)
+    }
+    
+    private func loadViewFromNib() -> UIView? {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: TitleView.identifier, bundle: bundle)
+        return nib.instantiate(withOwner: self, options: nil).first as? UIView
     }
     
     @IBAction func closeButtonDidTouch(_ sender: UIButton) {
         delegate?.closeButtonDidTouch()
-    }
-    
-    override var intrinsicContentSize: CGSize {
-        return closeButton.intrinsicContentSize
     }
 }
