@@ -35,7 +35,6 @@
                     </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="H2w-wV-bbW" firstAttribute="leading" secondItem="m4o-rR-UdG" secondAttribute="leading" constant="15" id="Boh-be-IiS"/>
                 <constraint firstItem="iXa-Is-g9h" firstAttribute="centerX" secondItem="m4o-rR-UdG" secondAttribute="centerX" id="fpU-dw-CTd"/>

@@ -206,7 +206,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBQ-yj-4gl" customClass="TitleView" customModule="BaseballGame" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="22"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mBQ-yj-4gl" secondAttribute="height" multiplier="17:1" id="lJz-Oj-Lis"/>
                                 </constraints>
@@ -235,7 +234,6 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSi-rk-FUG" customClass="TitleView" customModule="BaseballGame" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="22"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aSi-rk-FUG" secondAttribute="height" multiplier="17:1" id="yiO-X5-Xao"/>
                                 </constraints>
