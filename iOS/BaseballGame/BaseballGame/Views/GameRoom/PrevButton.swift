@@ -36,14 +36,14 @@ final class PrevButton: UIButton {
     }
     
     private func configureTarget() {
-        addTarget(self, action: #selector(closeButtonDidTouch), for: .touchUpInside)
+        addTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
     }
     
     deinit {
-        removeTarget(self, action: #selector(closeButtonDidTouch), for: .touchUpInside)
+        removeTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
     }
     
-    @objc private func buttonDidTouch() {
+    @objc private func prevButtonDidTouch() {
         delegate?.prevButtonDidTouch()
     }
 }
