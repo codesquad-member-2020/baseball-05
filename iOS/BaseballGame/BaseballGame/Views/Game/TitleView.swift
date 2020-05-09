@@ -8,12 +8,29 @@
 
 import UIKit
 
+
+protocol TitleViewDelegate {
+    func closeButtonDidTouch()
+}
+
 final class TitleView: UIView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
+    @IBOutlet weak var closeButton: UIButton!
+    var delegate: TitleViewDelegate?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configureCloseButton()
+    }
+    
+    deinit {
+        closeButton.removeTarget(self, action: #selector(closeButtonDidTouch), for: .touchUpInside)
+    }
+    
+    private func configureCloseButton() {
+        closeButton.addTarget(self, action: #selector(closeButtonDidTouch), for: .touchUpInside)
+    }
+    
+    @objc private func closeButtonDidTouch() {
+        delegate?.closeButtonDidTouch()
     }
 }
