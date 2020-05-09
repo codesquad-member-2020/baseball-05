@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GameRoomCell: UICollectionViewCell, ReusableView {
+final class GameRoomCell: UICollectionViewCell, IdentifiableView {
     private let gameRoomLabel = GameRoomLabel()
     private let versusLabel = VersusLabel()
     private let awayTeamLabel = TitleLabel()

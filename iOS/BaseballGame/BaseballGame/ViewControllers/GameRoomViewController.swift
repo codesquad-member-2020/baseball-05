@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GameRoomViewController: UIViewController {
+final class GameRoomViewController: UIViewController, IdentifiableViewController {
     //MARK:- Internal properties
     private let gameRoomTitleLabel: TitleLabel = {
         let label = TitleLabel()
@@ -55,8 +55,9 @@ final class GameRoomViewController: UIViewController {
     private func configureCollectionView() {
         gameRoomCollectionView = GameRoomCollectionView(collectionViewLayout:
             GameRoomCollectionViewFlowLayout(superFrame: view.frame))
-        gameRoomCollectionView.register(GameRoomCell.self, forCellWithReuseIdentifier: GameRoomCell.reuseIdentifier)
+        gameRoomCollectionView.register(GameRoomCell.self, forCellWithReuseIdentifier: GameRoomCell.identifier)
         gameRoomCollectionView.dataSource = self
+        gameRoomCollectionView.delegate = self
         configureCollectionViewConstraints()
     }
     
@@ -84,7 +85,7 @@ final class GameRoomViewController: UIViewController {
     
     private func configureUseCase() {
         GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
-                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: NetworkManager()))
+                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomSuccess()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             self.gameRoomViewModels = GameRoomViewModels(gameViewModels:
@@ -100,7 +101,7 @@ extension GameRoomViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let gameRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: GameRoomCell.reuseIdentifier,
+        guard let gameRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: GameRoomCell.identifier,
                                                                     for: indexPath) as? GameRoomCell
             else { return GameRoomCell() }
         
@@ -108,6 +109,19 @@ extension GameRoomViewController: UICollectionViewDataSource {
             else { return GameRoomCell() }
         gameRoomCell.configure(gameRoom: gameRoomViewModel.gameRoom)
         return gameRoomCell
+    }
+}
+
+extension GameRoomViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        showGameTabBarController()
+    }
+    
+    private func showGameTabBarController() {
+        guard let gameTabBarController = storyboard?.instantiateViewController(withIdentifier: "GameTabBarController")
+            else { return }
+        gameTabBarController.modalPresentationStyle = .fullScreen
+        present(gameTabBarController, animated: true)
     }
 }
 

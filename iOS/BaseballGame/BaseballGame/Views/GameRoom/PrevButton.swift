@@ -30,20 +30,20 @@ final class PrevButton: UIButton {
     
     private func confugure() {
         setImage(UIImage(systemName: "arrow.left"), for: .normal)
-        tintColor = .red
+        tintColor = .systemRed
         imageView?.contentMode = .scaleAspectFit
         imageEdgeInsets = UIEdgeInsets(top: 23, left: 23, bottom: 23, right: 23)
     }
     
     private func configureTarget() {
-        addTarget(self, action: #selector(buttonDidTouch), for: .touchUpInside)
+        addTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
     }
     
     deinit {
-        removeTarget(self, action: #selector(buttonDidTouch), for: .touchUpInside)
+        removeTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
     }
     
-    @objc private func buttonDidTouch() {
+    @objc private func prevButtonDidTouch() {
         delegate?.prevButtonDidTouch()
     }
 }

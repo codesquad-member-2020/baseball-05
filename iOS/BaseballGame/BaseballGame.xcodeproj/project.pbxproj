@@ -35,13 +35,20 @@
 		5A814F0A2462AD99001C768D /* MockGameRoomSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F092462AD99001C768D /* MockGameRoomSuccess.swift */; };
 		5A814F102462DED2001C768D /* GameRoomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F0F2462DED2001C768D /* GameRoomViewModel.swift */; };
 		5A814F122462DEDF001C768D /* ViewModelBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F112462DEDF001C768D /* ViewModelBinding.swift */; };
-		5A814F532464016D001C768D /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F522464016D001C768D /* ReusableView.swift */; };
+		5A814F532464016D001C768D /* IdentifiableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F522464016D001C768D /* IdentifiableView.swift */; };
 		5A814F55246439B2001C768D /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F54246439B2001C768D /* BorderedButton.swift */; };
 		5A814F5824643A9D001C768D /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5724643A9D001C768D /* UIColorExtension.swift */; };
 		5A814F5A24644B15001C768D /* OauthLoginButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5924644B15001C768D /* OauthLoginButton.swift */; };
 		5A814F5C24645052001C768D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5B24645052001C768D /* LoginViewController.swift */; };
 		5A814F5E246451B2001C768D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5D246451B2001C768D /* MainViewController.swift */; };
 		5A814F6024645F07001C768D /* PrevButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5F24645F07001C768D /* PrevButton.swift */; };
+		5A814F6424658E25001C768D /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A814F6324658E25001C768D /* TitleView.xib */; };
+		5A814F6824665B23001C768D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6724665B23001C768D /* TitleView.swift */; };
+		5A814F6A246664DE001C768D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F69246664DE001C768D /* PlayViewController.swift */; };
+		5A814F6C24666502001C768D /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6B24666502001C768D /* ScoresViewController.swift */; };
+		5A814F6E24669226001C768D /* IdentifiableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6D24669226001C768D /* IdentifiableViewController.swift */; };
+		5A814F702466AC9A001C768D /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6F2466AC9A001C768D /* ScoreView.swift */; };
+		5A814F722466ACB0001C768D /* ScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A814F712466ACB0001C768D /* ScoreView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,13 +103,20 @@
 		5A814F092462AD99001C768D /* MockGameRoomSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockGameRoomSuccess.swift; sourceTree = "<group>"; };
 		5A814F0F2462DED2001C768D /* GameRoomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameRoomViewModel.swift; sourceTree = "<group>"; };
 		5A814F112462DEDF001C768D /* ViewModelBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelBinding.swift; sourceTree = "<group>"; };
-		5A814F522464016D001C768D /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		5A814F522464016D001C768D /* IdentifiableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableView.swift; sourceTree = "<group>"; };
 		5A814F54246439B2001C768D /* BorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButton.swift; sourceTree = "<group>"; };
 		5A814F5724643A9D001C768D /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		5A814F5924644B15001C768D /* OauthLoginButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OauthLoginButton.swift; sourceTree = "<group>"; };
 		5A814F5B24645052001C768D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A814F5D246451B2001C768D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5A814F5F24645F07001C768D /* PrevButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrevButton.swift; sourceTree = "<group>"; };
+		5A814F6324658E25001C768D /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		5A814F6724665B23001C768D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		5A814F69246664DE001C768D /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		5A814F6B24666502001C768D /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
+		5A814F6D24669226001C768D /* IdentifiableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableViewController.swift; sourceTree = "<group>"; };
+		5A814F6F2466AC9A001C768D /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		5A814F712466ACB0001C768D /* ScoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,10 +208,11 @@
 		5A7DD53C24602B83002ECB3A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A814F6624665A07001C768D /* Game */,
 				5A814F132462EB9F001C768D /* GameRoom */,
 				5A7DD53D24602B9F002ECB3A /* TitleLabel.swift */,
 				5A7DD54524603A0E002ECB3A /* VersusLabel.swift */,
-				5A814F522464016D001C768D /* ReusableView.swift */,
+				5A814F522464016D001C768D /* IdentifiableView.swift */,
 				5A814F54246439B2001C768D /* BorderedButton.swift */,
 				5A814F5924644B15001C768D /* OauthLoginButton.swift */,
 			);
@@ -282,9 +297,12 @@
 		5A814F512463F93F001C768D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5A814F6D24669226001C768D /* IdentifiableViewController.swift */,
 				5A814F5D246451B2001C768D /* MainViewController.swift */,
 				5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */,
 				5A814F5B24645052001C768D /* LoginViewController.swift */,
+				5A814F69246664DE001C768D /* PlayViewController.swift */,
+				5A814F6B24666502001C768D /* ScoresViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -295,6 +313,17 @@
 				5A814F5724643A9D001C768D /* UIColorExtension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5A814F6624665A07001C768D /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				5A814F6324658E25001C768D /* TitleView.xib */,
+				5A814F6724665B23001C768D /* TitleView.swift */,
+				5A814F6F2466AC9A001C768D /* ScoreView.swift */,
+				5A814F712466ACB0001C768D /* ScoreView.xib */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,7 +431,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7DD5162460170A002ECB3A /* LaunchScreen.storyboard in Resources */,
+				5A814F722466ACB0001C768D /* ScoreView.xib in Resources */,
 				5A7DD5132460170A002ECB3A /* Assets.xcassets in Resources */,
+				5A814F6424658E25001C768D /* TitleView.xib in Resources */,
 				5A814EE924627B5B001C768D /* TeamInfoSuccessStub.json in Resources */,
 				5A7DD51124601708002ECB3A /* Main.storyboard in Resources */,
 			);
@@ -433,14 +464,18 @@
 				5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */,
 				5A814EED24627BD5001C768D /* DataExtensions.swift in Sources */,
 				5A7DD54A24604DE9002ECB3A /* GameRoomCollectionView.swift in Sources */,
+				5A814F6C24666502001C768D /* ScoresViewController.swift in Sources */,
 				5A814EF824629BF7001C768D /* NetworkDispatcher.swift in Sources */,
+				5A814F702466AC9A001C768D /* ScoreView.swift in Sources */,
+				5A814F6824665B23001C768D /* TitleView.swift in Sources */,
 				5A814F0A2462AD99001C768D /* MockGameRoomSuccess.swift in Sources */,
 				5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */,
 				5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */,
 				5A814EE724625703001C768D /* VersusViewModel.swift in Sources */,
 				5A814EFA2462A0D9001C768D /* NetworkTask.swift in Sources */,
 				5A7DD540246035F7002ECB3A /* GameRoomCell.swift in Sources */,
-				5A814F532464016D001C768D /* ReusableView.swift in Sources */,
+				5A814F6A246664DE001C768D /* PlayViewController.swift in Sources */,
+				5A814F532464016D001C768D /* IdentifiableView.swift in Sources */,
 				5A814F5C24645052001C768D /* LoginViewController.swift in Sources */,
 				5A7DD54C246056AD002ECB3A /* GameRoomViewModels.swift in Sources */,
 				5A814F5E246451B2001C768D /* MainViewController.swift in Sources */,
@@ -452,6 +487,7 @@
 				5A814F6024645F07001C768D /* PrevButton.swift in Sources */,
 				5A814F5A24644B15001C768D /* OauthLoginButton.swift in Sources */,
 				5A814EF62462810B001C768D /* Request.swift in Sources */,
+				5A814F6E24669226001C768D /* IdentifiableViewController.swift in Sources */,
 				5A814F5824643A9D001C768D /* UIColorExtension.swift in Sources */,
 				5A814F032462AB84001C768D /* GameRoomUseCase.swift in Sources */,
 				5A814F122462DEDF001C768D /* ViewModelBinding.swift in Sources */,

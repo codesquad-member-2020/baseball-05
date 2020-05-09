@@ -23,7 +23,7 @@ final class MainViewController: UIViewController {
     }
     
     private func showLoginViewController() {
-        guard let loginViewController = storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { return }
+        guard let loginViewController = storyboard?.instantiateViewController(withIdentifier: LoginViewController.identifier) as? LoginViewController else { return }
         
         loginViewController.modalPresentationStyle = .fullScreen
         present(loginViewController, animated: false)
@@ -34,7 +34,7 @@ final class MainViewController: UIViewController {
     }
     
     private func showGameRoomViewController() {
-        guard let gameRoomViewController = storyboard?.instantiateViewController(withIdentifier: "GameRoomViewController") as? GameRoomViewController else { return }
+        guard let gameRoomViewController = storyboard?.instantiateViewController(withIdentifier: GameRoomViewController.identifier) as? GameRoomViewController else { return }
         navigationController?.pushViewController(gameRoomViewController, animated: true)
     }
 }
