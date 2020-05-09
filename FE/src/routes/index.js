@@ -22,6 +22,10 @@ const router = new VueRouter({
       path: '/main/:id',
       component: () => import('@/views/GameView.vue'),
     },
+    {
+      path: '*',
+      component: () => import('@/views/NotFoundPage.vue'),
+    },
   ],
 });
 
