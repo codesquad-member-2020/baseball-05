@@ -224,6 +224,37 @@
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller" catalog="system" id="qTj-Jz-o3m"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aro-p9-AII" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="U2k-O9-C9j" customClass="TitleView" customModule="BaseballGame" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="35"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lka-F1-jRM">
+                            <rect key="frame" x="15" y="6.5" width="18" height="22"/>
+                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" image="xmark" catalog="system"/>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgO-Od-bLq">
+                            <rect key="frame" x="111" y="7" width="153" height="21"/>
+                            <attributedString key="attributedText">
+                                <fragment content="kbo baseball game">
+                                    <attributes>
+                                        <color key="NSColor" red="0.050980392156862744" green="0.16078431372549018" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <font key="NSFont" size="17" name="HelveticaNeue-BoldItalic"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstItem="qgO-Od-bLq" firstAttribute="centerX" secondItem="RN2-RS-fHf" secondAttribute="centerX" id="0pL-xR-bS9"/>
+                        <constraint firstItem="qgO-Od-bLq" firstAttribute="centerY" secondItem="RN2-RS-fHf" secondAttribute="centerY" id="3Y1-rg-g5N"/>
+                        <constraint firstItem="lka-F1-jRM" firstAttribute="centerY" secondItem="RN2-RS-fHf" secondAttribute="centerY" id="WbT-g7-hYi"/>
+                        <constraint firstItem="lka-F1-jRM" firstAttribute="leading" secondItem="RN2-RS-fHf" secondAttribute="leading" constant="15" id="lRz-qI-Cbf"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="RN2-RS-fHf"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="944.79999999999995" y="-1352.473763118441"/>
         </scene>
@@ -269,5 +300,6 @@
         <image name="chart.bar" catalog="system" width="128" height="90"/>
         <image name="gamecontroller" catalog="system" width="128" height="82"/>
         <image name="github" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

@@ -30,7 +30,7 @@ final class PrevButton: UIButton {
     
     private func confugure() {
         setImage(UIImage(systemName: "arrow.left"), for: .normal)
-        tintColor = .red
+        tintColor = .systemRed
         imageView?.contentMode = .scaleAspectFit
         imageEdgeInsets = UIEdgeInsets(top: 23, left: 23, bottom: 23, right: 23)
     }
