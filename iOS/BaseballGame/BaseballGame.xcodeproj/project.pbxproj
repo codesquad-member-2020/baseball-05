@@ -43,6 +43,7 @@
 		5A814F5E246451B2001C768D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5D246451B2001C768D /* MainViewController.swift */; };
 		5A814F6024645F07001C768D /* PrevButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5F24645F07001C768D /* PrevButton.swift */; };
 		5A814F6424658E25001C768D /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A814F6324658E25001C768D /* TitleView.xib */; };
+		5A814F6824665B23001C768D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6724665B23001C768D /* TitleView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,7 @@
 		5A814F5D246451B2001C768D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5A814F5F24645F07001C768D /* PrevButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrevButton.swift; sourceTree = "<group>"; };
 		5A814F6324658E25001C768D /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
+		5A814F6724665B23001C768D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				5A814F6324658E25001C768D /* TitleView.xib */,
+				5A814F6724665B23001C768D /* TitleView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				5A814EED24627BD5001C768D /* DataExtensions.swift in Sources */,
 				5A7DD54A24604DE9002ECB3A /* GameRoomCollectionView.swift in Sources */,
 				5A814EF824629BF7001C768D /* NetworkDispatcher.swift in Sources */,
+				5A814F6824665B23001C768D /* TitleView.swift in Sources */,
 				5A814F0A2462AD99001C768D /* MockGameRoomSuccess.swift in Sources */,
 				5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */,
 				5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */,
