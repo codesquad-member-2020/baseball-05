@@ -30,6 +30,9 @@
                     <rect key="frame" x="15" y="14" width="18" height="22"/>
                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" image="xmark" catalog="system"/>
+                    <connections>
+                        <action selector="closeButtonDidTouch:" destination="aia-Ue-JNX" eventType="touchUpInside" id="0yc-dh-yao"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -41,9 +44,6 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="m4o-rR-UdG"/>
-            <connections>
-                <outlet property="closeButton" destination="H2w-wV-bbW" id="ToC-ji-J0R"/>
-            </connections>
             <point key="canvasLocation" x="-135.19999999999999" y="-339.13043478260875"/>
         </view>
     </objects>

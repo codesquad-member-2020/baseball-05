@@ -14,23 +14,13 @@ protocol TitleViewDelegate {
 }
 
 final class TitleView: UIView {
-    @IBOutlet weak var closeButton: UIButton!
     var delegate: TitleViewDelegate?
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configureCloseButton()
     }
     
-    deinit {
-        closeButton.removeTarget(self, action: #selector(closeButtonDidTouch), for: .touchUpInside)
-    }
-    
-    private func configureCloseButton() {
-        closeButton.addTarget(self, action: #selector(closeButtonDidTouch), for: .touchUpInside)
-    }
-    
-    @objc private func closeButtonDidTouch() {
+    @IBAction func closeButtonDidTouch(_ sender: UIButton) {
         delegate?.closeButtonDidTouch()
     }
 }
