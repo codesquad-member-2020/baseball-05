@@ -8,7 +8,13 @@
 
 import UIKit
 
+@IBDesignable
 final class ScoreView: UIView, WithXib {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        insertXibView()
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         insertXibView()

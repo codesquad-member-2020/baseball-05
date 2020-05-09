@@ -16,6 +16,11 @@ protocol TitleViewDelegate {
 final class TitleView: UIView, WithXib {
     var delegate: TitleViewDelegate?
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        insertXibView()
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         insertXibView()
