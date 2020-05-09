@@ -14,13 +14,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Captain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROC-oc-Qsk" customClass="TitleLabel" customModule="BaseballGame" customModuleProvider="target">
-                    <rect key="frame" x="17.5" y="14.5" width="59" height="21"/>
+                    <rect key="frame" x="10" y="14.5" width="59" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igj-WT-xhG" customClass="TitleLabel" customModule="BaseballGame" customModuleProvider="target">
-                    <rect key="frame" x="99" y="14.5" width="8" height="21"/>
+                    <rect key="frame" x="127.5" y="14.5" width="8" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -32,26 +32,26 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r03-xK-7nq" customClass="TitleLabel" customModule="BaseballGame" customModuleProvider="target">
-                    <rect key="frame" x="266.5" y="14.5" width="11" height="21"/>
+                    <rect key="frame" x="238.5" y="14.5" width="11" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marvel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c17-Ac-Np9" customClass="TitleLabel" customModule="BaseballGame" customModuleProvider="target">
-                    <rect key="frame" x="302" y="14.5" width="52" height="21"/>
+                    <rect key="frame" x="313" y="14.5" width="52" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gxB-7I-ep0" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="39b-Wi-8va"/>
-                <constraint firstItem="r03-xK-7nq" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="1.45" id="3mJ-mn-Jff"/>
-                <constraint firstItem="ROC-oc-Qsk" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="0.25" id="4tO-F4-OKL"/>
-                <constraint firstItem="Igj-WT-xhG" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="0.55" id="Bek-cS-MYx"/>
-                <constraint firstItem="c17-Ac-Np9" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="1.75" id="CYy-rB-eoB"/>
+                <constraint firstItem="Igj-WT-xhG" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="0.7" id="3UB-uR-IzH"/>
                 <constraint firstItem="c17-Ac-Np9" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="GaE-do-WOA"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="c17-Ac-Np9" secondAttribute="trailing" constant="10" id="MHl-gD-iY9"/>
+                <constraint firstItem="ROC-oc-Qsk" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="10" id="PTL-QV-2Ip"/>
+                <constraint firstItem="r03-xK-7nq" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="1.3" id="TOP-gn-lY0"/>
                 <constraint firstItem="ROC-oc-Qsk" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="U83-NK-l1N"/>
                 <constraint firstItem="gxB-7I-ep0" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="b3d-CA-hnM"/>
                 <constraint firstItem="Igj-WT-xhG" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="i9P-zz-x1r"/>

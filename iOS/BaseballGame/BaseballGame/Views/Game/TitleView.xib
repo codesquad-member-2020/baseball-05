@@ -27,7 +27,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2w-wV-bbW">
-                    <rect key="frame" x="15" y="1.5" width="18" height="22"/>
+                    <rect key="frame" x="5" y="3" width="18" height="22"/>
                     <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" image="xmark" catalog="system"/>
                     <connections>
@@ -35,11 +35,12 @@
                     </connections>
                 </button>
             </subviews>
+            <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="H2w-wV-bbW" firstAttribute="leading" secondItem="m4o-rR-UdG" secondAttribute="leading" constant="15" id="Boh-be-IiS"/>
+                <constraint firstItem="H2w-wV-bbW" firstAttribute="leading" secondItem="m4o-rR-UdG" secondAttribute="leading" constant="5" id="Boh-be-IiS"/>
                 <constraint firstItem="iXa-Is-g9h" firstAttribute="centerX" secondItem="m4o-rR-UdG" secondAttribute="centerX" id="fpU-dw-CTd"/>
                 <constraint firstItem="iXa-Is-g9h" firstAttribute="centerY" secondItem="m4o-rR-UdG" secondAttribute="centerY" id="jP2-gN-nUR"/>
-                <constraint firstItem="H2w-wV-bbW" firstAttribute="centerY" secondItem="m4o-rR-UdG" secondAttribute="centerY" id="zHN-5w-XX8"/>
+                <constraint firstItem="H2w-wV-bbW" firstAttribute="centerY" secondItem="m4o-rR-UdG" secondAttribute="centerY" multiplier="1.1" id="zHN-5w-XX8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="m4o-rR-UdG"/>

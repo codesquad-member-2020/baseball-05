@@ -8,6 +8,9 @@
 
 import UIKit
 
-final class ScoreView: UIView {
-    
+final class ScoreView: UIView, WithXib {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        insertXibView()
+    }
 }
