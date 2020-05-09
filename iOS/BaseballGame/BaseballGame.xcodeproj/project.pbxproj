@@ -47,6 +47,8 @@
 		5A814F6A246664DE001C768D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F69246664DE001C768D /* PlayViewController.swift */; };
 		5A814F6C24666502001C768D /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6B24666502001C768D /* ScoresViewController.swift */; };
 		5A814F6E24669226001C768D /* IdentifiableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6D24669226001C768D /* IdentifiableViewController.swift */; };
+		5A814F702466AC9A001C768D /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6F2466AC9A001C768D /* ScoreView.swift */; };
+		5A814F722466ACB0001C768D /* ScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A814F712466ACB0001C768D /* ScoreView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,8 @@
 		5A814F69246664DE001C768D /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		5A814F6B24666502001C768D /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
 		5A814F6D24669226001C768D /* IdentifiableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableViewController.swift; sourceTree = "<group>"; };
+		5A814F6F2466AC9A001C768D /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		5A814F712466ACB0001C768D /* ScoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +320,8 @@
 			children = (
 				5A814F6324658E25001C768D /* TitleView.xib */,
 				5A814F6724665B23001C768D /* TitleView.swift */,
+				5A814F6F2466AC9A001C768D /* ScoreView.swift */,
+				5A814F712466ACB0001C768D /* ScoreView.xib */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -425,6 +431,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A7DD5162460170A002ECB3A /* LaunchScreen.storyboard in Resources */,
+				5A814F722466ACB0001C768D /* ScoreView.xib in Resources */,
 				5A7DD5132460170A002ECB3A /* Assets.xcassets in Resources */,
 				5A814F6424658E25001C768D /* TitleView.xib in Resources */,
 				5A814EE924627B5B001C768D /* TeamInfoSuccessStub.json in Resources */,
@@ -459,6 +466,7 @@
 				5A7DD54A24604DE9002ECB3A /* GameRoomCollectionView.swift in Sources */,
 				5A814F6C24666502001C768D /* ScoresViewController.swift in Sources */,
 				5A814EF824629BF7001C768D /* NetworkDispatcher.swift in Sources */,
+				5A814F702466AC9A001C768D /* ScoreView.swift in Sources */,
 				5A814F6824665B23001C768D /* TitleView.swift in Sources */,
 				5A814F0A2462AD99001C768D /* MockGameRoomSuccess.swift in Sources */,
 				5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */,
