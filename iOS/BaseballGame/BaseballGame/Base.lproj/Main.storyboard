@@ -234,12 +234,13 @@
                             <state key="normal" image="xmark" catalog="system"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgO-Od-bLq">
-                            <rect key="frame" x="111" y="7" width="153" height="21"/>
+                            <rect key="frame" x="106.5" y="7" width="162.5" height="21"/>
                             <attributedString key="attributedText">
-                                <fragment content="kbo baseball game">
+                                <fragment content="KBO Baseball game">
                                     <attributes>
                                         <color key="NSColor" red="0.050980392156862744" green="0.16078431372549018" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <font key="NSFont" size="17" name="HelveticaNeue-BoldItalic"/>
+                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                     </attributes>
                                 </fragment>
                             </attributedString>
