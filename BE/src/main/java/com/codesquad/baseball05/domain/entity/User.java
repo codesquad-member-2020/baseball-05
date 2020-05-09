@@ -11,6 +11,8 @@ public class User {
     @Id
     private Long id;
 
+    private Team team;
+
     private String userId;
 
     private String email;

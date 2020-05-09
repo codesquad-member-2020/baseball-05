@@ -17,7 +17,7 @@ public class Half {
 
     private int totalPlate;
 
-    private int out;
+    private int outs;
 
     private int hit;
 

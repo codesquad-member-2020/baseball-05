@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS `myDB`.`user`;
-DROP TABLE IF EXISTS `myDB`.`match`;
+DROP TABLE IF EXISTS `myDB`.`matches`;
 DROP TABLE IF EXISTS `myDB`.`team`;
 DROP TABLE IF EXISTS `myDB`.`player`;
 DROP TABLE IF EXISTS `myDB`.`record`;
@@ -17,19 +17,19 @@ CREATE TABLE IF NOT EXISTS `myDB`.`user`
     id      BIGINT PRIMARY KEY AUTO_INCREMENT,
     team_id BIGINT REFERENCES team (id),
     user_id VARCHAR(32),
-    email   VARCHAR(45) UNIQUE,
+    email   VARCHAR(45) UNIQUE
 );
 
 -- -----------------------------------------------------
--- Table `baseball`.`MATCH_TABLE`
+-- Table `baseball`.`MATCHES`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `myDB`.`match`
+CREATE TABLE IF NOT EXISTS `myDB`.`matches`
 (
-    id                BIGINT PRIMARY KEY AUTO_INCREMENT,
-    home_team_user_id BIGINT REFERENCES user (id),
-    away_team_user_id BIGINT REFERENCES user (id),
-    home_team         VARCHAR(45) NULL,
-    away_team         VARCHAR(45) NULL
+    id        BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_a   BIGINT REFERENCES user (id),
+    user_b   BIGINT REFERENCES user (id),
+    home_team VARCHAR(45) NULL,
+    away_team VARCHAR(45) NULL
 );
 
 -- -----------------------------------------------------
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `myDB`.`record`
     hit             INT,
     strike          INT,
     ball            INT,
-    `out`           INT,
+    outs            INT,
     batting_average DOUBLE
 );
 
@@ -73,8 +73,8 @@ CREATE TABLE IF NOT EXISTS `myDB`.`record`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myDB`.`game`
 (
-    id       BIGINT PRIMARY KEY AUTO_INCREMENT,
-    match_id BIGINT REFERENCES match (id)
+    id         BIGINT PRIMARY KEY AUTO_INCREMENT,
+    matches_id BIGINT REFERENCES matches (id)
 );
 
 -- -----------------------------------------------------
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `myDB`.`half`
     id              BIGINT PRIMARY KEY AUTO_INCREMENT,
     last_bat_player INT,
     total_plate     INT DEFAULT 0,
-    `out`           INT DEFAULT 0,
+    outs            INT DEFAULT 0,
     hit             INT DEFAULT 0,
     point           INT DEFAULT 0
 );
@@ -129,7 +129,6 @@ CREATE TABLE IF NOT EXISTS `myDB`.`round`
     player_name VARCHAR(45) NOT NULL,
     strike      INT DEFAULT 0,
     ball        INT DEFAULT 0,
-    `out`       INT DEFAULT 0,
     hit_or_out  ENUM ('안타', '아웃')
 );
 

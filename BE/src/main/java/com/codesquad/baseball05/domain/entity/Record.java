@@ -19,7 +19,7 @@ public class Record {
 
     private int ball;
 
-    private int out;
+    private int outs;
 
     private Double battingAverage;
 }

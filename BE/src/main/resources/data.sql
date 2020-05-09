@@ -9,6 +9,20 @@ INSERT INTO team (name) VALUE ('기아');
 INSERT INTO team (name) VALUE ('롯데');
 
 -- -----------------------------------------------------
+-- USER TEST --
+-- -----------------------------------------------------
+INSERT INTO user (id, team_id, user_id, email) VALUE (1, 2, 'ever', 'evwe@gmail.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (2, 1, 'solar', 'slar@gmail.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (3, 4, 'jason', 'jswe@gmail.com');
+
+-- -----------------------------------------------------
+-- MATCHES TEST --
+-- -----------------------------------------------------
+INSERT INTO matches (id, user_a, user_b, home_team, away_team) VALUE (1, 1, 2, '한화', '두산');
+INSERT INTO matches (id, user_a, user_b, home_team, away_team) VALUE (2, 3, null, 'LG', '삼성');
+INSERT INTO matches (id, user_a, user_b, home_team, away_team) VALUE (3, null, null, '기아', '롯데');
+
+-- -----------------------------------------------------
 -- Table `baseball`.`player`
 -- -----------------------------------------------------
 
@@ -78,7 +92,4 @@ INSERT INTO player (team_id, name, batting_average, is_pitcher) VALUE (6, '허�
 INSERT INTO player (team_id, name, batting_average, is_pitcher) VALUE (6, '고승민', 0.253, false);
 INSERT INTO player (team_id, name, batting_average, is_pitcher) VALUE (6, '윌슨', 0.252, true);
 
--- MATCH_TABLE TEST --
-INSERT INTO match_table (id, home_team, away_team, is_selected) VALUE (1, 'Marvel', 'Captain', true);
-INSERT INTO match_table (id, home_team, away_team, is_selected) VALUE (2, 'Tigers', 'Twins', true);
-INSERT INTO match_table (id, home_team, away_team, is_selected) VALUE (3, 'Dodgers', 'Rockets', false);
+
