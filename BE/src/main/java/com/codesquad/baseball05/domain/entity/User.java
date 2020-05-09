@@ -6,14 +6,12 @@ import org.springframework.data.annotation.Id;
 
 @Getter
 @AllArgsConstructor
-public class MatchTable {
+public class User {
 
     @Id
     private Long id;
 
-    private String homeTeam;
+    private String userId;
 
-    private String awayTeam;
-
-    private Boolean isSelected;
+    private String email;
 }

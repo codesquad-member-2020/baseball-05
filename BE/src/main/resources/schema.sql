@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS `myDB`.`user`;
+DROP TABLE IF EXISTS `myDB`.`match`;
 DROP TABLE IF EXISTS `myDB`.`team`;
 DROP TABLE IF EXISTS `myDB`.`player`;
 DROP TABLE IF EXISTS `myDB`.`record`;
@@ -6,15 +8,36 @@ DROP TABLE IF EXISTS `myDB`.`inning`;
 DROP TABLE IF EXISTS `myDB`.`half`;
 DROP TABLE IF EXISTS `myDB`.`plate`;
 DROP TABLE IF EXISTS `myDB`.`round`;
-DROP TABLE IF EXISTS `myDB`.`match_table`;
 
+-- -----------------------------------------------------
+-- Table `baseball`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myDB`.`user`
+(
+    id      BIGINT PRIMARY KEY AUTO_INCREMENT,
+    team_id BIGINT REFERENCES team (id),
+    user_id VARCHAR(32),
+    email   VARCHAR(45) UNIQUE,
+);
+
+-- -----------------------------------------------------
+-- Table `baseball`.`MATCH_TABLE`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `myDB`.`match`
+(
+    id                BIGINT PRIMARY KEY AUTO_INCREMENT,
+    home_team_user_id BIGINT REFERENCES user (id),
+    away_team_user_id BIGINT REFERENCES user (id),
+    home_team         VARCHAR(45) NULL,
+    away_team         VARCHAR(45) NULL
+);
 
 -- -----------------------------------------------------
 -- Table `baseball`.`team`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myDB`.`team`
 (
-    id   INT PRIMARY KEY AUTO_INCREMENT,
+    id   BIGINT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(45)
 );
 
@@ -23,8 +46,8 @@ CREATE TABLE IF NOT EXISTS `myDB`.`team`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myDB`.`player`
 (
-    number          INT PRIMARY KEY AUTO_INCREMENT,
-    team_id         VARCHAR(45) REFERENCES team (id),
+    id              BIGINT PRIMARY KEY AUTO_INCREMENT,
+    team_id         BIGINT REFERENCES team (id),
     name            VARCHAR(45),
     batting_average DOUBLE,
     is_pitcher      BOOLEAN
@@ -35,8 +58,8 @@ CREATE TABLE IF NOT EXISTS `myDB`.`player`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myDB`.`record`
 (
-    id              INT PRIMARY KEY AUTO_INCREMENT,
-    player_number   VARCHAR(32) REFERENCES player (number),
+    id              BIGINT PRIMARY KEY AUTO_INCREMENT,
+    player_number   BIGINT REFERENCES player (id),
     mount           INT,
     hit             INT,
     strike          INT,
@@ -50,10 +73,8 @@ CREATE TABLE IF NOT EXISTS `myDB`.`record`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myDB`.`game`
 (
-    id        INT PRIMARY KEY AUTO_INCREMENT,
-    home_team VARCHAR(45) REFERENCES team (id),
-    away_team VARCHAR(45) REFERENCES team (id),
-    user_team VARCHAR(45)
+    id       BIGINT PRIMARY KEY AUTO_INCREMENT,
+    match_id BIGINT REFERENCES match (id)
 );
 
 -- -----------------------------------------------------
@@ -61,10 +82,10 @@ CREATE TABLE IF NOT EXISTS `myDB`.`game`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myDB`.`inning`
 (
-    id             INT PRIMARY KEY AUTO_INCREMENT,
-    game_id        INT REFERENCES game (id),
-    first_half_id  INT REFERENCES half (id),
-    second_half_id INT REFERENCES half (id),
+    id             BIGINT PRIMARY KEY AUTO_INCREMENT,
+    game_id        BIGINT REFERENCES game (id),
+    first_half_id  BIGINT REFERENCES half (id),
+    second_half_id BIGINT REFERENCES half (id),
     half           ENUM ('초', '말') DEFAULT '초'
 );
 
@@ -73,7 +94,7 @@ CREATE TABLE IF NOT EXISTS `myDB`.`inning`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myDB`.`half`
 (
-    id              INT PRIMARY KEY AUTO_INCREMENT,
+    id              BIGINT PRIMARY KEY AUTO_INCREMENT,
     last_bat_player INT,
     total_plate     INT DEFAULT 0,
     `out`           INT DEFAULT 0,
@@ -88,8 +109,8 @@ CREATE TABLE IF NOT EXISTS `myDB`.`half`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myDB`.`plate`
 (
-    id             INT PRIMARY KEY AUTO_INCREMENT,
-    half_id        INT REFERENCES half (id),
+    id             BIGINT PRIMARY KEY AUTO_INCREMENT,
+    half_id        BIGINT REFERENCES half (id),
     strike         INT DEFAULT 0,
     ball           INT DEFAULT 0,
     first_baseman  VARCHAR(45) NULL,
@@ -103,8 +124,8 @@ CREATE TABLE IF NOT EXISTS `myDB`.`plate`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `myDB`.`round`
 (
-    id          INT PRIMARY KEY AUTO_INCREMENT,
-    plate_id    INT REFERENCES plate (id),
+    id          BIGINT PRIMARY KEY AUTO_INCREMENT,
+    plate_id    BIGINT REFERENCES plate (id),
     player_name VARCHAR(45) NOT NULL,
     strike      INT DEFAULT 0,
     ball        INT DEFAULT 0,
@@ -112,13 +133,4 @@ CREATE TABLE IF NOT EXISTS `myDB`.`round`
     hit_or_out  ENUM ('안타', '아웃')
 );
 
--- -----------------------------------------------------
--- Table `baseball`.`MATCH_TABLE`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `myDB`.`match_table`
-(
-    id          INT PRIMARY KEY AUTO_INCREMENT,
-    home_team   VARCHAR(45) NULL,
-    away_team   VARCHAR(45) NULL,
-    is_selected BOOLEAN DEFAULT FALSE
-);
+

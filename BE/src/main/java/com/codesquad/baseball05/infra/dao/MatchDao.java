@@ -1,6 +1,6 @@
 package com.codesquad.baseball05.infra.dao;
 
-import com.codesquad.baseball05.domain.entity.MatchTable;
+import com.codesquad.baseball05.domain.entity.Match;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -21,10 +21,10 @@ public class MatchDao {
     public Object listMatches() {
         String sql = "SELECT * FROM match_table";
 
-        RowMapper<MatchTable> matchTableRowMapper = new RowMapper<MatchTable>() {
+        RowMapper<Match> matchTableRowMapper = new RowMapper<Match>() {
             @Override
-            public MatchTable mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return new MatchTable(
+            public Match mapRow(ResultSet rs, int rowNum) throws SQLException {
+                return new Match(
                         rs.getLong("id"),
                         rs.getString("home_team"),
                         rs.getString("away_team"),
