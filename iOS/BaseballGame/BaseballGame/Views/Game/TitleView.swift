@@ -13,7 +13,7 @@ protocol TitleViewDelegate {
     func closeButtonDidTouch()
 }
 
-final class TitleView: UIView {
+final class TitleView: UIView, IdentifiableView {
     var delegate: TitleViewDelegate?
     
     required init?(coder: NSCoder) {

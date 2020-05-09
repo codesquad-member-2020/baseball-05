@@ -55,7 +55,7 @@ final class GameRoomViewController: UIViewController {
     private func configureCollectionView() {
         gameRoomCollectionView = GameRoomCollectionView(collectionViewLayout:
             GameRoomCollectionViewFlowLayout(superFrame: view.frame))
-        gameRoomCollectionView.register(GameRoomCell.self, forCellWithReuseIdentifier: GameRoomCell.reuseIdentifier)
+        gameRoomCollectionView.register(GameRoomCell.self, forCellWithReuseIdentifier: GameRoomCell.identifier)
         gameRoomCollectionView.dataSource = self
         gameRoomCollectionView.delegate = self
         configureCollectionViewConstraints()
@@ -101,7 +101,7 @@ extension GameRoomViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let gameRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: GameRoomCell.reuseIdentifier,
+        guard let gameRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: GameRoomCell.identifier,
                                                                     for: indexPath) as? GameRoomCell
             else { return GameRoomCell() }
         

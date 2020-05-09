@@ -8,12 +8,12 @@
 
 import UIKit
 
-protocol ReusableView where Self: UIView {
-    static var reuseIdentifier: String { get }
+protocol IdentifiableView where Self: UIView {
+    static var identifier: String { get }
 }
 
-extension ReusableView {
-    static var reuseIdentifier: String {
+extension IdentifiableView {
+    static var identifier: String {
            return String(describing: self)
     }
 }
