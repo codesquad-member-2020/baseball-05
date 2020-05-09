@@ -1,23 +1,21 @@
 package com.codesquad.baseball05.domain.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Matches {
 
     @Id
     private Long id;
 
-    private Long userAid;
+    private Long aUserId;
 
-    private Long userBid;
+    private Long bUserId;
 
     private String homeTeam;
 

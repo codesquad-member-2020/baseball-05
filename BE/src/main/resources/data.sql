@@ -18,9 +18,9 @@ INSERT INTO user (id, team_id, user_id, email) VALUE (3, 4, 'jason', 'jswe@gmail
 -- -----------------------------------------------------
 -- MATCHES TEST --
 -- -----------------------------------------------------
-INSERT INTO matches (id, user_a, user_b, home_team, away_team) VALUE (1, 1, 2, '한화', '두산');
-INSERT INTO matches (id, user_a, user_b, home_team, away_team) VALUE (2, 3, null, 'LG', '삼성');
-INSERT INTO matches (id, user_a, user_b, home_team, away_team) VALUE (3, null, null, '기아', '롯데');
+INSERT INTO matches (id, a_user_id, b_user_id, home_team, away_team) VALUE (1, 1, 2, '한화', '두산');
+INSERT INTO matches (id, a_user_id, b_user_id, home_team, away_team) VALUE (2, 3, null, 'LG', '삼성');
+INSERT INTO matches (id, a_user_id, b_user_id, home_team, away_team) VALUE (3, null, null, '기아', '롯데');
 
 -- -----------------------------------------------------
 -- Table `baseball`.`player`

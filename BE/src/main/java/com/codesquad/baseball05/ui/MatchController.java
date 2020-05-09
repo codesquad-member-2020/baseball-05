@@ -1,6 +1,7 @@
 package com.codesquad.baseball05.ui;
 
 import com.codesquad.baseball05.infra.dao.MatchesDao;
+import com.codesquad.baseball05.infra.dao.TeamDao;
 import com.codesquad.baseball05.infra.dao.UserDao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,8 +17,10 @@ public class MatchController {
 
     private final UserDao userDao;
 
+    private final TeamDao teamDao;
+
     @GetMapping("/api/matches")
     public Object listMatches() {
-        return matchesDao.listMatches(userDao);
+        return matchesDao.listMatches(userDao, teamDao);
     }
 }

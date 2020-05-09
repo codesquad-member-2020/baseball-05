@@ -26,8 +26,8 @@ CREATE TABLE IF NOT EXISTS `myDB`.`user`
 CREATE TABLE IF NOT EXISTS `myDB`.`matches`
 (
     id        BIGINT PRIMARY KEY AUTO_INCREMENT,
-    user_a_id    BIGINT REFERENCES user (id),
-    user_b_id    BIGINT REFERENCES user (id),
+    a_user_id BIGINT REFERENCES user (id),
+    b_user_id BIGINT REFERENCES user (id),
     home_team VARCHAR(45) NULL,
     away_team VARCHAR(45) NULL
 );
