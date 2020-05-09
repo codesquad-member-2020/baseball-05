@@ -46,6 +46,7 @@
 		5A814F6824665B23001C768D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6724665B23001C768D /* TitleView.swift */; };
 		5A814F6A246664DE001C768D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F69246664DE001C768D /* PlayViewController.swift */; };
 		5A814F6C24666502001C768D /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6B24666502001C768D /* ScoresViewController.swift */; };
+		5A814F6E24669226001C768D /* IdentifiableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6D24669226001C768D /* IdentifiableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		5A814F6724665B23001C768D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		5A814F69246664DE001C768D /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		5A814F6B24666502001C768D /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
+		5A814F6D24669226001C768D /* IdentifiableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifiableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,6 +293,7 @@
 		5A814F512463F93F001C768D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5A814F6D24669226001C768D /* IdentifiableViewController.swift */,
 				5A814F5D246451B2001C768D /* MainViewController.swift */,
 				5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */,
 				5A814F5B24645052001C768D /* LoginViewController.swift */,
@@ -476,6 +479,7 @@
 				5A814F6024645F07001C768D /* PrevButton.swift in Sources */,
 				5A814F5A24644B15001C768D /* OauthLoginButton.swift in Sources */,
 				5A814EF62462810B001C768D /* Request.swift in Sources */,
+				5A814F6E24669226001C768D /* IdentifiableViewController.swift in Sources */,
 				5A814F5824643A9D001C768D /* UIColorExtension.swift in Sources */,
 				5A814F032462AB84001C768D /* GameRoomUseCase.swift in Sources */,
 				5A814F122462DEDF001C768D /* ViewModelBinding.swift in Sources */,

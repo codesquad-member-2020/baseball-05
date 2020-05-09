@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GameRoomViewController: UIViewController {
+final class GameRoomViewController: UIViewController, IdentifiableViewController {
     //MARK:- Internal properties
     private let gameRoomTitleLabel: TitleLabel = {
         let label = TitleLabel()
