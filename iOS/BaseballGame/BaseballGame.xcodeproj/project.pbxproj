@@ -42,6 +42,7 @@
 		5A814F5C24645052001C768D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5B24645052001C768D /* LoginViewController.swift */; };
 		5A814F5E246451B2001C768D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5D246451B2001C768D /* MainViewController.swift */; };
 		5A814F6024645F07001C768D /* PrevButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5F24645F07001C768D /* PrevButton.swift */; };
+		5A814F6424658E25001C768D /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A814F6324658E25001C768D /* TitleView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		5A814F5B24645052001C768D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5A814F5D246451B2001C768D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5A814F5F24645F07001C768D /* PrevButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrevButton.swift; sourceTree = "<group>"; };
+		5A814F6324658E25001C768D /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +196,7 @@
 		5A7DD53C24602B83002ECB3A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A814F6624665A07001C768D /* Game */,
 				5A814F132462EB9F001C768D /* GameRoom */,
 				5A7DD53D24602B9F002ECB3A /* TitleLabel.swift */,
 				5A7DD54524603A0E002ECB3A /* VersusLabel.swift */,
@@ -295,6 +298,14 @@
 				5A814F5724643A9D001C768D /* UIColorExtension.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		5A814F6624665A07001C768D /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				5A814F6324658E25001C768D /* TitleView.xib */,
+			);
+			path = Game;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,6 +414,7 @@
 			files = (
 				5A7DD5162460170A002ECB3A /* LaunchScreen.storyboard in Resources */,
 				5A7DD5132460170A002ECB3A /* Assets.xcassets in Resources */,
+				5A814F6424658E25001C768D /* TitleView.xib in Resources */,
 				5A814EE924627B5B001C768D /* TeamInfoSuccessStub.json in Resources */,
 				5A7DD51124601708002ECB3A /* Main.storyboard in Resources */,
 			);
