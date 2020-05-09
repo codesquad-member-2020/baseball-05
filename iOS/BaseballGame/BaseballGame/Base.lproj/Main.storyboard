@@ -198,7 +198,7 @@
         <!--Scores-->
         <scene sceneID="oEH-SC-OQW">
             <objects>
-                <viewController id="qaG-7m-vvT" sceneMemberID="viewController">
+                <viewController id="qaG-7m-vvT" customClass="ScoresViewController" customModule="BaseballGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aJF-G8-Naq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -214,7 +214,7 @@
         <!--Play-->
         <scene sceneID="OBo-LC-OwZ">
             <objects>
-                <viewController id="cSG-l2-sFt" sceneMemberID="viewController">
+                <viewController id="cSG-l2-sFt" customClass="PlayViewController" customModule="BaseballGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kMd-Vk-jkA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

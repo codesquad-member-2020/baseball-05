@@ -44,6 +44,8 @@
 		5A814F6024645F07001C768D /* PrevButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F5F24645F07001C768D /* PrevButton.swift */; };
 		5A814F6424658E25001C768D /* TitleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A814F6324658E25001C768D /* TitleView.xib */; };
 		5A814F6824665B23001C768D /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6724665B23001C768D /* TitleView.swift */; };
+		5A814F6A246664DE001C768D /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F69246664DE001C768D /* PlayViewController.swift */; };
+		5A814F6C24666502001C768D /* ScoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A814F6B24666502001C768D /* ScoresViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		5A814F5F24645F07001C768D /* PrevButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrevButton.swift; sourceTree = "<group>"; };
 		5A814F6324658E25001C768D /* TitleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleView.xib; sourceTree = "<group>"; };
 		5A814F6724665B23001C768D /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		5A814F69246664DE001C768D /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		5A814F6B24666502001C768D /* ScoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -290,6 +294,8 @@
 				5A814F5D246451B2001C768D /* MainViewController.swift */,
 				5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */,
 				5A814F5B24645052001C768D /* LoginViewController.swift */,
+				5A814F69246664DE001C768D /* PlayViewController.swift */,
+				5A814F6B24666502001C768D /* ScoresViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -448,6 +454,7 @@
 				5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */,
 				5A814EED24627BD5001C768D /* DataExtensions.swift in Sources */,
 				5A7DD54A24604DE9002ECB3A /* GameRoomCollectionView.swift in Sources */,
+				5A814F6C24666502001C768D /* ScoresViewController.swift in Sources */,
 				5A814EF824629BF7001C768D /* NetworkDispatcher.swift in Sources */,
 				5A814F6824665B23001C768D /* TitleView.swift in Sources */,
 				5A814F0A2462AD99001C768D /* MockGameRoomSuccess.swift in Sources */,
@@ -456,6 +463,7 @@
 				5A814EE724625703001C768D /* VersusViewModel.swift in Sources */,
 				5A814EFA2462A0D9001C768D /* NetworkTask.swift in Sources */,
 				5A7DD540246035F7002ECB3A /* GameRoomCell.swift in Sources */,
+				5A814F6A246664DE001C768D /* PlayViewController.swift in Sources */,
 				5A814F532464016D001C768D /* ReusableView.swift in Sources */,
 				5A814F5C24645052001C768D /* LoginViewController.swift in Sources */,
 				5A7DD54C246056AD002ECB3A /* GameRoomViewModels.swift in Sources */,
