@@ -94,4 +94,123 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+body {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Angels_Stadium.JPG/1200px-Angels_Stadium.JPG')
+    center no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.contained-table {
+  background-color: #fff;
+  border: 1px solid #eee;
+  margin: 0.5em;
+  padding: 0.3em;
+}
+
+table {
+  border-collapse: collapse;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+caption {
+  font-size: 4vw;
+  font-weight: bold;
+  padding: 0.8em;
+}
+
+table,
+th,
+tr,
+td {
+  padding: 0.5em 0.75em;
+  color: #000;
+}
+
+th,
+[data-th]:first-child {
+  background-color: #eee;
+}
+
+[data-th='Team'] {
+  color: #134a8e;
+  font-weight: bold;
+}
+
+[data-th='Team'] img {
+  max-width: 30px;
+  vertical-align: middle;
+  padding: 0.3em;
+}
+
+[data-th='Final'] {
+  font-size: 1.125em;
+  font-weight: bold;
+}
+
+.long {
+  display: none;
+}
+
+@media screen and (max-width: 300px) {
+  caption {
+    font-size: 1em;
+  }
+  /* hide detailed columns */
+  th:not(:first-child):not(:last-child),
+  td:not(:first-child):not(:last-child) {
+    display: none;
+  }
+  td {
+    padding: 1.5em;
+  }
+}
+
+@media screen and (min-width: 301px) and (max-width: 450px) {
+  /* vertical display */
+  table,
+  thead,
+  tbody,
+  th,
+  tr,
+  td {
+    display: block;
+  }
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  td {
+    position: relative;
+    padding-left: 50%;
+  }
+  /* add row labels */
+  td:before {
+    position: absolute;
+    left: 6px;
+    content: attr(data-th);
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width: 451px) {
+  .short {
+    display: none;
+  }
+  .long {
+    display: block;
+  }
+  /* horizontal scroll */
+  .contained-table {
+    margin: 1em auto;
+    max-width: 50em;
+    overflow-x: auto;
+  }
+  table {
+    margin: 1.5em auto;
+    max-width: 100%;
+  }
+}
+</style>
