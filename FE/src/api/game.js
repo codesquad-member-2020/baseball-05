@@ -8,4 +8,8 @@ function fetchScores() {
   return instance.get('scores');
 }
 
-export { fetchMatches, fetchScores };
+function fetchRoters() {
+  return instance.get('rosters');
+}
+
+export { fetchMatches, fetchScores, fetchRoters };
