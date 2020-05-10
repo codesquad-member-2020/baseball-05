@@ -8,7 +8,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 body {
   background-image: url('./assets/bg.jpg');
   /* background-color: #41b883; */

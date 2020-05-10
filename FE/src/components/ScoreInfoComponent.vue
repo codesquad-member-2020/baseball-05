@@ -1,6 +1,7 @@
 <template>
   <div class="contained-table">
-    <table>
+    <div v-if="this.inningInfo.length === 0">loading...</div>
+    <table v-else>
       <thead>
         <tr>
           <td v-for="round in innningList" :key="round">
@@ -15,43 +16,30 @@
               src="//www.mlbstatic.com/mlb.com/builds/site-core/6105139ccce70320c674a1c11cbdf1e9d88bfe14_1532366495/images/logos/team-primary-on-light/141.svg"
               alt=""
             />
-            <span class="short">TOR</span>
-            <span class="long">Toronto Blue Jays</span>
+            <span class="long">{{ this.inningInfo[0].team }}</span>
           </td>
-          <td data-th="1st">0</td>
-          <td data-th="2nd">1</td>
-          <td data-th="3rd">0</td>
-          <td data-th="4th">0</td>
-          <td data-th="5th">1</td>
-          <td data-th="6th">0</td>
-          <td data-th="7th">0</td>
-          <td data-th="8th">3</td>
-          <td data-th="9th">0</td>
-          <td data-th="10th">0</td>
-          <td data-th="11th">0</td>
-          <td data-th="12th">0</td>
-          <td data-th="R">6</td>
+          <td data-th="Total">{{ this.inningInfo[0].totalScore }}</td>
+          <td
+            v-for="score in this.inningInfo[0].inningScore"
+            :key="score.index"
+          >
+            {{ score }}
+          </td>
         </tr>
         <tr>
           <td data-th="Team">
             <img
               src="//www.mlbstatic.com/mlb.com/builds/site-core/6105139ccce70320c674a1c11cbdf1e9d88bfe14_1532366495/images/logos/team-cap-on-light/142.svg"
             />
-            <span class="short">MIN</span>
-            <span class="long">Minnesota Twins</span>
+            <span class="long">{{ this.inningInfo[1].team }}</span>
           </td>
-          <td data-th="1st">0</td>
-          <td data-th="2nd">3</td>
-          <td data-th="3rd">0</td>
-          <td data-th="4th">0</td>
-          <td data-th="5th">0</td>
-          <td data-th="6th">1</td>
-          <td data-th="7th">0</td>
-          <td data-th="8th">2</td>
-          <td data-th="9th">0</td>
-          <td data-th="10th">0</td>
-          <td data-th="11th">6</td>
-          <td data-th="Final">12</td>
+          <td data-th="Total">{{ this.inningInfo[1].totalScore }}</td>
+          <td
+            v-for="score in this.inningInfo[1].inningScore"
+            :key="score.index"
+          >
+            {{ score }}
+          </td>
         </tr>
       </tbody>
     </table>
@@ -66,6 +54,7 @@ export default {
     return {
       innningList: [
         'Team',
+        'Total',
         '1st',
         '2nd',
         '3rd',
@@ -78,8 +67,8 @@ export default {
         '10th',
         '11th',
         '12th',
-        'R',
       ],
+      inningInfo: [],
     };
   },
   created() {
@@ -89,6 +78,7 @@ export default {
     async fetchData() {
       const { data } = await fetchScores();
       console.log(data);
+      this.inningInfo = data;
     },
   },
 };
@@ -126,6 +116,7 @@ tr,
 td {
   padding: 0.5em 0.75em;
   color: #000;
+  text-align: center;
 }
 
 th,
@@ -136,6 +127,11 @@ th,
 [data-th='Team'] {
   color: #134a8e;
   font-weight: bold;
+  /* display: flex; */
+}
+
+.total-score {
+  vertical-align: middle;
 }
 
 [data-th='Team'] img {
@@ -144,13 +140,14 @@ th,
   padding: 0.3em;
 }
 
-[data-th='Final'] {
+[data-th='Total'] {
   font-size: 1.125em;
   font-weight: bold;
+  color: #134a8e;
 }
 
 .long {
-  display: none;
+  display: block;
 }
 
 @media screen and (max-width: 300px) {
@@ -196,9 +193,6 @@ th,
 }
 
 @media screen and (min-width: 451px) {
-  .short {
-    display: none;
-  }
   .long {
     display: block;
   }
