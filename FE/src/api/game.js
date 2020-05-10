@@ -4,4 +4,8 @@ function fetchMatches() {
   return instance.get('matches');
 }
 
-export { fetchMatches };
+function fetchScores() {
+  return instance.get('scores');
+}
+
+export { fetchMatches, fetchScores };
