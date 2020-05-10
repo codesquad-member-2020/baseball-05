@@ -260,11 +260,37 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fF-x6-cX0" userLabel="Board View">
                                 <rect key="frame" x="0.0" y="63.5" width="375" height="250"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0Q-Hm-fNb" userLabel="Board Count View">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0Q-Hm-fNb" userLabel="Board Counts View">
                                         <rect key="frame" x="15" y="15" width="97.5" height="75"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nVw-tg-xeD" customClass="CountView" customModule="BaseballGame" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="97.5" height="25"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3ii-ab-PXe" customClass="CountView" customModule="BaseballGame" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="25" width="97.5" height="24.5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ztM-E3-dzb" customClass="CountView" customModule="BaseballGame" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="49.5" width="97.5" height="25"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                            </view>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="o0Q-Hm-fNb" secondAttribute="height" multiplier="1.3:1" id="tr8-00-cMU"/>
+                                            <constraint firstItem="ztM-E3-dzb" firstAttribute="height" secondItem="o0Q-Hm-fNb" secondAttribute="height" multiplier="0.33" id="4PT-z9-ViW"/>
+                                            <constraint firstItem="3ii-ab-PXe" firstAttribute="top" secondItem="nVw-tg-xeD" secondAttribute="bottom" id="4g3-Bm-XSx"/>
+                                            <constraint firstItem="ztM-E3-dzb" firstAttribute="top" secondItem="3ii-ab-PXe" secondAttribute="bottom" id="AIq-vm-R5R"/>
+                                            <constraint firstItem="ztM-E3-dzb" firstAttribute="width" secondItem="o0Q-Hm-fNb" secondAttribute="width" id="KK0-y3-083"/>
+                                            <constraint firstItem="ztM-E3-dzb" firstAttribute="leading" secondItem="o0Q-Hm-fNb" secondAttribute="leading" id="Lse-O2-TLH"/>
+                                            <constraint firstItem="nVw-tg-xeD" firstAttribute="width" secondItem="o0Q-Hm-fNb" secondAttribute="width" id="OBk-J8-dEm"/>
+                                            <constraint firstItem="3ii-ab-PXe" firstAttribute="width" secondItem="o0Q-Hm-fNb" secondAttribute="width" id="SCb-be-Glj"/>
+                                            <constraint firstItem="3ii-ab-PXe" firstAttribute="height" secondItem="o0Q-Hm-fNb" secondAttribute="height" multiplier="0.33" id="XhB-27-lXB"/>
+                                            <constraint firstItem="nVw-tg-xeD" firstAttribute="height" secondItem="o0Q-Hm-fNb" secondAttribute="height" multiplier="0.33" id="aXk-BY-WJi"/>
+                                            <constraint firstItem="3ii-ab-PXe" firstAttribute="leading" secondItem="o0Q-Hm-fNb" secondAttribute="leading" id="g5z-9z-TxR"/>
+                                            <constraint firstItem="nVw-tg-xeD" firstAttribute="leading" secondItem="o0Q-Hm-fNb" secondAttribute="leading" id="osx-4z-XBc"/>
+                                            <constraint firstAttribute="width" secondItem="o0Q-Hm-fNb" secondAttribute="height" multiplier="13:10" id="tr8-00-cMU"/>
+                                            <constraint firstItem="nVw-tg-xeD" firstAttribute="top" secondItem="o0Q-Hm-fNb" secondAttribute="top" id="xmb-0m-JE0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
