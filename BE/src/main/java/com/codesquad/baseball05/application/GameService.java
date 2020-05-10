@@ -1,5 +1,6 @@
 package com.codesquad.baseball05.application;
 
+import com.codesquad.baseball05.infra.MatchDAO;
 import com.codesquad.baseball05.infra.TeamDAO;
 import com.codesquad.baseball05.infra.UserDAO;
 import org.slf4j.Logger;
@@ -12,10 +13,12 @@ public class GameService {
 
     private final UserDAO userDAO;
     private final TeamDAO teamDAO;
+    private final MatchDAO matchDAO;
 
-    public GameService(UserDAO userDAO, TeamDAO teamDAO) {
+    public GameService(UserDAO userDAO, TeamDAO teamDAO, MatchDAO matchDAO) {
         this.userDAO = userDAO;
         this.teamDAO = teamDAO;
+        this.matchDAO = matchDAO;
     }
 
     public boolean selectTeam(String teamName) {
@@ -30,6 +33,9 @@ public class GameService {
         // 선점 안 된 팀인 경우 update
         String userId = "ever";
         userDAO.choiceTeam(userId, teamName);
+        MatchService matchService = new MatchService(matchDAO);
+        Long user = userDAO.findByUserId(userId);
+        matchService.updateUserAtMatch(user, teamName);
         return true;
     }
 }

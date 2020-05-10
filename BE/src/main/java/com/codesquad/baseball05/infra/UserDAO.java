@@ -29,4 +29,11 @@ public class UserDAO {
         String choiceTeamSql = "UPDATE user SET team_id = (SELECT id from team where name=:teamName) WHERE user_id = :userId";
         namedParameterJdbcTemplate.update(choiceTeamSql, namedParameters);
     }
+
+    public Long findByUserId(String userId) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("userId", userId);
+
+        String findByUserIdSql = "SELECT id FROM user WHERE user_id = :userId";
+        return namedParameterJdbcTemplate.queryForObject(findByUserIdSql, namedParameters, Long.class);
+    }
 }
