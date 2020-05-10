@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5A481FC62467CB6300BBDC00 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FC52467CB6300BBDC00 /* BoardView.swift */; };
+		5A481FC82467CEF600BBDC00 /* CurrentPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FC72467CEF600BBDC00 /* CurrentPlayerCell.swift */; };
+		5A481FCA2467D6B100BBDC00 /* PlayTableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FC92467D6B100BBDC00 /* PlayTableLabel.swift */; };
 		5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50924601708002ECB3A /* AppDelegate.swift */; };
 		5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50B24601708002ECB3A /* SceneDelegate.swift */; };
 		5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */; };
@@ -75,6 +77,8 @@
 
 /* Begin PBXFileReference section */
 		5A481FC52467CB6300BBDC00 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		5A481FC72467CEF600BBDC00 /* CurrentPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPlayerCell.swift; sourceTree = "<group>"; };
+		5A481FC92467D6B100BBDC00 /* PlayTableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTableLabel.swift; sourceTree = "<group>"; };
 		5A7DD50624601708002ECB3A /* BaseballGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7DD50924601708002ECB3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A7DD50B24601708002ECB3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -345,6 +349,8 @@
 				5A89B6592467BD0600AA82F1 /* SBOView.swift */,
 				5A89B65B2467C85C00AA82F1 /* SBOsView.swift */,
 				5A481FC52467CB6300BBDC00 /* BoardView.swift */,
+				5A481FC72467CEF600BBDC00 /* CurrentPlayerCell.swift */,
+				5A481FC92467D6B100BBDC00 /* PlayTableLabel.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -484,6 +490,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A481FCA2467D6B100BBDC00 /* PlayTableLabel.swift in Sources */,
 				5A814F102462DED2001C768D /* GameRoomViewModel.swift in Sources */,
 				5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */,
 				5A814EED24627BD5001C768D /* DataExtensions.swift in Sources */,
@@ -502,6 +509,7 @@
 				5A814F6A246664DE001C768D /* PlayViewController.swift in Sources */,
 				5A814F532464016D001C768D /* IdentifiableView.swift in Sources */,
 				5A814F5C24645052001C768D /* LoginViewController.swift in Sources */,
+				5A481FC82467CEF600BBDC00 /* CurrentPlayerCell.swift in Sources */,
 				5A7DD54C246056AD002ECB3A /* GameRoomViewModels.swift in Sources */,
 				5A814F5E246451B2001C768D /* MainViewController.swift in Sources */,
 				5A89B6562467B4DD00AA82F1 /* BoardLabel.swift in Sources */,
