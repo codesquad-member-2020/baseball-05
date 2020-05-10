@@ -17,5 +17,5 @@ public class PitchResultDTO {
 
     private InningDTO inning;
 
-    private List<PlateDTO> plate;
+    private List<PlateDTO> plates;
 }

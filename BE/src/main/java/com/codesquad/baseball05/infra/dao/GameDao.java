@@ -1,6 +1,6 @@
 package com.codesquad.baseball05.infra.dao;
 
-import com.codesquad.baseball05.domain.game.dto.GameTeamDTO;
+import com.codesquad.baseball05.domain.game.dto.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
 @Repository
@@ -43,14 +45,19 @@ public class GameDao {
     public Object pitch() {
         String sql = "";
 
-        RowMapper<GameTeamDTO> gameTeamDTORowMapper = new RowMapper<GameTeamDTO>() {
+        RowMapper<PitchResultDTO> pitchResultDtoRowMapper = new RowMapper<PitchResultDTO>() {
             @Override
-            public GameTeamDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return null;
+            public PitchResultDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                GameTeamDTO homeTeam = new GameTeamDTO();
+                GameTeamDTO awayTeam = new GameTeamDTO();
+                PitcherDTO pitcher = new PitcherDTO();
+                InningDTO inning = new InningDTO();
+                List<PlateDTO> plates = new ArrayList<>();
+                return new PitchResultDTO(homeTeam, awayTeam, pitcher, inning, plates);
             }
         };
 
-        return this.jdbcTemplate.queryForObject(sql, gameTeamDTORowMapper);
+        return this.jdbcTemplate.queryForObject(sql, pitchResultDtoRowMapper);
     }
 
     private void disconnectTeamWithUser(Long gameId) {
