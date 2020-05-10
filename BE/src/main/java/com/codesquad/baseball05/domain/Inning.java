@@ -12,6 +12,4 @@ public class Inning {
     private final String half;
 
     private final String offenseOrDefense;
-
-    private final Object plates;
 }

@@ -1,19 +1,20 @@
 package com.codesquad.baseball05.ui;
 
+import com.codesquad.baseball05.domain.dto.MatchTeamDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
 
 @AllArgsConstructor
 @Getter
-public class MatchTable {
+public class Matches {
 
     @Id
     private Long id;
 
-    private String homeTeam;
-
-    private String awayTeam;
-
     private Boolean selectable;
+
+    private MatchTeamDTO homeTeam;
+
+    private MatchTeamDTO awayTeam;
 }

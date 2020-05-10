@@ -12,8 +12,4 @@ public class Team {
     private int score;
 
     private boolean isOffense;
-
-    private boolean isUserTeam;
-
-    private Player pitcher;
 }
