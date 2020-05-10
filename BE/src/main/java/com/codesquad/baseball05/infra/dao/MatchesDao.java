@@ -34,14 +34,31 @@ public class MatchesDao {
             @Override
             public MatchesDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
                 String[] userIds = rs.getString("GROUP_CONCAT(u.user_id)").split(",");
+                String[] teamNames = rs.getString("GROUP_CONCAT(t.name)").split(",");
+
+                String homeTeamUserName = null;
+
+                if(teamNames[0] == rs.getString("home_team")) {
+                    homeTeamUserName = userIds[0];
+                } else if(teamNames[1] == rs.getString("home_team")) {
+                    homeTeamUserName = userIds[1];
+                }
+
+                String awayTeamUserName = null;
+
+                if(teamNames[0] == rs.getString("away_team")) {
+                    awayTeamUserName = userIds[0];
+                } else if(teamNames[1] == rs.getString("away_team")) {
+                    awayTeamUserName = userIds[1];
+                }
 
                 MatchesTeamDTO homeTeamDTO = new MatchesTeamDTO();
                 homeTeamDTO.setTeamName(rs.getString("home_team"));
-                homeTeamDTO.setUserName(rs.getString("user_id"));
+                homeTeamDTO.setUserName(homeTeamUserName);
 
                 MatchesTeamDTO awayTeamDTO = new MatchesTeamDTO();
                 awayTeamDTO.setTeamName(rs.getString("away_team"));
-                awayTeamDTO.setUserName(rs.getString("user_id"));
+                awayTeamDTO.setUserName(awayTeamUserName);
 
                 MatchesDTO matchesDTO = new MatchesDTO();
                 matchesDTO.setId(rs.getLong("id"));
@@ -56,6 +73,6 @@ public class MatchesDao {
     }
 
     private boolean isFull(String[] userIds) {
-        
+        return userIds.length == 2;
     }
 }
