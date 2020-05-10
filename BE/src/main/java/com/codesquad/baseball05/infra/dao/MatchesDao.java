@@ -69,10 +69,10 @@ public class MatchesDao {
     }
 
     private boolean isFull(ResultSet rs) throws SQLException {
-        if(rs.getString("GROUP_CONCAT(u.user_id)")==null) {
+        String userIdsLine = rs.getString("GROUP_CONCAT(u.user_id)");
+        if(rs.wasNull()) {
             return true;
         }
-        String[] userIds = rs.getString("GROUP_CONCAT(u.user_id)").split(",");
-        return userIds.length != 2;
+        return userIdsLine.split(",").length != 2;
     }
 }
