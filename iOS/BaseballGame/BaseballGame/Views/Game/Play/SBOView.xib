@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SBOView" customModule="BaseballGame" customModuleProvider="target">
+            <connections>
+                <outlet property="countStack" destination="MTF-oF-Bwy" id="r6W-1B-Gza"/>
+                <outlet property="sboLabel" destination="v8G-s8-aLx" id="rS8-sN-kCv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="156" height="24"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8G-s8-aLx" customClass="BoardLabel" customModule="BaseballGame" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="13" height="24"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="MTF-oF-Bwy">
+                    <rect key="frame" x="31" y="2.5" width="125" height="19"/>
+                </stackView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="MTF-oF-Bwy" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.78" id="Bh0-tS-HIJ"/>
+                <constraint firstItem="MTF-oF-Bwy" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="DmM-0k-ux3"/>
+                <constraint firstItem="v8G-s8-aLx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="EmO-CP-h6b"/>
+                <constraint firstItem="MTF-oF-Bwy" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="1.2" id="Ptl-Ki-6VC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="v8G-s8-aLx" secondAttribute="bottom" id="fsG-1r-jbD"/>
+                <constraint firstItem="v8G-s8-aLx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qdT-9A-AK0"/>
+                <constraint firstItem="MTF-oF-Bwy" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="t55-lY-kor"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.59999999999999" y="140.32983508245877"/>
+        </view>
+    </objects>
+</document>

@@ -18,17 +18,17 @@ final class PrevButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
-        confugure()
+        configure()
         configureTarget()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        confugure()
+        configure()
         configureTarget()
     }
     
-    private func confugure() {
+    private func configure() {
         setImage(UIImage(systemName: "arrow.left"), for: .normal)
         tintColor = .systemRed
         imageView?.contentMode = .scaleAspectFit
