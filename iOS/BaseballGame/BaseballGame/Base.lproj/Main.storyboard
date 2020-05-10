@@ -391,6 +391,11 @@
                                                 <constraint firstItem="bxI-X5-HdE" firstAttribute="centerY" secondItem="VIh-gv-AK0" secondAttribute="centerY" id="sAd-Ka-beZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="playerName" destination="u1f-q0-ZYx" id="6tJ-IJ-eJA"/>
+                                            <outlet property="playerRole" destination="bxI-X5-HdE" id="kGY-Bh-Kff"/>
+                                            <outlet property="valueLabel" destination="FMb-tJ-vHJ" id="ABr-cg-0le"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>

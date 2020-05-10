@@ -9,6 +9,10 @@
 import UIKit
 
 final class CurrentPlayerCell: UITableViewCell, IdentifiableView {
+    @IBOutlet weak var playerRole: PlayTableLabel!
+    @IBOutlet weak var playerName: PlayTableLabel!
+    @IBOutlet weak var valueLabel: PlayTableLabel!
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
