@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A481FC62467CB6300BBDC00 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FC52467CB6300BBDC00 /* BoardView.swift */; };
 		5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50924601708002ECB3A /* AppDelegate.swift */; };
 		5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50B24601708002ECB3A /* SceneDelegate.swift */; };
 		5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A481FC52467CB6300BBDC00 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		5A7DD50624601708002ECB3A /* BaseballGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7DD50924601708002ECB3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A7DD50B24601708002ECB3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				5A89B6572467B7C900AA82F1 /* SBOView.xib */,
 				5A89B6592467BD0600AA82F1 /* SBOView.swift */,
 				5A89B65B2467C85C00AA82F1 /* SBOsView.swift */,
+				5A481FC52467CB6300BBDC00 /* BoardView.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				5A814F6C24666502001C768D /* ScoresViewController.swift in Sources */,
 				5A814EF824629BF7001C768D /* NetworkDispatcher.swift in Sources */,
 				5A814F702466AC9A001C768D /* ScoreView.swift in Sources */,
+				5A481FC62467CB6300BBDC00 /* BoardView.swift in Sources */,
 				5A814F6824665B23001C768D /* TitleView.swift in Sources */,
 				5A814F0A2462AD99001C768D /* MockGameRoomSuccess.swift in Sources */,
 				5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */,
