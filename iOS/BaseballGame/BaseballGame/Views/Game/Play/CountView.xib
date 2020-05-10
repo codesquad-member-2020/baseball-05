@@ -7,7 +7,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CountView" customModule="BaseballGame" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CountView" customModule="BaseballGame" customModuleProvider="target">
+            <connections>
+                <outlet property="countStack" destination="MTF-oF-Bwy" id="r6W-1B-Gza"/>
+                <outlet property="sboLabel" destination="v8G-s8-aLx" id="rS8-sN-kCv"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="156" height="24"/>

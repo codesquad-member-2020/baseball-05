@@ -10,6 +10,9 @@ import UIKit
 
 @IBDesignable
 final class CountView: UIView, WithXib {
+    @IBOutlet weak var sboLabel: BoardLabel!
+    @IBOutlet weak var countStack: UIStackView!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         insertXibView()

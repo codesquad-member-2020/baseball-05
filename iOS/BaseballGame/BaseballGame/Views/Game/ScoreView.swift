@@ -10,6 +10,11 @@ import UIKit
 
 @IBDesignable
 final class ScoreView: UIView, WithXib {
+    @IBOutlet weak var awayTeamName: TitleLabel!
+    @IBOutlet weak var awayTeamScore: TitleLabel!
+    @IBOutlet weak var homeTeamName: TitleLabel!
+    @IBOutlet weak var homeTeamScore: TitleLabel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         insertXibView()
