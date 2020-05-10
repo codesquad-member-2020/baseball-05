@@ -24,19 +24,18 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTF-oF-Bwy">
-                    <rect key="frame" x="21" y="0.0" width="135" height="24"/>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="MTF-oF-Bwy">
+                    <rect key="frame" x="31" y="2.5" width="125" height="19"/>
                 </stackView>
             </subviews>
             <constraints>
+                <constraint firstItem="MTF-oF-Bwy" firstAttribute="height" secondItem="vUN-kp-3ea" secondAttribute="height" multiplier="0.78" id="Bh0-tS-HIJ"/>
+                <constraint firstItem="MTF-oF-Bwy" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="DmM-0k-ux3"/>
                 <constraint firstItem="v8G-s8-aLx" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="EmO-CP-h6b"/>
+                <constraint firstItem="MTF-oF-Bwy" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" multiplier="1.2" id="Ptl-Ki-6VC"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="v8G-s8-aLx" secondAttribute="bottom" id="fsG-1r-jbD"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="top" secondItem="MTF-oF-Bwy" secondAttribute="top" id="hj7-cs-AJj"/>
-                <constraint firstItem="MTF-oF-Bwy" firstAttribute="height" secondItem="v8G-s8-aLx" secondAttribute="height" id="hu0-1r-Cad"/>
-                <constraint firstItem="MTF-oF-Bwy" firstAttribute="leading" secondItem="v8G-s8-aLx" secondAttribute="trailing" constant="8" id="k8g-xn-Jkq"/>
                 <constraint firstItem="v8G-s8-aLx" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qdT-9A-AK0"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="MTF-oF-Bwy" secondAttribute="bottom" id="qy6-Xw-i4g"/>
-                <constraint firstItem="MTF-oF-Bwy" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="v4r-ca-hN8"/>
+                <constraint firstItem="MTF-oF-Bwy" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="t55-lY-kor"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
