@@ -264,13 +264,20 @@
                                     <constraint firstAttribute="width" secondItem="2fF-x6-cX0" secondAttribute="height" multiplier="3:2" id="JYM-ZA-mim"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0pg-RC-Isx" userLabel="Batter Info Label">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0pg-RC-Isx" userLabel="Batter Info Table">
                                 <rect key="frame" x="0.0" y="313.5" width="375" height="115.5"/>
                                 <color key="backgroundColor" red="0.39637178020000002" green="0.79289596709999999" blue="0.78547235550000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0pg-RC-Isx" secondAttribute="height" multiplier="140:43" id="qgq-QT-NzK"/>
                                 </constraints>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KrS-IH-5bc" userLabel="Line">
+                                <rect key="frame" x="0.0" y="429" width="375" height="3"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="0fd-SS-f7a"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -282,9 +289,12 @@
                             <constraint firstItem="0pg-RC-Isx" firstAttribute="top" secondItem="2fF-x6-cX0" secondAttribute="bottom" id="U8i-TQ-eSu"/>
                             <constraint firstItem="jpd-qi-a5W" firstAttribute="width" secondItem="Hvq-eV-AVL" secondAttribute="width" id="Wwo-Lt-iZX"/>
                             <constraint firstItem="jpd-qi-a5W" firstAttribute="leading" secondItem="Hvq-eV-AVL" secondAttribute="leading" id="dDA-x6-gdQ"/>
+                            <constraint firstItem="KrS-IH-5bc" firstAttribute="leading" secondItem="Hvq-eV-AVL" secondAttribute="leading" id="dWx-ME-TJ4"/>
                             <constraint firstItem="2fF-x6-cX0" firstAttribute="width" secondItem="Hvq-eV-AVL" secondAttribute="width" id="ghc-Z8-Mx1"/>
                             <constraint firstItem="0pg-RC-Isx" firstAttribute="leading" secondItem="Hvq-eV-AVL" secondAttribute="leading" id="k9m-aJ-Bhk"/>
                             <constraint firstItem="jpd-qi-a5W" firstAttribute="top" secondItem="aSi-rk-FUG" secondAttribute="bottom" id="n8k-hw-9jE"/>
+                            <constraint firstItem="KrS-IH-5bc" firstAttribute="width" secondItem="Hvq-eV-AVL" secondAttribute="width" id="sWO-a1-f0K"/>
+                            <constraint firstItem="KrS-IH-5bc" firstAttribute="top" secondItem="0pg-RC-Isx" secondAttribute="bottom" id="tpv-Xc-d09"/>
                             <constraint firstItem="0pg-RC-Isx" firstAttribute="width" secondItem="Hvq-eV-AVL" secondAttribute="width" id="xqm-ey-C4G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hvq-eV-AVL"/>
