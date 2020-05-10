@@ -12,4 +12,12 @@ final class SBOsView: UIView {
     @IBOutlet weak var strikeView: SBOView!
     @IBOutlet weak var ballView: SBOView!
     @IBOutlet weak var outView: SBOView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
 }
