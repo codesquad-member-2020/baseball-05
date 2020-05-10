@@ -24,7 +24,7 @@ public class MatchesDao {
 
 
     public List<MatchesDTO> listMatches() {
-        String sql = "SELECT DISTINCT m.id, m.home_team, m.away_team, GROUP_CONCAT(u.user_id), GROUP_CONCAT(u.email), GROUP_CONCAT(t.name)" +
+        String sql = "SELECT DISTINCT m.id, m.home_team, m.away_team, GROUP_CONCAT(u.user_id), GROUP_CONCAT(t.name)" +
                 "FROM matches m " +
                 "LEFT OUTER JOIN user u ON m.a_user_id = u.id OR m.b_user_id = u.id " +
                 "LEFT OUTER JOIN team t ON u.team_id = t.id " +
@@ -33,36 +33,12 @@ public class MatchesDao {
         RowMapper<MatchesDTO> matchesRowMapper = new RowMapper<MatchesDTO>() {
             @Override
             public MatchesDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                String[] userIds = rs.getString("GROUP_CONCAT(u.user_id)").split(",");
-                String[] teamNames = rs.getString("GROUP_CONCAT(t.name)").split(",");
-
-                String homeTeamUserName = null;
-
-                if(teamNames[0] == rs.getString("home_team")) {
-                    homeTeamUserName = userIds[0];
-                } else if(teamNames[1] == rs.getString("home_team")) {
-                    homeTeamUserName = userIds[1];
-                }
-
-                String awayTeamUserName = null;
-
-                if(teamNames[0] == rs.getString("away_team")) {
-                    awayTeamUserName = userIds[0];
-                } else if(teamNames[1] == rs.getString("away_team")) {
-                    awayTeamUserName = userIds[1];
-                }
-
-                MatchesTeamDTO homeTeamDTO = new MatchesTeamDTO();
-                homeTeamDTO.setTeamName(rs.getString("home_team"));
-                homeTeamDTO.setUserName(homeTeamUserName);
-
-                MatchesTeamDTO awayTeamDTO = new MatchesTeamDTO();
-                awayTeamDTO.setTeamName(rs.getString("away_team"));
-                awayTeamDTO.setUserName(awayTeamUserName);
+                MatchesTeamDTO homeTeamDTO = connectTeamWithUser(rs, "home_team");
+                MatchesTeamDTO awayTeamDTO = connectTeamWithUser(rs, "away_team");
 
                 MatchesDTO matchesDTO = new MatchesDTO();
                 matchesDTO.setId(rs.getLong("id"));
-                matchesDTO.setSelectable(isFull(userIds));
+                matchesDTO.setSelectable(isFull(rs));
                 matchesDTO.setHomeTeam(homeTeamDTO);
                 matchesDTO.setAwayTeam(awayTeamDTO);
                 return matchesDTO;
@@ -72,7 +48,24 @@ public class MatchesDao {
         return this.jdbcTemplate.query(sql, matchesRowMapper);
     }
 
-    private boolean isFull(String[] userIds) {
+    private MatchesTeamDTO connectTeamWithUser(ResultSet rs, String region) throws SQLException {
+        String teamName = rs.getString(region);
+        String teamUserName = null;
+
+        String[] userIds = rs.getString("GROUP_CONCAT(u.user_id)").split(",");
+        String[] teamNames = rs.getString("GROUP_CONCAT(t.name)").split(",");
+
+        for (int i = 0; i < userIds.length; i++) {
+            if(teamName.equals(teamNames[i])) {
+                teamUserName = userIds[i];
+            }
+        }
+
+        return new MatchesTeamDTO(rs.getString(region), teamUserName);
+    }
+
+    private boolean isFull(ResultSet rs) throws SQLException {
+        String[] userIds = rs.getString("GROUP_CONCAT(u.user_id)").split(",");
         return userIds.length == 2;
     }
 }
