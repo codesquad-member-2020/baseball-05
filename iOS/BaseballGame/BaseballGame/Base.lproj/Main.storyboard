@@ -257,14 +257,24 @@
                                     <constraint firstAttribute="width" secondItem="jpd-qi-a5W" secondAttribute="height" multiplier="9:1" id="GjB-B1-QwW"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fF-x6-cX0" userLabel="Board View">
+                                <rect key="frame" x="0.0" y="63.5" width="375" height="250"/>
+                                <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2fF-x6-cX0" secondAttribute="height" multiplier="3:2" id="JYM-ZA-mim"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="aSi-rk-FUG" firstAttribute="top" secondItem="Hvq-eV-AVL" secondAttribute="top" id="0mA-Nc-q4r"/>
+                            <constraint firstItem="2fF-x6-cX0" firstAttribute="top" secondItem="jpd-qi-a5W" secondAttribute="bottom" id="687-0S-JeW"/>
                             <constraint firstItem="aSi-rk-FUG" firstAttribute="width" secondItem="Hvq-eV-AVL" secondAttribute="width" id="Bc8-Eg-gBM"/>
+                            <constraint firstItem="2fF-x6-cX0" firstAttribute="leading" secondItem="Hvq-eV-AVL" secondAttribute="leading" id="T70-vn-72c"/>
                             <constraint firstItem="aSi-rk-FUG" firstAttribute="leading" secondItem="Hvq-eV-AVL" secondAttribute="leading" id="Tre-pF-HCn"/>
                             <constraint firstItem="jpd-qi-a5W" firstAttribute="width" secondItem="Hvq-eV-AVL" secondAttribute="width" id="Wwo-Lt-iZX"/>
                             <constraint firstItem="jpd-qi-a5W" firstAttribute="leading" secondItem="Hvq-eV-AVL" secondAttribute="leading" id="dDA-x6-gdQ"/>
+                            <constraint firstItem="2fF-x6-cX0" firstAttribute="width" secondItem="Hvq-eV-AVL" secondAttribute="width" id="ghc-Z8-Mx1"/>
                             <constraint firstItem="jpd-qi-a5W" firstAttribute="top" secondItem="aSi-rk-FUG" secondAttribute="bottom" id="n8k-hw-9jE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hvq-eV-AVL"/>
