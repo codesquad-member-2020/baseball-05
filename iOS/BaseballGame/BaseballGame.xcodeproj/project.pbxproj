@@ -13,6 +13,7 @@
 		5A481FCC2467DCA200BBDC00 /* PitchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FCB2467DCA200BBDC00 /* PitchButton.swift */; };
 		5A481FCE2467E0BC00BBDC00 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FCD2467E0BC00BBDC00 /* CountView.swift */; };
 		5A481FD02467F9D600BBDC00 /* BatterInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FCF2467F9D600BBDC00 /* BatterInfoCell.swift */; };
+		5A481FD22467FBC700BBDC00 /* OrderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FD12467FBC700BBDC00 /* OrderLabel.swift */; };
 		5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50924601708002ECB3A /* AppDelegate.swift */; };
 		5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50B24601708002ECB3A /* SceneDelegate.swift */; };
 		5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */; };
@@ -85,6 +86,7 @@
 		5A481FCB2467DCA200BBDC00 /* PitchButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchButton.swift; sourceTree = "<group>"; };
 		5A481FCD2467E0BC00BBDC00 /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		5A481FCF2467F9D600BBDC00 /* BatterInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatterInfoCell.swift; sourceTree = "<group>"; };
+		5A481FD12467FBC700BBDC00 /* OrderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLabel.swift; sourceTree = "<group>"; };
 		5A7DD50624601708002ECB3A /* BaseballGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7DD50924601708002ECB3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A7DD50B24601708002ECB3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 				5A481FCF2467F9D600BBDC00 /* BatterInfoCell.swift */,
 				5A481FC92467D6B100BBDC00 /* PlayTableLabel.swift */,
 				5A481FCB2467DCA200BBDC00 /* PitchButton.swift */,
+				5A481FD12467FBC700BBDC00 /* OrderLabel.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 				5A814F532464016D001C768D /* IdentifiableView.swift in Sources */,
 				5A814F5C24645052001C768D /* LoginViewController.swift in Sources */,
 				5A481FC82467CEF600BBDC00 /* CurrentPlayerCell.swift in Sources */,
+				5A481FD22467FBC700BBDC00 /* OrderLabel.swift in Sources */,
 				5A7DD54C246056AD002ECB3A /* GameRoomViewModels.swift in Sources */,
 				5A814F5E246451B2001C768D /* MainViewController.swift in Sources */,
 				5A89B6562467B4DD00AA82F1 /* BoardLabel.swift in Sources */,

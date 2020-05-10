@@ -411,13 +411,49 @@
                                 <rect key="frame" x="0.0" y="432" width="375" height="186"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BatterInfoCell" id="xPN-eW-c5v">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BatterInfoCell" id="xPN-eW-c5v" customClass="BatterInfoCell" customModule="BaseballGame" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xPN-eW-c5v" id="604-6f-aKH">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-ch-Jat" customClass="OrderLabel" customModule="BaseballGame" customModuleProvider="target">
+                                                    <rect key="frame" x="26.5" y="11" width="22" height="21.5"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="ul6-ch-Jat" secondAttribute="height" multiplier="1:1" id="yvz-Kp-hD9"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스트라이크" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxA-jK-v9O">
+                                                    <rect key="frame" x="73.5" y="11.5" width="74" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1-2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cGz-UJ-Qdb">
+                                                    <rect key="frame" x="332" y="10.5" width="28" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="BxA-jK-v9O" firstAttribute="leading" secondItem="ul6-ch-Jat" secondAttribute="trailing" constant="25" id="EbL-eL-Xc0"/>
+                                                <constraint firstItem="ul6-ch-Jat" firstAttribute="height" secondItem="604-6f-aKH" secondAttribute="height" multiplier="0.5" id="Mhp-kp-ruG"/>
+                                                <constraint firstItem="BxA-jK-v9O" firstAttribute="centerY" secondItem="604-6f-aKH" secondAttribute="centerY" id="SQp-Fk-0sV"/>
+                                                <constraint firstItem="ul6-ch-Jat" firstAttribute="centerX" secondItem="604-6f-aKH" secondAttribute="centerX" multiplier="0.2" id="WWZ-eb-7jn"/>
+                                                <constraint firstItem="cGz-UJ-Qdb" firstAttribute="centerY" secondItem="604-6f-aKH" secondAttribute="centerY" id="gDo-yK-qAP"/>
+                                                <constraint firstItem="ul6-ch-Jat" firstAttribute="centerY" secondItem="604-6f-aKH" secondAttribute="centerY" id="pUZ-gy-SmX"/>
+                                                <constraint firstAttribute="trailing" secondItem="cGz-UJ-Qdb" secondAttribute="trailing" constant="15" id="wIM-7t-AuU"/>
+                                                <constraint firstItem="cGz-UJ-Qdb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BxA-jK-v9O" secondAttribute="trailing" constant="8" symbolic="YES" id="wkX-ah-hKy"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="countLabel" destination="cGz-UJ-Qdb" id="24T-E4-WRU"/>
+                                            <outlet property="orderLabel" destination="ul6-ch-Jat" id="ttY-tf-KXU"/>
+                                            <outlet property="sboLabel" destination="BxA-jK-v9O" id="fVy-1e-3gt"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
