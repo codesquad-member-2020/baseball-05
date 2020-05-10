@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-final class CountView: UIView, WithXib {
+final class SBOView: UIView, WithXib {
     @IBOutlet weak var sboLabel: BoardLabel!
     @IBOutlet weak var countStack: UIStackView!
     
