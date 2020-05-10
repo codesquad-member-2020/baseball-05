@@ -1,11 +1,17 @@
 <template>
   <div>
     login Page
+    <score-info-component></score-info-component>
   </div>
 </template>
 
 <script>
-export default {};
+import ScoreInfoComponent from '@/components/ScoreInfoComponent';
+export default {
+  components: {
+    ScoreInfoComponent,
+  },
+};
 </script>
 
 <style></style>

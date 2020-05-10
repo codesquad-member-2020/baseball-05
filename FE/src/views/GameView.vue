@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="component-container">
     <main-score-component></main-score-component>
     <player-component></player-component>
     <game-board></game-board>
@@ -23,4 +23,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.component-container {
+  display: flex;
+}
+</style>
