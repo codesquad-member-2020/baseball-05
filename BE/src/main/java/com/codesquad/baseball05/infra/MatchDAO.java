@@ -6,18 +6,36 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
+import javax.sql.DataSource;
+
 @Repository
 public class MatchDAO {
     private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    public MatchDAO(NamedParameterJdbcTemplate namedParameterJdbcTemplate) {
-        this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
+    public MatchDAO(DataSource dataSource) {
+        this.namedParameterJdbcTemplate = new NamedParameterJdbcTemplate(dataSource);
     }
 
     public MatchDTO findByTeamName(String teamName) {
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("teamName", teamName);
 
         String findByTeamNameSql = "SELECT * FROM matches WHERE home_team=:teamName OR away_team=:teamName";
+        MatchDTO matchDTO = namedParameterJdbcTemplate.queryForObject(findByTeamNameSql, namedParameters, (rs, rownum) -> {
+            MatchDTO dto = new MatchDTO();
+            dto.setId(rs.getLong("id"));
+            dto.setUserA(rs.getLong("user_a"));
+            dto.setUserB(rs.getLong("user_b"));
+            dto.setHomeTeam(rs.getString("home_team"));
+            dto.setAwayTeam(rs.getString("away_team"));
+            return dto;
+        });
+        return matchDTO;
+    }
+
+    public MatchDTO findById(Long id) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", id);
+
+        String findByTeamNameSql = "SELECT * FROM matches WHERE id = :id";
         MatchDTO matchDTO = namedParameterJdbcTemplate.queryForObject(findByTeamNameSql, namedParameters, (rs, rownum) -> {
             MatchDTO dto = new MatchDTO();
             dto.setId(rs.getLong("id"));
