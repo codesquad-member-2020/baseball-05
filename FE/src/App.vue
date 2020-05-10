@@ -8,13 +8,21 @@
 export default {};
 </script>
 
-<style scoped>
+<style>
 body {
-  background-image: url('./assets/bg.jpg');
-  /* background-color: #41b883; */
+  /* background-image: url('./assets/bg.jpg');
+  background-color: #41b883;
   background-repeat: no-repeat;
   background-size: cover;
-  color: #fff;
+  color: #fff; */
+}
+body {
+  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Angels_Stadium.JPG/1200px-Angels_Stadium.JPG');
+  /* center no-repeat; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  margin: 0;
 }
 li {
   list-style: none;

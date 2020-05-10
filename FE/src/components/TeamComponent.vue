@@ -65,6 +65,7 @@ export default {
 .warp {
   padding: 10px;
   background-color: #00000080;
+  color: #fff;
 }
 
 .game-number {
@@ -73,7 +74,6 @@ export default {
 
 .title-container > h2 {
   font-size: 34px;
-  opacity: 1;
 }
 
 .match-container {

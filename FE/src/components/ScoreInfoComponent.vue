@@ -77,23 +77,15 @@ export default {
   methods: {
     async fetchData() {
       const { data } = await fetchScores();
-      console.log(data);
       this.inningInfo = data;
     },
   },
 };
 </script>
 
-<style>
-body {
-  background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Angels_Stadium.JPG/1200px-Angels_Stadium.JPG')
-    center no-repeat;
-  background-size: cover;
-  min-height: 100vh;
-}
-
+<style scoped>
 .contained-table {
-  background-color: #fff;
+  background-color: #000;
   border: 1px solid #eee;
   margin: 0.5em;
   padding: 0.3em;
@@ -102,12 +94,7 @@ body {
 table {
   border-collapse: collapse;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-caption {
-  font-size: 4vw;
-  font-weight: bold;
-  padding: 0.8em;
+  outline: 1px solid #fff;
 }
 
 table,
@@ -115,19 +102,14 @@ th,
 tr,
 td {
   padding: 0.5em 0.75em;
-  color: #000;
+  color: #fff;
   text-align: center;
 }
 
-th,
-[data-th]:first-child {
-  background-color: #eee;
-}
-
 [data-th='Team'] {
-  color: #134a8e;
+  /* color: #134a8e; */
+  color: #fff;
   font-weight: bold;
-  /* display: flex; */
 }
 
 .total-score {
@@ -143,7 +125,7 @@ th,
 [data-th='Total'] {
   font-size: 1.125em;
   font-weight: bold;
-  color: #134a8e;
+  color: red;
 }
 
 .long {
