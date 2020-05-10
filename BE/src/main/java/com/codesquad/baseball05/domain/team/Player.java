@@ -1,4 +1,4 @@
-package com.codesquad.baseball05.domain.entity;
+package com.codesquad.baseball05.domain.team;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

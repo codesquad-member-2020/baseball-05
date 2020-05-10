@@ -23,6 +23,12 @@ INSERT INTO matches (id, a_user_id, b_user_id, home_team, away_team) VALUE (2, 3
 INSERT INTO matches (id, a_user_id, b_user_id, home_team, away_team) VALUE (3, null, null, '기아', '롯데');
 
 -- -----------------------------------------------------
+-- GAME TEST --
+-- -----------------------------------------------------
+INSERT INTO game (id, matches_id) VALUE (1, 2);
+INSERT INTO game (id, matches_id) VALUE (2, 1);
+
+-- -----------------------------------------------------
 -- Table `baseball`.`player`
 -- -----------------------------------------------------
 

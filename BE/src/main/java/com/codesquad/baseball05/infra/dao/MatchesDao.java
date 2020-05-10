@@ -1,7 +1,7 @@
 package com.codesquad.baseball05.infra.dao;
 
-import com.codesquad.baseball05.domain.dto.MatchesDTO;
-import com.codesquad.baseball05.domain.dto.MatchesTeamDTO;
+import com.codesquad.baseball05.domain.matches.dto.MatchesDTO;
+import com.codesquad.baseball05.domain.matches.dto.MatchesTeamDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;

@@ -1,6 +1,6 @@
 package com.codesquad.baseball05.infra.dao;
 
-import com.codesquad.baseball05.domain.entity.User;
+import com.codesquad.baseball05.domain.user.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.codesquad.baseball05.domain.entity;
+package com.codesquad.baseball05.domain.user;
 
 import lombok.*;
 import org.springframework.data.annotation.Id;
