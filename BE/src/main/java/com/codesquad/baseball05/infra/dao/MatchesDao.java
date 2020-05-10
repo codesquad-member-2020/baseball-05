@@ -52,6 +52,10 @@ public class MatchesDao {
         String teamName = rs.getString(region);
         String teamUserName = null;
 
+        if(rs.getString("GROUP_CONCAT(u.user_id)")==null) {
+            return new MatchesTeamDTO(rs.getString(region), null);
+        }
+
         String[] userIds = rs.getString("GROUP_CONCAT(u.user_id)").split(",");
         String[] teamNames = rs.getString("GROUP_CONCAT(t.name)").split(",");
 
@@ -65,7 +69,10 @@ public class MatchesDao {
     }
 
     private boolean isFull(ResultSet rs) throws SQLException {
+        if(rs.getString("GROUP_CONCAT(u.user_id)")==null) {
+            return true;
+        }
         String[] userIds = rs.getString("GROUP_CONCAT(u.user_id)").split(",");
-        return userIds.length == 2;
+        return userIds.length != 2;
     }
 }
