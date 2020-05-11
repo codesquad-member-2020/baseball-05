@@ -5,9 +5,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    currentBatter: [],
+    currentBatter: true,
     basePlayers: [],
     matchesList: [],
+    battingDelay: false,
+    waitBatter: false,
     matchArr: {
       inningMeaage: '2회초 공격',
       inning: {
