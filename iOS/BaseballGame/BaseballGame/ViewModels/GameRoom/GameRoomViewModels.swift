@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class GameRoomViewModels {
+final class GameRoomViewModels: NSObject {
     enum Notification {
         static let gameViewModelsDidChange = Foundation.Notification.Name("gameViewModelsDidChange")
     }
@@ -17,20 +17,37 @@ final class GameRoomViewModels {
     static let titleColor = UIColor.black
     static let gameRoomDefaultText = "GAME"
     
-    private let gameViewModels: [GameRoomViewModel]
+    private let gameRoomViewModels: [GameRoomViewModel]
     
     init(gameViewModels: [GameRoomViewModel]) {
-        self.gameViewModels = gameViewModels
+        self.gameRoomViewModels = gameViewModels
+        super.init()
         NotificationCenter.default.post(name: Notification.gameViewModelsDidChange,
                                         object: self)
     }
     
     func gameViewModel(at index: Int) -> GameRoomViewModel? {
-        guard index < gameViewModels.count else { return nil}
-        return gameViewModels[index]
+        guard index < gameRoomViewModels.count else { return nil}
+        return gameRoomViewModels[index]
     }
     
     var count: Int {
-        return gameViewModels.count
+        return gameRoomViewModels.count
+    }
+}
+
+extension GameRoomViewModels: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return gameRoomViewModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let gameRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: GameRoomCell.identifier,
+                                                                    for: indexPath) as? GameRoomCell
+            else { return GameRoomCell() }
+        
+        let gameRoomViewModel = gameRoomViewModels[indexPath.item]
+        gameRoomCell.configure(gameRoom: gameRoomViewModel.gameRoom)
+        return gameRoomCell
     }
 }
