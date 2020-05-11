@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import TeamComponent from '@/components/TeamComponent';
+import TeamComponent from '@/components/Main/TeamComponent';
 
 export default {
   components: {
