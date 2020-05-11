@@ -1,5 +1,5 @@
 <template>
-  <div class="player-container">
+  <div class="player-container fadeOut">
     <table v-for="team in this.playerInfo" :key="team.team">
       <thead>
         <th data-th="Team" colspan="5">{{ team.team }}</th>
@@ -48,11 +48,16 @@ export default {
 
 <style scoped>
 .player-container {
+  position: absolute;
   display: flex;
+  right: 15%;
+  bottom: -10%;
   background-color: #00000099;
   margin: 0 auto;
   width: 800px;
   padding: 20px;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
 }
 
 table {
@@ -75,5 +80,31 @@ td {
 
 [data-th='Team'] {
   font-weight: bold;
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+}
+
+@keyframes fadeIn {
+  0% {
+    bottom: -75%;
+  }
+  100% {
+    bottom: -10%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    bottom: -10%;
+  }
+  100% {
+    bottom: -75%;
+  }
 }
 </style>
