@@ -12,4 +12,8 @@ function fetchRoters() {
   return instance.get('rosters');
 }
 
-export { fetchMatches, fetchScores, fetchRoters };
+function fetchGames() {
+  return instance.get('games/rounds?isOffense=true');
+}
+
+export { fetchMatches, fetchScores, fetchRoters, fetchGames };
