@@ -4,20 +4,21 @@
       <h2>BASEBALL GAME ONLINE</h2>
     </div>
     <h2>참가할 게임을 선택하세요!</h2>
-    <div class="list-container">
+    <div v-if="!this.matchList">loading...</div>
+    <div v-else class="list-container">
       <div
         class="team-container"
         v-for="(team, index) in matchList"
-        :key="team.id"
+        :key="team.index"
       >
-        <button class="match-container" :class="{ active: team.selectable }">
+        <button class="match-container" :class="{ active: !team.selectable }">
           <div class="game-number">GAME{{ index + 1 }}</div>
           <span class="home-team team" @click="onClickSelectTeam">{{
-            team.homeTeam
+            team.awayTeam.teamName
           }}</span>
           vs
           <span class="away-team team" @click="onClickSelectTeam">{{
-            team.awayTeam
+            team.homeTeam.teamName
           }}</span>
         </button>
       </div>

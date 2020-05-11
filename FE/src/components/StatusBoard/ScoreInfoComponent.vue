@@ -85,7 +85,7 @@ export default {
 
 <style scoped>
 .contained-table {
-  background-color: #000;
+  background-color: #00000099;
   border: 1px solid #eee;
   margin: 0.5em;
   padding: 0.3em;

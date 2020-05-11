@@ -49,7 +49,7 @@ export default {
 <style scoped>
 .player-container {
   display: flex;
-  background-color: #000;
+  background-color: #00000099;
   margin: 0 auto;
   width: 800px;
   padding: 20px;
