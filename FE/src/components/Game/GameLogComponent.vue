@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="log-container">
     <div v-for="info in plate" :key="info.id">
       <div v-if="info.id === 1" class="current-batter">
         <span>{{ info.plate }}</span>
@@ -37,10 +37,27 @@ export default {
 </script>
 
 <style scoped>
+.log-container {
+  color: #fff;
+  position: absolute;
+  right: 0px;
+  height: 500px;
+  top: 15%;
+  width: 210px;
+  background: #000000;
+  outline: 1px solid #fff;
+  overflow: auto;
+  padding: 20px;
+}
+
+.log-container::-webkit-scrollbar {
+  display: none;
+}
+
 .current-batter {
   color: red;
 }
 .log-batter {
-  color: rgb(64, 81, 128);
+  color: rgb(0, 68, 255);
 }
 </style>
