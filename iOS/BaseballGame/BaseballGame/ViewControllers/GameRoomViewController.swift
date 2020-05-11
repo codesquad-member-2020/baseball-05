@@ -20,6 +20,10 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     private var gameRoomCollectionView: GameRoomCollectionView!
     private var gameRoomViewModels: GameRoomViewModels!
     
+    deinit {
+        prevButton.removeTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureGameTitleLabel()
@@ -39,8 +43,16 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     }
     
     private func configurePrevButton() {
-        prevButton.delegate = self
         configurePrevButtonConstraints()
+        configureDelegate()
+    }
+    
+    private func configureDelegate() {
+        prevButton.addTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
+    }
+    
+    @objc private func prevButtonDidTouch() {
+        navigationController?.popViewController(animated: true)
     }
     
     private func configurePrevButtonConstraints() {
@@ -113,11 +125,5 @@ extension GameRoomViewController: UICollectionViewDelegate {
             else { return }
         gameTabBarController.modalPresentationStyle = .fullScreen
         present(gameTabBarController, animated: true)
-    }
-}
-
-extension GameRoomViewController: PrevButtonDelegate {
-    func prevButtonDidTouch() {
-        navigationController?.popViewController(animated: true)
     }
 }
