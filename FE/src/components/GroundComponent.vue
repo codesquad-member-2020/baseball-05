@@ -1,7 +1,7 @@
 <template>
   <div class="ground">
-    <player :class="{ active: currentBatter }" />
-    <div class="ground-wrap" v-for="player in players" :key="player.index">
+    <player class="default" :class="{ active: this.$store.state.waitBatter }" />
+    <div class="ground-wrap" v-for="player in basePlayers" :key="player.index">
       <player :class="player" />
     </div>
   </div>
@@ -9,21 +9,24 @@
 
 <script>
 import Player from '@/components/Player';
+import { mapState } from 'vuex';
 
 export default {
   data() {
-    return {
-      players: ['first', 'second', 'third'],
-      currentBatter: true,
-    };
+    return {};
   },
+
+  computed: {
+    ...mapState(['basePlayers', 'currentBatter']),
+  },
+
   components: {
     Player,
   },
 };
 </script>
 
-<style>
+<style scoped>
 .ground {
   background-color: #000;
 }
