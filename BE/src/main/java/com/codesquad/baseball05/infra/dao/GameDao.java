@@ -46,18 +46,25 @@ public class GameDao {
         return null;
     }
 
-    public Object readPitchResult() {
-        String sql = "";
+    public Object readPitchResult(String team) {
+        String sql = "SELECT m.home_team AS m_home_team, " +
+                "m.away_team AS m_away_team, " +
+                "i.half _ AS i_half, " +
+                "h1.point AS h1_point, " +
+                "h2.point AS h2_point " +
+                "FROM matches m " +
+                "INNER JOIN user u ON m.a_user_id = u.id " +
+                "INNER JOIN game g ON m.id = g.matches_id " +
+                "INNER JOIN inning i ON g.id = i.game_id " +
+                "LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id " +
+                "LEFT OUTER JOIN half h2 ON i.second_half_id = h2.id " +
+                "INNER JOIN plate p ON h1.id = p.half_id OR h2.id = p.half_id";
 
         RowMapper<PitchResultDTO> pitchResultDtoRowMapper = new RowMapper<PitchResultDTO>() {
             @Override
             public PitchResultDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                String homeTeamName = rs.getString("m_home_team");
-                String awayTeamName = rs.getString("m_away_team");
-
-                GameTeamDTO homeTeam = new GameTeamDTO(homeTeamName, getTotalPoint(rs), isOffense(rs, homeTeamName));
-                GameTeamDTO awayTeam = new GameTeamDTO(awayTeamName, getTotalPoint(rs), isOffense(rs, awayTeamName));
-
+                String teamName = rs.getString(team);
+                GameTeamDTO teamDTO = new GameTeamDTO(teamName, getTotalPoint(rs), isOffense(rs, teamName));
                 PlayerDTO pitcher = new PlayerDTO();
                 PlayerDTO batter = new PlayerDTO();
                 InningDTO inning = new InningDTO();
@@ -67,10 +74,6 @@ public class GameDao {
         };
 
         return this.jdbcTemplate.queryForObject(sql, pitchResultDtoRowMapper);
-    }
-
-    private GameTeamDTO makeGameTeamDTO() {
-
     }
 
     private boolean isTopHalf(ResultSet rs) throws SQLException {
@@ -83,19 +86,12 @@ public class GameDao {
     }
 
     private boolean isOffense(ResultSet rs, String teamName) throws SQLException {
-        if(isTopHalf(rs)) {
-            if(rs.getString("m_away_team").equals(teamName)) {
-                return true;
-            }
-            return false;
+        if(isTopHalf(rs) && rs.getString("m_away_team").equals(teamName)) {
+            return true;
+        } else if(!isTopHalf(rs) && rs.getString("m_home_team").equals(teamName)) {
+            return true;
         }
-
-        else {
-            if(rs.getString("m_home_team").equals(teamName)) {
-                return true;
-            }
-            return false;
-        }
+        return false;
     }
 
     private void disconnectTeamWithUser(Long gameId) {
