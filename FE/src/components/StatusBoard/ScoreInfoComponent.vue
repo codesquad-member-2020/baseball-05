@@ -1,5 +1,5 @@
 <template>
-  <div class="contained-table">
+  <div class="contained-table fadeOut">
     <div v-if="this.inningInfo.length === 0">loading...</div>
     <table v-else>
       <thead>
@@ -85,10 +85,15 @@ export default {
 
 <style scoped>
 .contained-table {
+  position: absolute;
+  top: -10%;
+  right: 20%;
   background-color: #00000099;
   border: 1px solid #eee;
   margin: 0.5em;
   padding: 0.3em;
+  animation-duration: 1.5s;
+  animation-fill-mode: both;
 }
 
 table {
@@ -187,6 +192,32 @@ td {
   table {
     margin: 1.5em auto;
     max-width: 100%;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+}
+
+@keyframes fadeIn {
+  0% {
+    top: -50%;
+  }
+  100% {
+    top: -10%;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    top: -10%;
+  }
+  100% {
+    top: -50%;
   }
 }
 </style>
