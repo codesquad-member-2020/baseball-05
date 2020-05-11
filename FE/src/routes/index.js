@@ -19,6 +19,10 @@ const router = new VueRouter({
       component: () => import('@/views/SelectTeamView.vue'),
     },
     {
+      path: '/test',
+      component: () => import('@/views/GroundView.vue'),
+    },
+    {
       path: '/main/:id',
       component: () => import('@/views/GameView.vue'),
     },
