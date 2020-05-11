@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import ScoreInfoComponent from '@/components/ScoreInfoComponent';
-import PlayerInfoComponent from '@/components/PlayerInfoComponent';
+import ScoreInfoComponent from '@/components/StatusBoard/ScoreInfoComponent';
+import PlayerInfoComponent from '@/components/StatusBoard/PlayerInfoComponent';
 export default {
   components: {
     ScoreInfoComponent,
