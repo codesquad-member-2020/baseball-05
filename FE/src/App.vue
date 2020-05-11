@@ -17,12 +17,14 @@ body {
   color: #fff; */
 }
 body {
+  margin: 0;
+}
+#app {
   background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Angels_Stadium.JPG/1200px-Angels_Stadium.JPG');
   /* center no-repeat; */
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
-  margin: 0;
 }
 li {
   list-style: none;
