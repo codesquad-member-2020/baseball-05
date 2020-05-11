@@ -14,11 +14,11 @@
         <button class="match-container" :class="{ active: !team.selectable }">
           <div class="game-number">GAME{{ index + 1 }}</div>
           <span class="home-team team" @click="onClickSelectTeam">{{
-            team.awayTeam.teamName
+            team.homeTeam.teamName
           }}</span>
           vs
           <span class="away-team team" @click="onClickSelectTeam">{{
-            team.homeTeam.teamName
+            team.awayTeam.teamName
           }}</span>
         </button>
       </div>
