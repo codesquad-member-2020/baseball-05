@@ -25,8 +25,33 @@ INSERT INTO matches (id, a_user_id, b_user_id, home_team, away_team) VALUE (3, n
 -- -----------------------------------------------------
 -- GAME TEST --
 -- -----------------------------------------------------
-INSERT INTO game (id, matches_id) VALUE (1, 2);
-INSERT INTO game (id, matches_id) VALUE (2, 1);
+INSERT INTO game (id, matches_id) VALUE (1, 1);
+
+-- -----------------------------------------------------
+-- INNING TEST --
+-- -----------------------------------------------------
+
+INSERT INTO inning (id, game_id, first_half_id, second_half_id, half) VALUE (1, 1, 1, 2, '초');
+
+-- -----------------------------------------------------
+-- HALF TEST --
+-- -----------------------------------------------------
+INSERT INTO half (id, last_bat_player, total_plate, outs, hit,ㅇ point) VALUE (1, 1, 0, 1, 1, 0);
+
+-- -----------------------------------------------------
+-- PLATE TEST --
+-- -----------------------------------------------------
+INSERT INTO plate (id, half_id, strike, ball, first_baseman, second_baseman, third_baseman) VALUE (1, 1, 0, 0, '손광민', null, null);
+INSERT INTO plate (id, half_id, strike, ball, first_baseman, second_baseman, third_baseman) VALUE (2, 3, 1, 0, '손광민', null, null);
+
+-- -----------------------------------------------------
+-- ROUND TEST --
+-- -----------------------------------------------------
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (1, 1, '손광민', 0, 0, '안타');
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (2, 1, '김태균', 1, 0, null);
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (3, 1, '김태균', 1, 0, null);
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (4, 1, '김태균', 1, 0, null);
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (5, 1, '김태균', 0, 0, '아웃');
 
 -- -----------------------------------------------------
 -- Table `baseball`.`player`

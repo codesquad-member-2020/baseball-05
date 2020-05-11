@@ -11,7 +11,7 @@ public class PlateDTO {
 
     private int outs;
 
-    private BatterDTO batter;
+    private PlayerDTO batter;
 
     private RoundDTO round;
 }

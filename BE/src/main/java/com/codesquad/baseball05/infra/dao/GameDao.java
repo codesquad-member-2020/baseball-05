@@ -43,21 +43,59 @@ public class GameDao {
     }
 
     public Object pitch() {
+        return null;
+    }
+
+    public Object readPitchResult() {
         String sql = "";
 
         RowMapper<PitchResultDTO> pitchResultDtoRowMapper = new RowMapper<PitchResultDTO>() {
             @Override
             public PitchResultDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                GameTeamDTO homeTeam = new GameTeamDTO();
-                GameTeamDTO awayTeam = new GameTeamDTO();
-                PitcherDTO pitcher = new PitcherDTO();
+                String homeTeamName = rs.getString("m_home_team");
+                String awayTeamName = rs.getString("m_away_team");
+
+                GameTeamDTO homeTeam = new GameTeamDTO(homeTeamName, getTotalPoint(rs), isOffense(rs, homeTeamName));
+                GameTeamDTO awayTeam = new GameTeamDTO(awayTeamName, getTotalPoint(rs), isOffense(rs, awayTeamName));
+
+                PlayerDTO pitcher = new PlayerDTO();
+                PlayerDTO batter = new PlayerDTO();
                 InningDTO inning = new InningDTO();
                 List<PlateDTO> plates = new ArrayList<>();
-                return new PitchResultDTO(homeTeam, awayTeam, pitcher, inning, plates);
+                return new PitchResultDTO(homeTeam, awayTeam, pitcher, batter, inning, plates);
             }
         };
 
         return this.jdbcTemplate.queryForObject(sql, pitchResultDtoRowMapper);
+    }
+
+    private GameTeamDTO makeGameTeamDTO() {
+
+    }
+
+    private boolean isTopHalf(ResultSet rs) throws SQLException {
+        String half = rs.getString("i_half");
+        return half.equals("초");
+    }
+
+    private int getTotalPoint(ResultSet rs) throws SQLException {
+        return isTopHalf(rs) ? rs.getInt("h1_point") : rs.getInt("h2_point");
+    }
+
+    private boolean isOffense(ResultSet rs, String teamName) throws SQLException {
+        if(isTopHalf(rs)) {
+            if(rs.getString("m_away_team").equals(teamName)) {
+                return true;
+            }
+            return false;
+        }
+
+        else {
+            if(rs.getString("m_home_team").equals(teamName)) {
+                return true;
+            }
+            return false;
+        }
     }
 
     private void disconnectTeamWithUser(Long gameId) {

@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class BatterDTO {
+public class PlayerDTO {
 
     private String name;
 
