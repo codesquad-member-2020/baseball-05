@@ -19,8 +19,8 @@ final class GameRoomViewModels: NSObject {
     
     private let gameRoomViewModels: [GameRoomViewModel]
     
-    init(gameViewModels: [GameRoomViewModel]) {
-        self.gameRoomViewModels = gameViewModels
+    init(with gameRooms: [GameRoom]) {
+        self.gameRoomViewModels = gameRooms.map { GameRoomViewModel(gameRoom: $0) }
         super.init()
         NotificationCenter.default.post(name: Notification.gameViewModelsDidChange,
                                         object: self)

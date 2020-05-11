@@ -92,8 +92,7 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     }
     
     private func configureGameRoomViewModels(gameRooms: [GameRoom]) {
-        self.gameRoomViewModels = GameRoomViewModels(gameViewModels:
-        gameRooms.map { GameRoomViewModel(gameRoom: $0)})
+        self.gameRoomViewModels = GameRoomViewModels(with: gameRooms)
         configureGameRoomDataSource()
     }
     
