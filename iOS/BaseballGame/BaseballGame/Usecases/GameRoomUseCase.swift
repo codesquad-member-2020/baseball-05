@@ -15,7 +15,7 @@ struct GameRoomUseCase {
         }
     }
     
-    final class GameRoomTask: NetworkTask {
+    struct GameRoomTask: NetworkTask {
         typealias Output = [GameRoom]
         
         private let networkDispatcher: NetworkDispatcher
