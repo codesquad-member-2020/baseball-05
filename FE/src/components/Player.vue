@@ -1,18 +1,16 @@
 <template>
-  <div class="playerImg" :class="propsData" />
+  <div class="playerImg" />
 </template>
 
 <script>
-export default {
-  class: ['propsData'],
-};
+export default {};
 </script>
 
 <style>
 .playerImg {
   position: absolute;
   bottom: 30px;
-  left: 50%;
+  left: 52%;
   transform: translateX(-50%);
   width: 40px;
   height: 60px;
@@ -22,7 +20,6 @@ export default {
   animation-fill-mode: both;
   animation-timing-function: cubic-bezier(0.54, -0.39, 0.8, 1.72);
 }
-
 .first {
   animation-name: first;
 }
