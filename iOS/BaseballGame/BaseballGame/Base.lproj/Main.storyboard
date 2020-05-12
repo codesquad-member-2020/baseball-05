@@ -229,7 +229,7 @@
                                             <constraint firstAttribute="height" constant="1" id="k7M-8b-ycC"/>
                                         </constraints>
                                     </view>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mNx-WN-idk">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="mNx-WN-idk" customClass="TeamStackView" customModule="BaseballGame" customModuleProvider="target">
                                         <rect key="frame" x="79" y="31" width="281" height="30"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnK-gJ-w3G">
@@ -241,7 +241,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JL1-wO-DHP">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="JL1-wO-DHP" customClass="TeamStackView" customModule="BaseballGame" customModuleProvider="target">
                                         <rect key="frame" x="79" y="61" width="281" height="30"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZq-Rq-TkI" userLabel="Line">
@@ -466,7 +466,7 @@
                     <connections>
                         <outlet property="awayTeamStack" destination="mNx-WN-idk" id="gkY-nh-a5o"/>
                         <outlet property="homeTeamStack" destination="JL1-wO-DHP" id="0qk-kq-uH6"/>
-                        <outlet property="inningStack" destination="lNd-m5-XvB" id="wxq-1R-QXY"/>
+                        <outlet property="inningTitleStack" destination="lNd-m5-XvB" id="wxq-1R-QXY"/>
                         <outlet property="playerInfoTable" destination="AfA-ZO-MK1" id="UPu-5W-fNL"/>
                         <outlet property="titleView" destination="mBQ-yj-4gl" id="tYH-x8-1ya"/>
                     </connections>

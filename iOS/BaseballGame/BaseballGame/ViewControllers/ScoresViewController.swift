@@ -11,9 +11,9 @@ import UIKit
 final class ScoresViewController: UIViewController {
     @IBOutlet weak var titleView: TitleView!
     @IBOutlet weak var playerInfoTable: UITableView!
-    @IBOutlet weak var inningStack: InningTitleStack!
-    @IBOutlet weak var awayTeamStack: UIStackView!
-    @IBOutlet weak var homeTeamStack: UIStackView!
+    @IBOutlet weak var inningTitleStack: InningTitleStack!
+    @IBOutlet weak var awayTeamStack: TeamStackView!
+    @IBOutlet weak var homeTeamStack: TeamStackView!
     
     private let playerInfoViewModels = PlayerInfoViewModels(awayTeamPlayerInfos: [PlayerInfo(player: "DUMMY_AWAY",
                                                                                              mounts: 1,

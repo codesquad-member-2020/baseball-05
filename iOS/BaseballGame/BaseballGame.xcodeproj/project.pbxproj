@@ -66,6 +66,7 @@
 		5A9FF8CC246A384500005C36 /* PlayerInfoViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8CB246A384500005C36 /* PlayerInfoViewModels.swift */; };
 		5A9FF8D0246A76E500005C36 /* InningTitleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8CF246A76E500005C36 /* InningTitleStack.swift */; };
 		5A9FF8D2246A778600005C36 /* InningViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8D1246A778600005C36 /* InningViewLabel.swift */; };
+		5A9FF8D4246A7CF200005C36 /* TeamStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8D3246A7CF200005C36 /* TeamStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -151,6 +152,7 @@
 		5A9FF8CB246A384500005C36 /* PlayerInfoViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewModels.swift; sourceTree = "<group>"; };
 		5A9FF8CF246A76E500005C36 /* InningTitleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningTitleStack.swift; sourceTree = "<group>"; };
 		5A9FF8D1246A778600005C36 /* InningViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningViewLabel.swift; sourceTree = "<group>"; };
+		5A9FF8D3246A7CF200005C36 /* TeamStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -387,6 +389,7 @@
 			children = (
 				5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */,
 				5A9FF8CF246A76E500005C36 /* InningTitleStack.swift */,
+				5A9FF8D3246A7CF200005C36 /* TeamStackView.swift */,
 			);
 			path = Score;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				5A814F6A246664DE001C768D /* PlayViewController.swift in Sources */,
 				5A814F532464016D001C768D /* IdentifiableView.swift in Sources */,
 				5A814F5C24645052001C768D /* LoginViewController.swift in Sources */,
+				5A9FF8D4246A7CF200005C36 /* TeamStackView.swift in Sources */,
 				5A9FF8C3246A2D4E00005C36 /* PlayerInfoCell.swift in Sources */,
 				5A481FC82467CEF600BBDC00 /* CurrentPlayerCell.swift in Sources */,
 				5A481FD22467FBC700BBDC00 /* OrderLabel.swift in Sources */,
