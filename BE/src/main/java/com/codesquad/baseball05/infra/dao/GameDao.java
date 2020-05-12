@@ -1,6 +1,8 @@
 package com.codesquad.baseball05.infra.dao;
 
+import com.codesquad.baseball05.domain.game.dto.CurrentPlayerDTO;
 import com.codesquad.baseball05.domain.game.dto.GameTeamDTO;
+import com.codesquad.baseball05.domain.game.dto.PitchResultDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -41,11 +43,25 @@ public class GameDao {
     }
 
     public Object pitch() {
-        return makeTeamDTO("a", "m_home_team");
+        GameTeamDTO homeTeam = makeTeamDTO("a", "m_home_team");
+        GameTeamDTO awayTeam = makeTeamDTO("b", "m_away_team");
+        CurrentPlayerDTO players = makeCurrentPlayerDTO();
+        return new PitchResultDTO(homeTeam, awayTeam, players);
     }
 
-    public Object makeTeamDTO(String user, String team) {
-        String sql = "SELECT m.home_team AS m_home_team, m.away_team AS m_away_team, i.half AS i_half, h1.point AS h1_point, h2.point AS h2_point FROM matches m INNER JOIN user u ON m.a_user_id = u.id INNER JOIN game g ON m.id = g.matches_id INNER JOIN inning i ON g.id = i.game_id LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id LEFT OUTER JOIN half h2 ON i.second_half_id = h2.id INNER JOIN plate p ON h1.id = p.half_id OR h2.id = p.half_id";
+
+    private GameTeamDTO makeTeamDTO(String user, String team) {
+        String sql = "SELECT m.home_team AS m_home_team, " +
+                "m.away_team AS m_away_team, " +
+                "i.half AS i_half, " +
+                "h1.point AS h1_point, " +
+                "h2.point AS h2_point " +
+                "FROM matches m " +
+                "INNER JOIN user u ON m.a_user_id = u.id " +
+                "INNER JOIN game g ON m.id = g.matches_id " +
+                "INNER JOIN inning i ON g.id = i.game_id " +
+                "LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id " +
+                "LEFT OUTER JOIN half h2 ON i.second_half_id = h2.id";
 
         RowMapper<GameTeamDTO> pitchResultDtoRowMapper = new RowMapper<GameTeamDTO>() {
             @Override
@@ -56,6 +72,10 @@ public class GameDao {
         };
 
         return this.jdbcTemplate.queryForObject(sql, pitchResultDtoRowMapper);
+    }
+
+    private CurrentPlayerDTO makeCurrentPlayerDTO() {
+        
     }
 
     private boolean isTopHalf(ResultSet rs) throws SQLException {
