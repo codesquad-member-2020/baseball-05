@@ -21,8 +21,8 @@ final class TeamStackView: UIStackView {
     }
     
     private func addInningViewLabels() {
-        let max = 13
-        for _ in 0 ..< max {
+        let maxCount = 12
+        for _ in 0 ..< maxCount {
             let label = InningViewLabel()
             addArrangedSubview(label)
         }
