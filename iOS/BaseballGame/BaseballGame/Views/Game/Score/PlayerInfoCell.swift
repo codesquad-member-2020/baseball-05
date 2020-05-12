@@ -22,5 +22,12 @@ final class PlayerInfoCell: UITableViewCell, IdentifiableView {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    
+    func configure(playerInfo: PlayerInfo) {
+        nameLabel.text = playerInfo.player
+        mountsLabel.text = String(playerInfo.mounts)
+        hitsLabel.text = String(playerInfo.hits)
+        outsLabel.text = String(playerInfo.outs)
+        avarageLabel.text = String(playerInfo.average)
+    }
 }

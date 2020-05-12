@@ -45,8 +45,8 @@ extension GameRoomViewModels: UICollectionViewDataSource {
         guard let gameRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: GameRoomCell.identifier,
                                                                     for: indexPath) as? GameRoomCell
             else { return GameRoomCell() }
+        guard let gameRoomViewModel = gameViewModel(at: indexPath.row) else { return GameRoomCell() }
         
-        let gameRoomViewModel = gameRoomViewModels[indexPath.item]
         gameRoomCell.configure(gameRoom: gameRoomViewModel.gameRoom)
         return gameRoomCell
     }

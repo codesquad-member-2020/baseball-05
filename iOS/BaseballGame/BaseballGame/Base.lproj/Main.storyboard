@@ -287,39 +287,39 @@
                                         <rect key="frame" x="0.0" y="31" width="375" height="337"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerInfoCell" id="F90-Fn-Ivq" customClass="PlayerInfoCell" customModule="BaseballGame" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerInfoCell" rowHeight="30" id="F90-Fn-Ivq" customClass="PlayerInfoCell" customModule="BaseballGame" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="28" width="375" height="30"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F90-Fn-Ivq" id="GhH-e6-aOM">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="류현진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IW3-Qf-iKP">
-                                                            <rect key="frame" x="15" y="12" width="42" height="19.5"/>
+                                                            <rect key="frame" x="15" y="10.5" width="42" height="9"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaE-yW-9oZ">
-                                                            <rect key="frame" x="155.5" y="12" width="8" height="19.5"/>
+                                                            <rect key="frame" x="155.5" y="5" width="8" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJy-qq-Hca">
-                                                            <rect key="frame" x="210.5" y="12" width="10" height="19.5"/>
+                                                            <rect key="frame" x="210.5" y="5" width="10" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXP-fu-cts">
-                                                            <rect key="frame" x="268" y="12" width="8" height="19.5"/>
+                                                            <rect key="frame" x="268" y="5" width="8" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fzo-fI-qoo">
-                                                            <rect key="frame" x="317.5" y="12" width="40" height="19.5"/>
+                                                            <rect key="frame" x="317.5" y="5" width="40" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -331,7 +331,9 @@
                                                         <constraint firstItem="fJy-qq-Hca" firstAttribute="centerY" secondItem="GhH-e6-aOM" secondAttribute="centerY" id="T3P-Ll-k1s"/>
                                                         <constraint firstItem="IW3-Qf-iKP" firstAttribute="leading" secondItem="GhH-e6-aOM" secondAttribute="leading" constant="15" id="Tlg-eH-tF3"/>
                                                         <constraint firstItem="aaE-yW-9oZ" firstAttribute="centerX" secondItem="GhH-e6-aOM" secondAttribute="centerX" multiplier="0.85" id="YW6-BF-ruk"/>
+                                                        <constraint firstAttribute="bottom" secondItem="IW3-Qf-iKP" secondAttribute="bottom" constant="10.5" id="g21-YG-Dnz"/>
                                                         <constraint firstItem="dXP-fu-cts" firstAttribute="centerY" secondItem="GhH-e6-aOM" secondAttribute="centerY" id="gKT-l5-H45"/>
+                                                        <constraint firstItem="IW3-Qf-iKP" firstAttribute="top" secondItem="GhH-e6-aOM" secondAttribute="top" constant="10.5" id="j0T-9l-vQC"/>
                                                         <constraint firstItem="fJy-qq-Hca" firstAttribute="centerX" secondItem="GhH-e6-aOM" secondAttribute="centerX" multiplier="1.15" id="jMR-RX-WRJ"/>
                                                         <constraint firstItem="aaE-yW-9oZ" firstAttribute="centerY" secondItem="GhH-e6-aOM" secondAttribute="centerY" id="qYy-Yb-CxB"/>
                                                         <constraint firstItem="dXP-fu-cts" firstAttribute="centerX" secondItem="GhH-e6-aOM" secondAttribute="centerX" multiplier="1.45" id="tCY-2K-f1f"/>

@@ -8,6 +8,17 @@
 
 import Foundation
 
+struct PlayerInfoResponse: Codable {
+    let player: String
+    let mounts: Int
+    let hits: Int
+    let outs: Int
+}
+
 struct PlayerInfo {
-    
+    let player: String
+    let mounts: Int
+    let hits: Int
+    let outs: Int
+    let average: Double
 }

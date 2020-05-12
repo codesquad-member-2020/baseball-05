@@ -63,7 +63,7 @@
 		5A9FF8C3246A2D4E00005C36 /* PlayerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */; };
 		5A9FF8C7246A373600005C36 /* PlayerInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */; };
 		5A9FF8C9246A37B700005C36 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */; };
-		5A9FF8CC246A384500005C36 /* PlayerViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8CB246A384500005C36 /* PlayerViewModels.swift */; };
+		5A9FF8CC246A384500005C36 /* PlayerInfoViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8CB246A384500005C36 /* PlayerInfoViewModels.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,7 +146,7 @@
 		5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoCell.swift; sourceTree = "<group>"; };
 		5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewModel.swift; sourceTree = "<group>"; };
 		5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
-		5A9FF8CB246A384500005C36 /* PlayerViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModels.swift; sourceTree = "<group>"; };
+		5A9FF8CB246A384500005C36 /* PlayerInfoViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewModels.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,7 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */,
-				5A9FF8CB246A384500005C36 /* PlayerViewModels.swift */,
+				5A9FF8CB246A384500005C36 /* PlayerInfoViewModels.swift */,
 			);
 			path = Score;
 			sourceTree = "<group>";
@@ -572,7 +572,7 @@
 				5A814F6E24669226001C768D /* IdentifiableViewController.swift in Sources */,
 				5A814F5824643A9D001C768D /* UIColorExtension.swift in Sources */,
 				5A814F032462AB84001C768D /* GameRoomUseCase.swift in Sources */,
-				5A9FF8CC246A384500005C36 /* PlayerViewModels.swift in Sources */,
+				5A9FF8CC246A384500005C36 /* PlayerInfoViewModels.swift in Sources */,
 				5A814F122462DEDF001C768D /* ViewModelBinding.swift in Sources */,
 				5A89B65A2467BD0600AA82F1 /* SBOView.swift in Sources */,
 			);
