@@ -10,7 +10,12 @@ import Foundation
 
 struct GameRoom: Codable {
     let id: Int
-    let homeTeam: String
-    let awayTeam: String
     let selectable: Bool
+    let homeTeam: Team
+    let awayTeam: Team
+}
+
+struct Team: Codable {
+    let teamName: String
+    let userName: String?
 }

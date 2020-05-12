@@ -89,7 +89,7 @@ final class GameRoomCell: UICollectionViewCell, IdentifiableView {
     
     func configure(gameRoom: GameRoom) {
         gameRoomLabel.text = "\(GameRoomViewModels.gameRoomDefaultText) \(gameRoom.id)"
-        awayTeamButton.setTitle(gameRoom.awayTeam, for: .normal)
-        homeTeamButton.setTitle(gameRoom.homeTeam, for: .normal)
+        awayTeamButton.setTitle(gameRoom.awayTeam.teamName, for: .normal)
+        homeTeamButton.setTitle(gameRoom.homeTeam.teamName, for: .normal)
     }
 }
