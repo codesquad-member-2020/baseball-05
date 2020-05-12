@@ -36,7 +36,7 @@ INSERT INTO inning (id, game_id, first_half_id, second_half_id, half) VALUE (1, 
 -- -----------------------------------------------------
 -- HALF TEST --
 -- -----------------------------------------------------
-INSERT INTO half (id, last_bat_player, total_plate, outs, hit,ㅇ point) VALUE (1, 1, 0, 1, 1, 0);
+INSERT INTO half (id, last_bat_player, total_plate, outs, hit, point) VALUE (1, 1, 0, 1, 1, 0);
 
 -- -----------------------------------------------------
 -- PLATE TEST --

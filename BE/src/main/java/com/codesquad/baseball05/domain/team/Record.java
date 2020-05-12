@@ -15,6 +15,8 @@ public class Record {
     @Id
     private Long id;
 
+    private int pitch;
+
     private int mount;
 
     private int hit;
