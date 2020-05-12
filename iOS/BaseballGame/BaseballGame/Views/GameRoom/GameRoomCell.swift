@@ -57,7 +57,7 @@ final class GameRoomCell: UICollectionViewCell, IdentifiableView {
         
         versusLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         versusLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor,
-                                            constant: 15).isActive = true
+                                            constant: 10).isActive = true
     }
     
     private func configureAwayTeamLabel() {
