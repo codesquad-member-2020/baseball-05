@@ -216,15 +216,44 @@
                                     <constraint firstAttribute="width" secondItem="hYS-x3-cZA" secondAttribute="height" multiplier="9:1" id="yLB-Fz-PLB"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ng4-Sh-vh6" userLabel="Score Table">
+                                <rect key="frame" x="0.0" y="63.5" width="375" height="131.5"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Ng4-Sh-vh6" secondAttribute="height" multiplier="20:7" id="unE-tI-GXC"/>
+                                </constraints>
+                            </view>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XKK-r5-798">
+                                <rect key="frame" x="10" y="207" width="355" height="32"/>
+                                <segments>
+                                    <segment title="Captain"/>
+                                    <segment title="Marvel"/>
+                                </segments>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AfA-ZO-MK1">
+                                <rect key="frame" x="0.0" y="250" width="375" height="368"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hYS-x3-cZA" firstAttribute="top" secondItem="mBQ-yj-4gl" secondAttribute="bottom" id="5e3-oS-xaH"/>
+                            <constraint firstItem="Xg0-XO-y3c" firstAttribute="leading" secondItem="Ng4-Sh-vh6" secondAttribute="leading" id="6wh-Xd-7hL"/>
                             <constraint firstItem="mBQ-yj-4gl" firstAttribute="width" secondItem="Xg0-XO-y3c" secondAttribute="width" id="8GT-Vo-oeS"/>
+                            <constraint firstItem="AfA-ZO-MK1" firstAttribute="leading" secondItem="Xg0-XO-y3c" secondAttribute="leading" id="8Um-Ns-gwe"/>
+                            <constraint firstItem="XKK-r5-798" firstAttribute="leading" secondItem="Xg0-XO-y3c" secondAttribute="leading" constant="10" id="AQa-Qk-r6j"/>
+                            <constraint firstItem="Ng4-Sh-vh6" firstAttribute="top" secondItem="hYS-x3-cZA" secondAttribute="bottom" id="AdS-1w-1Gl"/>
+                            <constraint firstItem="XKK-r5-798" firstAttribute="top" secondItem="Ng4-Sh-vh6" secondAttribute="bottom" constant="12" id="DeJ-0t-p5d"/>
+                            <constraint firstItem="Ng4-Sh-vh6" firstAttribute="width" secondItem="Xg0-XO-y3c" secondAttribute="width" id="Jcn-ID-nns"/>
+                            <constraint firstItem="AfA-ZO-MK1" firstAttribute="top" secondItem="XKK-r5-798" secondAttribute="bottom" constant="12" id="OEh-e2-JsQ"/>
                             <constraint firstItem="hYS-x3-cZA" firstAttribute="leading" secondItem="Xg0-XO-y3c" secondAttribute="leading" id="fdP-K6-smS"/>
                             <constraint firstItem="mBQ-yj-4gl" firstAttribute="top" secondItem="Xg0-XO-y3c" secondAttribute="top" id="kHB-AS-E0E"/>
+                            <constraint firstItem="Xg0-XO-y3c" firstAttribute="bottom" secondItem="AfA-ZO-MK1" secondAttribute="bottom" id="mRn-1S-Nff"/>
+                            <constraint firstItem="XKK-r5-798" firstAttribute="centerX" secondItem="Xg0-XO-y3c" secondAttribute="centerX" id="pxr-qt-MiI"/>
                             <constraint firstItem="Xg0-XO-y3c" firstAttribute="leading" secondItem="mBQ-yj-4gl" secondAttribute="leading" id="qq4-Zg-gog"/>
+                            <constraint firstItem="Xg0-XO-y3c" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="XKK-r5-798" secondAttribute="trailing" constant="10" id="vyl-SQ-KSx"/>
                             <constraint firstItem="hYS-x3-cZA" firstAttribute="width" secondItem="Xg0-XO-y3c" secondAttribute="width" id="yNg-4C-5nu"/>
+                            <constraint firstItem="AfA-ZO-MK1" firstAttribute="width" secondItem="Xg0-XO-y3c" secondAttribute="width" id="yNi-9h-4zA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xg0-XO-y3c"/>
                     </view>
