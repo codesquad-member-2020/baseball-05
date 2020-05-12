@@ -1,6 +1,6 @@
 package com.codesquad.baseball05.infra.dao;
 
-import com.codesquad.baseball05.domain.game.dto.*;
+import com.codesquad.baseball05.domain.game.dto.GameTeamDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -9,8 +9,6 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 @Slf4j
 @Repository
@@ -43,33 +41,17 @@ public class GameDao {
     }
 
     public Object pitch() {
-        return null;
+        return makeTeamDTO("a", "m_home_team");
     }
 
-    public Object readPitchResult(String team) {
-        String sql = "SELECT m.home_team AS m_home_team, " +
-                "m.away_team AS m_away_team, " +
-                "i.half _ AS i_half, " +
-                "h1.point AS h1_point, " +
-                "h2.point AS h2_point " +
-                "FROM matches m " +
-                "INNER JOIN user u ON m.a_user_id = u.id " +
-                "INNER JOIN game g ON m.id = g.matches_id " +
-                "INNER JOIN inning i ON g.id = i.game_id " +
-                "LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id " +
-                "LEFT OUTER JOIN half h2 ON i.second_half_id = h2.id " +
-                "INNER JOIN plate p ON h1.id = p.half_id OR h2.id = p.half_id";
+    public Object makeTeamDTO(String user, String team) {
+        String sql = "SELECT m.home_team AS m_home_team, m.away_team AS m_away_team, i.half AS i_half, h1.point AS h1_point, h2.point AS h2_point FROM matches m INNER JOIN user u ON m.a_user_id = u.id INNER JOIN game g ON m.id = g.matches_id INNER JOIN inning i ON g.id = i.game_id LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id LEFT OUTER JOIN half h2 ON i.second_half_id = h2.id INNER JOIN plate p ON h1.id = p.half_id OR h2.id = p.half_id";
 
-        RowMapper<PitchResultDTO> pitchResultDtoRowMapper = new RowMapper<PitchResultDTO>() {
+        RowMapper<GameTeamDTO> pitchResultDtoRowMapper = new RowMapper<GameTeamDTO>() {
             @Override
-            public PitchResultDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+            public GameTeamDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
                 String teamName = rs.getString(team);
-                GameTeamDTO teamDTO = new GameTeamDTO(teamName, getTotalPoint(rs), isOffense(rs, teamName));
-                GamePitcherDTO pitcher = new GamePitcherDTO();
-                GameBatterDTO batter = new GameBatterDTO();
-                InningDTO inning = new InningDTO();
-                List<GameBatterDTO> plates = new ArrayList<>();
-                return new PitchResultDTO(homeTeam, awayTeam, pitcher, batter, inning, plates);
+                return new GameTeamDTO(teamName, getTotalPoint(rs), isOffense(rs, teamName));
             }
         };
 
