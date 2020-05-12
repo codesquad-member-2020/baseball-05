@@ -60,6 +60,7 @@
 		5A89B6582467B7C900AA82F1 /* SBOView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A89B6572467B7C900AA82F1 /* SBOView.xib */; };
 		5A89B65A2467BD0600AA82F1 /* SBOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A89B6592467BD0600AA82F1 /* SBOView.swift */; };
 		5A89B65C2467C85C00AA82F1 /* SBOsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A89B65B2467C85C00AA82F1 /* SBOsView.swift */; };
+		5A9FF8C3246A2D4E00005C36 /* PlayerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +140,7 @@
 		5A89B6572467B7C900AA82F1 /* SBOView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SBOView.xib; sourceTree = "<group>"; };
 		5A89B6592467BD0600AA82F1 /* SBOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBOView.swift; sourceTree = "<group>"; };
 		5A89B65B2467C85C00AA82F1 /* SBOsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBOsView.swift; sourceTree = "<group>"; };
+		5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -340,6 +342,7 @@
 		5A814F6624665A07001C768D /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				5A9FF8C1246A2D2E00005C36 /* Score */,
 				5A89B6542467B4BE00AA82F1 /* Play */,
 				5A814F6324658E25001C768D /* TitleView.xib */,
 				5A814F6724665B23001C768D /* TitleView.swift */,
@@ -365,6 +368,14 @@
 				5A481FD12467FBC700BBDC00 /* OrderLabel.swift */,
 			);
 			path = Play;
+			sourceTree = "<group>";
+		};
+		5A9FF8C1246A2D2E00005C36 /* Score */ = {
+			isa = PBXGroup;
+			children = (
+				5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */,
+			);
+			path = Score;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -522,6 +533,7 @@
 				5A814F6A246664DE001C768D /* PlayViewController.swift in Sources */,
 				5A814F532464016D001C768D /* IdentifiableView.swift in Sources */,
 				5A814F5C24645052001C768D /* LoginViewController.swift in Sources */,
+				5A9FF8C3246A2D4E00005C36 /* PlayerInfoCell.swift in Sources */,
 				5A481FC82467CEF600BBDC00 /* CurrentPlayerCell.swift in Sources */,
 				5A481FD22467FBC700BBDC00 /* OrderLabel.swift in Sources */,
 				5A7DD54C246056AD002ECB3A /* GameRoomViewModels.swift in Sources */,
