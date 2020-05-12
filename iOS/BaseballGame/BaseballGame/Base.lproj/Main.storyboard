@@ -216,10 +216,10 @@
                                     <constraint firstAttribute="width" secondItem="hYS-x3-cZA" secondAttribute="height" multiplier="9:1" id="yLB-Fz-PLB"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ng4-Sh-vh6" userLabel="Score Table">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ng4-Sh-vh6" userLabel="Inning View">
                                 <rect key="frame" x="0.0" y="68.5" width="375" height="94"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNd-m5-XvB">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="lNd-m5-XvB" customClass="InningTitleStack" customModule="BaseballGame" customModuleProvider="target">
                                         <rect key="frame" x="79" y="0.0" width="281" height="30"/>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VIZ-tq-gBl" userLabel="Line">
@@ -236,7 +236,7 @@
                                         <rect key="frame" x="0.0" y="30" width="79" height="31"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Captain" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alq-ai-NLQ">
-                                        <rect key="frame" x="21.5" y="37" width="51.5" height="17"/>
+                                        <rect key="frame" x="14" y="37" width="51.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -255,7 +255,7 @@
                                         <rect key="frame" x="0.0" y="61" width="79" height="30"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marvel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p8q-lT-lKh">
-                                        <rect key="frame" x="25" y="67.5" width="45" height="17"/>
+                                        <rect key="frame" x="17" y="67.5" width="45" height="17"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -265,22 +265,24 @@
                                 <constraints>
                                     <constraint firstItem="rnK-gJ-w3G" firstAttribute="bottom" secondItem="JL1-wO-DHP" secondAttribute="top" id="2Pk-Of-4sF"/>
                                     <constraint firstItem="VIZ-tq-gBl" firstAttribute="leading" secondItem="lNd-m5-XvB" secondAttribute="leading" id="2np-4M-5hU"/>
-                                    <constraint firstItem="p8q-lT-lKh" firstAttribute="centerX" secondItem="xof-4L-E0R" secondAttribute="centerX" multiplier="1.2" id="4Wi-Rl-yQb"/>
-                                    <constraint firstItem="alq-ai-NLQ" firstAttribute="centerX" secondItem="rnK-gJ-w3G" secondAttribute="centerX" multiplier="1.2" id="4w9-uH-HVa"/>
+                                    <constraint firstItem="p8q-lT-lKh" firstAttribute="centerX" secondItem="xof-4L-E0R" secondAttribute="centerX" id="4Wi-Rl-yQb"/>
+                                    <constraint firstItem="alq-ai-NLQ" firstAttribute="centerX" secondItem="rnK-gJ-w3G" secondAttribute="centerX" id="4w9-uH-HVa"/>
                                     <constraint firstItem="JL1-wO-DHP" firstAttribute="top" secondItem="mNx-WN-idk" secondAttribute="bottom" id="EgY-pI-5o5"/>
                                     <constraint firstItem="VIZ-tq-gBl" firstAttribute="bottom" secondItem="mNx-WN-idk" secondAttribute="top" id="G6i-h9-wKa"/>
                                     <constraint firstItem="mNx-WN-idk" firstAttribute="height" secondItem="lNd-m5-XvB" secondAttribute="height" id="GGo-UB-502"/>
+                                    <constraint firstItem="lNd-m5-XvB" firstAttribute="leading" secondItem="rnK-gJ-w3G" secondAttribute="trailing" id="J7k-VY-WR0"/>
                                     <constraint firstAttribute="trailing" secondItem="JL1-wO-DHP" secondAttribute="trailing" constant="15" id="Nae-Th-Rmp"/>
                                     <constraint firstItem="alq-ai-NLQ" firstAttribute="centerY" secondItem="rnK-gJ-w3G" secondAttribute="centerY" id="PL1-nH-ROg"/>
-                                    <constraint firstItem="lNd-m5-XvB" firstAttribute="width" secondItem="Ng4-Sh-vh6" secondAttribute="width" multiplier="0.75" id="TRR-U2-YYw"/>
+                                    <constraint firstItem="xof-4L-E0R" firstAttribute="width" secondItem="Ng4-Sh-vh6" secondAttribute="width" multiplier="0.210667" id="Xpz-CY-ZUQ"/>
                                     <constraint firstItem="bZq-Rq-TkI" firstAttribute="trailing" secondItem="JL1-wO-DHP" secondAttribute="trailing" id="ZdA-BA-06l"/>
                                     <constraint firstItem="xof-4L-E0R" firstAttribute="leading" secondItem="Ng4-Sh-vh6" secondAttribute="leading" id="a8x-vl-Uw9"/>
                                     <constraint firstAttribute="trailing" secondItem="mNx-WN-idk" secondAttribute="trailing" constant="15" id="bZg-bf-ZCL"/>
                                     <constraint firstItem="JL1-wO-DHP" firstAttribute="height" secondItem="lNd-m5-XvB" secondAttribute="height" id="icV-HA-l5J"/>
-                                    <constraint firstItem="xof-4L-E0R" firstAttribute="trailing" secondItem="JL1-wO-DHP" secondAttribute="leading" id="ide-Xd-sh8"/>
-                                    <constraint firstItem="JL1-wO-DHP" firstAttribute="width" secondItem="lNd-m5-XvB" secondAttribute="width" id="nTQ-nT-UnZ"/>
+                                    <constraint firstItem="JL1-wO-DHP" firstAttribute="leading" secondItem="xof-4L-E0R" secondAttribute="trailing" id="jgq-XJ-WAm"/>
+                                    <constraint firstItem="rnK-gJ-w3G" firstAttribute="width" secondItem="Ng4-Sh-vh6" secondAttribute="width" multiplier="0.210667" id="mgh-RA-yCf"/>
                                     <constraint firstAttribute="trailing" secondItem="lNd-m5-XvB" secondAttribute="trailing" constant="15" id="ogq-13-0F7"/>
                                     <constraint firstItem="rnK-gJ-w3G" firstAttribute="leading" secondItem="Ng4-Sh-vh6" secondAttribute="leading" id="osb-sU-xJl"/>
+                                    <constraint firstItem="mNx-WN-idk" firstAttribute="leading" secondItem="rnK-gJ-w3G" secondAttribute="trailing" id="q9a-wN-MJN"/>
                                     <constraint firstItem="xof-4L-E0R" firstAttribute="top" secondItem="mNx-WN-idk" secondAttribute="bottom" id="qb2-ml-fwI"/>
                                     <constraint firstItem="VIZ-tq-gBl" firstAttribute="trailing" secondItem="lNd-m5-XvB" secondAttribute="trailing" id="sXi-VI-eha"/>
                                     <constraint firstItem="xof-4L-E0R" firstAttribute="bottom" secondItem="JL1-wO-DHP" secondAttribute="bottom" id="sfQ-cx-5Wh"/>
@@ -292,8 +294,6 @@
                                     <constraint firstItem="rnK-gJ-w3G" firstAttribute="top" secondItem="lNd-m5-XvB" secondAttribute="bottom" id="v3J-7J-kbl"/>
                                     <constraint firstItem="bZq-Rq-TkI" firstAttribute="top" secondItem="JL1-wO-DHP" secondAttribute="bottom" id="xE8-lg-Yg4"/>
                                     <constraint firstItem="lNd-m5-XvB" firstAttribute="height" secondItem="Ng4-Sh-vh6" secondAttribute="height" multiplier="0.32" id="y9Q-b5-iNn"/>
-                                    <constraint firstItem="mNx-WN-idk" firstAttribute="width" secondItem="lNd-m5-XvB" secondAttribute="width" id="ywG-Sm-fbP"/>
-                                    <constraint firstItem="rnK-gJ-w3G" firstAttribute="trailing" secondItem="mNx-WN-idk" secondAttribute="leading" id="zx1-Bh-vb4"/>
                                 </constraints>
                             </view>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="XKK-r5-798">
@@ -464,6 +464,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Scores" image="chart.bar" catalog="system" id="KJ9-3a-nZn"/>
                     <connections>
+                        <outlet property="awayTeamStack" destination="mNx-WN-idk" id="gkY-nh-a5o"/>
+                        <outlet property="homeTeamStack" destination="JL1-wO-DHP" id="0qk-kq-uH6"/>
+                        <outlet property="inningStack" destination="lNd-m5-XvB" id="wxq-1R-QXY"/>
                         <outlet property="playerInfoTable" destination="AfA-ZO-MK1" id="UPu-5W-fNL"/>
                         <outlet property="titleView" destination="mBQ-yj-4gl" id="tYH-x8-1ya"/>
                     </connections>

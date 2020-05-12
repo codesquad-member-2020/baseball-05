@@ -11,6 +11,10 @@ import UIKit
 final class ScoresViewController: UIViewController {
     @IBOutlet weak var titleView: TitleView!
     @IBOutlet weak var playerInfoTable: UITableView!
+    @IBOutlet weak var inningStack: InningTitleStack!
+    @IBOutlet weak var awayTeamStack: UIStackView!
+    @IBOutlet weak var homeTeamStack: UIStackView!
+    
     private let playerInfoViewModels = PlayerInfoViewModels(awayTeamPlayerInfos: [PlayerInfo(player: "DUMMY_AWAY",
                                                                                              mounts: 1,
                                                                                              hits: 0,
@@ -25,12 +29,20 @@ final class ScoresViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTitleView()
-        configureObserver()
         configurePlayerInfoTableDataSource()
+        configureObserver()
     }
     
     private func configureTitleView() {
         titleView.delegate = self
+    }
+    
+    private func configurePlayerInfoTableDataSource() {
+        playerInfoTable.dataSource = playerInfoViewModels
+    }
+    
+    @IBAction func teamSegmentDidTouch(_ sender: UISegmentedControl) {
+        playerInfoViewModels.togglePlayerInfoViewModel()
     }
     
     private func configureObserver() {
@@ -44,14 +56,6 @@ final class ScoresViewController: UIViewController {
         DispatchQueue.main.async {
             self.playerInfoTable.reloadData()
         }
-    }
-    
-    private func configurePlayerInfoTableDataSource() {
-        playerInfoTable.dataSource = playerInfoViewModels
-    }
-    
-    @IBAction func teamSegmentDidTouch(_ sender: UISegmentedControl) {
-        playerInfoViewModels.togglePlayerInfoViewModel()
     }
 }
 

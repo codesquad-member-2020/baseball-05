@@ -64,6 +64,8 @@
 		5A9FF8C7246A373600005C36 /* PlayerInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */; };
 		5A9FF8C9246A37B700005C36 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */; };
 		5A9FF8CC246A384500005C36 /* PlayerInfoViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8CB246A384500005C36 /* PlayerInfoViewModels.swift */; };
+		5A9FF8D0246A76E500005C36 /* InningTitleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8CF246A76E500005C36 /* InningTitleStack.swift */; };
+		5A9FF8D2246A778600005C36 /* InningViewLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8D1246A778600005C36 /* InningViewLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -147,6 +149,8 @@
 		5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewModel.swift; sourceTree = "<group>"; };
 		5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
 		5A9FF8CB246A384500005C36 /* PlayerInfoViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewModels.swift; sourceTree = "<group>"; };
+		5A9FF8CF246A76E500005C36 /* InningTitleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningTitleStack.swift; sourceTree = "<group>"; };
+		5A9FF8D1246A778600005C36 /* InningViewLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InningViewLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +386,7 @@
 			isa = PBXGroup;
 			children = (
 				5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */,
+				5A9FF8CF246A76E500005C36 /* InningTitleStack.swift */,
 			);
 			path = Score;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 			children = (
 				5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */,
 				5A9FF8CB246A384500005C36 /* PlayerInfoViewModels.swift */,
+				5A9FF8D1246A778600005C36 /* InningViewLabel.swift */,
 			);
 			path = Score;
 			sourceTree = "<group>";
@@ -531,7 +537,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A481FCA2467D6B100BBDC00 /* PlayTableLabel.swift in Sources */,
+				5A9FF8D2246A778600005C36 /* InningViewLabel.swift in Sources */,
 				5A814F102462DED2001C768D /* GameRoomViewModel.swift in Sources */,
+				5A9FF8D0246A76E500005C36 /* InningTitleStack.swift in Sources */,
 				5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */,
 				5A814EED24627BD5001C768D /* DataExtensions.swift in Sources */,
 				5A7DD54A24604DE9002ECB3A /* GameRoomCollectionView.swift in Sources */,
