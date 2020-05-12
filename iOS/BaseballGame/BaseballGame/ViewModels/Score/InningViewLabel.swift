@@ -1,31 +1,25 @@
 //
-//  OrderView.swift
+//  InningViewLabel.swift
 //  BaseballGame
 //
-//  Created by kimdo2297 on 2020/05/10.
+//  Created by kimdo2297 on 2020/05/12.
 //  Copyright © 2020 Jason. All rights reserved.
 //
 
 import UIKit
 
-final class OrderLabel: UILabel {
+final class InningViewLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        configureText()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configure()
-    }
-    
-    private func configure() {
         configureText()
-        backgroundColor = .black
     }
     
     private func configureText() {
-        textColor = .white
-        textAlignment = .center
+        font = UIFont.systemFont(ofSize: 13, weight: .semibold)
     }
 }

@@ -20,6 +20,10 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     private var gameRoomCollectionView: GameRoomCollectionView!
     private var gameRoomViewModels: GameRoomViewModels!
     
+    deinit {
+        prevButton.removeTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureGameTitleLabel()
@@ -39,8 +43,16 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     }
     
     private func configurePrevButton() {
-        prevButton.delegate = self
         configurePrevButtonConstraints()
+        configureDelegate()
+    }
+    
+    private func configureDelegate() {
+        prevButton.addTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
+    }
+    
+    @objc private func prevButtonDidTouch() {
+        navigationController?.popViewController(animated: true)
     }
     
     private func configurePrevButtonConstraints() {
@@ -56,7 +68,6 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         gameRoomCollectionView = GameRoomCollectionView(collectionViewLayout:
             GameRoomCollectionViewFlowLayout(superFrame: view.frame))
         gameRoomCollectionView.register(GameRoomCell.self, forCellWithReuseIdentifier: GameRoomCell.identifier)
-        gameRoomCollectionView.dataSource = self
         gameRoomCollectionView.delegate = self
         configureCollectionViewConstraints()
     }
@@ -88,27 +99,19 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
                                         with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomSuccess()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
-            self.gameRoomViewModels = GameRoomViewModels(gameViewModels:
-                gameRooms.map { GameRoomViewModel(gameRoom: $0)})
+            self.configureGameRoomViewModels(gameRooms: gameRooms)
         }
     }
-}
-
-extension GameRoomViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let gameRoomViewModels = gameRoomViewModels else { return 0 }
-        return gameRoomViewModels.count
+    
+    private func configureGameRoomViewModels(gameRooms: [GameRoom]) {
+        self.gameRoomViewModels = GameRoomViewModels(with: gameRooms)
+        configureGameRoomDataSource()
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let gameRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: GameRoomCell.identifier,
-                                                                    for: indexPath) as? GameRoomCell
-            else { return GameRoomCell() }
-        
-        guard let gameRoomViewModel = gameRoomViewModels.gameViewModel(at: indexPath.item)
-            else { return GameRoomCell() }
-        gameRoomCell.configure(gameRoom: gameRoomViewModel.gameRoom)
-        return gameRoomCell
+    private func configureGameRoomDataSource() {
+        DispatchQueue.main.async {
+            self.gameRoomCollectionView.dataSource = self.gameRoomViewModels
+        }
     }
 }
 
@@ -122,11 +125,5 @@ extension GameRoomViewController: UICollectionViewDelegate {
             else { return }
         gameTabBarController.modalPresentationStyle = .fullScreen
         present(gameTabBarController, animated: true)
-    }
-}
-
-extension GameRoomViewController: PrevButtonDelegate {
-    func prevButtonDidTouch() {
-        navigationController?.popViewController(animated: true)
     }
 }

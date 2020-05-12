@@ -13,7 +13,7 @@ protocol TitleViewDelegate {
     func closeButtonDidTouch()
 }
 
-final class TitleView: UIView, WithXib {
+final class GameHeaderView: UIView, WithXib {
     var delegate: TitleViewDelegate?
     
     override init(frame: CGRect) {

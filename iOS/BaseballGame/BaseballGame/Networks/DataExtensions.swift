@@ -11,7 +11,6 @@ import Foundation
 extension Data {
     static func jsonData(forResource name: String) -> Data? {
         guard let url = Bundle.main.url(forResource: name, withExtension: "json") else { return nil }
-        guard let jsonData = try? Data(contentsOf: url) else { return nil }
-        return jsonData
+        return try? Data(contentsOf: url)
     }
 }

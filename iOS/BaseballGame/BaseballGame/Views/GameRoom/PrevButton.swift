@@ -8,24 +8,16 @@
 
 import UIKit
 
-protocol PrevButtonDelegate {
-    func prevButtonDidTouch()
-}
-
 final class PrevButton: UIButton {
-    var delegate: PrevButtonDelegate?
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
         configure()
-        configureTarget()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         configure()
-        configureTarget()
     }
     
     private func configure() {
@@ -33,17 +25,5 @@ final class PrevButton: UIButton {
         tintColor = .systemRed
         imageView?.contentMode = .scaleAspectFit
         imageEdgeInsets = UIEdgeInsets(top: 23, left: 23, bottom: 23, right: 23)
-    }
-    
-    private func configureTarget() {
-        addTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
-    }
-    
-    deinit {
-        removeTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
-    }
-    
-    @objc private func prevButtonDidTouch() {
-        delegate?.prevButtonDidTouch()
     }
 }
