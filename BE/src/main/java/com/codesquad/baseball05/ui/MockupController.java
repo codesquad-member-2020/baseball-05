@@ -1,7 +1,10 @@
 package com.codesquad.baseball05.ui;
 
 import com.codesquad.baseball05.domain.*;
+import com.codesquad.baseball05.domain.dto.BatterDTO;
+import com.codesquad.baseball05.domain.dto.CurrentPlayersDTO;
 import com.codesquad.baseball05.domain.dto.MatchTeamDTO;
+import com.codesquad.baseball05.domain.dto.PitcherDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -63,14 +66,18 @@ public class MockupController {
     }
 
     //현황판(처음 시작 화면)
-    @GetMapping("/rounds")
+    @GetMapping("/games/rounds")
     public Object ready(@RequestParam Boolean isOffense) {
-        Team homeTeam = new Team("Captain", 1, false);
-        Team awayTeam = new Team("Marvel", 5, true);
-        Player pitcher = new Player("최동원", 39, 0, true);
+        Team homeTeam = new Team("Captain", 1, true );
+        Team awayTeam = new Team("Marvel", 5, false);
+
+        PitcherDTO pitcher = new PitcherDTO("최동원", 39);
+        BatterDTO batter2 = new BatterDTO("이용대", 2, 1);
+
+        CurrentPlayersDTO players = new CurrentPlayersDTO(pitcher, batter2);
 
         List<Plate> plates = new ArrayList<>();
-        Player batter = new Player("김광진", 1, 0, false);
+        BatterDTO batter1 = new BatterDTO("김광진", 1, 0);
         //상황판(스트라이크가 몇인지 볼이 몇인지는 마지막 rounds를 참고)
         //아웃은 plate의 out을 참고
         List<Round> rounds = new ArrayList<>();
@@ -81,35 +88,36 @@ public class MockupController {
         rounds.add(new Round("스트라이크", 2, 3));
         rounds.add(new Round("안타!", 0, 0));
 
-        Plate plate = new Plate(6, 1, batter, rounds);
+        Plate plate = new Plate(6, 1, batter1, rounds);
         plates.add(plate);
 
-        batter = new Player("이용대", 2, 1, false);
         rounds = new ArrayList<>();
         rounds.add(new Round("스트라이크", 1, 0));
         rounds.add(new Round("볼", 1, 1));
         rounds.add(new Round("스트라이크", 2, 1));
 
-        plate = new Plate(7, 1, batter, rounds);
+        plate = new Plate(7, 1, batter2, rounds);
         plates.add(plate);
 
         Inning inning = new Inning(2, "초", "수비");
 
-        GameStatusDTO gameStatus = new GameStatusDTO(homeTeam, awayTeam, pitcher, inning, plates);
+        GameStatusDTO gameStatus = new GameStatusDTO(homeTeam, awayTeam, players, inning, plates);
         return new ResponseEntity<GameStatusDTO>(gameStatus, HttpStatus.OK);
     }
 
     //현황판(피치 후)
-    @PostMapping("/rounds")
-    public Object pitch() {
+    @PostMapping("/games/rounds")
+    public Object pitch(@RequestParam Boolean isOffense) {
         Team homeTeam = new Team("Captain", 1, false);
         Team awayTeam = new Team("Marvel", 5, true);
 
-        Player pitcher = new Player("최동원", 39, 0, true);
+        PitcherDTO pitcher = new PitcherDTO("최동원", 39);
 
         List<Plate> plates = new ArrayList<>();
 
-        Player batter = new Player("김광진", 1, 0, false);
+        BatterDTO batter = new BatterDTO("김광진", 1, 0);
+
+        CurrentPlayersDTO players = new CurrentPlayersDTO(pitcher, batter);
         //상황판(스트라이크가 몇인지 볼이 몇인지는 마지막 rounds를 참고)
         //아웃은 plate의 out을 참고
         Round round = new Round("스트라이크", 1, 0);
@@ -119,7 +127,7 @@ public class MockupController {
 
         Inning inning = new Inning(2, "초", "수비");
 
-        GameStatusDTO gameStatus = new GameStatusDTO(homeTeam, awayTeam, pitcher, inning, plates);
+        GameStatusDTO gameStatus = new GameStatusDTO(homeTeam, awayTeam, players, inning, plates);
         return new ResponseEntity<GameStatusDTO>(gameStatus, HttpStatus.OK);
     }
 

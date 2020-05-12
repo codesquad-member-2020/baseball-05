@@ -1,5 +1,6 @@
 package com.codesquad.baseball05.domain;
 
+import com.codesquad.baseball05.domain.dto.CurrentPlayersDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,7 +14,7 @@ public class GameStatusDTO {
 
     private Team awayTeam;
 
-    private Player pitcher;
+    private CurrentPlayersDTO currentPlayers;
 
     private Inning inning;
 
