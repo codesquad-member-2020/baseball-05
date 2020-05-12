@@ -10,6 +10,7 @@ import UIKit
 
 final class ScoresViewController: UIViewController {
     @IBOutlet weak var titleView: TitleView!
+    @IBOutlet weak var playerInfoTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

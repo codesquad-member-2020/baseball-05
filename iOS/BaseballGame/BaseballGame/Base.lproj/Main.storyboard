@@ -233,7 +233,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-Ug-soc">
                                 <rect key="frame" x="0.0" y="250" width="375" height="368"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5I-dC-FaB" customClass="TableTitleView" customModule="BaseballGame" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5I-dC-FaB">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0yq-3h-97t">
@@ -386,6 +386,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Scores" image="chart.bar" catalog="system" id="KJ9-3a-nZn"/>
                     <connections>
+                        <outlet property="playerInfoTable" destination="AfA-ZO-MK1" id="UPu-5W-fNL"/>
                         <outlet property="titleView" destination="mBQ-yj-4gl" id="tYH-x8-1ya"/>
                     </connections>
                 </viewController>
