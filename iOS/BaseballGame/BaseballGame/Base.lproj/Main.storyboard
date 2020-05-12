@@ -229,6 +229,9 @@
                                     <segment title="Captain"/>
                                     <segment title="Marvel"/>
                                 </segments>
+                                <connections>
+                                    <action selector="teamSegmentDidTouch:" destination="qaG-7m-vvT" eventType="valueChanged" id="ab3-bv-wsC"/>
+                                </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-Ug-soc">
                                 <rect key="frame" x="0.0" y="250" width="375" height="368"/>
