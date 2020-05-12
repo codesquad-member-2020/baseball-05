@@ -11,8 +11,8 @@ import UIKit
 final class GameRoomCell: UICollectionViewCell, IdentifiableView {
     private let gameRoomLabel = GameRoomLabel()
     private let versusLabel = VersusLabel()
-    private let awayTeamLabel = TitleLabel()
-    private let homeTeamLabel = TitleLabel()
+    private let awayTeamButton = TeamButton()
+    private let homeTeamButton = TeamButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -54,32 +54,22 @@ final class GameRoomCell: UICollectionViewCell, IdentifiableView {
     }
     
     private func configureAwayTeamLabel() {
-        awayTeamLabel.textColor = .black
-        configureAwayTeamLabelConstraints()
-    }
-    
-    private func configureAwayTeamLabelConstraints() {
-        contentView.addSubview(awayTeamLabel)
+        contentView.addSubview(awayTeamButton)
         
-        awayTeamLabel.trailingAnchor.constraint(equalTo: versusLabel.leadingAnchor, constant: -30).isActive = true
-        awayTeamLabel.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
+        awayTeamButton.trailingAnchor.constraint(equalTo: versusLabel.leadingAnchor, constant: -30).isActive = true
+        awayTeamButton.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
     }
     
     private func configureHomeTeamLabel() {
-        homeTeamLabel.textColor = .black
-        configureHomeTeamLabelConstraints()
-    }
-    
-    private func configureHomeTeamLabelConstraints() {
-        contentView.addSubview(homeTeamLabel)
+        contentView.addSubview(homeTeamButton)
         
-        homeTeamLabel.leadingAnchor.constraint(equalTo: versusLabel.trailingAnchor, constant: 30).isActive = true
-        homeTeamLabel.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
+        homeTeamButton.leadingAnchor.constraint(equalTo: versusLabel.trailingAnchor, constant: 30).isActive = true
+        homeTeamButton.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
     }
     
     func configure(gameRoom: GameRoom) {
         gameRoomLabel.text = "\(GameRoomViewModels.gameRoomDefaultText) \(gameRoom.id)"
-        awayTeamLabel.text = gameRoom.awayTeam
-        homeTeamLabel.text = gameRoom.homeTeam
+        awayTeamButton.setTitle(gameRoom.awayTeam, for: .normal)
+        homeTeamButton.setTitle(gameRoom.homeTeam, for: .normal)
     }
 }
