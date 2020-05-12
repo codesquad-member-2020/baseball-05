@@ -8,9 +8,9 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Plate {
 
-    private int plate;
+    private int id;
 
-    private int out;
+    private int outs;
 
     private BatterDTO batter;
 

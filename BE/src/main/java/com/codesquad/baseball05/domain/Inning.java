@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public class Inning {
 
-    private final int inning;
+    private final int id;
 
     private final String half;
 
