@@ -1,10 +1,13 @@
 package com.codesquad.baseball05.application;
 
+import com.codesquad.baseball05.domain.dto.InningDTO;
 import com.codesquad.baseball05.domain.dto.MatchDTO;
+import com.codesquad.baseball05.domain.dto.RosterBoardDTO;
 import com.codesquad.baseball05.domain.dto.ScoreBoardDTO;
 import com.codesquad.baseball05.infra.GameDAO;
 import com.codesquad.baseball05.infra.HalfDAO;
 import com.codesquad.baseball05.infra.MatchDAO;
+import com.codesquad.baseball05.infra.TeamDAO;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,11 +18,13 @@ public class BoardService {
     private GameDAO gameDAO;
     private MatchDAO matchDAO;
     private HalfDAO halfDAO;
+    private TeamDAO teamDAO;
 
-    public BoardService(GameDAO gameDAO, MatchDAO matchDAO, HalfDAO halfDAO) {
+    public BoardService(GameDAO gameDAO, MatchDAO matchDAO, HalfDAO halfDAO, TeamDAO teamDAO) {
         this.gameDAO = gameDAO;
         this.matchDAO = matchDAO;
         this.halfDAO = halfDAO;
+        this.teamDAO = teamDAO;
     }
 
     public List<ScoreBoardDTO> showScoreBoard(Long matchId) {
@@ -29,12 +34,11 @@ public class BoardService {
         String homeTeam = matchDTO.getHomeTeam();
         String awayTeam = matchDTO.getAwayTeam();
 
-        // home_team_name ->
         List<ScoreBoardDTO> scoreBoardDTOS = new ArrayList<>();
         ScoreBoardDTO awayTeamScoreBoard = new ScoreBoardDTO(awayTeam); //초공격
         ScoreBoardDTO homeTeamScoreBoard = new ScoreBoardDTO(homeTeam); //말공격
 
-        // match_id 에 해당하는 game의 id값을 조회
+        // match_id에 해당하는 game의 id값을 조회
         Long gameId = gameDAO.findByMatchId(matchId);
 
         // 조회해온 gaem의 id 값으로 inning 테이블의 id list 를 조회
@@ -62,5 +66,52 @@ public class BoardService {
         scoreBoardDTOS.add(awayTeamScoreBoard);
         scoreBoardDTOS.add(homeTeamScoreBoard);
         return scoreBoardDTOS;
+    }
+
+    public List<RosterBoardDTO> showRosterBoard(Long matchId) {
+        List<RosterBoardDTO> rosterBoardDTOS = new ArrayList<>();
+        RosterBoardDTO homeTeamRosterobardDTO;
+        RosterBoardDTO awayTeamRosterobardDTO;
+
+        // matchId로 경기 중인 두 팀의 이름, gameID 를 가져와야 함
+        MatchDTO matchDTO = matchDAO.findById(matchId);
+
+        // 현재 공격팀을 알기 위해서 마지막 inning의 `Half`가 `top (원정팀 공격)`인지 `bottom (홈팀 공격)`인지로 가져와야 함
+        String homeTeamName = matchDTO.getHomeTeam();
+        String awayTeamName = matchDTO.getAwayTeam();
+        Long homeTeamId = teamDAO.findByTeamName(homeTeamName);
+        Long awayTeamId = teamDAO.findByTeamName(awayTeamName);
+        homeTeamRosterobardDTO = new RosterBoardDTO(homeTeamName);
+        awayTeamRosterobardDTO = new RosterBoardDTO(awayTeamName);
+
+        // 공vs수 조회
+        Long gameId = gameDAO.findByMatchId(matchId);
+        InningDTO currentInning = gameDAO.findInningByGameId(gameId);
+        String topOrBottom = currentInning.getHalf();
+
+        // 수비팀 → player의 is_pitcher 가 true인 선수정보
+        // 공격팀 → half의 last_bat_player 정보
+        // 팀에 소속된 선수들의 player_id 로 record 테이블의 mounts, hist, outs 조회
+        if (topOrBottom.equals("top")) {
+            awayTeamRosterobardDTO.setIsOffense(true);
+            homeTeamRosterobardDTO.setCurrentPlayer(teamDAO.findPitcherByTeamId(homeTeamId));
+            // homeTeam 타자 정보 추가
+            // 현재 inning의 half 정보를 조회해와서 last_bat_player의 선수 이름 조회
+            awayTeamRosterobardDTO.setCurrentPlayer(gameDAO.findCurrentBatterNameByTeamId(currentInning.getFirstHalfId(),awayTeamId));
+        }
+
+        if (topOrBottom.equals("bottom")) {
+            homeTeamRosterobardDTO.setIsOffense(true);
+            awayTeamRosterobardDTO.setCurrentPlayer(teamDAO.findPitcherByTeamId(awayTeamId));
+            // awayTeam 타자 정보 추가
+            homeTeamRosterobardDTO.setCurrentPlayer(gameDAO.findCurrentBatterNameByTeamId(currentInning.getSecondHalfId(),awayTeamId));
+        }
+
+        homeTeamRosterobardDTO.setRoundRecordDTOList(teamDAO.findPlayerRecord(homeTeamId));
+        awayTeamRosterobardDTO.setRoundRecordDTOList(teamDAO.findPlayerRecord(awayTeamId));
+
+        rosterBoardDTOS.add(homeTeamRosterobardDTO);
+        rosterBoardDTOS.add(awayTeamRosterobardDTO);
+        return rosterBoardDTOS;
     }
 }

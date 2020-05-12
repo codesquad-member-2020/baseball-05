@@ -23,7 +23,7 @@ public class BoardController {
     }
 
     @GetMapping("/rosters")
-    public RosterBoardDTO viewRosters() {
-        return new RosterBoardDTO("한화");
+    public List<RosterBoardDTO> viewRosters(@RequestParam Long matchId) {
+        return boardService.showRosterBoard(matchId);
     }
 }

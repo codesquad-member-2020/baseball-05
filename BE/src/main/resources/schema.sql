@@ -60,8 +60,8 @@ CREATE TABLE IF NOT EXISTS `baseball`.`player`
 CREATE TABLE IF NOT EXISTS `baseball`.`record`
 (
     id              BIGINT PRIMARY KEY AUTO_INCREMENT,
-    player_number   BIGINT REFERENCES player (id),
-    mount           INT,
+    player_id   BIGINT REFERENCES player (id),
+    mounts           INT,
     hit             INT,
     strike          INT,
     ball            INT,
@@ -78,18 +78,6 @@ CREATE TABLE IF NOT EXISTS `baseball`.`game`
     match_id BIGINT REFERENCES matches (id)
 );
 
-
--- -----------------------------------------------------
--- Table `baseball`.`game`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `baseball`.`game`
-(
-    id        BIGINT PRIMARY KEY AUTO_INCREMENT,
-    home_team VARCHAR(45) REFERENCES team (id),
-    away_team VARCHAR(45) REFERENCES team (id),
-    user_team VARCHAR(45)
-);
-
 -- -----------------------------------------------------
 -- Table `baseball`.`inning`
 -- -----------------------------------------------------
@@ -99,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`inning`
     game_id        BIGINT REFERENCES game (id),
     first_half_id  BIGINT REFERENCES half (id),
     second_half_id BIGINT REFERENCES half (id),
-    half           ENUM ('초', '말') DEFAULT '초'
+    half           ENUM ('top', 'bottom') DEFAULT 'top'
 );
 
 -- -----------------------------------------------------
@@ -112,7 +100,10 @@ CREATE TABLE IF NOT EXISTS `baseball`.`half`
     total_plate     INT DEFAULT 0,
     outs           INT DEFAULT 0,
     hit             INT DEFAULT 0,
-    point           INT DEFAULT 0
+    point           INT DEFAULT 0,
+    first_baseman  VARCHAR(45) NULL,
+    second_baseman VARCHAR(45) NULL,
+    third_baseman  VARCHAR(45) NULL
 );
 
 -- -----------------------------------------------------
@@ -125,10 +116,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`plate`
     id             BIGINT PRIMARY KEY AUTO_INCREMENT,
     half_id        INT REFERENCES half (id),
     strike         INT DEFAULT 0,
-    ball           INT DEFAULT 0,
-    first_baseman  VARCHAR(45) NULL,
-    second_baseman VARCHAR(45) NULL,
-    third_baseman  VARCHAR(45) NULL
+    ball           INT DEFAULT 0
 );
 
 -- -----------------------------------------------------
@@ -142,6 +130,6 @@ CREATE TABLE IF NOT EXISTS `baseball`.`round`
     player_name VARCHAR(45) NOT NULL,
     strike      INT DEFAULT 0,
     ball        INT DEFAULT 0,
-    hit_or_out  ENUM ('안타', '아웃')
+    hit_or_out  ENUM ('hit', 'out')
 );
 

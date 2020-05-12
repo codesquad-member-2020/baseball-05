@@ -1,7 +1,6 @@
 package com.codesquad.baseball05.infra;
 
-import com.codesquad.baseball05.domain.dto.HalfIdDTO;
-import org.springframework.data.relational.core.sql.In;
+import com.codesquad.baseball05.domain.dto.InningDTO;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -46,4 +45,28 @@ public class GameDAO {
         });
         return halfIds;
     }
+
+    public InningDTO findInningByGameId(Long gameId) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("gameId", gameId);
+
+        String findCurrentHalfSql = "SELECT inning.id, game_id, first_half_id, second_half_id, half FROM inning WHERE game_id = :gameId ORDER BY id DESC LIMIT 1";
+        return namedParameterJdbcTemplate.queryForObject(findCurrentHalfSql, namedParameters, ((rs, rowNum) -> {
+            InningDTO dto = new InningDTO();
+            dto.setId(rs.getLong("inning.id"));
+            dto.setGameId(rs.getLong("game_id"));
+            dto.setFirstHalfId(rs.getLong("first_half_id"));
+            dto.setSecondHalfId(rs.getLong("second_half_id"));
+            dto.setHalf(rs.getString("half"));
+            return dto;
+        }));
+    }
+
+    public String findCurrentBatterNameByTeamId(Long halfId, Long teamId) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("teamId", teamId)
+                .addValue("halfId", halfId);
+
+        String findCurrentBatterNameByTeamIdSql = "SELECT name FROM player JOIN half ON player.line_up = half.last_bat_player WHERE half.id = :halfId and player.team_id = :teamId;";
+        return namedParameterJdbcTemplate.queryForObject(findCurrentBatterNameByTeamIdSql, namedParameters, String.class);
+    }
+
 }
