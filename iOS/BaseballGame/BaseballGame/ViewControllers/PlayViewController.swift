@@ -10,6 +10,9 @@ import UIKit
 
 final class PlayViewController: UIViewController {
     @IBOutlet weak var titleView: TitleView!
+    @IBOutlet weak var currentPlayerTable: UITableView!
+    @IBOutlet weak var currentBatterInfoTable: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
