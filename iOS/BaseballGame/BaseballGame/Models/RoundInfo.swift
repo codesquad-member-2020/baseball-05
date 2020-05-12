@@ -9,5 +9,7 @@
 import Foundation
 
 struct RoundInfo {
-    
+    let decision: String
+    let strike: Int
+    let ball: Int
 }

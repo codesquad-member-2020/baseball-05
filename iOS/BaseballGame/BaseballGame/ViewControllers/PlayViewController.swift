@@ -33,18 +33,21 @@ final class PlayViewController: UIViewController {
                                                                      mounts: 1,
                                                                      hits: 0,
                                                                      isPitcher: false)],
-                                      roundInfos: [],
+                                      roundInfos: [RoundInfo(decision: "볼", strike: 1, ball: 1),
+                                                   RoundInfo(decision: "볼", strike: 1, ball: 2),
+                                                   RoundInfo(decision: "볼", strike: 1, ball: 3),
+                                                   RoundInfo(decision: "스트라이크", strike: 2, ball: 3)],
                                       currentPlayerTableView: currentPlayerTable,
                                       roundInfoTableView: roundInfoTable)
         configureCurrentPlayerTableDataSource()
-        configureBatterInfoTableDataSource()
+        configureRoundInfoTableDataSource()
     }
     
     private func configureCurrentPlayerTableDataSource() {
         currentPlayerTable.dataSource = playViewModel
     }
     
-    private func configureBatterInfoTableDataSource() {
+    private func configureRoundInfoTableDataSource() {
         roundInfoTable.dataSource = playViewModel
     }
 }

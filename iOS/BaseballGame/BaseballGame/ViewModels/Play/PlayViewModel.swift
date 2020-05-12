@@ -47,6 +47,10 @@ extension PlayViewModel: UITableViewDataSource {
         } else if tableView === roundInfoTableView {
             guard let roundInfoCell = tableView.dequeueReusableCell(withIdentifier:
                 RoundInfoCell.identifier) as? RoundInfoCell else { return RoundInfoCell() }
+            guard let roundInfoViewModel = roundInfoViewModels.viewModel(at: indexPath.row)
+                else { return RoundInfoCell()}
+            roundInfoCell.configure(orderText: String(indexPath.row + 1),
+                                    roundInfo: roundInfoViewModel.roundInfo)
             return roundInfoCell
         }
         return UITableViewCell()

@@ -10,7 +10,7 @@ import Foundation
 
 final class RoundInfoViewModel: ViewModelBinding {
     typealias Key = RoundInfo
-    private let roundInfo: RoundInfo
+    let roundInfo: RoundInfo
     
     init(roundInfo: RoundInfo) {
         self.roundInfo = roundInfo

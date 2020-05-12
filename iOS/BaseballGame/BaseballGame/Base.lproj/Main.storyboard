@@ -647,19 +647,19 @@
                                     <constraint firstAttribute="height" constant="3" id="0fd-SS-f7a"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tE3-mc-Ysb" userLabel="Batter Info Table">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tE3-mc-Ysb" userLabel="Batter Info Table">
                                 <rect key="frame" x="0.0" y="432" width="375" height="186"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BatterInfoCell" id="xPN-eW-c5v" customClass="RoundInfoCell" customModule="BaseballGame" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RoundInfoCell" id="xPN-eW-c5v" customClass="RoundInfoCell" customModule="BaseballGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xPN-eW-c5v" id="604-6f-aKH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-ch-Jat" customClass="OrderLabel" customModule="BaseballGame" customModuleProvider="target">
-                                                    <rect key="frame" x="26.5" y="11" width="22" height="21.5"/>
+                                                    <rect key="frame" x="26.5" y="11" width="22" height="22"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ul6-ch-Jat" secondAttribute="height" multiplier="1:1" id="yvz-Kp-hD9"/>
@@ -680,10 +680,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="BxA-jK-v9O" firstAttribute="leading" secondItem="ul6-ch-Jat" secondAttribute="trailing" constant="25" id="EbL-eL-Xc0"/>
+                                                <constraint firstItem="ul6-ch-Jat" firstAttribute="top" secondItem="604-6f-aKH" secondAttribute="top" constant="11" id="K4E-pE-q5q"/>
                                                 <constraint firstItem="ul6-ch-Jat" firstAttribute="height" secondItem="604-6f-aKH" secondAttribute="height" multiplier="0.5" id="Mhp-kp-ruG"/>
                                                 <constraint firstItem="BxA-jK-v9O" firstAttribute="centerY" secondItem="604-6f-aKH" secondAttribute="centerY" id="SQp-Fk-0sV"/>
                                                 <constraint firstItem="ul6-ch-Jat" firstAttribute="centerX" secondItem="604-6f-aKH" secondAttribute="centerX" multiplier="0.2" id="WWZ-eb-7jn"/>
                                                 <constraint firstItem="cGz-UJ-Qdb" firstAttribute="centerY" secondItem="604-6f-aKH" secondAttribute="centerY" id="gDo-yK-qAP"/>
+                                                <constraint firstAttribute="bottom" secondItem="ul6-ch-Jat" secondAttribute="bottom" constant="11" id="jOG-D2-0Xt"/>
                                                 <constraint firstItem="ul6-ch-Jat" firstAttribute="centerY" secondItem="604-6f-aKH" secondAttribute="centerY" id="pUZ-gy-SmX"/>
                                                 <constraint firstAttribute="trailing" secondItem="cGz-UJ-Qdb" secondAttribute="trailing" constant="15" id="wIM-7t-AuU"/>
                                                 <constraint firstItem="cGz-UJ-Qdb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BxA-jK-v9O" secondAttribute="trailing" constant="8" symbolic="YES" id="wkX-ah-hKy"/>

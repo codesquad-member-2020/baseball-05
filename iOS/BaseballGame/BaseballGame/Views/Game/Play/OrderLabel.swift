@@ -20,12 +20,12 @@ final class OrderLabel: UILabel {
     }
     
     private func configure() {
-        layer.cornerRadius = bounds.width
         configureText()
+        backgroundColor = .black
     }
     
     private func configureText() {
         textColor = .white
-        text = "1"
+        textAlignment = .center
     }
 }
