@@ -39,7 +39,10 @@ extension PlayViewModel: UITableViewDataSource {
         if tableView === currentPlayerTableView {
             guard let currentPlayerCell = tableView.dequeueReusableCell(withIdentifier:
                 CurrentPlayerCell.identifier) as? CurrentPlayerCell else { return CurrentPlayerCell() }
+            guard let currentPlayerViewModel = currentPlayerViewModels.viewModel(at: indexPath.row)
+                else { return CurrentPlayerCell() }
             
+            currentPlayerCell.configure(currentPlayer: currentPlayerViewModel.currentPlayer)
             return currentPlayerCell
         } else if tableView === roundInfoTableView {
             guard let roundInfoCell = tableView.dequeueReusableCell(withIdentifier:

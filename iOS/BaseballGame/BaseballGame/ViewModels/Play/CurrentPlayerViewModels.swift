@@ -9,13 +9,18 @@
 import Foundation
 
 final class CurrentPlayerViewModels {
-    private let currentPlayerViewModels: [CurrentPlayerViewModel]
+    private let viewModels: [CurrentPlayerViewModel]
     
     init(currentPlayers: [CurrentPlayer]) {
-        self.currentPlayerViewModels = currentPlayers.map { CurrentPlayerViewModel(currentPlayer: $0) }
+        self.viewModels = currentPlayers.map { CurrentPlayerViewModel(currentPlayer: $0) }
     }
     
     var count: Int {
-        return currentPlayerViewModels.count
+        return viewModels.count
+    }
+    
+    func viewModel(at index: Int) -> CurrentPlayerViewModel? {
+        guard index < viewModels.count else { return nil }
+        return viewModels[index]
     }
 }

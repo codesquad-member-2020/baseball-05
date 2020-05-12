@@ -587,7 +587,7 @@
                                     <outlet property="sbosView" destination="o0Q-Hm-fNb" id="VtW-lZ-xs6"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0pg-RC-Isx" userLabel="Current Player Table">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0pg-RC-Isx" userLabel="Current Player Table">
                                 <rect key="frame" x="0.0" y="313.5" width="375" height="115.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
@@ -595,26 +595,26 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CurrentPlayerCell" id="zzQ-5N-HX5" customClass="CurrentPlayerCell" customModule="BaseballGame" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zzQ-5N-HX5" id="VIh-gv-AK0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="투수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxI-X5-HdE" customClass="PlayTableLabel" customModule="BaseballGame" customModuleProvider="target">
-                                                    <rect key="frame" x="21" y="10.5" width="33" height="23.5"/>
+                                                    <rect key="frame" x="21" y="10.5" width="33" height="37"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최동원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1f-q0-ZYx" customClass="PlayTableLabel" customModule="BaseballGame" customModuleProvider="target">
-                                                    <rect key="frame" x="71.5" y="12" width="45" height="21"/>
+                                                    <rect key="frame" x="90" y="18.5" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMb-tJ-vHJ" customClass="PlayTableLabel" customModule="BaseballGame" customModuleProvider="target">
-                                                    <rect key="frame" x="209" y="12" width="32" height="21"/>
+                                                    <rect key="frame" x="209" y="18.5" width="32" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -623,7 +623,7 @@
                                             <constraints>
                                                 <constraint firstItem="FMb-tJ-vHJ" firstAttribute="centerX" secondItem="VIh-gv-AK0" secondAttribute="centerX" multiplier="1.2" id="F42-Ai-XCg"/>
                                                 <constraint firstItem="FMb-tJ-vHJ" firstAttribute="centerY" secondItem="VIh-gv-AK0" secondAttribute="centerY" id="NBA-fK-R7x"/>
-                                                <constraint firstItem="u1f-q0-ZYx" firstAttribute="centerX" secondItem="VIh-gv-AK0" secondAttribute="centerX" multiplier="0.5" id="QeY-3U-7WI"/>
+                                                <constraint firstItem="u1f-q0-ZYx" firstAttribute="centerX" secondItem="VIh-gv-AK0" secondAttribute="centerX" multiplier="0.6" id="QeY-3U-7WI"/>
                                                 <constraint firstItem="bxI-X5-HdE" firstAttribute="centerX" secondItem="VIh-gv-AK0" secondAttribute="centerX" multiplier="0.2" id="QfJ-dD-RcM"/>
                                                 <constraint firstAttribute="bottom" secondItem="bxI-X5-HdE" secondAttribute="bottom" constant="10.5" id="TPe-2Z-nH7"/>
                                                 <constraint firstItem="u1f-q0-ZYx" firstAttribute="centerY" secondItem="VIh-gv-AK0" secondAttribute="centerY" id="iQn-aw-cUJ"/>

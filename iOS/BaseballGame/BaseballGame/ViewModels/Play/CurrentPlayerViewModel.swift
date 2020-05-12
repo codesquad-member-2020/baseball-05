@@ -10,7 +10,7 @@ import Foundation
 
 final class CurrentPlayerViewModel: ViewModelBinding {
     typealias Key = CurrentPlayer
-    private let currentPlayer: CurrentPlayer
+    let currentPlayer: CurrentPlayer
     
     init(currentPlayer: CurrentPlayer) {
         self.currentPlayer = currentPlayer

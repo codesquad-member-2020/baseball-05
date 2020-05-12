@@ -28,4 +28,9 @@ final class CurrentPlayerCell: UITableViewCell, IdentifiableView {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    func configure(currentPlayer: CurrentPlayer) {
+        playerName.text = currentPlayer.name
+        valueLabel.text = String(currentPlayer.mounts)
+    }
 }
