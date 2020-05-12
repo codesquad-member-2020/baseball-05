@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class BatterInfoCell: UITableViewCell, IdentifiableView {
+final class RoundInfoCell: UITableViewCell, IdentifiableView {
     @IBOutlet weak var orderLabel: OrderLabel!
     @IBOutlet weak var sboLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!  

@@ -595,26 +595,26 @@
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CurrentPlayerCell" id="zzQ-5N-HX5" customClass="CurrentPlayerCell" customModule="BaseballGame" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zzQ-5N-HX5" id="VIh-gv-AK0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="투수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bxI-X5-HdE" customClass="PlayTableLabel" customModule="BaseballGame" customModuleProvider="target">
-                                                    <rect key="frame" x="21" y="10.5" width="33" height="23"/>
+                                                    <rect key="frame" x="21" y="10.5" width="33" height="23.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="최동원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1f-q0-ZYx" customClass="PlayTableLabel" customModule="BaseballGame" customModuleProvider="target">
-                                                    <rect key="frame" x="71.5" y="11.5" width="45" height="21"/>
+                                                    <rect key="frame" x="71.5" y="12" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMb-tJ-vHJ" customClass="PlayTableLabel" customModule="BaseballGame" customModuleProvider="target">
-                                                    <rect key="frame" x="209" y="11.5" width="32" height="21"/>
+                                                    <rect key="frame" x="209" y="12" width="32" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -625,8 +625,10 @@
                                                 <constraint firstItem="FMb-tJ-vHJ" firstAttribute="centerY" secondItem="VIh-gv-AK0" secondAttribute="centerY" id="NBA-fK-R7x"/>
                                                 <constraint firstItem="u1f-q0-ZYx" firstAttribute="centerX" secondItem="VIh-gv-AK0" secondAttribute="centerX" multiplier="0.5" id="QeY-3U-7WI"/>
                                                 <constraint firstItem="bxI-X5-HdE" firstAttribute="centerX" secondItem="VIh-gv-AK0" secondAttribute="centerX" multiplier="0.2" id="QfJ-dD-RcM"/>
+                                                <constraint firstAttribute="bottom" secondItem="bxI-X5-HdE" secondAttribute="bottom" constant="10.5" id="TPe-2Z-nH7"/>
                                                 <constraint firstItem="u1f-q0-ZYx" firstAttribute="centerY" secondItem="VIh-gv-AK0" secondAttribute="centerY" id="iQn-aw-cUJ"/>
                                                 <constraint firstItem="bxI-X5-HdE" firstAttribute="centerY" secondItem="VIh-gv-AK0" secondAttribute="centerY" id="sAd-Ka-beZ"/>
+                                                <constraint firstItem="bxI-X5-HdE" firstAttribute="top" secondItem="VIh-gv-AK0" secondAttribute="top" constant="10.5" id="vSI-wI-73z"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -649,7 +651,7 @@
                                 <rect key="frame" x="0.0" y="432" width="375" height="186"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BatterInfoCell" id="xPN-eW-c5v" customClass="BatterInfoCell" customModule="BaseballGame" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BatterInfoCell" id="xPN-eW-c5v" customClass="RoundInfoCell" customModule="BaseballGame" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xPN-eW-c5v" id="604-6f-aKH">
@@ -722,8 +724,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Play" image="gamecontroller" catalog="system" id="qTj-Jz-o3m"/>
                     <connections>
-                        <outlet property="currentBatterInfoTable" destination="tE3-mc-Ysb" id="ZOr-08-0Ns"/>
                         <outlet property="currentPlayerTable" destination="0pg-RC-Isx" id="P3k-ng-3aY"/>
+                        <outlet property="roundInfoTable" destination="tE3-mc-Ysb" id="ZOr-08-0Ns"/>
                         <outlet property="titleView" destination="aSi-rk-FUG" id="Ym4-Us-3jZ"/>
                     </connections>
                 </viewController>
