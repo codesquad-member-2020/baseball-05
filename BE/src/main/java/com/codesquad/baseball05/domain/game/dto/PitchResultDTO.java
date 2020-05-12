@@ -13,11 +13,9 @@ public class PitchResultDTO {
 
     private GameTeamDTO awayTeam;
 
-    private PlayerDTO pitcher;
-
-    private PlayerDTO batter;
+    private CurrentPlayerDTO players;
 
     private InningDTO inning;
 
-    private List<PlateDTO> plates;
+    private List<GameBatterDTO> plates;
 }

@@ -65,10 +65,10 @@ public class GameDao {
             public PitchResultDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
                 String teamName = rs.getString(team);
                 GameTeamDTO teamDTO = new GameTeamDTO(teamName, getTotalPoint(rs), isOffense(rs, teamName));
-                PlayerDTO pitcher = new PlayerDTO();
-                PlayerDTO batter = new PlayerDTO();
+                GamePitcherDTO pitcher = new GamePitcherDTO();
+                GameBatterDTO batter = new GameBatterDTO();
                 InningDTO inning = new InningDTO();
-                List<PlateDTO> plates = new ArrayList<>();
+                List<GameBatterDTO> plates = new ArrayList<>();
                 return new PitchResultDTO(homeTeam, awayTeam, pitcher, batter, inning, plates);
             }
         };

@@ -10,7 +10,7 @@
         <property name="serverTimezone" value="Asia/Seoul" />
       </driver-properties>
     </data-source>
-    <data-source source="LOCAL" name="@localhost" uuid="4a1b2506-7ccc-4ad5-aa68-72096904d820">
+    <data-source source="LOCAL" name="@localhost" uuid="c2af0c9a-3273-43df-b762-c22e46f1f655">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>

@@ -1,8 +1,8 @@
 package com.codesquad.baseball05.infra.dao;
 
-import com.codesquad.baseball05.domain.team.Player;
-import com.codesquad.baseball05.domain.team.Record;
-import com.codesquad.baseball05.domain.team.Team;
+import com.codesquad.baseball05.domain.team.entity.Player;
+import com.codesquad.baseball05.domain.team.entity.Record;
+import com.codesquad.baseball05.domain.team.entity.Team;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;

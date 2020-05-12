@@ -1,4 +1,4 @@
-package com.codesquad.baseball05.domain.team;
+package com.codesquad.baseball05.domain.team.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,26 +6,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Record {
+public class Player {
 
     @Id
     private Long id;
 
-    private int pitch;
-
-    private int mount;
-
-    private int hit;
-
-    private int strike;
-
-    private int ball;
-
-    private int outs;
+    private String name;
 
     private Double battingAverage;
+
+    private Boolean isPitcher;
+
+    private List<Record> records;
 }

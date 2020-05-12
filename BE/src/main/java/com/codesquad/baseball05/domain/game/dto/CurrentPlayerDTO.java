@@ -5,13 +5,9 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class PlayerDTO {
+public class CurrentPlayerDTO {
 
-    private String name;
+    private GamePitcherDTO pitcher;
 
-    private int mount;
-
-    private int hit;
-
-    private boolean isPitcher;
+    private GameBatterDTO batter;
 }

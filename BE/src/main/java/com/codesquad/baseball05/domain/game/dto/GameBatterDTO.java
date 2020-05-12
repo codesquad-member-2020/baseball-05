@@ -5,13 +5,11 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class PlateDTO {
+public class GameBatterDTO {
 
-    private Long plate_id;
+    private String name;
 
-    private int outs;
+    private int mounts;
 
-    private PlayerDTO batter;
-
-    private RoundDTO round;
+    private int hits;
 }
