@@ -22,6 +22,7 @@ final class GameRoomCell: UICollectionViewCell, IdentifiableView {
         configureVersusLabel()
         configureAwayTeamLabel()
         configureHomeTeamLabel()
+        configureDelegates()
     }
     
     required init?(coder: NSCoder) {
@@ -31,6 +32,12 @@ final class GameRoomCell: UICollectionViewCell, IdentifiableView {
         configureVersusLabel()
         configureAwayTeamLabel()
         configureHomeTeamLabel()
+        configureDelegates()
+    }
+    
+    deinit {
+        awayTeamButton.removeTarget(self, action: #selector(awayButtonDidTouch), for: .touchUpInside)
+        homeTeamButton.removeTarget(self, action: #selector(homeButtonDidTouch), for: .touchUpInside)
     }
     
     private func configureView() {
@@ -65,6 +72,19 @@ final class GameRoomCell: UICollectionViewCell, IdentifiableView {
         
         homeTeamButton.leadingAnchor.constraint(equalTo: versusLabel.trailingAnchor, constant: 30).isActive = true
         homeTeamButton.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
+    }
+    
+    private func configureDelegates() {
+        awayTeamButton.addTarget(self, action: #selector(awayButtonDidTouch), for: .touchUpInside)
+        homeTeamButton.addTarget(self, action: #selector(homeButtonDidTouch), for: .touchUpInside)
+    }
+    
+    @objc private func awayButtonDidTouch() {
+        
+    }
+    
+    @objc private func homeButtonDidTouch() {
+        
     }
     
     func configure(gameRoom: GameRoom) {
