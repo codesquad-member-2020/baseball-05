@@ -9,7 +9,7 @@
 import UIKit
 
 final class ScoresViewController: UIViewController {
-    @IBOutlet weak var titleView: TitleView!
+    @IBOutlet weak var titleView: GameHeaderView!
     @IBOutlet weak var playerInfoTable: UITableView!
     @IBOutlet weak var inningTitleStack: InningTitleStack!
     @IBOutlet weak var awayTeamStack: TeamStackView!

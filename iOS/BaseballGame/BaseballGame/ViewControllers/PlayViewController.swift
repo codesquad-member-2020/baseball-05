@@ -9,7 +9,7 @@
 import UIKit
 
 final class PlayViewController: UIViewController {
-    @IBOutlet weak var titleView: TitleView!
+    @IBOutlet weak var titleView: GameHeaderView!
     @IBOutlet weak var currentPlayerTable: UITableView!
     @IBOutlet weak var roundInfoTable: UITableView!
     private var playViewModel: PlayViewModel!

@@ -203,7 +203,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBQ-yj-4gl" customClass="TitleView" customModule="BaseballGame" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mBQ-yj-4gl" userLabel="Game Header View" customClass="GameHeaderView" customModule="BaseballGame" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mBQ-yj-4gl" secondAttribute="height" multiplier="17:1" id="lJz-Oj-Lis"/>
@@ -483,7 +483,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSi-rk-FUG" customClass="TitleView" customModule="BaseballGame" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSi-rk-FUG" userLabel="Game Header View" customClass="GameHeaderView" customModule="BaseballGame" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aSi-rk-FUG" secondAttribute="height" multiplier="17:1" id="yiO-X5-Xao"/>
