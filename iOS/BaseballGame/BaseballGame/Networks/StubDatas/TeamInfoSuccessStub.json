@@ -1,20 +1,38 @@
 [
   {
     "id": 1,
-    "homeTeam": "Marvel",
-    "awayTeam": "Captain",
-    "selectable": true
+    "selectable" : false, (방에 들어갈 수 있는지 없는지)
+    "homeTeam : {
+    "teamName" : "Marvel",
+    "userName" : "Ever"
+    }
+    "awayTeam": {
+    "teamName" : "Captain",
+    "userName": "Jason" (NULLABLE)
+    }
   },
   {
     "id": 2,
-    "homeTeam": "Tigers",
-    "awayTeam": "Twins",
-    "selectable": true
+    "selectable" : true,
+    "homeTeam : {
+    "teamName" : "Twins",
+    "userName" : null
+    }
+    "awayTeam": {
+    "teamName" : "Tigers",
+    "userName": "Solar"
+    }
   },
   {
     "id": 3,
-    "homeTeam": "Dodgers",
-    "awayTeam": "Rockets",
-    "selectable": false
+    "selectable" : true,
+    "homeTeam : {
+    "teamName" : "Rockets",
+    "userName" : null
+    }
+    "awayTeam": {
+    "teamName" : "Dodgers",
+    "userName": "Huey"
+    }
   }
 ]
