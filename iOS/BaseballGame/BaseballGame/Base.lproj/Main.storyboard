@@ -230,30 +230,52 @@
                                     <segment title="Marvel"/>
                                 </segments>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AfA-ZO-MK1">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GaY-Ug-soc">
                                 <rect key="frame" x="0.0" y="250" width="375" height="368"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5I-dC-FaB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="25"/>
+                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="b5I-dC-FaB" secondAttribute="height" multiplier="15:1" id="1bi-mL-c6g"/>
+                                        </constraints>
+                                    </view>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AfA-ZO-MK1">
+                                        <rect key="frame" x="0.0" y="25" width="375" height="343"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    </tableView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </tableView>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="AfA-ZO-MK1" secondAttribute="bottom" id="Enm-nf-icp"/>
+                                    <constraint firstItem="b5I-dC-FaB" firstAttribute="width" secondItem="GaY-Ug-soc" secondAttribute="width" id="Gzk-k0-7Qs"/>
+                                    <constraint firstItem="b5I-dC-FaB" firstAttribute="top" secondItem="GaY-Ug-soc" secondAttribute="top" id="Ji8-UR-s7R"/>
+                                    <constraint firstItem="AfA-ZO-MK1" firstAttribute="top" secondItem="b5I-dC-FaB" secondAttribute="bottom" id="bfq-iZ-tpx"/>
+                                    <constraint firstItem="AfA-ZO-MK1" firstAttribute="width" secondItem="GaY-Ug-soc" secondAttribute="width" id="koi-nk-UNl"/>
+                                    <constraint firstItem="AfA-ZO-MK1" firstAttribute="leading" secondItem="GaY-Ug-soc" secondAttribute="leading" id="nSd-dh-aI6"/>
+                                    <constraint firstItem="b5I-dC-FaB" firstAttribute="leading" secondItem="GaY-Ug-soc" secondAttribute="leading" id="oSi-fx-eC2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="hYS-x3-cZA" firstAttribute="top" secondItem="mBQ-yj-4gl" secondAttribute="bottom" id="5e3-oS-xaH"/>
                             <constraint firstItem="Xg0-XO-y3c" firstAttribute="leading" secondItem="Ng4-Sh-vh6" secondAttribute="leading" id="6wh-Xd-7hL"/>
                             <constraint firstItem="mBQ-yj-4gl" firstAttribute="width" secondItem="Xg0-XO-y3c" secondAttribute="width" id="8GT-Vo-oeS"/>
-                            <constraint firstItem="AfA-ZO-MK1" firstAttribute="leading" secondItem="Xg0-XO-y3c" secondAttribute="leading" id="8Um-Ns-gwe"/>
+                            <constraint firstItem="Xg0-XO-y3c" firstAttribute="bottom" secondItem="GaY-Ug-soc" secondAttribute="bottom" id="9yR-PL-d0u"/>
+                            <constraint firstItem="GaY-Ug-soc" firstAttribute="width" secondItem="Xg0-XO-y3c" secondAttribute="width" id="A5h-hx-lNg"/>
                             <constraint firstItem="XKK-r5-798" firstAttribute="leading" secondItem="Xg0-XO-y3c" secondAttribute="leading" constant="10" id="AQa-Qk-r6j"/>
                             <constraint firstItem="Ng4-Sh-vh6" firstAttribute="top" secondItem="hYS-x3-cZA" secondAttribute="bottom" id="AdS-1w-1Gl"/>
                             <constraint firstItem="XKK-r5-798" firstAttribute="top" secondItem="Ng4-Sh-vh6" secondAttribute="bottom" constant="12" id="DeJ-0t-p5d"/>
                             <constraint firstItem="Ng4-Sh-vh6" firstAttribute="width" secondItem="Xg0-XO-y3c" secondAttribute="width" id="Jcn-ID-nns"/>
-                            <constraint firstItem="AfA-ZO-MK1" firstAttribute="top" secondItem="XKK-r5-798" secondAttribute="bottom" constant="12" id="OEh-e2-JsQ"/>
                             <constraint firstItem="hYS-x3-cZA" firstAttribute="leading" secondItem="Xg0-XO-y3c" secondAttribute="leading" id="fdP-K6-smS"/>
+                            <constraint firstItem="GaY-Ug-soc" firstAttribute="leading" secondItem="Xg0-XO-y3c" secondAttribute="leading" id="giI-4e-HiD"/>
                             <constraint firstItem="mBQ-yj-4gl" firstAttribute="top" secondItem="Xg0-XO-y3c" secondAttribute="top" id="kHB-AS-E0E"/>
-                            <constraint firstItem="Xg0-XO-y3c" firstAttribute="bottom" secondItem="AfA-ZO-MK1" secondAttribute="bottom" id="mRn-1S-Nff"/>
                             <constraint firstItem="XKK-r5-798" firstAttribute="centerX" secondItem="Xg0-XO-y3c" secondAttribute="centerX" id="pxr-qt-MiI"/>
                             <constraint firstItem="Xg0-XO-y3c" firstAttribute="leading" secondItem="mBQ-yj-4gl" secondAttribute="leading" id="qq4-Zg-gog"/>
+                            <constraint firstItem="GaY-Ug-soc" firstAttribute="top" secondItem="XKK-r5-798" secondAttribute="bottom" constant="12" id="u0O-ze-Gbe"/>
                             <constraint firstItem="Xg0-XO-y3c" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="XKK-r5-798" secondAttribute="trailing" constant="10" id="vyl-SQ-KSx"/>
                             <constraint firstItem="hYS-x3-cZA" firstAttribute="width" secondItem="Xg0-XO-y3c" secondAttribute="width" id="yNg-4C-5nu"/>
-                            <constraint firstItem="AfA-ZO-MK1" firstAttribute="width" secondItem="Xg0-XO-y3c" secondAttribute="width" id="yNi-9h-4zA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Xg0-XO-y3c"/>
                     </view>
