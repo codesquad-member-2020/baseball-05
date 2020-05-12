@@ -53,7 +53,6 @@ final class ScoresViewController: UIViewController {
     @IBAction func teamSegmentDidTouch(_ sender: UISegmentedControl) {
         playerInfoViewModels.togglePlayerInfoViewModel()
     }
-    
 }
 
 extension ScoresViewController: TitleViewDelegate {

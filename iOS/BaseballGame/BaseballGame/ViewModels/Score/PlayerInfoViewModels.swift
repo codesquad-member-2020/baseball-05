@@ -12,6 +12,7 @@ final class PlayerInfoViewModels: NSObject {
     enum Notification {
         static let currentTeamPlayerViewModelsDidChange = Foundation.Notification.Name("currentTeamPlayerViewModelsDidChange")
     }
+    
     private let awayTeamPlayerViewModels: [PlayerInfoViewModel]
     private let homeTeamPlayerViewModels: [PlayerInfoViewModel]
     private var currentTeamPlayerViewModels: [PlayerInfoViewModel]
