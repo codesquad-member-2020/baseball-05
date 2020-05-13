@@ -102,13 +102,13 @@ public class MockupController {
         Inning inning = new Inning(2);
 
         GameStatusDTO gameStatus = new GameStatusDTO(true, homeTeam, awayTeam, players, inning, plates);
-        return new ResponseEntity<GameStatusDTO>(gameStatus, HttpStatus.OK);
+        return new ResponseEntity<>(gameStatus, HttpStatus.OK);
     }
 
     //현황판(피치 후)
     @PostMapping("/games/rounds")
     public Object pitch() {
-        return new ResponseEntity<GameStatusDTO>(HttpStatus.CREATED);
+        return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
     }
 
     @GetMapping("/scores")
