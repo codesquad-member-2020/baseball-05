@@ -26,15 +26,13 @@ public class SelectDao {
         Matches matches = findMatchesById(matchesId);
         User userA = findUserById(matches.getAUserId());
         Team teamA = findTeamById(userA.getTeam_id());
-        List<Player> playersAteam = findAllPlayerById(teamA.getId());
 
-        UserTeamDTO userATeamDTO = new UserTeamDTO(userA, teamA, playersAteam);
+        UserTeamDTO userATeamDTO = new UserTeamDTO(userA, teamA);
 
         User userB = findUserById(matches.getBUserId());
         Team teamB = findTeamById(userB.getTeam_id());
-        List<Player> playersBteam = findAllPlayerById(teamB.getId());
 
-        UserTeamDTO userBTeamDTO = new UserTeamDTO(userB, teamB, playersBteam);
+        UserTeamDTO userBTeamDTO = new UserTeamDTO(userB, teamB);
 
         return new UserMatchesDTO(userATeamDTO, userBTeamDTO, matches);
     }
@@ -59,10 +57,10 @@ public class SelectDao {
         RowMapper<Player> playersRowMapper = (rs, rowNum) -> {
             Player player = new Player();
             player.setId(rs.getLong("id"));
-            player.setLineUp(rs.getInt("lintUp"));
+            player.setLineUp(rs.getInt("line_up"));
             player.setName(rs.getString("name"));
-            player.setBattingAverage(rs.getDouble("battingAverage"));
-            player.setIsPitcher(rs.getBoolean("isPitcher"));
+            player.setBattingAverage(rs.getDouble("batting_average"));
+            player.setIsPitcher(rs.getBoolean("is_pitcher"));
             player.setRecords(null);
             return player;
         };

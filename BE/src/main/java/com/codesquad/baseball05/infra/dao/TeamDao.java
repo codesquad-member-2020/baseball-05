@@ -58,14 +58,14 @@ public class TeamDao {
     }
 
     private List<Record> findAllRecords() {
-        String sql = "SELECT r.id, r.mount, r.hit, r.strike, r.ball, r.outs, r.batting_average FROM record r";
+        String sql = "SELECT r.id, r.mounts, r.hit, r.strike, r.ball, r.outs, r.batting_average FROM record r";
 
         RowMapper<Record> recordRowMapper = new RowMapper<Record>() {
             @Override
             public Record mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Record record = new Record();
                 record.setId(rs.getLong("id"));
-                record.setMount(rs.getInt("mount"));
+                record.setMounts(rs.getInt("mounts"));
                 record.setHit(rs.getInt("hit"));
                 record.setStrike(rs.getInt("strike"));
                 record.setBall(rs.getInt("ball"));

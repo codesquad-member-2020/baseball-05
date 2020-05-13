@@ -11,7 +11,7 @@ public class PitchResultDTO {
 
     private GameTeamDTO awayTeam;
 
-    private CurrentPlayerDTO players;
+    private CurrentPlayerDTO currentPlayers;
 //
 //    private InningDTO inning;
 //

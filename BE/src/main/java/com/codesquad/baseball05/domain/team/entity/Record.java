@@ -1,15 +1,13 @@
 package com.codesquad.baseball05.domain.team.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Record {
 
     @Id
@@ -17,7 +15,7 @@ public class Record {
 
     private int pitch;
 
-    private int mount;
+    private int mounts;
 
     private int hit;
 

@@ -130,7 +130,7 @@ INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (4,
 INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (5, 0, 2, 0, 6, 1, 2);
 INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (6, 10, 2, 1, 2, 4, 2);
 INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (7, 0, 2, 2, 3, 2, 0);
-INSERT INTO record (player_id, pitch, mounts, hit, striㄹke, ball, outs) VALUE (8, 0, 2, 0, 3, 9, 1);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (8, 0, 2, 0, 3, 9, 1);
 INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (9, 0, 2, 1, 3, 2, 1);
 INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (10, 20, 2, 1, 3, 2, 1);
 INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (11, 0, 3, 0, 3, 2, 1);
