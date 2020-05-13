@@ -31,7 +31,7 @@ INSERT INTO game (id, matches_id) VALUE (1, 1);
 -- INNING TEST --
 -- -----------------------------------------------------
 
-INSERT INTO inning (id, game_id, first_half_id, second_half_id, half) VALUE (1, 1, 1, 2, '초');
+INSERT INTO inning (id, game_id, first_half_id, second_half_id, half) VALUE (1, 1, 1, 2, true);
 
 -- -----------------------------------------------------
 -- HALF TEST --

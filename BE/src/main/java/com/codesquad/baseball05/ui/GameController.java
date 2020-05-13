@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 @Slf4j
@@ -34,8 +35,8 @@ public class GameController {
     }
 
     @PostMapping("/rounds")
-    public Object pitch(@RequestParam Long gameId) {
+    public Object pitch(@RequestParam Long gameId) throws SQLException {
         UserMatchesDTO userMatchesDTO = selectDao.makeUserMatchesDTO(gameId);
-        return gameDao.pitch(userMatchesDTO);
+        return gameDao.pitch(userMatchesDTO, gameId);
     }
 }

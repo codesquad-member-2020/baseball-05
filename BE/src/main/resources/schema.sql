@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`inning`
     game_id        BIGINT REFERENCES game (id),
     first_half_id  BIGINT REFERENCES half (id),
     second_half_id BIGINT REFERENCES half (id),
-    half           ENUM ('초', '말') DEFAULT '초'
+    half           BOOLEAN DEFAULT FALSE
 );
 
 -- -----------------------------------------------------

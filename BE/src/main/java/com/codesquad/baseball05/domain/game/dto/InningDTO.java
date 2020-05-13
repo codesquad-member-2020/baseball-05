@@ -7,9 +7,5 @@ import lombok.Getter;
 @AllArgsConstructor
 public class InningDTO {
 
-    private Long inning_id;
-
-    private String topOrBottom;
-
-    private String offenseOrDefense;
+    private Long id;
 }
