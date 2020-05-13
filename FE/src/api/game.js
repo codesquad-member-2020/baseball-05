@@ -16,4 +16,8 @@ function fetchGames(isOffense) {
   return instance.get(`games/rounds?isOffense=${isOffense}`);
 }
 
-export { fetchMatches, fetchScores, fetchRoters, fetchGames };
+function fetchUser(selectTeamObj) {
+  return instance.post('games', selectTeamObj);
+}
+
+export { fetchMatches, fetchScores, fetchRoters, fetchGames, fetchUser };
