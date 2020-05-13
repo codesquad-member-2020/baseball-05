@@ -12,8 +12,8 @@ function fetchRoters() {
   return instance.get('rosters');
 }
 
-function fetchGames() {
-  return instance.get('games/rounds?isOffense=true');
+function fetchGames(isOffense) {
+  return instance.get(`games/rounds?isOffense=${isOffense}`);
 }
 
 export { fetchMatches, fetchScores, fetchRoters, fetchGames };
