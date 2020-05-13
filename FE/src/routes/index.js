@@ -23,6 +23,10 @@ const router = new VueRouter({
       component: () => import('@/views/GroundView.vue'),
     },
     {
+      path: '/standby/:id',
+      component: () => import('@/views/GameStandByView.vue'),
+    },
+    {
       path: '/main/:id',
       component: () => import('@/views/GameView.vue'),
     },
