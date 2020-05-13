@@ -120,7 +120,7 @@ extension GameRoomViewController: UICollectionViewDelegate {
         guard let gameRoom = gameRoomViewModels.viewModel(at: indexPath.row)?.gameRoom else { return }
         
         if gameRoom.selectable {
-            showActionSheet()
+            showActionSheet(gameRoom: gameRoom)
         } else {
             showAlert()
         }
@@ -134,8 +134,27 @@ extension GameRoomViewController: UICollectionViewDelegate {
         present(alert, animated: true)
     }
     
-    private func showActionSheet() {
+    private func showActionSheet(gameRoom: GameRoom) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Close this tab", style: .destructive))
         
+        let awayTeamChoiceAction = teamChoiceAction(team: gameRoom.awayTeam)
+        actionSheet.addAction(awayTeamChoiceAction)
+        
+        let homeTeamChoiceAction = teamChoiceAction(team: gameRoom.homeTeam)
+        actionSheet.addAction(homeTeamChoiceAction)
+        
+        present(actionSheet, animated: true)
+    }
+    
+    private func teamChoiceAction(team: Team) -> UIAlertAction {
+        let teamChoiceAction = UIAlertAction(title: team.teamName, style: .default) { action in
+            
+        }
+        if team.userName != nil {
+            teamChoiceAction.isEnabled = false
+        }
+        return teamChoiceAction
     }
     
     private func showGameTabBarController() {
