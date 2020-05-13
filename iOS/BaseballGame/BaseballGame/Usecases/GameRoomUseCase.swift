@@ -35,8 +35,8 @@ struct GameRoomUseCase {
     
     static func requestGameRoom(from gameRoomRequest: GameRoomRequest, with gameRoomTask: GameRoomTask,
                                 completionHandler: @escaping ([GameRoom]?) -> ()) {
-        gameRoomTask.perform(gameRoomRequest) { gameInfo in
-            completionHandler(gameInfo)
+        gameRoomTask.perform(gameRoomRequest) { gameRooms in
+            completionHandler(gameRooms)
         }
     }
 }

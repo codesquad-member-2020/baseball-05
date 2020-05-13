@@ -96,7 +96,7 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     
     private func configureUseCase() {
         GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
-                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomSuccess()))
+                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomsSuccess()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             self.configureGameRoomViewModels(gameRooms: gameRooms)
@@ -152,8 +152,8 @@ extension GameRoomViewController: UICollectionViewDelegate {
             guard let teamName = action.title else { return }
             guard let teamData = SelectTeamName(teamName: teamName).encodeToJSONData() else { return }
             TeamSelectUseCase.requestRoomSelectResponse(from: TeamSelectUseCase.TeamSelectRequest(httpBody: teamData),
-                                                        with: TeamSelectUseCase.TeamSelectTask(networkDispatcher: Mock())) { teamSelectResponse in
-                                                            
+                                                        with: TeamSelectUseCase.TeamSelectTask(networkDispatcher: MockTeamSelectSuccess())) { teamSelectResponse in
+                                                
             }
         }
         if team.userName != nil {
@@ -170,8 +170,3 @@ extension GameRoomViewController: UICollectionViewDelegate {
     }
 }
 
-struct Mock: NetworkDispatcher {
-    func execute(request: Request, completionHandler: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        
-    }
-}
