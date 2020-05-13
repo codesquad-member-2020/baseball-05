@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import GameStandByComponent from '@/components/Main/GameStandbyComponent';
+import GameStandbyComponent from '@/components/Main/GameStandbyComponent';
 
 export default {
   components: {

@@ -16,7 +16,7 @@ export default {
 
 <style scoped>
 .select-container {
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   border-radius: 3px;
   position: absolute;
   top: 50%;
