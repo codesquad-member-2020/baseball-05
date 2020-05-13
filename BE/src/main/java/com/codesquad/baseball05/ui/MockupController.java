@@ -67,7 +67,7 @@ public class MockupController {
 
     //현황판(처음 시작 화면)
     @GetMapping("/games/rounds")
-    public Object ready(@RequestParam Boolean isOffense) {
+    public Object ready() {
         Team homeTeam = new Team("Captain", 1, true );
         Team awayTeam = new Team("Marvel", 5, false);
 
@@ -99,36 +99,16 @@ public class MockupController {
         plate = new Plate(7, 1, batter2, rounds);
         plates.add(plate);
 
-        Inning inning = new Inning(2, "초", "수비");
+        Inning inning = new Inning(2);
 
-        GameStatusDTO gameStatus = new GameStatusDTO(homeTeam, awayTeam, players, inning, plates);
+        GameStatusDTO gameStatus = new GameStatusDTO(true, homeTeam, awayTeam, players, inning, plates);
         return new ResponseEntity<GameStatusDTO>(gameStatus, HttpStatus.OK);
     }
 
     //현황판(피치 후)
     @PostMapping("/games/rounds")
-    public Object pitch(@RequestParam Boolean isOffense) {
-        Team homeTeam = new Team("Captain", 1, false);
-        Team awayTeam = new Team("Marvel", 5, true);
-
-        PitcherDTO pitcher = new PitcherDTO("최동원", 39);
-
-        List<Plate> plates = new ArrayList<>();
-
-        BatterDTO batter = new BatterDTO("김광진", 1, 0);
-
-        CurrentPlayersDTO players = new CurrentPlayersDTO(pitcher, batter);
-        //상황판(스트라이크가 몇인지 볼이 몇인지는 마지막 rounds를 참고)
-        //아웃은 plate의 out을 참고
-        Round round = new Round("스트라이크", 1, 0);
-
-        Plate plate = new Plate(6, 1, batter, round);
-        plates.add(plate);
-
-        Inning inning = new Inning(2, "초", "수비");
-
-        GameStatusDTO gameStatus = new GameStatusDTO(homeTeam, awayTeam, players, inning, plates);
-        return new ResponseEntity<GameStatusDTO>(gameStatus, HttpStatus.OK);
+    public Object pitch() {
+        return new ResponseEntity<GameStatusDTO>(HttpStatus.CREATED);
     }
 
     @GetMapping("/scores")

@@ -10,6 +10,8 @@ import java.util.List;
 @AllArgsConstructor
 public class GameStatusDTO {
 
+    private boolean half;
+
     private Team homeTeam;
 
     private Team awayTeam;

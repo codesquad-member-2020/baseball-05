@@ -8,8 +8,4 @@ import lombok.Getter;
 public class Inning {
 
     private final int id;
-
-    private final String half;
-
-    private final String offenseOrDefense;
 }
