@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct TeamSelectUseCase {
-    struct TeamSelectRequest: Request {
+struct TeamSelectingUseCase {
+    struct TeamSelectingRequest: Request {
         var path: String {
             return "http://15.165.69.44:8080/mock/games"
         }
@@ -23,8 +23,8 @@ struct TeamSelectUseCase {
         }
     }
     
-    struct TeamSelectTask: NetworkTask {
-        typealias Output = TeamSelectResponse
+    struct TeamSelectingTask: NetworkTask {
+        typealias Output = TeamSelectingResponse
         
         private let networkDispatcher: NetworkDispatcher
         
@@ -32,7 +32,7 @@ struct TeamSelectUseCase {
             self.networkDispatcher = networkDispatcher
         }
         
-        func perform(_ request: Request, completionHandler: @escaping (TeamSelectResponse?) -> ()) {
+        func perform(_ request: Request, completionHandler: @escaping (TeamSelectingResponse?) -> ()) {
             networkDispatcher.execute(request: request) { data, URLResponse, error in
                 guard error == nil, let data = data else { return }
                 let output = try? JSONDecoder().decode(Output.self, from: data)
@@ -41,9 +41,9 @@ struct TeamSelectUseCase {
         }
     }
     
-    static func requestRoomSelectResponse(from teamSelectRequest: TeamSelectRequest,
-                                          with teamSelectTask: TeamSelectTask,
-                                          completionHandler: @escaping (TeamSelectResponse?) -> ()) {
+    static func requestRoomSelectResponse(from teamSelectRequest: TeamSelectingRequest,
+                                          with teamSelectTask: TeamSelectingTask,
+                                          completionHandler: @escaping (TeamSelectingResponse?) -> ()) {
         teamSelectTask.perform(teamSelectRequest) { teamSelectResponse in
             completionHandler(teamSelectResponse)
         }

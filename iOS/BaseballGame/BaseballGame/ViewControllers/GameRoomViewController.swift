@@ -151,8 +151,8 @@ extension GameRoomViewController: UICollectionViewDelegate {
         let teamChoiceAction = UIAlertAction(title: team.teamName, style: .default) { action in
             guard let teamName = action.title else { return }
             guard let teamData = SelectTeamName(teamName: teamName).encodeToJSONData() else { return }
-            TeamSelectUseCase.requestRoomSelectResponse(from: TeamSelectUseCase.TeamSelectRequest(httpBody: teamData),
-                                                        with: TeamSelectUseCase.TeamSelectTask(networkDispatcher: MockTeamSelectFail()))
+            TeamSelectingUseCase.requestRoomSelectResponse(from: TeamSelectingUseCase.TeamSelectingRequest(httpBody: teamData),
+                                                        with: TeamSelectingUseCase.TeamSelectingTask(networkDispatcher: MockTeamSelectFail()))
             { teamSelectResponse in
                 guard let teamSelectResponse = teamSelectResponse else { return }
                 if teamSelectResponse.result == .fail {
