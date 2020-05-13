@@ -68,6 +68,7 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         gameRoomCollectionView = GameRoomCollectionView(collectionViewLayout:
             GameRoomCollectionViewFlowLayout(superFrame: view.frame))
         gameRoomCollectionView.register(GameRoomCell.self, forCellWithReuseIdentifier: GameRoomCell.identifier)
+        gameRoomCollectionView.delegate = self
         configureCollectionViewConstraints()
     }
     
@@ -111,6 +112,12 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         DispatchQueue.main.async {
             self.gameRoomCollectionView.dataSource = self.gameRoomViewModels
         }
+    }
+}
+
+extension GameRoomViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
     }
     
     private func showGameTabBarController() {
