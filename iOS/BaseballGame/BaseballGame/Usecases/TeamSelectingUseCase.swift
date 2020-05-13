@@ -18,8 +18,8 @@ struct TeamSelectingUseCase {
         }
         var httpBody: Data?
         
-        init(httpBody: Data) {
-            self.httpBody = httpBody
+        init(teamName: String) {
+            self.httpBody = SelectingTeamName(teamName: teamName).encodeToJSONData()
         }
     }
     
