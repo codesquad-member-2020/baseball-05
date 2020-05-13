@@ -1,6 +1,7 @@
 package com.codesquad.baseball05.infra.dao;
 
 import com.codesquad.baseball05.domain.game.dto.*;
+import com.codesquad.baseball05.domain.matches.entity.Matches;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -42,32 +43,45 @@ public class GameDao {
     }
 
     public Object pitch(UserMatchesDTO userMatchesDTO) {
-        GameTeamDTO homeTeam = makeTeamDTO("a", "m_home_team");
-        GameTeamDTO awayTeam = makeTeamDTO("b", "m_away_team");
+        Matches matches = userMatchesDTO.getMatches();
+        GameTeamDTO homeTeam = makeTeamDTO(userMatchesDTO.getUserA(), matches);
+        GameTeamDTO awayTeam = makeTeamDTO(userMatchesDTO.getUserB(), matches);
         CurrentPlayerDTO players = new CurrentPlayerDTO(makePitcherDTO(), makeBatterDTO());
         return new PitchResultDTO(homeTeam, awayTeam, players);
     }
 
 
-    private GameTeamDTO makeTeamDTO(String user, String team) {
-        String sql = "SELECT m.home_team AS m_home_team, " +
-                "m.away_team AS m_away_team, " +
-                "i.half AS i_half, " +
-                "h1.point AS h1_point, " +
+    private GameTeamDTO makeTeamDTO(UserTeamDTO userTeamDTO, Matches matches) {
+        boolean isHomeTeam = isHomeTeam(userTeamDTO, matches);
+
+        String sql = "SELECT i.half AS i_half, " +
                 "h2.point AS h2_point " +
                 "FROM matches m " +
-                "INNER JOIN user u ON m." + user + "_user_id = u.id " +
                 "INNER JOIN game g ON m.id = g.matches_id " +
                 "INNER JOIN inning i ON g.id = i.game_id " +
-                "LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id " +
-                "LEFT OUTER JOIN half h2 ON i.second_half_id = h2.id";
+                "LEFT OUTER JOIN half h2 ON i.second_half_id = h2.id";;
+
+        if(isHomeTeam) {
+            sql = "SELECT i.half AS i_half, " +
+                    "h1.point AS h1_point " +
+                    "FROM matches m " +
+                    "INNER JOIN game g ON m.id = g.matches_id " +
+                    "INNER JOIN inning i ON g.id = i.game_id " +
+                    "LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id";
+        }
 
         RowMapper<GameTeamDTO> pitchResultDtoRowMapper = (rs, rowNum) -> {
-            String teamName = rs.getString(team);
-            return new GameTeamDTO(teamName, getTotalPoint(rs), isOffense(rs, teamName));
+            String teamName = userTeamDTO.getTeam().getName();
+            return new GameTeamDTO(teamName, getTotalPoint(rs), isOffense(rs, isHomeTeam));
         };
 
         return this.jdbcTemplate.queryForObject(sql, pitchResultDtoRowMapper);
+    }
+
+    private boolean isHomeTeam(UserTeamDTO userTeamDTO, Matches matches) {
+        String homeTeam = matches.getHomeTeam();
+        String userTeam = userTeamDTO.getTeam().getName();
+        return homeTeam.equals(userTeam);
     }
 
     private GamePitcherDTO makePitcherDTO() {
@@ -96,28 +110,18 @@ public class GameDao {
 //        return this.jdbcTemplate.queryForObject(sql, batterRowMapper);
     }
 
-    private boolean isTopHalf(Long matchesId) throws SQLException {
-        String sql = "SELECT i.half FROM matches m INNER JOIN game g ON m.id = g.matches_id " +
-                "INNER JOIN inning i ON g.id = i.game_id WHERE m.id = ?";
-
-        RowMapper<String> rowMapper = new RowMapper<String>() {
-            @Override
-            public String mapRow(ResultSet rs, int rowNum) throws SQLException {
-                return rs.getString("i.half");
-            }
-        };
-        
-        return this.jdbcTemplate.queryForObject(sql, new Object[]{matchesId}, rowMapper).equals("초");
+    private boolean isTopHalf(ResultSet rs) throws SQLException {
+        return rs.getString("i_half").equals("초");
     }
 
     private int getTotalPoint(ResultSet rs) throws SQLException {
         return isTopHalf(rs) ? rs.getInt("h1_point") : rs.getInt("h2_point");
     }
 
-    private boolean isOffense(ResultSet rs, String teamName) throws SQLException {
-        if (isTopHalf(rs) && rs.getString("m_away_team").equals(teamName)) {
+    private boolean isOffense(ResultSet rs, boolean isHomeTeam) throws SQLException {
+        if (isTopHalf(rs) && !isHomeTeam) {
             return true;
-        } else return !isTopHalf(rs) && rs.getString("m_home_team").equals(teamName);
+        } else return !isTopHalf(rs) && isHomeTeam;
     }
 
     private int disconnectTeamWithUser(Long gameId) {
