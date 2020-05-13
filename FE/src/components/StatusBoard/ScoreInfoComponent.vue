@@ -1,48 +1,58 @@
 <template>
-  <div class="contained-table fadeOut">
-    <div v-if="this.inningInfo.length === 0">loading...</div>
-    <table v-else>
-      <thead>
-        <tr>
-          <td v-for="round in innningList" :key="round">
-            {{ round }}
-          </td>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td data-th="Team">
-            <img
-              src="//www.mlbstatic.com/mlb.com/builds/site-core/6105139ccce70320c674a1c11cbdf1e9d88bfe14_1532366495/images/logos/team-primary-on-light/141.svg"
-              alt=""
-            />
-            <span class="long">{{ this.inningInfo[0].team }}</span>
-          </td>
-          <td data-th="Total">{{ this.inningInfo[0].totalScore }}</td>
-          <td
-            v-for="score in this.inningInfo[0].inningScore"
-            :key="score.index"
-          >
-            {{ score }}
-          </td>
-        </tr>
-        <tr>
-          <td data-th="Team">
-            <img
-              src="//www.mlbstatic.com/mlb.com/builds/site-core/6105139ccce70320c674a1c11cbdf1e9d88bfe14_1532366495/images/logos/team-cap-on-light/142.svg"
-            />
-            <span class="long">{{ this.inningInfo[1].team }}</span>
-          </td>
-          <td data-th="Total">{{ this.inningInfo[1].totalScore }}</td>
-          <td
-            v-for="score in this.inningInfo[1].inningScore"
-            :key="score.index"
-          >
-            {{ score }}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div>
+    <div
+      class="score-toggle-container"
+      @mouseover="toggleContainer"
+      @mouseleave="toggleContainer"
+    ></div>
+    <div
+      class="contained-table"
+      :class="{ fadeIn: this.toggleValue, fadeOut: !this.toggleValue }"
+    >
+      <div v-if="this.inningInfo.length === 0">loading...</div>
+      <table v-else>
+        <thead>
+          <tr>
+            <td v-for="round in innningList" :key="round">
+              {{ round }}
+            </td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-th="Team">
+              <img
+                src="//www.mlbstatic.com/mlb.com/builds/site-core/6105139ccce70320c674a1c11cbdf1e9d88bfe14_1532366495/images/logos/team-primary-on-light/141.svg"
+                alt=""
+              />
+              <span class="long">{{ this.inningInfo[0].team }}</span>
+            </td>
+            <td data-th="Total">{{ this.inningInfo[0].totalScore }}</td>
+            <td
+              v-for="score in this.inningInfo[0].inningScore"
+              :key="score.index"
+            >
+              {{ score }}
+            </td>
+          </tr>
+          <tr>
+            <td data-th="Team">
+              <img
+                src="//www.mlbstatic.com/mlb.com/builds/site-core/6105139ccce70320c674a1c11cbdf1e9d88bfe14_1532366495/images/logos/team-cap-on-light/142.svg"
+              />
+              <span class="long">{{ this.inningInfo[1].team }}</span>
+            </td>
+            <td data-th="Total">{{ this.inningInfo[1].totalScore }}</td>
+            <td
+              v-for="score in this.inningInfo[1].inningScore"
+              :key="score.index"
+            >
+              {{ score }}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -52,6 +62,7 @@ import { fetchScores } from '@/api/game';
 export default {
   data() {
     return {
+      toggleValue: false,
       innningList: [
         'Team',
         'Total',
@@ -79,6 +90,9 @@ export default {
       const { data } = await fetchScores();
       this.inningInfo = data;
     },
+    toggleContainer() {
+      this.toggleValue = !this.toggleValue;
+    },
   },
 };
 </script>
@@ -86,14 +100,23 @@ export default {
 <style scoped>
 .contained-table {
   position: absolute;
-  top: -10%;
+  top: -50%;
   right: 20%;
   background-color: #00000099;
   border: 1px solid #eee;
   margin: 0.5em;
   padding: 0.3em;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   animation-fill-mode: both;
+}
+
+.score-toggle-container {
+  position: absolute;
+  width: 100%;
+  background: #ffffff00;
+  z-index: 1;
+  height: 15%;
+  top: -92px;
 }
 
 table {

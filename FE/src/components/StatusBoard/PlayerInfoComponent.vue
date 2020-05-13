@@ -1,26 +1,36 @@
 <template>
-  <div class="player-container fadeOut">
-    <table v-for="team in this.playerInfo" :key="team.team">
-      <thead>
-        <th data-th="Team" colspan="5">{{ team.team }}</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>타자</td>
-          <td>타석</td>
-          <td>안타</td>
-          <td>아웃</td>
-          <td>평균</td>
-        </tr>
-        <tr v-for="player in team.roundRecordDtos" :key="player.index">
-          <td>{{ player.player }}</td>
-          <td>{{ player.mounts }}</td>
-          <td>{{ player.hits }}</td>
-          <td>{{ player.outs }}</td>
-          <td>{{ player.average }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div>
+    <div
+      class="player-toggle-container"
+      @mouseover="toggleContainer"
+      @mouseleave="toggleContainer"
+    ></div>
+    <div
+      class="player-container"
+      :class="{ fadeIn: this.toggleValue, fadeOut: !this.toggleValue }"
+    >
+      <table v-for="team in this.playerInfo" :key="team.team">
+        <thead>
+          <th data-th="Team" colspan="5">{{ team.team }}</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>타자</td>
+            <td>타석</td>
+            <td>안타</td>
+            <td>아웃</td>
+            <td>평균</td>
+          </tr>
+          <tr v-for="player in team.roundRecordDtos" :key="player.index">
+            <td>{{ player.player }}</td>
+            <td>{{ player.mounts }}</td>
+            <td>{{ player.hits }}</td>
+            <td>{{ player.outs }}</td>
+            <td>{{ player.average }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -31,6 +41,7 @@ export default {
   data() {
     return {
       playerInfo: [],
+      toggleValue: false,
     };
   },
   created() {
@@ -39,8 +50,11 @@ export default {
   methods: {
     async fetchData() {
       const { data } = await fetchRoters();
-      console.log(data);
       this.playerInfo = data;
+    },
+
+    toggleContainer() {
+      this.toggleValue = !this.toggleValue;
     },
   },
 };
@@ -51,14 +65,27 @@ export default {
   position: absolute;
   display: flex;
   right: 15%;
-  bottom: -10%;
+  bottom: -75%;
   background-color: #00000099;
   margin: 0 auto;
   width: 800px;
   padding: 20px;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   animation-fill-mode: both;
 }
+
+.player-toggle-container {
+  position: absolute;
+  width: 100%;
+  background: #ffffff00;
+  height: 15%;
+  z-index: 1;
+  bottom: -95px;
+}
+
+/* .player-toggle-container:hover {
+  background: #fff;
+} */
 
 table {
   border-collapse: collapse;
