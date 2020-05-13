@@ -16,6 +16,7 @@ public class GameDao {
 
     private final JdbcTemplate jdbcTemplate;
 
+
     public GameDao(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
@@ -40,7 +41,7 @@ public class GameDao {
         return null;
     }
 
-    public Object pitch() {
+    public Object pitch(UserMatchesDTO userMatchesDTO) {
         GameTeamDTO homeTeam = makeTeamDTO("a", "m_home_team");
         GameTeamDTO awayTeam = makeTeamDTO("b", "m_away_team");
         CurrentPlayerDTO players = new CurrentPlayerDTO(makePitcherDTO(), makeBatterDTO());
@@ -61,12 +62,9 @@ public class GameDao {
                 "LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id " +
                 "LEFT OUTER JOIN half h2 ON i.second_half_id = h2.id";
 
-        RowMapper<GameTeamDTO> pitchResultDtoRowMapper = new RowMapper<GameTeamDTO>() {
-            @Override
-            public GameTeamDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                String teamName = rs.getString(team);
-                return new GameTeamDTO(teamName, getTotalPoint(rs), isOffense(rs, teamName));
-            }
+        RowMapper<GameTeamDTO> pitchResultDtoRowMapper = (rs, rowNum) -> {
+            String teamName = rs.getString(team);
+            return new GameTeamDTO(teamName, getTotalPoint(rs), isOffense(rs, teamName));
         };
 
         return this.jdbcTemplate.queryForObject(sql, pitchResultDtoRowMapper);
@@ -75,12 +73,9 @@ public class GameDao {
     private GamePitcherDTO makePitcherDTO() {
         String sql = "";
 
-        RowMapper<GamePitcherDTO> pitcherRowMapper = new RowMapper<GamePitcherDTO>() {
-            @Override
-            public GamePitcherDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                isOffense(rs, rs.getString("m_home_team"));
-                return null;
-            }
+        RowMapper<GamePitcherDTO> pitcherRowMapper = (rs, rowNum) -> {
+            isOffense(rs, rs.getString("m_home_team"));
+            return null;
         };
 
         return null;
@@ -101,9 +96,18 @@ public class GameDao {
 //        return this.jdbcTemplate.queryForObject(sql, batterRowMapper);
     }
 
-    private boolean isTopHalf(ResultSet rs) throws SQLException {
-        String half = rs.getString("i_half");
-        return half.equals("초");
+    private boolean isTopHalf(Long matchesId) throws SQLException {
+        String sql = "SELECT i.half FROM matches m INNER JOIN game g ON m.id = g.matches_id " +
+                "INNER JOIN inning i ON g.id = i.game_id WHERE m.id = ?";
+
+        RowMapper<String> rowMapper = new RowMapper<String>() {
+            @Override
+            public String mapRow(ResultSet rs, int rowNum) throws SQLException {
+                return rs.getString("i.half");
+            }
+        };
+        
+        return this.jdbcTemplate.queryForObject(sql, new Object[]{matchesId}, rowMapper).equals("초");
     }
 
     private int getTotalPoint(ResultSet rs) throws SQLException {
@@ -116,19 +120,19 @@ public class GameDao {
         } else return !isTopHalf(rs) && rs.getString("m_home_team").equals(teamName);
     }
 
-    private void disconnectTeamWithUser(Long gameId) {
+    private int disconnectTeamWithUser(Long gameId) {
         String sql = "UPDATE matches m INNER JOIN user u ON m.a_user_id = u.id OR m.b_user_id = u.id " +
                 "SET u.team_id = null " +
-                "WHERE m.id = " + gameId;
+                "WHERE m.id = ?";
 
-        this.jdbcTemplate.execute(sql);
+        return this.jdbcTemplate.update(sql, gameId);
     }
 
-    private void disconnectMatchWithUser(Long gameId) {
+    private int disconnectMatchWithUser(Long gameId) {
         String sql = "UPDATE matches m " +
                 "SET m.a_user_id = null, b_user_id = null " +
-                "WHERE m.id = " + gameId;
+                "WHERE m.id = ?";
 
-        this.jdbcTemplate.execute(sql);
+        return this.jdbcTemplate.update(sql, gameId);
     }
 }

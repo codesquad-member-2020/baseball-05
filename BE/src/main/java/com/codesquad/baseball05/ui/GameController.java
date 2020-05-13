@@ -1,6 +1,8 @@
 package com.codesquad.baseball05.ui;
 
+import com.codesquad.baseball05.domain.game.dto.UserMatchesDTO;
 import com.codesquad.baseball05.infra.dao.GameDao;
+import com.codesquad.baseball05.infra.dao.SelectDao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,8 @@ public class GameController {
 
     private final GameDao gameDao;
 
+    private final SelectDao selectDao;
+
     @PatchMapping("")
     public ResponseEntity<HttpStatus> terminateGame(@RequestBody Map<String, Long> gameIdMap) {
         gameDao.terminateGame(gameIdMap.get("gameId"));
@@ -24,12 +28,14 @@ public class GameController {
     }
 
     @GetMapping("/rounds")
-    public Object ready(@RequestParam Boolean isOffense) {
+    public Object ready(@RequestParam Long gameId) {
+        UserMatchesDTO userMatchesDTO = selectDao.makeUserMatchesDTO(gameId);
         return gameDao.ready();
     }
 
     @PostMapping("/rounds")
-    public Object pitch(@RequestParam Boolean isOffense) {
-        return gameDao.pitch();
+    public Object pitch(@RequestParam Long gameId) {
+        UserMatchesDTO userMatchesDTO = selectDao.makeUserMatchesDTO(gameId);
+        return gameDao.pitch(userMatchesDTO);
     }
 }
