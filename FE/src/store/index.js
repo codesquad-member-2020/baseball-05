@@ -5,7 +5,18 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    isOffense: true,
+    currentBatter: true,
+    basePlayers: [],
     matchesList: [],
+    battingDelay: false,
+    waitBatter: false,
+    initGameRenderData: [],
+    ballCount: {
+      strike: 1,
+      ball: 1,
+      out: 0,
+    },
     matchArr: {
       inningMeaage: '2회초 공격',
       inning: {
