@@ -117,7 +117,13 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
 
 extension GameRoomViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    
+        guard let gameRoom = gameRoomViewModels.viewModel(at: indexPath.row)?.gameRoom else { return }
+        
+        if gameRoom.selectable {
+            
+        } else {
+            
+        }
     }
     
     private func showGameTabBarController() {
