@@ -11,9 +11,9 @@ import UIKit
 final class GameRoomCell: UICollectionViewCell, IdentifiableView {
     private let gameRoomTitleLabel = GameRoomLabel()
     private let versusLabel = VersusLabel()
-    private let awayTeamButton = TeamButton()
+    private let awayTeamLabel = TitleLabel()
     private let awayTeamUserLabel = GameRoomLabel()
-    private let homeTeamButton = TeamButton()
+    private let homeTeamLabel = TitleLabel()
     private let homeTeamUserLabel = GameRoomLabel()
     
     override init(frame: CGRect) {
@@ -22,11 +22,10 @@ final class GameRoomCell: UICollectionViewCell, IdentifiableView {
         configureView()
         configureGameRoomLabel()
         configureVersusLabel()
-        configureAwayTeamButton()
+        configureAwayTeamLabel()
         configureAwayTeamUserLabel()
-        configureHomeTeamButton()
+        configureHomeTeamLabel()
         configureHomeTeamUserLabel()
-        configureDelegates()
     }
     
     required init?(coder: NSCoder) {
@@ -34,16 +33,10 @@ final class GameRoomCell: UICollectionViewCell, IdentifiableView {
         configureView()
         configureGameRoomLabel()
         configureVersusLabel()
-        configureAwayTeamButton()
+        configureAwayTeamLabel()
         configureAwayTeamUserLabel()
-        configureHomeTeamButton()
+        configureHomeTeamLabel()
         configureHomeTeamUserLabel()
-        configureDelegates()
-    }
-    
-    deinit {
-        awayTeamButton.removeTarget(self, action: #selector(awayButtonDidTouch), for: .touchUpInside)
-        homeTeamButton.removeTarget(self, action: #selector(homeButtonDidTouch), for: .touchUpInside)
     }
     
     private func configureView() {
@@ -66,52 +59,39 @@ final class GameRoomCell: UICollectionViewCell, IdentifiableView {
                                             constant: 10).isActive = true
     }
     
-    private func configureAwayTeamButton() {
-        contentView.addSubview(awayTeamButton)
+    private func configureAwayTeamLabel() {
+        contentView.addSubview(awayTeamLabel)
         
-        awayTeamButton.trailingAnchor.constraint(equalTo: versusLabel.leadingAnchor, constant: -30).isActive = true
-        awayTeamButton.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
+        awayTeamLabel.trailingAnchor.constraint(equalTo: versusLabel.leadingAnchor, constant: -30).isActive = true
+        awayTeamLabel.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
     }
     
     private func configureAwayTeamUserLabel() {
         contentView.addSubview(awayTeamUserLabel)
         
-        awayTeamUserLabel.topAnchor.constraint(equalTo: awayTeamButton.lastBaselineAnchor, constant: 12).isActive = true
+        awayTeamUserLabel.topAnchor.constraint(equalTo: awayTeamLabel.lastBaselineAnchor, constant: 12).isActive = true
         awayTeamUserLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -90).isActive = true
     }
     
-    private func configureHomeTeamButton() {
-        contentView.addSubview(homeTeamButton)
+    private func configureHomeTeamLabel() {
+        contentView.addSubview(homeTeamLabel)
         
-        homeTeamButton.leadingAnchor.constraint(equalTo: versusLabel.trailingAnchor, constant: 30).isActive = true
-        homeTeamButton.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
+        homeTeamLabel.leadingAnchor.constraint(equalTo: versusLabel.trailingAnchor, constant: 30).isActive = true
+        homeTeamLabel.lastBaselineAnchor.constraint(equalTo: versusLabel.lastBaselineAnchor).isActive = true
     }
     
     private func configureHomeTeamUserLabel() {
         contentView.addSubview(homeTeamUserLabel)
         
-        homeTeamUserLabel.topAnchor.constraint(equalTo: homeTeamButton.lastBaselineAnchor, constant: 12).isActive = true
+        homeTeamUserLabel.topAnchor.constraint(equalTo: homeTeamLabel.lastBaselineAnchor, constant: 12).isActive = true
         homeTeamUserLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: 90).isActive = true
-    }
-    
-    private func configureDelegates() {
-        awayTeamButton.addTarget(self, action: #selector(awayButtonDidTouch), for: .touchUpInside)
-        homeTeamButton.addTarget(self, action: #selector(homeButtonDidTouch), for: .touchUpInside)
-    }
-    
-    @objc private func awayButtonDidTouch() {
-        
-    }
-    
-    @objc private func homeButtonDidTouch() {
-        
     }
     
     func configure(gameRoom: GameRoom) {
         gameRoomTitleLabel.text = "\(GameRoomViewModels.gameRoomDefaultText) \(gameRoom.id)"
-        awayTeamButton.setTitle(gameRoom.awayTeam.teamName, for: .normal)
+        awayTeamLabel.text = gameRoom.awayTeam.teamName
         awayTeamUserLabel.text = gameRoom.awayTeam.userName
-        homeTeamButton.setTitle(gameRoom.homeTeam.teamName, for: .normal)
+        homeTeamLabel.text = gameRoom.homeTeam.teamName
         homeTeamUserLabel.text = gameRoom.homeTeam.userName
     }
 }
