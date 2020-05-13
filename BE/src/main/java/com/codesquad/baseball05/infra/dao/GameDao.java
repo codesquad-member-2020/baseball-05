@@ -64,7 +64,25 @@ public class GameDao {
         UserMatchesDTO verifiedHomeTeam = verifiedHomeTeam(userMatchesDTO, homeTeam);
 
         CurrentPlayerDTO players = new CurrentPlayerDTO(makePitcherDTO(verifiedHomeTeam), makeBatterDTO(verifiedHomeTeam));
-        return new PitchResultDTO(homeTeam, awayTeam, players);
+
+        InningDTO inning = new InningDTO();
+
+        return new PitchResultDTO(homeTeam, awayTeam, players, inning);
+    }
+
+    private InningDTO makeInningDTO() {
+        String sql = "SELECT i.id AS i_id, " +
+                "i.half AS i_half " +
+                "FROM matches m " +
+                "INNER JOIN game g ON m.id = g.matches_id " +
+                "INNER JOIN inning i ON g.id = i.game_id";
+
+        RowMapper<InningDTO> pitchResultDtoRowMapper = (rs, rowNum) -> {
+            String teamName = userTeamDTO.getTeam().getName();
+            return new InningDTO(teamName, getTotalPoint(rs), isOffense(rs, isHomeTeam(userTeamDTO, matches)));
+        };
+
+        return this.jdbcTemplate.queryForObject(sql, pitchResultDtoRowMapper);
     }
 
     private UserMatchesDTO verifiedHomeTeam(UserMatchesDTO userMatchesDTO, GameTeamDTO homeTeam) {
@@ -122,7 +140,8 @@ public class GameDao {
 
     private List<Record> findAllRecords(Long playerId) {
         String sql = "SELECT r.id, r.pitch, r.mounts, r.hit, r.strike, r.ball, r.outs, r.batting_average " +
-                "FROM record r INNER JOIN player p ON r.player_id = p.id WHERE p.id = ?";
+                "FROM record r " +
+                "INNER JOIN player p ON r.player_id = p.id WHERE p.id = ?";
 
         RowMapper<Record> recordRowMapper = new RowMapper<Record>() {
             @Override
@@ -186,7 +205,8 @@ public class GameDao {
     }
 
     private int disconnectTeamWithUser(Long gameId) {
-        String sql = "UPDATE matches m INNER JOIN user u ON m.a_user_id = u.id OR m.b_user_id = u.id " +
+        String sql = "UPDATE matches m " +
+                "INNER JOIN user u ON m.a_user_id = u.id OR m.b_user_id = u.id " +
                 "SET u.team_id = null " +
                 "WHERE m.id = ?";
 
