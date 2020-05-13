@@ -122,11 +122,11 @@ extension GameRoomViewController: UICollectionViewDelegate {
         if gameRoom.selectable {
             showActionSheet(gameRoom: gameRoom)
         } else {
-            showAlert()
+            showAlertRoomNotSelectable()
         }
     }
     
-    private func showAlert() {
+    private func showAlertRoomNotSelectable() {
         let alert = UIAlertController(title: "Current Room Not Selectable",
                                       message: "This room cannot be used as all participants are filled.",
                                       preferredStyle: .alert)
@@ -152,14 +152,26 @@ extension GameRoomViewController: UICollectionViewDelegate {
             guard let teamName = action.title else { return }
             guard let teamData = SelectTeamName(teamName: teamName).encodeToJSONData() else { return }
             TeamSelectUseCase.requestRoomSelectResponse(from: TeamSelectUseCase.TeamSelectRequest(httpBody: teamData),
-                                                        with: TeamSelectUseCase.TeamSelectTask(networkDispatcher: MockTeamSelectSuccess())) { teamSelectResponse in
-                                                
+                                                        with: TeamSelectUseCase.TeamSelectTask(networkDispatcher: MockTeamSelectFail()))
+            { teamSelectResponse in
+                guard let teamSelectResponse = teamSelectResponse else { return }
+                if teamSelectResponse.result == .fail {
+                    self.showAlertTeamNotSelectable()
+                }
             }
         }
         if team.userName != nil {
             teamChoiceAction.isEnabled = false
         }
         return teamChoiceAction
+    }
+    
+    private func showAlertTeamNotSelectable() {
+        let alert = UIAlertController(title: "Current Team Not Selectable",
+                                      message: "Another user has already selected.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        present(alert, animated: true)
     }
     
     private func showGameTabBarController() {

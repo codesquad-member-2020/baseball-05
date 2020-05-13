@@ -66,6 +66,8 @@
 		5A8B9AAE246BE4200090AAC3 /* SelectTeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AAD246BE4200090AAC3 /* SelectTeamName.swift */; };
 		5A8B9AB0246BEA690090AAC3 /* MockTeamSelectSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AAF246BEA690090AAC3 /* MockTeamSelectSuccess.swift */; };
 		5A8B9AB6246BEC5B0090AAC3 /* TeamSelectSuccessStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B9AB5246BEC5B0090AAC3 /* TeamSelectSuccessStub.json */; };
+		5A8B9ABC246C0AF90090AAC3 /* TeamSelectFailStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B9ABB246C0AF90090AAC3 /* TeamSelectFailStub.json */; };
+		5A8B9ABE246C0B200090AAC3 /* MockTeamSelectFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9ABD246C0B200090AAC3 /* MockTeamSelectFail.swift */; };
 		5A9FF8C3246A2D4E00005C36 /* PlayerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */; };
 		5A9FF8C7246A373600005C36 /* PlayerInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */; };
 		5A9FF8C9246A37B700005C36 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */; };
@@ -165,6 +167,8 @@
 		5A8B9AAD246BE4200090AAC3 /* SelectTeamName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamName.swift; sourceTree = "<group>"; };
 		5A8B9AAF246BEA690090AAC3 /* MockTeamSelectSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTeamSelectSuccess.swift; sourceTree = "<group>"; };
 		5A8B9AB5246BEC5B0090AAC3 /* TeamSelectSuccessStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TeamSelectSuccessStub.json; sourceTree = "<group>"; };
+		5A8B9ABB246C0AF90090AAC3 /* TeamSelectFailStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TeamSelectFailStub.json; sourceTree = "<group>"; };
+		5A8B9ABD246C0B200090AAC3 /* MockTeamSelectFail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTeamSelectFail.swift; sourceTree = "<group>"; };
 		5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoCell.swift; sourceTree = "<group>"; };
 		5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewModel.swift; sourceTree = "<group>"; };
 		5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 			children = (
 				5A814EE824627B5B001C768D /* GameRoomsSuccessStub.json */,
 				5A8B9AB5246BEC5B0090AAC3 /* TeamSelectSuccessStub.json */,
+				5A8B9ABB246C0AF90090AAC3 /* TeamSelectFailStub.json */,
 			);
 			path = StubDatas;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 			children = (
 				5A814F092462AD99001C768D /* MockGameRoomsSuccess.swift */,
 				5A8B9AAF246BEA690090AAC3 /* MockTeamSelectSuccess.swift */,
+				5A8B9ABD246C0B200090AAC3 /* MockTeamSelectFail.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -557,6 +563,7 @@
 			files = (
 				5A8B9AB6246BEC5B0090AAC3 /* TeamSelectSuccessStub.json in Resources */,
 				5A7DD5162460170A002ECB3A /* LaunchScreen.storyboard in Resources */,
+				5A8B9ABC246C0AF90090AAC3 /* TeamSelectFailStub.json in Resources */,
 				5A814F722466ACB0001C768D /* ScoreView.xib in Resources */,
 				5A7DD5132460170A002ECB3A /* Assets.xcassets in Resources */,
 				5A814F6424658E25001C768D /* GameHeaderView.xib in Resources */,
@@ -631,6 +638,7 @@
 				5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */,
 				5A481FCE2467E0BC00BBDC00 /* CountView.swift in Sources */,
 				5A9FF8D7246A97B600005C36 /* PlayViewModel.swift in Sources */,
+				5A8B9ABE246C0B200090AAC3 /* MockTeamSelectFail.swift in Sources */,
 				5A814F55246439B2001C768D /* BorderedButton.swift in Sources */,
 				5A814EF224627EB0001C768D /* GameRoom.swift in Sources */,
 				5A481FCC2467DCA200BBDC00 /* PitchButton.swift in Sources */,
