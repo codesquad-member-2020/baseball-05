@@ -62,12 +62,17 @@
 		5A89B65C2467C85C00AA82F1 /* SBOsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A89B65B2467C85C00AA82F1 /* SBOsView.swift */; };
 		5A8B9AA4246BB1010090AAC3 /* UserLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AA3246BB1010090AAC3 /* UserLabel.swift */; };
 		5A8B9AA8246BDC2D0090AAC3 /* TeamSelectingUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AA7246BDC2D0090AAC3 /* TeamSelectingUseCase.swift */; };
-		5A8B9AAA246BDD2C0090AAC3 /* TeamSelectingResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AA9246BDD2C0090AAC3 /* TeamSelectingResponse.swift */; };
+		5A8B9AAA246BDD2C0090AAC3 /* ResultResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AA9246BDD2C0090AAC3 /* ResultResponse.swift */; };
 		5A8B9AAE246BE4200090AAC3 /* SelectTeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AAD246BE4200090AAC3 /* SelectTeamName.swift */; };
 		5A8B9AB0246BEA690090AAC3 /* MockTeamSelectSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AAF246BEA690090AAC3 /* MockTeamSelectSuccess.swift */; };
 		5A8B9AB6246BEC5B0090AAC3 /* TeamSelectSuccessStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B9AB5246BEC5B0090AAC3 /* TeamSelectSuccessStub.json */; };
 		5A8B9ABC246C0AF90090AAC3 /* TeamSelectFailStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B9ABB246C0AF90090AAC3 /* TeamSelectFailStub.json */; };
 		5A8B9ABE246C0B200090AAC3 /* MockTeamSelectFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9ABD246C0B200090AAC3 /* MockTeamSelectFail.swift */; };
+		5A8B9AC0246C12D60090AAC3 /* RoomIsFullUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9ABF246C12D60090AAC3 /* RoomIsFullUseCase.swift */; };
+		5A8B9AC2246C182F0090AAC3 /* MockRoomIsFullSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AC1246C182F0090AAC3 /* MockRoomIsFullSuccess.swift */; };
+		5A8B9AC4246C19C30090AAC3 /* RoomIsFullSuccessStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B9AC3246C19C30090AAC3 /* RoomIsFullSuccessStub.json */; };
+		5A8B9AC6246C1AD60090AAC3 /* MockRoomIsFullFail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AC5246C1AD60090AAC3 /* MockRoomIsFullFail.swift */; };
+		5A8B9AC8246C1B280090AAC3 /* RoomIsFullFailStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A8B9AC7246C1B280090AAC3 /* RoomIsFullFailStub.json */; };
 		5A9FF8C3246A2D4E00005C36 /* PlayerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */; };
 		5A9FF8C7246A373600005C36 /* PlayerInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */; };
 		5A9FF8C9246A37B700005C36 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */; };
@@ -163,12 +168,17 @@
 		5A89B65B2467C85C00AA82F1 /* SBOsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBOsView.swift; sourceTree = "<group>"; };
 		5A8B9AA3246BB1010090AAC3 /* UserLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLabel.swift; sourceTree = "<group>"; };
 		5A8B9AA7246BDC2D0090AAC3 /* TeamSelectingUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectingUseCase.swift; sourceTree = "<group>"; };
-		5A8B9AA9246BDD2C0090AAC3 /* TeamSelectingResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectingResponse.swift; sourceTree = "<group>"; };
+		5A8B9AA9246BDD2C0090AAC3 /* ResultResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultResponse.swift; sourceTree = "<group>"; };
 		5A8B9AAD246BE4200090AAC3 /* SelectTeamName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamName.swift; sourceTree = "<group>"; };
 		5A8B9AAF246BEA690090AAC3 /* MockTeamSelectSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTeamSelectSuccess.swift; sourceTree = "<group>"; };
 		5A8B9AB5246BEC5B0090AAC3 /* TeamSelectSuccessStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TeamSelectSuccessStub.json; sourceTree = "<group>"; };
 		5A8B9ABB246C0AF90090AAC3 /* TeamSelectFailStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TeamSelectFailStub.json; sourceTree = "<group>"; };
 		5A8B9ABD246C0B200090AAC3 /* MockTeamSelectFail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTeamSelectFail.swift; sourceTree = "<group>"; };
+		5A8B9ABF246C12D60090AAC3 /* RoomIsFullUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomIsFullUseCase.swift; sourceTree = "<group>"; };
+		5A8B9AC1246C182F0090AAC3 /* MockRoomIsFullSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRoomIsFullSuccess.swift; sourceTree = "<group>"; };
+		5A8B9AC3246C19C30090AAC3 /* RoomIsFullSuccessStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RoomIsFullSuccessStub.json; sourceTree = "<group>"; };
+		5A8B9AC5246C1AD60090AAC3 /* MockRoomIsFullFail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRoomIsFullFail.swift; sourceTree = "<group>"; };
+		5A8B9AC7246C1B280090AAC3 /* RoomIsFullFailStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RoomIsFullFailStub.json; sourceTree = "<group>"; };
 		5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoCell.swift; sourceTree = "<group>"; };
 		5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewModel.swift; sourceTree = "<group>"; };
 		5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
@@ -316,6 +326,8 @@
 				5A814EE824627B5B001C768D /* GameRoomsSuccessStub.json */,
 				5A8B9AB5246BEC5B0090AAC3 /* TeamSelectSuccessStub.json */,
 				5A8B9ABB246C0AF90090AAC3 /* TeamSelectFailStub.json */,
+				5A8B9AC3246C19C30090AAC3 /* RoomIsFullSuccessStub.json */,
+				5A8B9AC7246C1B280090AAC3 /* RoomIsFullFailStub.json */,
 			);
 			path = StubDatas;
 			sourceTree = "<group>";
@@ -327,7 +339,7 @@
 				5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */,
 				5A9FF8E0246A98F300005C36 /* CurrentPlayer.swift */,
 				5A9FF8E2246A9D8D00005C36 /* RoundInfo.swift */,
-				5A8B9AA9246BDD2C0090AAC3 /* TeamSelectingResponse.swift */,
+				5A8B9AA9246BDD2C0090AAC3 /* ResultResponse.swift */,
 				5A8B9AAD246BE4200090AAC3 /* SelectTeamName.swift */,
 			);
 			path = Models;
@@ -338,6 +350,7 @@
 			children = (
 				5A814F022462AB84001C768D /* GameRoomUseCase.swift */,
 				5A8B9AA7246BDC2D0090AAC3 /* TeamSelectingUseCase.swift */,
+				5A8B9ABF246C12D60090AAC3 /* RoomIsFullUseCase.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -348,6 +361,8 @@
 				5A814F092462AD99001C768D /* MockGameRoomsSuccess.swift */,
 				5A8B9AAF246BEA690090AAC3 /* MockTeamSelectSuccess.swift */,
 				5A8B9ABD246C0B200090AAC3 /* MockTeamSelectFail.swift */,
+				5A8B9AC1246C182F0090AAC3 /* MockRoomIsFullSuccess.swift */,
+				5A8B9AC5246C1AD60090AAC3 /* MockRoomIsFullFail.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -563,6 +578,7 @@
 			files = (
 				5A8B9AB6246BEC5B0090AAC3 /* TeamSelectSuccessStub.json in Resources */,
 				5A7DD5162460170A002ECB3A /* LaunchScreen.storyboard in Resources */,
+				5A8B9AC8246C1B280090AAC3 /* RoomIsFullFailStub.json in Resources */,
 				5A8B9ABC246C0AF90090AAC3 /* TeamSelectFailStub.json in Resources */,
 				5A814F722466ACB0001C768D /* ScoreView.xib in Resources */,
 				5A7DD5132460170A002ECB3A /* Assets.xcassets in Resources */,
@@ -570,6 +586,7 @@
 				5A89B6582467B7C900AA82F1 /* SBOView.xib in Resources */,
 				5A814EE924627B5B001C768D /* GameRoomsSuccessStub.json in Resources */,
 				5A7DD51124601708002ECB3A /* Main.storyboard in Resources */,
+				5A8B9AC4246C19C30090AAC3 /* RoomIsFullSuccessStub.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,7 +614,7 @@
 				5A481FCA2467D6B100BBDC00 /* PlayTableLabel.swift in Sources */,
 				5A9FF8D2246A778600005C36 /* InningViewLabel.swift in Sources */,
 				5A9FF8DF246A980D00005C36 /* RoundInfoViewModels.swift in Sources */,
-				5A8B9AAA246BDD2C0090AAC3 /* TeamSelectingResponse.swift in Sources */,
+				5A8B9AAA246BDD2C0090AAC3 /* ResultResponse.swift in Sources */,
 				5A814F102462DED2001C768D /* GameRoomViewModel.swift in Sources */,
 				5A9FF8D0246A76E500005C36 /* InningTitleStack.swift in Sources */,
 				5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */,
@@ -606,6 +623,7 @@
 				5A9FF8E1246A98F300005C36 /* CurrentPlayer.swift in Sources */,
 				5A7DD54A24604DE9002ECB3A /* GameRoomCollectionView.swift in Sources */,
 				5A9FF8D9246A97D400005C36 /* CurrentPlayerViewModel.swift in Sources */,
+				5A8B9AC0246C12D60090AAC3 /* RoomIsFullUseCase.swift in Sources */,
 				5A481FD02467F9D600BBDC00 /* RoundInfoCell.swift in Sources */,
 				5A814F6C24666502001C768D /* ScoresViewController.swift in Sources */,
 				5A9FF8DD246A980200005C36 /* RoundInfoViewModel.swift in Sources */,
@@ -630,10 +648,12 @@
 				5A481FD22467FBC700BBDC00 /* OrderLabel.swift in Sources */,
 				5A7DD54C246056AD002ECB3A /* GameRoomViewModels.swift in Sources */,
 				5A9FF8C7246A373600005C36 /* PlayerInfoViewModel.swift in Sources */,
+				5A8B9AC6246C1AD60090AAC3 /* MockRoomIsFullFail.swift in Sources */,
 				5A9FF8DB246A97F200005C36 /* CurrentPlayerViewModels.swift in Sources */,
 				5A814F5E246451B2001C768D /* MainViewController.swift in Sources */,
 				5A89B6562467B4DD00AA82F1 /* BoardLabel.swift in Sources */,
 				5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */,
+				5A8B9AC2246C182F0090AAC3 /* MockRoomIsFullSuccess.swift in Sources */,
 				5A7DD54224603715002ECB3A /* GameRoomLabel.swift in Sources */,
 				5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */,
 				5A481FCE2467E0BC00BBDC00 /* CountView.swift in Sources */,

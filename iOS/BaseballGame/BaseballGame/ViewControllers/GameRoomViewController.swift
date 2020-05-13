@@ -138,25 +138,55 @@ extension GameRoomViewController: UICollectionViewDelegate {
         let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Close this tab", style: .destructive))
         
-        let awayTeamChoiceAction = teamChoiceAction(team: gameRoom.awayTeam)
+        let awayTeamChoiceAction = teamChoiceAction(team: gameRoom.awayTeam) { result in
+            guard let result = result else { return }
+            if result { self.requestSelectedRoomIsFullRecursively(roomID: gameRoom.id) }
+        }
         actionSheet.addAction(awayTeamChoiceAction)
         
-        let homeTeamChoiceAction = teamChoiceAction(team: gameRoom.homeTeam)
+        let homeTeamChoiceAction = teamChoiceAction(team: gameRoom.homeTeam) { result in
+            guard let result = result else { return }
+            if result { self.requestSelectedRoomIsFullRecursively(roomID: gameRoom.id) }
+        }
         actionSheet.addAction(homeTeamChoiceAction)
         
         present(actionSheet, animated: true)
     }
     
-    private func teamChoiceAction(team: Team) -> UIAlertAction {
+    private func requestSelectedRoomIsFullRecursively(roomID: Int) {
+        RoomIsFullUseCase.requestResultResponse(from: RoomIsFullUseCase.RoomIsFullRequest(roomID: roomID),
+                                                with: RoomIsFullUseCase.RoomIsFullTask(networkDispatcher: MockRoomIsFullFail()))
+        { status in
+            guard let status = status else { return }
+            if status == .success {
+                self.showGameTabBarController()
+            } else {
+                DispatchQueue(label: "reqeustRoomIsFull").asyncAfter(deadline: .now() + 1) {
+                    self.requestSelectedRoomIsFullRecursively(roomID: roomID)
+                }
+            }
+        }
+    }
+    
+    private func showGameTabBarController() {
+        guard let gameTabBarController = storyboard?.instantiateViewController(withIdentifier: "GameTabBarController")
+            else { return }
+        gameTabBarController.modalPresentationStyle = .fullScreen
+        present(gameTabBarController, animated: true)
+    }
+    
+    private func teamChoiceAction(team: Team, resultHandler: @escaping (Bool?) ->()) -> UIAlertAction {
         let teamChoiceAction = UIAlertAction(title: team.teamName, style: .default) { action in
             guard let teamName = action.title else { return }
             guard let teamData = SelectTeamName(teamName: teamName).encodeToJSONData() else { return }
             TeamSelectingUseCase.requestRoomSelectResponse(from: TeamSelectingUseCase.TeamSelectingRequest(httpBody: teamData),
-                                                        with: TeamSelectingUseCase.TeamSelectingTask(networkDispatcher: MockTeamSelectFail()))
-            { teamSelectResponse in
-                guard let teamSelectResponse = teamSelectResponse else { return }
-                if teamSelectResponse.result == .fail {
+                                                           with: TeamSelectingUseCase.TeamSelectingTask(networkDispatcher: MockTeamSelectSuccess()))
+            { status in
+                guard let status = status else { return }
+                if status == .fail {
                     self.showAlertTeamNotSelectable()
+                } else {
+                    resultHandler(true)
                 }
             }
         }
@@ -172,13 +202,6 @@ extension GameRoomViewController: UICollectionViewDelegate {
                                       preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
         present(alert, animated: true)
-    }
-    
-    private func showGameTabBarController() {
-        guard let gameTabBarController = storyboard?.instantiateViewController(withIdentifier: "GameTabBarController")
-            else { return }
-        gameTabBarController.modalPresentationStyle = .fullScreen
-        present(gameTabBarController, animated: true)
     }
 }
 

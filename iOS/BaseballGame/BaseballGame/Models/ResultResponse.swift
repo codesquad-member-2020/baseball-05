@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TeamSelectingResponse: Codable {
+struct ResultResponse: Codable {
     let result: Status
 }
 
