@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,6 +22,6 @@ public class PitchResultDTO {
     private CurrentPlayerDTO currentPlayers;
 
     private InningDTO inning;
-//
-//    private List<GameBatterDTO> plates;
+
+    private List<PlateDTO> plates;
 }

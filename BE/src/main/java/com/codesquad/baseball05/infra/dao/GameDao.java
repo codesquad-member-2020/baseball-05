@@ -51,23 +51,64 @@ public class GameDao {
         GameTeamDTO homeTeam = null;
         GameTeamDTO awayTeam = null;
 
-        if(isHomeTeam(userMatchesDTO.getUserA(), matches)) {
+        if (isHomeTeam(userMatchesDTO.getUserA(), matches)) {
             homeTeam = makeTeamDTO(userMatchesDTO.getUserA(), matches, gameId);
             awayTeam = makeTeamDTO(userMatchesDTO.getUserB(), matches, gameId);
-        }
-
-        else {
+        } else {
             homeTeam = makeTeamDTO(userMatchesDTO.getUserB(), matches, gameId);
             awayTeam = makeTeamDTO(userMatchesDTO.getUserA(), matches, gameId);
         }
 
         UserMatchesDTO verifiedHomeTeam = verifiedHomeTeam(userMatchesDTO, homeTeam);
 
-        CurrentPlayerDTO players = new CurrentPlayerDTO(makePitcherDTO(verifiedHomeTeam), makeBatterDTO(verifiedHomeTeam, gameId));
+        CurrentPlayerDTO players = new CurrentPlayerDTO(makePitcherDTO(verifiedHomeTeam), makeBatterDTO(verifiedHomeTeam, gameId, 0));
 
         InningDTO inning = makeInningDTO(gameId);
 
-        return new PitchResultDTO(isTopHalf(gameId), homeTeam, awayTeam, players, inning);
+        List<PlateDTO> plates = makePlateDTOList(verifiedHomeTeam, gameId);
+
+        return new PitchResultDTO(isTopHalf(gameId), homeTeam, awayTeam, players, inning, plates);
+    }
+
+    private List<PlateDTO> makePlateDTOList(UserMatchesDTO verifiedHomeTeam, Long gameId) {
+        String sql = "SELECT h1.outs AS h1_outs, " +
+                "p.id AS p_id " +
+                "FROM game g " +
+                "INNER JOIN inning i ON g.id = i.game_id " +
+                "LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id " +
+                "LEFT OUTER JOIN plate p ON h1.id = p.half_id " +
+                "WHERE g.id = ?";
+
+        RowMapper<PlateDTO> plateRowMapper = (rs, rowNum) -> {
+            return new PlateDTO(rs.getLong("p_id"),
+                    rs.getInt("h1_outs"),
+                    makeBatterDTO(verifiedHomeTeam, gameId, rowNum),
+                    makeRoundDTOList(gameId)
+                    );
+        };
+
+        return this.jdbcTemplate.query(sql, new Object[]{gameId}, plateRowMapper);
+    }
+
+    private List<RoundDTO> makeRoundDTOList(Long gameId) {
+        String sql = "SELECT r.strike AS r_strike, " +
+                "r.ball AS r_ball, " +
+                "r.hit_or_out AS r_hit_or_out " +
+                "FROM game g " +
+                "INNER JOIN inning i ON g.id = i.game_id " +
+                "LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id " +
+                "LEFT OUTER JOIN half h2 ON i.second_half_id = h2.id " +
+                "LEFT OUTER JOIN plate p ON h1.id = p.half_id OR h2.id = p.half_id " +
+                "LEFT OUTER JOIN round r ON p.id = r.plate_id " +
+                "WHERE g.id = ?";
+
+        RowMapper<RoundDTO> roundRowMapper = (rs, rowNum) -> {
+            return new RoundDTO(rs.getString("r_hit_or_out"),
+                    rs.getInt("r_strike"),
+                    rs.getInt("r_ball"));
+        };
+
+        return this.jdbcTemplate.query(sql, new Object[]{gameId}, roundRowMapper);
     }
 
     private InningDTO makeInningDTO(Long gameId) {
@@ -87,14 +128,12 @@ public class GameDao {
     private UserMatchesDTO verifiedHomeTeam(UserMatchesDTO userMatchesDTO, GameTeamDTO homeTeam) {
         Matches matches = userMatchesDTO.getMatches();
 
-        if(isHomeTeam(userMatchesDTO.getUserA(), matches)) {
+        if (isHomeTeam(userMatchesDTO.getUserA(), matches)) {
             userMatchesDTO.getUserA().setHome(true);
 
             userMatchesDTO.getUserA().setOffense(homeTeam.isOffense());
             userMatchesDTO.getUserB().setOffense(!homeTeam.isOffense());
-        }
-
-        else {
+        } else {
             userMatchesDTO.getUserB().setHome(true);
 
             userMatchesDTO.getUserA().setOffense(!homeTeam.isOffense());
@@ -134,7 +173,7 @@ public class GameDao {
 
         List<Record> records = findAllRecords(player.getId());
 
-        return new GamePitcherDTO(player.getName(), records.get(records.size()-1).getPitch());
+        return new GamePitcherDTO(player.getName(), records.get(records.size() - 1).getPitch());
     }
 
     private List<Record> findAllRecords(Long playerId) {
@@ -161,7 +200,7 @@ public class GameDao {
         return this.jdbcTemplate.query(sql, new Object[]{playerId}, recordRowMapper);
     }
 
-    private GameBatterDTO makeBatterDTO(UserMatchesDTO verifiedHomeTeam, Long gameId) {
+    private GameBatterDTO makeBatterDTO(UserMatchesDTO verifiedHomeTeam, Long gameId, int lastDiffPlayerIndex) {
 
         boolean userAOffense = verifiedHomeTeam.getUserA().isOffense();
 
@@ -179,9 +218,9 @@ public class GameDao {
         RowMapper<GameBatterDTO> batterRowMapper = new RowMapper<GameBatterDTO>() {
             @Override
             public GameBatterDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                Player player = isTopHalf(gameId) ? players.get(rs.getInt("h1_last_bat_player")) : players.get(rs.getInt("h2_last_bat_player"));
+                Player player = isTopHalf(gameId) ? players.get(rs.getInt("h1_last_bat_player") - lastDiffPlayerIndex) : players.get(rs.getInt("h2_last_bat_player") - lastDiffPlayerIndex);
                 List<Record> records = findAllRecords(player.getId());
-                Record record = records.get(records.size()-1);
+                Record record = records.get(records.size() - 1);
                 return new GameBatterDTO(player.getName(), record.getMounts(), record.getHit());
             }
         };
