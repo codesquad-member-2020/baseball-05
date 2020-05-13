@@ -12,9 +12,9 @@ final class GameRoomCell: UICollectionViewCell, IdentifiableView {
     private let gameRoomTitleLabel = GameRoomLabel()
     private let versusLabel = VersusLabel()
     private let awayTeamLabel = TitleLabel()
-    private let awayTeamUserLabel = GameRoomLabel()
+    private let awayTeamUserLabel = UserLabel()
     private let homeTeamLabel = TitleLabel()
-    private let homeTeamUserLabel = GameRoomLabel()
+    private let homeTeamUserLabel = UserLabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
