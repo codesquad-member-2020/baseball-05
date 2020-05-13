@@ -1,13 +1,13 @@
 <template>
-  <div class="warp">
+  <div class="loading-container" v-if="this.isLoading">
+    <img src="../../assets/loading.svg" alt="" />
+  </div>
+  <div v-else class="warp">
     <div class="title-container">
       <h2>BASEBALL GAME ONLINE</h2>
     </div>
     <h2>참가할 게임을 선택하세요!</h2>
-    <div v-if="!this.matchList" class="list-container loading-container">
-      {{ 'loading...' }}
-    </div>
-    <div v-else class="list-container">
+    <div class="list-container">
       <div
         class="team-container"
         v-for="(team, index) in matchList"
@@ -20,6 +20,7 @@
             class="home-team team"
             @click="onClickSelectTeam"
             :class="{ isuser: team.homeTeam.userName }"
+            data-team="home"
             >{{ team.homeTeam.teamName }}
           </span>
           vs
@@ -27,6 +28,7 @@
             class="away-team team"
             :class="{ isuser: team.awayTeam.userName }"
             @click="onClickSelectTeam"
+            data-team="away"
             >{{ team.awayTeam.teamName }}</span
           >
           <span class="user-name">{{ team.awayTeam.userName }}</span>
@@ -38,13 +40,18 @@
 
 <script>
 import { mapState } from 'vuex';
-import { fetchMatches } from '@/api/game';
+import { fetchMatches, fetchUser } from '@/api/game';
+import axios from 'axios';
 
 export default {
   data() {
     return {
       matchList: [],
       isUser: false,
+      isMovePage: false,
+      selectTeam: '',
+      isLoading: true,
+      isSelectUser: '',
     };
   },
 
@@ -61,28 +68,37 @@ export default {
       const { data } = await fetchMatches();
       console.log(data);
       this.matchList = data;
+      if (this.matchList && this.isLoading === true) {
+        this.isLoading = !this.isLoading;
+      }
+    },
+
+    async isUserSelected() {
+      const obj = { teamName: `${this.selectTeam}` };
+      await axios
+        .post('http://3.34.15.148/api/games', { teamName: '두산' })
+        .then(data => {
+          this.isSelectUser = data.data;
+        });
     },
 
     syncData() {
+      if (this.isMovePage) return;
       setTimeout(() => {
         this.fetchData();
         this.syncData();
       }, 3000);
     },
 
-    onClickSelectTeam: function ({ target: { innerText } }) {
-      const matchObj = this.matchList.find(
-        el => el.home == innerText || el.away == innerText,
-      );
-      if (
-        this.matchList.homeTeam.userName &&
-        this.matchList.awayTeam.userName
-      ) {
-        alert('이미 선택된 팀입니다.');
+    async onClickSelectTeam(e) {
+      this.selectTeam = e.target.innerText;
+      await this.isUserSelected();
+      if (this.isSelectUser === 'fail') {
+        alert(' 이미 선택된 팀입니다 ');
         return;
       }
-
-      this.$router.push(`main/${innerText}`);
+      this.isMovePage = !this.isMovePage;
+      this.$router.push(`standby/${e.target.dataset.team}`);
     },
   },
 };
@@ -95,16 +111,17 @@ export default {
   color: #fff;
 }
 
+.loading-container {
+  padding: 10px;
+  color: #fff;
+}
+
 .game-number {
   font-size: 15px;
 }
 
 .title-container > h2 {
   font-size: 34px;
-}
-
-.loading-container {
-  color: red;
 }
 
 .match-container {
