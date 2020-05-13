@@ -4,7 +4,9 @@
       <h2>BASEBALL GAME ONLINE</h2>
     </div>
     <h2>참가할 게임을 선택하세요!</h2>
-    <div v-if="!this.matchList">loading...</div>
+    <div v-if="!this.matchList" class="list-container loading-container">
+      {{ 'loading...' }}
+    </div>
     <div v-else class="list-container">
       <div
         class="team-container"
@@ -13,13 +15,21 @@
       >
         <button class="match-container" :class="{ active: !team.selectable }">
           <div class="game-number">GAME{{ index + 1 }}</div>
-          <span class="home-team team" @click="onClickSelectTeam">{{
-            team.homeTeam.teamName
-          }}</span>
+          <span class="user-name">{{ team.homeTeam.userName }}</span>
+          <span
+            class="home-team team"
+            @click="onClickSelectTeam"
+            :class="{ isuser: team.homeTeam.userName }"
+            >{{ team.homeTeam.teamName }}
+          </span>
           vs
-          <span class="away-team team" @click="onClickSelectTeam">{{
-            team.awayTeam.teamName
-          }}</span>
+          <span
+            class="away-team team"
+            :class="{ isuser: team.awayTeam.userName }"
+            @click="onClickSelectTeam"
+            >{{ team.awayTeam.teamName }}</span
+          >
+          <span class="user-name">{{ team.awayTeam.userName }}</span>
         </button>
       </div>
     </div>
@@ -34,6 +44,7 @@ export default {
   data() {
     return {
       matchList: [],
+      isUser: false,
     };
   },
 
@@ -42,19 +53,35 @@ export default {
   },
 
   created() {
-    this.fetchData();
+    this.syncData();
   },
 
   methods: {
     async fetchData() {
       const { data } = await fetchMatches();
+      console.log(data);
       this.matchList = data;
+    },
+
+    syncData() {
+      setTimeout(() => {
+        this.fetchData();
+        this.syncData();
+      }, 3000);
     },
 
     onClickSelectTeam: function ({ target: { innerText } }) {
       const matchObj = this.matchList.find(
         el => el.home == innerText || el.away == innerText,
       );
+      if (
+        this.matchList.homeTeam.userName &&
+        this.matchList.awayTeam.userName
+      ) {
+        alert('이미 선택된 팀입니다.');
+        return;
+      }
+
       this.$router.push(`main/${innerText}`);
     },
   },
@@ -74,6 +101,10 @@ export default {
 
 .title-container > h2 {
   font-size: 34px;
+}
+
+.loading-container {
+  color: red;
 }
 
 .match-container {
@@ -103,7 +134,8 @@ export default {
 
 .active::after {
   position: absolute;
-  left: 15px;
+  left: 10px;
+  top: 10px;
   font-size: 15px;
   content: '게임중';
   color: #fff;
@@ -115,5 +147,14 @@ export default {
 
 .team:hover {
   color: red;
+}
+
+.user-name {
+  font-size: 15px;
+}
+
+.isuser {
+  color: chartreuse;
+  pointer-events: none;
 }
 </style>
