@@ -155,7 +155,7 @@ extension GameRoomViewController: UICollectionViewDelegate {
     
     private func requestSelectedRoomIsFullRecursively(roomID: Int) {
         RoomIsFullUseCase.requestResultResponse(from: RoomIsFullUseCase.RoomIsFullRequest(roomID: roomID),
-                                                with: RoomIsFullUseCase.RoomIsFullTask(networkDispatcher: MockRoomIsFullFail()))
+                                                with: RoomIsFullUseCase.RoomIsFullTask(networkDispatcher: MockRoomIsFullSuccess()))
         { status in
             guard let status = status else { return }
             if status == .success {
