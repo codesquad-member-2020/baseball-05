@@ -1,12 +1,14 @@
 <template>
   <div class="ground-container">
     <ground-component></ground-component>
+    <game-status-component
+      :propsData="initGameRenderData"
+    ></game-status-component>
     <play-button></play-button>
     <game-log-component></game-log-component>
     <score-info-component></score-info-component>
     <player-info-component></player-info-component>
-    <player-info-button></player-info-button>
-    <score-info-button></score-info-button>
+    <score-component :propsData="initGameRenderData"></score-component>
   </div>
 </template>
 
@@ -16,18 +18,33 @@ import PlayButton from '@/components/PlayButton';
 import GameLogComponent from '@/components/Game/GameLogComponent';
 import ScoreInfoComponent from '@/components/StatusBoard/ScoreInfoComponent';
 import PlayerInfoComponent from '@/components/StatusBoard/PlayerInfoComponent';
-import PlayerInfoButton from '@/components/PlayerInfoButton';
-import ScoreInfoButton from '@/components/ScoreInfoButton';
+import GameStatusComponent from '@/components/GameStatusComponent';
+import ScoreComponent from '@/components/ScoreComponent';
+import { fetchGames } from '@/api/game';
 
 export default {
+  data() {
+    return {
+      initGameRenderData: [],
+    };
+  },
+  async created() {
+    await this.fetchData();
+  },
   components: {
     GroundComponent,
     PlayButton,
     GameLogComponent,
     ScoreInfoComponent,
     PlayerInfoComponent,
-    PlayerInfoButton,
-    ScoreInfoButton,
+    GameStatusComponent,
+    ScoreComponent,
+  },
+  methods: {
+    async fetchData() {
+      const { data } = await fetchGames(this.$store.state.isOffense);
+      this.initGameRenderData = data;
+    },
   },
 };
 </script>
