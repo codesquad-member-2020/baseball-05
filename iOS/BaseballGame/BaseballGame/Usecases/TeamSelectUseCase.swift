@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct RoomSelectUseCase {
-    struct RoomSelectRequest: Request {
+struct TeamSelectUseCase {
+    struct TeamSelectRequest: Request {
         var path: String {
             return "http://15.165.69.44:8080/mock/games"
         }
@@ -23,8 +23,8 @@ struct RoomSelectUseCase {
         }
     }
     
-    struct RoomSelectTask: NetworkTask {
-        typealias Output = RoomSelectResponse
+    struct TeamSelectTask: NetworkTask {
+        typealias Output = TeamSelectResponse
         
         private let networkDispatcher: NetworkDispatcher
         
@@ -32,7 +32,7 @@ struct RoomSelectUseCase {
             self.networkDispatcher = networkDispatcher
         }
         
-        func perform(_ request: Request, completionHandler: @escaping (RoomSelectResponse?) -> ()) {
+        func perform(_ request: Request, completionHandler: @escaping (TeamSelectResponse?) -> ()) {
             networkDispatcher.execute(request: request) { data, URLResponse, error in
                 guard error == nil, let data = data else { return }
                 let output = try? JSONDecoder().decode(Output.self, from: data)
@@ -41,9 +41,11 @@ struct RoomSelectUseCase {
         }
     }
     
-    static func requestRoomSelectResponse(from roomSelectRequest: RoomSelectRequest, with roomSelectTask: RoomSelectTask, completionHandler: @escaping (RoomSelectResponse?) -> ()) {
-        roomSelectTask.perform(roomSelectRequest) { roomSelectResponse in
-            completionHandler(roomSelectResponse)
+    static func requestRoomSelectResponse(from teamSelectRequest: TeamSelectRequest,
+                                          with teamSelectTask: TeamSelectTask,
+                                          completionHandler: @escaping (TeamSelectResponse?) -> ()) {
+        teamSelectTask.perform(teamSelectRequest) { teamSelectResponse in
+            completionHandler(teamSelectResponse)
         }
     }
 }
