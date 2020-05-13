@@ -120,10 +120,22 @@ extension GameRoomViewController: UICollectionViewDelegate {
         guard let gameRoom = gameRoomViewModels.viewModel(at: indexPath.row)?.gameRoom else { return }
         
         if gameRoom.selectable {
-            
+            showActionSheet()
         } else {
-            
+            showAlert()
         }
+    }
+    
+    private func showAlert() {
+        let alert = UIAlertController(title: "Current Room Not Selectable",
+                                      message: "This room cannot be used as all participants are filled.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        present(alert, animated: true)
+    }
+    
+    private func showActionSheet() {
+        
     }
     
     private func showGameTabBarController() {
