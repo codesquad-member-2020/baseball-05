@@ -48,7 +48,6 @@ export default {
   methods: {
     async fetchData() {
       const { data } = await fetchMatches();
-      console.log(data);
       this.matchList = data;
     },
 

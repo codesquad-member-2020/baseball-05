@@ -55,7 +55,6 @@ export default {
       });
 
       if (currentBase.length < 4) {
-        console.log('test');
         currentBase.push('first');
       }
       this.$store.state.basePlayers = currentBase;
