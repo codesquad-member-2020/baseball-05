@@ -17,6 +17,8 @@ public class Player {
     @Id
     private Long id;
 
+    private int lineUp;
+
     private String name;
 
     private Double battingAverage;

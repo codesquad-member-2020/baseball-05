@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`team`
 CREATE TABLE IF NOT EXISTS `baseball`.`player`
 (
     id              BIGINT PRIMARY KEY AUTO_INCREMENT,
+    line_up         INT,
     team_id         BIGINT REFERENCES team (id),
     name            VARCHAR(45),
     batting_average DOUBLE,
@@ -59,8 +60,9 @@ CREATE TABLE IF NOT EXISTS `baseball`.`player`
 CREATE TABLE IF NOT EXISTS `baseball`.`record`
 (
     id              BIGINT PRIMARY KEY AUTO_INCREMENT,
-    player_number   BIGINT REFERENCES player (id),
-    mounts           INT,
+    player_id       BIGINT REFERENCES player (id),
+    pitch           INT,
+    mounts          INT,
     hit             INT,
     strike          INT,
     ball            INT,

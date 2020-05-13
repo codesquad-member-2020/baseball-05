@@ -1,8 +1,6 @@
 package com.codesquad.baseball05.infra.dao;
 
-import com.codesquad.baseball05.domain.game.dto.CurrentPlayerDTO;
-import com.codesquad.baseball05.domain.game.dto.GameTeamDTO;
-import com.codesquad.baseball05.domain.game.dto.PitchResultDTO;
+import com.codesquad.baseball05.domain.game.dto.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -45,7 +43,7 @@ public class GameDao {
     public Object pitch() {
         GameTeamDTO homeTeam = makeTeamDTO("a", "m_home_team");
         GameTeamDTO awayTeam = makeTeamDTO("b", "m_away_team");
-        CurrentPlayerDTO players = makeCurrentPlayerDTO();
+        CurrentPlayerDTO players = new CurrentPlayerDTO(makePitcherDTO(), makeBatterDTO());
         return new PitchResultDTO(homeTeam, awayTeam, players);
     }
 
@@ -57,7 +55,7 @@ public class GameDao {
                 "h1.point AS h1_point, " +
                 "h2.point AS h2_point " +
                 "FROM matches m " +
-                "INNER JOIN user u ON m.a_user_id = u.id " +
+                "INNER JOIN user u ON m." + user + "_user_id = u.id " +
                 "INNER JOIN game g ON m.id = g.matches_id " +
                 "INNER JOIN inning i ON g.id = i.game_id " +
                 "LEFT OUTER JOIN half h1 ON i.first_half_id = h1.id " +
@@ -74,8 +72,33 @@ public class GameDao {
         return this.jdbcTemplate.queryForObject(sql, pitchResultDtoRowMapper);
     }
 
-    private CurrentPlayerDTO makeCurrentPlayerDTO() {
-        
+    private GamePitcherDTO makePitcherDTO() {
+        String sql = "";
+
+        RowMapper<GamePitcherDTO> pitcherRowMapper = new RowMapper<GamePitcherDTO>() {
+            @Override
+            public GamePitcherDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                isOffense(rs, rs.getString("m_home_team"));
+                return null;
+            }
+        };
+
+        return null;
+//        return this.jdbcTemplate.queryForObject(sql, pitcherRowMapper);
+    }
+
+    private GameBatterDTO makeBatterDTO() {
+        String sql = "";
+
+        RowMapper<GameBatterDTO> batterRowMapper = new RowMapper<GameBatterDTO>() {
+            @Override
+            public GameBatterDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
+                return null;
+            }
+        };
+
+        return null;
+//        return this.jdbcTemplate.queryForObject(sql, batterRowMapper);
     }
 
     private boolean isTopHalf(ResultSet rs) throws SQLException {
@@ -88,12 +111,9 @@ public class GameDao {
     }
 
     private boolean isOffense(ResultSet rs, String teamName) throws SQLException {
-        if(isTopHalf(rs) && rs.getString("m_away_team").equals(teamName)) {
+        if (isTopHalf(rs) && rs.getString("m_away_team").equals(teamName)) {
             return true;
-        } else if(!isTopHalf(rs) && rs.getString("m_home_team").equals(teamName)) {
-            return true;
-        }
-        return false;
+        } else return !isTopHalf(rs) && rs.getString("m_home_team").equals(teamName);
     }
 
     private void disconnectTeamWithUser(Long gameId) {
