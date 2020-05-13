@@ -149,7 +149,12 @@ extension GameRoomViewController: UICollectionViewDelegate {
     
     private func teamChoiceAction(team: Team) -> UIAlertAction {
         let teamChoiceAction = UIAlertAction(title: team.teamName, style: .default) { action in
-            
+            guard let teamName = action.title else { return }
+            guard let teamData = SelectTeamName(teamName: teamName).encodeToJSONData() else { return }
+            RoomSelectUseCase.requestRoomSelectResponse(from: RoomSelectUseCase.RoomSelectRequest(httpBody: teamData),
+                                                        with: RoomSelectUseCase.RoomSelectTask(networkDispatcher: Mock())) { roomSelectResponse in
+                                                            
+            }
         }
         if team.userName != nil {
             teamChoiceAction.isEnabled = false
@@ -162,5 +167,11 @@ extension GameRoomViewController: UICollectionViewDelegate {
             else { return }
         gameTabBarController.modalPresentationStyle = .fullScreen
         present(gameTabBarController, animated: true)
+    }
+}
+
+struct Mock: NetworkDispatcher {
+    func execute(request: Request, completionHandler: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        
     }
 }

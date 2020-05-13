@@ -61,6 +61,9 @@
 		5A89B65A2467BD0600AA82F1 /* SBOView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A89B6592467BD0600AA82F1 /* SBOView.swift */; };
 		5A89B65C2467C85C00AA82F1 /* SBOsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A89B65B2467C85C00AA82F1 /* SBOsView.swift */; };
 		5A8B9AA4246BB1010090AAC3 /* UserLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AA3246BB1010090AAC3 /* UserLabel.swift */; };
+		5A8B9AA8246BDC2D0090AAC3 /* RoomSelectUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AA7246BDC2D0090AAC3 /* RoomSelectUseCase.swift */; };
+		5A8B9AAA246BDD2C0090AAC3 /* RoomSelectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AA9246BDD2C0090AAC3 /* RoomSelectResponse.swift */; };
+		5A8B9AAE246BE4200090AAC3 /* SelectTeamName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B9AAD246BE4200090AAC3 /* SelectTeamName.swift */; };
 		5A9FF8C3246A2D4E00005C36 /* PlayerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */; };
 		5A9FF8C7246A373600005C36 /* PlayerInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */; };
 		5A9FF8C9246A37B700005C36 /* PlayerInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */; };
@@ -155,6 +158,9 @@
 		5A89B6592467BD0600AA82F1 /* SBOView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBOView.swift; sourceTree = "<group>"; };
 		5A89B65B2467C85C00AA82F1 /* SBOsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBOsView.swift; sourceTree = "<group>"; };
 		5A8B9AA3246BB1010090AAC3 /* UserLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLabel.swift; sourceTree = "<group>"; };
+		5A8B9AA7246BDC2D0090AAC3 /* RoomSelectUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectUseCase.swift; sourceTree = "<group>"; };
+		5A8B9AA9246BDD2C0090AAC3 /* RoomSelectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSelectResponse.swift; sourceTree = "<group>"; };
+		5A8B9AAD246BE4200090AAC3 /* SelectTeamName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamName.swift; sourceTree = "<group>"; };
 		5A9FF8C2246A2D4E00005C36 /* PlayerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoCell.swift; sourceTree = "<group>"; };
 		5A9FF8C6246A373600005C36 /* PlayerInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoViewModel.swift; sourceTree = "<group>"; };
 		5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfo.swift; sourceTree = "<group>"; };
@@ -311,6 +317,8 @@
 				5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */,
 				5A9FF8E0246A98F300005C36 /* CurrentPlayer.swift */,
 				5A9FF8E2246A9D8D00005C36 /* RoundInfo.swift */,
+				5A8B9AA9246BDD2C0090AAC3 /* RoomSelectResponse.swift */,
+				5A8B9AAD246BE4200090AAC3 /* SelectTeamName.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -319,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				5A814F022462AB84001C768D /* GameRoomUseCase.swift */,
+				5A8B9AA7246BDC2D0090AAC3 /* RoomSelectUseCase.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -574,6 +583,7 @@
 				5A481FCA2467D6B100BBDC00 /* PlayTableLabel.swift in Sources */,
 				5A9FF8D2246A778600005C36 /* InningViewLabel.swift in Sources */,
 				5A9FF8DF246A980D00005C36 /* RoundInfoViewModels.swift in Sources */,
+				5A8B9AAA246BDD2C0090AAC3 /* RoomSelectResponse.swift in Sources */,
 				5A814F102462DED2001C768D /* GameRoomViewModel.swift in Sources */,
 				5A9FF8D0246A76E500005C36 /* InningTitleStack.swift in Sources */,
 				5A7DD54624603A0E002ECB3A /* VersusLabel.swift in Sources */,
@@ -589,6 +599,7 @@
 				5A481FC62467CB6300BBDC00 /* BoardView.swift in Sources */,
 				5A814F6824665B23001C768D /* GameHeaderView.swift in Sources */,
 				5A814F0A2462AD99001C768D /* MockGameRoomSuccess.swift in Sources */,
+				5A8B9AAE246BE4200090AAC3 /* SelectTeamName.swift in Sources */,
 				5A9FF8C9246A37B700005C36 /* PlayerInfo.swift in Sources */,
 				5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */,
 				5A7DD53E24602B9F002ECB3A /* TitleLabel.swift in Sources */,
@@ -615,6 +626,7 @@
 				5A814F55246439B2001C768D /* BorderedButton.swift in Sources */,
 				5A814EF224627EB0001C768D /* GameRoom.swift in Sources */,
 				5A481FCC2467DCA200BBDC00 /* PitchButton.swift in Sources */,
+				5A8B9AA8246BDC2D0090AAC3 /* RoomSelectUseCase.swift in Sources */,
 				5A89B65C2467C85C00AA82F1 /* SBOsView.swift in Sources */,
 				5A814F6024645F07001C768D /* PrevButton.swift in Sources */,
 				5A814F5A24644B15001C768D /* OauthLoginButton.swift in Sources */,
