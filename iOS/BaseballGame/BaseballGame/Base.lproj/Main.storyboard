@@ -529,14 +529,15 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#39" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FMb-tJ-vHJ" customClass="PlayTableLabel" customModule="BaseballGame" customModuleProvider="target">
-                                                    <rect key="frame" x="209" y="18.5" width="32" height="21"/>
+                                                    <rect key="frame" x="225" y="18.5" width="32" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="FMb-tJ-vHJ" firstAttribute="centerX" secondItem="VIh-gv-AK0" secondAttribute="centerX" multiplier="1.2" id="F42-Ai-XCg"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FMb-tJ-vHJ" secondAttribute="trailing" constant="20" symbolic="YES" id="7qN-aW-stb"/>
+                                                <constraint firstItem="FMb-tJ-vHJ" firstAttribute="leading" secondItem="VIh-gv-AK0" secondAttribute="centerX" multiplier="1.2" id="F42-Ai-XCg"/>
                                                 <constraint firstItem="FMb-tJ-vHJ" firstAttribute="centerY" secondItem="VIh-gv-AK0" secondAttribute="centerY" id="NBA-fK-R7x"/>
                                                 <constraint firstItem="u1f-q0-ZYx" firstAttribute="centerX" secondItem="VIh-gv-AK0" secondAttribute="centerX" multiplier="0.6" id="QeY-3U-7WI"/>
                                                 <constraint firstItem="bxI-X5-HdE" firstAttribute="centerX" secondItem="VIh-gv-AK0" secondAttribute="centerX" multiplier="0.2" id="QfJ-dD-RcM"/>
