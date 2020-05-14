@@ -25,6 +25,7 @@
 		5A4B9AED246D34CD000F5FA8 /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AEC246D34CD000F5FA8 /* BoardViewModel.swift */; };
 		5A4B9AEF246D3571000F5FA8 /* SBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AEE246D3571000F5FA8 /* SBO.swift */; };
 		5A4B9AF3246D738F000F5FA8 /* UserInning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AF2246D738F000F5FA8 /* UserInning.swift */; };
+		5A4B9AF5246D97DD000F5FA8 /* PitchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AF4246D97DD000F5FA8 /* PitchUseCase.swift */; };
 		5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50924601708002ECB3A /* AppDelegate.swift */; };
 		5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50B24601708002ECB3A /* SceneDelegate.swift */; };
 		5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */; };
@@ -135,6 +136,7 @@
 		5A4B9AEC246D34CD000F5FA8 /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
 		5A4B9AEE246D3571000F5FA8 /* SBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBO.swift; sourceTree = "<group>"; };
 		5A4B9AF2246D738F000F5FA8 /* UserInning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInning.swift; sourceTree = "<group>"; };
+		5A4B9AF4246D97DD000F5FA8 /* PitchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchUseCase.swift; sourceTree = "<group>"; };
 		5A7DD50624601708002ECB3A /* BaseballGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7DD50924601708002ECB3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A7DD50B24601708002ECB3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				5A8B9AA7246BDC2D0090AAC3 /* TeamSelectingUseCase.swift */,
 				5A8B9ABF246C12D60090AAC3 /* RoomIsFullUseCase.swift */,
 				5A4B9AE6246D258F000F5FA8 /* PlayUseCase.swift */,
+				5A4B9AF4246D97DD000F5FA8 /* PitchUseCase.swift */,
 			);
 			path = Usecases;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				5A4B9AE7246D258F000F5FA8 /* PlayUseCase.swift in Sources */,
 				5A814F702466AC9A001C768D /* ScoreView.swift in Sources */,
 				5A481FC62467CB6300BBDC00 /* BoardView.swift in Sources */,
+				5A4B9AF5246D97DD000F5FA8 /* PitchUseCase.swift in Sources */,
 				5A4B9AE5246D240E000F5FA8 /* MockRoundsSuccess.swift in Sources */,
 				5A814F6824665B23001C768D /* GameHeaderView.swift in Sources */,
 				5A814F0A2462AD99001C768D /* MockGameRoomsSuccess.swift in Sources */,

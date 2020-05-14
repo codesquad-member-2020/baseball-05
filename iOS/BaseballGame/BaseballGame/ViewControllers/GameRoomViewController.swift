@@ -100,7 +100,7 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             self.configureGameRoomViewModels(gameRooms: gameRooms)
-            DispatchQueue(label: "updateRooms").asyncAfter(deadline: .now() + 2) {
+            DispatchQueue(label: "updateRooms").asyncAfter(deadline: .now() + 3) {
                 self.configureUseCaseRecursively()
             }
         }

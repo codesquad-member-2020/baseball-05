@@ -23,6 +23,7 @@ final class PlayViewController: UIViewController {
         super.viewDidLoad()
         configureTitleView()
         configureObservers()
+        configurePitchButtonTarget()
         configureUseCase()
     }
     
@@ -64,7 +65,25 @@ final class PlayViewController: UIViewController {
             self.boardView.offenseOrDefense.text = inningViewModel.offenseOrDefenseText()
             
             guard let isOffense = inningViewModel.isOffense else { return }
-            self.boardView.pitchButton.isHidden = isOffense ? true : false 
+            self.boardView.pitchButton.isHidden = isOffense ? true : false
+        }
+    }
+    
+    private func configurePitchButtonTarget() {
+        boardView.pitchButton.addTarget(self,
+                                        action: #selector(requestPitch),
+                                        for: .touchUpInside)
+    }
+    
+    @objc private func requestPitch() {
+        guard let roomID = roomID else { return }
+        PitchUseCase.requestPitch(from: PitchUseCase.PitchRequest(matchID: roomID),
+                                  with: PitchUseCase.PitchTask(networkDispatcher: NetworkManager()))
+        { resultResponse in
+            guard let resultResponse = resultResponse else { return }
+            if resultResponse.result == .success {
+                self.configureUseCase()
+            }
         }
     }
     
