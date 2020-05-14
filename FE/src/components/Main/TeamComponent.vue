@@ -21,6 +21,7 @@
             @click="onClickSelectTeam"
             :class="{ isuser: team.homeTeam.userName }"
             data-team="home"
+            :data-matchId="`${index + 1}`"
             >{{ team.homeTeam.teamName }}
           </span>
           vs
@@ -29,6 +30,7 @@
             :class="{ isuser: team.awayTeam.userName }"
             @click="onClickSelectTeam"
             data-team="away"
+            :data-matchId="`${index + 1}`"
             >{{ team.awayTeam.teamName }}</span
           >
           <span class="user-name">{{ team.awayTeam.userName }}</span>
@@ -67,12 +69,11 @@ export default {
 
   methods: {
     sound() {
-      var play = new Audio(hit);
-      play.play();
+      const sound = new Audio(hit);
+      sound.play();
     },
     async fetchData() {
       const { data } = await fetchMatches();
-      console.log(data);
       this.matchList = data;
       if (this.matchList && this.isLoading === true) {
         this.isLoading = !this.isLoading;
@@ -81,19 +82,16 @@ export default {
 
     async isUserSelected() {
       const obj = { teamName: `${this.selectTeam}` };
-      await axios
-        .post('http://3.34.15.148/api/games', {
-          teamName: `${this.selectTeam}`,
-          // 위에 팀네임은 this.teamName으로 수정
-        })
-        .then(data => {
-          this.isSelectUser = data.data;
-        });
+      await axios.post('http://3.34.15.148/api/games', obj).then(data => {
+        console.log(data.data.status);
+        this.isSelectUser = data.data.status;
+        console.log(this.isSelectUser);
+      });
     },
 
-    syncData() {
+    async syncData() {
       if (this.isMovePage) return;
-      setTimeout(() => {
+      await setTimeout(() => {
         this.fetchData();
         this.syncData();
       }, 3000);
@@ -103,12 +101,21 @@ export default {
       this.sound();
       this.selectTeam = e.target.innerText;
       await this.isUserSelected();
+      console.log(this.isSelectUser);
       if (this.isSelectUser === 'fail') {
         alert(' 이미 선택된 팀입니다 ');
         return;
+      } else {
+        this.$store.state.matchId = e.target.dataset.matchid;
+        this.isMovePage = !this.isMovePage;
       }
-      this.isMovePage = !this.isMovePage;
-      this.$router.push(`standby/${e.target.dataset.team}`);
+
+      this.$router.push({
+        path: `standby/${e.target.dataset.team}`,
+        query: {
+          matchId: e.target.dataset.matchid,
+        },
+      });
     },
   },
 };
