@@ -20,7 +20,6 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     private let prevButton = PrevButton()
     private var gameRoomCollectionView: GameRoomCollectionView!
     private var gameRoomViewModels: GameRoomViewModels!
-    private var isPresent = true
     
     deinit {
         prevButton.removeTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
@@ -36,13 +35,7 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        isPresent = true
-        configureUseCaseRecursively()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        isPresent = false
+        configureUseCase()
     }
     
     private func configureGameTitleLabel() {
@@ -106,17 +99,12 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         }
     }
     
-    private func configureUseCaseRecursively() {
+    private func configureUseCase() {
         GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
                                         with: GameRoomUseCase.GameRoomTask(networkDispatcher: NetworkManager()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             self.configureGameRoomViewModels(gameRooms: gameRooms)
-            if self.isPresent {
-                DispatchQueue(label: "updateRooms").asyncAfter(deadline: .now() + 3) {
-                    self.configureUseCaseRecursively()
-                }
-            }
         }
     }
     
@@ -192,9 +180,7 @@ extension GameRoomViewController: UICollectionViewDelegate {
         guard let playViewController = gameTabBarController.children.first as? PlayViewController else { return }
         playViewController.roomID = roomID
         playViewController.userTeamKind = kind
-        present(gameTabBarController, animated: true) {
-            self.isPresent = false
-        }
+        present(gameTabBarController, animated: true)
     }
     
     private func teamChoiceAction(team: Team, resultHandler: @escaping (Bool?) ->()) -> UIAlertAction {
