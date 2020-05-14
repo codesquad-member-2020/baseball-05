@@ -45,7 +45,7 @@ public class GameService {
     }
 
     public boolean isStartedGame(Long matchId) {
-        return gameDAO.findByMatchId(matchId) != null;
+        return gameDAO.existMatch(matchId);
     }
 
     public void updateGame(Long matchId) {

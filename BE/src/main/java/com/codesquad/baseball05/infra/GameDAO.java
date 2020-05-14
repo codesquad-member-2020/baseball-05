@@ -78,4 +78,11 @@ public class GameDAO {
         namedParameterJdbcTemplate.update(updateMatchSql, namedParameters);
     }
 
+    public Boolean existMatch(Long matchId) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("matchId", matchId);
+
+        String existMatchSql = "SELECT exists(SELECT id FROM game WHERE match_id = :matchId)";
+        return namedParameterJdbcTemplate.queryForObject(existMatchSql, namedParameters, Boolean.class);
+    }
+
 }
