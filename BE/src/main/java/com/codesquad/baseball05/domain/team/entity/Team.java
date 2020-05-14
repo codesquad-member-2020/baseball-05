@@ -1,5 +1,6 @@
-package com.codesquad.baseball05.domain.entity;
+package com.codesquad.baseball05.domain.team.entity;
 
+import com.codesquad.baseball05.domain.entity.Player;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.data.annotation.Id;
