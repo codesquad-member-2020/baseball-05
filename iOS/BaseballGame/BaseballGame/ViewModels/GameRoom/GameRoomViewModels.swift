@@ -26,7 +26,7 @@ final class GameRoomViewModels: NSObject {
                                         object: self)
     }
     
-    func gameViewModel(at index: Int) -> GameRoomViewModel? {
+    func viewModel(at index: Int) -> GameRoomViewModel? {
         guard index < gameRoomViewModels.count else { return nil}
         return gameRoomViewModels[index]
     }
@@ -45,7 +45,7 @@ extension GameRoomViewModels: UICollectionViewDataSource {
         guard let gameRoomCell = collectionView.dequeueReusableCell(withReuseIdentifier: GameRoomCell.identifier,
                                                                     for: indexPath) as? GameRoomCell
             else { return GameRoomCell() }
-        guard let gameRoomViewModel = gameViewModel(at: indexPath.row) else { return GameRoomCell() }
+        guard let gameRoomViewModel = viewModel(at: indexPath.row) else { return GameRoomCell() }
         
         gameRoomCell.configure(gameRoom: gameRoomViewModel.gameRoom)
         return gameRoomCell

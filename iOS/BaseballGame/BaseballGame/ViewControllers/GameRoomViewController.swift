@@ -96,7 +96,7 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     
     private func configureUseCase() {
         GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
-                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomSuccess()))
+                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomsSuccess()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             self.configureGameRoomViewModels(gameRooms: gameRooms)
@@ -117,7 +117,55 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
 
 extension GameRoomViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        showGameTabBarController()
+        guard let gameRoom = gameRoomViewModels.viewModel(at: indexPath.row)?.gameRoom else { return }
+        
+        if gameRoom.selectable {
+            showActionSheet(gameRoom: gameRoom)
+        } else {
+            showAlertRoomNotSelectable()
+        }
+    }
+    
+    private func showAlertRoomNotSelectable() {
+        let alert = UIAlertController(title: "Current Room Not Selectable",
+                                      message: "This room cannot be used as all participants are filled.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        present(alert, animated: true)
+    }
+    
+    private func showActionSheet(gameRoom: GameRoom) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Close this tab", style: .destructive))
+        
+        let awayTeamChoiceAction = teamChoiceAction(team: gameRoom.awayTeam) { result in
+            guard let result = result else { return }
+            if result { self.requestSelectedRoomIsFullRecursively(roomID: gameRoom.id) }
+        }
+        actionSheet.addAction(awayTeamChoiceAction)
+        
+        let homeTeamChoiceAction = teamChoiceAction(team: gameRoom.homeTeam) { result in
+            guard let result = result else { return }
+            if result { self.requestSelectedRoomIsFullRecursively(roomID: gameRoom.id) }
+        }
+        actionSheet.addAction(homeTeamChoiceAction)
+        
+        present(actionSheet, animated: true)
+    }
+    
+    private func requestSelectedRoomIsFullRecursively(roomID: Int) {
+        RoomIsFullUseCase.requestResultResponse(from: RoomIsFullUseCase.RoomIsFullRequest(roomID: roomID),
+                                                with: RoomIsFullUseCase.RoomIsFullTask(networkDispatcher: MockRoomIsFullSuccess()))
+        { status in
+            guard let status = status else { return }
+            if status == .success {
+                self.showGameTabBarController()
+            } else {
+                DispatchQueue(label: "reqeustRoomIsFull").asyncAfter(deadline: .now() + 1) {
+                    self.requestSelectedRoomIsFullRecursively(roomID: roomID)
+                }
+            }
+        }
     }
     
     private func showGameTabBarController() {
@@ -126,4 +174,33 @@ extension GameRoomViewController: UICollectionViewDelegate {
         gameTabBarController.modalPresentationStyle = .fullScreen
         present(gameTabBarController, animated: true)
     }
+    
+    private func teamChoiceAction(team: Team, resultHandler: @escaping (Bool?) ->()) -> UIAlertAction {
+        let teamChoiceAction = UIAlertAction(title: team.teamName, style: .default) { action in
+            guard let teamName = action.title else { return }
+            TeamSelectingUseCase.requestRoomSelectResponse(from: TeamSelectingUseCase.TeamSelectingRequest(teamName: teamName),
+                                                           with: TeamSelectingUseCase.TeamSelectingTask(networkDispatcher: MockTeamSelectSuccess()))
+            { status in
+                guard let status = status else { return }
+                if status == .fail {
+                    self.showAlertTeamNotSelectable()
+                } else {
+                    resultHandler(true)
+                }
+            }
+        }
+        if team.userName != nil {
+            teamChoiceAction.isEnabled = false
+        }
+        return teamChoiceAction
+    }
+    
+    private func showAlertTeamNotSelectable() {
+        let alert = UIAlertController(title: "Current Team Not Selectable",
+                                      message: "Another user has already selected.",
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default))
+        present(alert, animated: true)
+    }
 }
+

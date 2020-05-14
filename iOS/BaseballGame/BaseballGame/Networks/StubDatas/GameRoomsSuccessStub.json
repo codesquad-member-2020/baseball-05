@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "selectable" : false,
+    "homeTeam" : {
+        "teamName" : "Marvel",
+        "userName" : "Ever"
+        },
+    "awayTeam": {
+        "teamName" : "Captain",
+        "userName": "Jason"
+    }
+  },
+  {
+    "id": 2,
+    "selectable" : true,
+    "homeTeam" : {
+        "teamName" : "Twins",
+        "userName" : null
+    },
+    "awayTeam": {
+        "teamName" : "Tigers",
+        "userName": "Solar"
+    }
+  },
+  {
+    "id": 3,
+    "selectable" : true,
+    "homeTeam" : {
+        "teamName" : "Rockets",
+        "userName" : null
+    },
+    "awayTeam": {
+        "teamName" : "Dodgers",
+        "userName": "Huey"
+    }
+  }
+]
