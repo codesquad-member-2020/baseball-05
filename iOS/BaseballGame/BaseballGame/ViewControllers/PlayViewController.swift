@@ -13,6 +13,7 @@ final class PlayViewController: UIViewController {
     @IBOutlet weak var currentPlayerTable: UITableView!
     @IBOutlet weak var roundInfoTable: UITableView!
     @IBOutlet weak var scoreView: ScoreView!
+    @IBOutlet weak var boardView: BoardView!
     
     private var playTablesViewModel: PlayTablesViewModel!
     private var scoreViewModel: ScoreViewModel!
