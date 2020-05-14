@@ -93,6 +93,8 @@ INSERT INTO user (id, team_id, user_id, email) VALUE (1, 3, 'huey', 'huey@codesq
 INSERT INTO user (id, team_id, user_id, email) VALUE (2, 4, 'jason', 'jason@codesquad.com');
 INSERT INTO user (id, team_id, user_id, email) VALUE (3, null, 'ever', 'ever@codesquad.com');
 INSERT INTO user (id, team_id, user_id, email) VALUE (4, null, 'solar', 'solar@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (5, null, 'haha', 'haha@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (6, null, 'hihi', 'hihi@codesquad.com');
 
 -- matches
 UPDATE matches SET user_a=1, user_b=2 WHERE id=2;
