@@ -56,4 +56,11 @@ public class MatchDAO {
         String updateUserSql = "UPDATE matches SET user_a = :userA, user_b = :userB WHERE id = :id";
         namedParameterJdbcTemplate.update(updateUserSql, namedParameters);
     }
+
+    public void resetMatchById(Long id) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", id);
+
+        String resetMatchSql = "UPDATE matches SET user_a=NULL, user_b=NULL WHERE id = :id";
+        namedParameterJdbcTemplate.update(resetMatchSql, namedParameters);
+    }
 }
