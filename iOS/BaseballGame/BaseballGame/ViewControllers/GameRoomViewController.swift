@@ -16,9 +16,11 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         label.textColor = GameRoomViewModels.titleColor
         return label
     }()
+    
     private let prevButton = PrevButton()
     private var gameRoomCollectionView: GameRoomCollectionView!
     private var gameRoomViewModels: GameRoomViewModels!
+    private var isPresent = true
     
     deinit {
         prevButton.removeTarget(self, action: #selector(prevButtonDidTouch), for: .touchUpInside)
@@ -30,6 +32,11 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         configurePrevButton()
         configureCollectionView()
         configureObserver()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        isPresent = true
         configureUseCaseRecursively()
     }
     
@@ -100,8 +107,10 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             self.configureGameRoomViewModels(gameRooms: gameRooms)
-            DispatchQueue(label: "updateRooms").asyncAfter(deadline: .now() + 3) {
-                self.configureUseCaseRecursively()
+            if self.isPresent {
+                DispatchQueue(label: "updateRooms").asyncAfter(deadline: .now() + 3) {
+                    self.configureUseCaseRecursively()
+                }
             }
         }
     }
@@ -178,7 +187,9 @@ extension GameRoomViewController: UICollectionViewDelegate {
         guard let playViewController = gameTabBarController.children.first as? PlayViewController else { return }
         playViewController.roomID = roomID
         playViewController.userTeamKind = kind
-        present(gameTabBarController, animated: true)
+        present(gameTabBarController, animated: true) {
+            self.isPresent = false
+        }
     }
     
     private func teamChoiceAction(team: Team, resultHandler: @escaping (Bool?) ->()) -> UIAlertAction {
