@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable
 final class SBOsView: UIView, WithXib {
     @IBOutlet weak var strikeView: SBOView!
     @IBOutlet weak var ballView: SBOView!

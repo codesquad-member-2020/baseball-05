@@ -8,7 +8,6 @@
 
 import UIKit
 
-@IBDesignable 
 final class BoardView: UIView, WithXib {
     @IBOutlet weak var sbosView: SBOsView!
     @IBOutlet weak var inningLabel: BoardLabel!
@@ -17,9 +16,11 @@ final class BoardView: UIView, WithXib {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        insertXibView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        insertXibView()
     }
 }

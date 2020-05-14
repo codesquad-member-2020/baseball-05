@@ -7,13 +7,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardView" customModule="BaseballGame" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BoardView" customModule="BaseballGame" customModuleProvider="target">
+            <connections>
+                <outlet property="halfLabel" destination="sP5-F4-RKI" id="AAX-tp-zcn"/>
+                <outlet property="inningLabel" destination="gWe-Rj-fbp" id="Oar-aW-4oG"/>
+                <outlet property="offenseOrDefense" destination="G0f-yb-vdg" id="E1t-LY-5kl"/>
+                <outlet property="sbosView" destination="V7p-z4-5NK" id="TjR-EP-ig4"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="os8-tu-fn4" userLabel="Board View" customClass="BoardView" customModule="BaseballGame" customModuleProvider="target">
+        <view contentMode="scaleToFill" id="os8-tu-fn4" userLabel="Board View">
             <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7p-z4-5NK" customClass="SBOsView" customModule="BaseballGame" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V7p-z4-5NK" userLabel="SBOs View" customClass="SBOsView" customModule="BaseballGame" customModuleProvider="target">
                     <rect key="frame" x="15" y="15" width="105" height="75"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JDy-Lt-y9g" customClass="SBOView" customModule="BaseballGame" customModuleProvider="target">
@@ -91,12 +98,6 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="RIq-hS-KBr"/>
-            <connections>
-                <outlet property="halfLabel" destination="sP5-F4-RKI" id="Nat-Au-fZi"/>
-                <outlet property="inningLabel" destination="gWe-Rj-fbp" id="aEl-00-hEQ"/>
-                <outlet property="offenseOrDefense" destination="G0f-yb-vdg" id="2ff-iX-CFF"/>
-                <outlet property="sbosView" destination="V7p-z4-5NK" id="1e1-j6-32M"/>
-            </connections>
             <point key="canvasLocation" x="133" y="727"/>
         </view>
     </objects>
