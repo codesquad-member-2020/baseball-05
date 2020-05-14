@@ -14,11 +14,11 @@ import java.util.List;
 
 @Slf4j
 @Repository
-public class MatchesDao {
+public class MatchesDAO {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public MatchesDao(DataSource dataSource) {
+    public MatchesDAO(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

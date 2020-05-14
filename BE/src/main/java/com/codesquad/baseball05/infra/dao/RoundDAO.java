@@ -6,11 +6,11 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 
 @Repository
-public class RoundDao {
+public class RoundDAO {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public RoundDao(DataSource dataSource) {
+    public RoundDAO(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

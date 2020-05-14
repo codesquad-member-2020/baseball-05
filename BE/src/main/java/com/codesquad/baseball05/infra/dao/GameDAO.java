@@ -22,11 +22,11 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Repository
-public class GameDao {
+public class GameDAO {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public GameDao(DataSource dataSource) {
+    public GameDAO(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
@@ -50,7 +50,7 @@ public class GameDao {
         return null;
     }
 
-    public Object pitch(SelectDao selectDao, Long matchesId) throws SQLException {
+    public Object pitch(SelectDAO selectDao, Long matchesId) throws SQLException {
         AllTablesDTO allTablesDTO = setHomeAndOffense(selectDao.makeUserMatchesDTO(matchesId));
 
         GameTeamDTO homeTeam = makeTeamDTO(allTablesDTO, true);

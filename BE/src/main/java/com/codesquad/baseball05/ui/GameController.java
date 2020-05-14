@@ -1,8 +1,8 @@
 package com.codesquad.baseball05.ui;
 
 import com.codesquad.baseball05.domain.game.dto.AllTablesDTO;
-import com.codesquad.baseball05.infra.dao.GameDao;
-import com.codesquad.baseball05.infra.dao.SelectDao;
+import com.codesquad.baseball05.infra.dao.GameDAO;
+import com.codesquad.baseball05.infra.dao.SelectDAO;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -18,9 +18,9 @@ import java.util.Map;
 @RestController
 public class GameController {
 
-    private final GameDao gameDao;
+    private final GameDAO gameDao;
 
-    private final SelectDao selectDao;
+    private final SelectDAO selectDao;
 
     @PatchMapping("")
     public ResponseEntity<HttpStatus> terminateGame(@RequestBody Map<String, Long> gameIdMap) {

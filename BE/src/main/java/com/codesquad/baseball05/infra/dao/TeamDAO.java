@@ -13,11 +13,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-public class TeamDao {
+public class TeamDAO {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public TeamDao(DataSource dataSource) {
+    public TeamDAO(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

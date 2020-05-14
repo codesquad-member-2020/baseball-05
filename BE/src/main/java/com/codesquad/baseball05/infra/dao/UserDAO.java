@@ -10,11 +10,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @Repository
-public class UserDao {
+public class UserDAO {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public UserDao(DataSource dataSource) {
+    public UserDAO(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

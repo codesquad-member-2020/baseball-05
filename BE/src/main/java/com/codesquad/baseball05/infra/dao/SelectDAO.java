@@ -17,11 +17,11 @@ import java.util.List;
 
 @Slf4j
 @Repository
-public class SelectDao {
+public class SelectDAO {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public SelectDao(DataSource dataSource) {
+    public SelectDAO(DataSource dataSource) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
