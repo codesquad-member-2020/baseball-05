@@ -159,7 +159,7 @@ extension GameRoomViewController: UICollectionViewDelegate {
         { status in
             guard let status = status else { return }
             if status == .success {
-                self.showGameTabBarController()
+                self.showGameTabBarController(roomID: roomID)
             } else {
                 DispatchQueue(label: "reqeustRoomIsFull").asyncAfter(deadline: .now() + 1) {
                     self.requestSelectedRoomIsFullRecursively(roomID: roomID)
@@ -168,10 +168,12 @@ extension GameRoomViewController: UICollectionViewDelegate {
         }
     }
     
-    private func showGameTabBarController() {
+    private func showGameTabBarController(roomID: Int) {
         guard let gameTabBarController = storyboard?.instantiateViewController(withIdentifier: "GameTabBarController")
             else { return }
         gameTabBarController.modalPresentationStyle = .fullScreen
+        guard let playViewController = gameTabBarController.children.first as? PlayViewController else { return }
+        playViewController.roomID = roomID
         present(gameTabBarController, animated: true)
     }
     

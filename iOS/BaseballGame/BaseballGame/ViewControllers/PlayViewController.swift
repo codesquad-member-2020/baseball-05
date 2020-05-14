@@ -9,7 +9,7 @@
 import UIKit
 
 final class PlayViewController: UIViewController {
-    @IBOutlet weak var titleView: GameHeaderView!
+    @IBOutlet weak var headerView: GameHeaderView!
     @IBOutlet weak var currentPlayerTable: UITableView!
     @IBOutlet weak var roundInfoTable: UITableView!
     private var playViewModel: PlayViewModel!
@@ -18,10 +18,11 @@ final class PlayViewController: UIViewController {
         super.viewDidLoad()
         configureTitleView()
         configurePlayViewModel()
+        configureUseCase()
     }
     
     private func configureTitleView() {
-        titleView.delegate = self
+        headerView.delegate = self
     }
     
     private func configurePlayViewModel() {
@@ -50,6 +51,15 @@ final class PlayViewController: UIViewController {
     private func configureRoundInfoTableDataSource() {
         roundInfoTable.dataSource = playViewModel
     }
+    
+    private func configureUseCase() {
+        guard let roomID = roomID else { return }
+        PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: MockRoundsSuccess())) { playDataResponse in
+            
+        }
+    }
+    
+    var roomID: Int?
 }
 
 extension PlayViewController: TitleViewDelegate {

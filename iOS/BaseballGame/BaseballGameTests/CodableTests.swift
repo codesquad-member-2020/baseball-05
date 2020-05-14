@@ -18,7 +18,7 @@ final class CodableTests: XCTestCase {
     
     func testRoundsSuccess() {
         guard let jsonData = Data.jsonData(forResource: "RoundsSuccessStub") else { return }
-        let roundsResponse = try? JSONDecoder().decode(RoundsResponse.self, from: jsonData)
+        let roundsResponse = try? JSONDecoder().decode(PlayDataResponse.self, from: jsonData)
         XCTAssertNotNil(roundsResponse)
     }
 }
