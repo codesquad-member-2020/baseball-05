@@ -29,14 +29,14 @@ public class GameController {
     }
 
     @GetMapping("/rounds")
-    public Object ready(@RequestParam Long gameId) {
-        UserMatchesDTO userMatchesDTO = selectDao.makeUserMatchesDTO(gameId);
+    public Object ready(@RequestParam Long matchesId) {
+        UserMatchesDTO userMatchesDTO = selectDao.makeUserMatchesDTO(matchesId);
         return gameDao.ready();
     }
 
     @PostMapping("/rounds")
-    public Object pitch(@RequestParam Long gameId) throws SQLException {
-        UserMatchesDTO userMatchesDTO = selectDao.makeUserMatchesDTO(gameId);
-        return gameDao.pitch(userMatchesDTO, gameId);
+    public Object pitch(@RequestParam Long matchesId) throws SQLException {
+        UserMatchesDTO userMatchesDTO = selectDao.makeUserMatchesDTO(matchesId);
+        return gameDao.pitch(userMatchesDTO, matchesId);
     }
 }

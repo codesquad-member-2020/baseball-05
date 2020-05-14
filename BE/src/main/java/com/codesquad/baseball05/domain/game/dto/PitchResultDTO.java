@@ -12,8 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 public class PitchResultDTO {
 
-    @JsonProperty
-    private boolean half;
+    @JsonProperty("isFirstHalf")
+    private boolean isFirstHalf;
 
     private GameTeamDTO homeTeam;
 
