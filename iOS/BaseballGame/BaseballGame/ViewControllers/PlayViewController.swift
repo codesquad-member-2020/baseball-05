@@ -12,13 +12,16 @@ final class PlayViewController: UIViewController {
     @IBOutlet weak var headerView: GameHeaderView!
     @IBOutlet weak var currentPlayerTable: UITableView!
     @IBOutlet weak var roundInfoTable: UITableView!
+    @IBOutlet weak var scoreView: ScoreView!
     
-    private var playViewModel: PlayTablesViewModel!
+    private var playTablesViewModel: PlayTablesViewModel!
+    private var scoreViewModel: ScoreViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTitleView()
         configurePlayViewModel()
+        configureObservers()
         configureUseCase()
     }
     
@@ -27,7 +30,7 @@ final class PlayViewController: UIViewController {
     }
     
     private func configurePlayViewModel() {
-        playViewModel = PlayTablesViewModel(currentPlayers: [CurrentPlayer(name: "최동원",
+        playTablesViewModel = PlayTablesViewModel(currentPlayers: [CurrentPlayer(name: "최동원",
                                                                      mounts: 39,
                                                                      hits: 0,
                                                                      isPitcher: true),
@@ -46,18 +49,37 @@ final class PlayViewController: UIViewController {
     }
     
     private func configureCurrentPlayerTableDataSource() {
-        currentPlayerTable.dataSource = playViewModel
+        currentPlayerTable.dataSource = playTablesViewModel
     }
     
     private func configureRoundInfoTableDataSource() {
-        roundInfoTable.dataSource = playViewModel
+        roundInfoTable.dataSource = playTablesViewModel
+    }
+    
+    private func configureObservers()  {
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(configureScoreView),
+                                               name: ScoreViewModel.Notification.scoreDataDidChange,
+                                               object: scoreViewModel)
+    }
+    
+    @objc private func configureScoreView() {
+        DispatchQueue.main.async {
+            self.scoreView.awayTeamName.text = self.scoreViewModel.awayTeamName
+            self.scoreView.awayTeamScore.text = String(self.scoreViewModel.awayScore)
+            self.scoreView.homeTeamName.text = self.scoreViewModel.homeTeamName
+            self.scoreView.homeTeamScore.text = String(self.scoreViewModel.homeScore)
+        }
     }
     
     private func configureUseCase() {
         guard let roomID = roomID else { return }
         PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: NetworkManager())) { playDataResponse in
             guard let playDataResponse = playDataResponse else { return }
-            
+            self.scoreViewModel = ScoreViewModel(awayTeamName: playDataResponse.awayTeam.name,
+                                                 awayScore: playDataResponse.awayTeam.score,
+                                                 homeTeamName: playDataResponse.homeTeam.name,
+                                                 homeScore: playDataResponse.homeTeam.score)
         }
     }
     

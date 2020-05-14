@@ -96,7 +96,7 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     
     private func configureUseCase() {
         GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
-                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomsSuccess()))
+                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: NetworkManager()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             self.configureGameRoomViewModels(gameRooms: gameRooms)

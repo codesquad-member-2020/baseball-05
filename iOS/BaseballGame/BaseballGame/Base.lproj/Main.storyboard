@@ -644,6 +644,7 @@
                         <outlet property="currentPlayerTable" destination="0pg-RC-Isx" id="P3k-ng-3aY"/>
                         <outlet property="headerView" destination="aSi-rk-FUG" id="Ym4-Us-3jZ"/>
                         <outlet property="roundInfoTable" destination="tE3-mc-Ysb" id="ZOr-08-0Ns"/>
+                        <outlet property="scoreView" destination="jpd-qi-a5W" id="Hli-ca-Au9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aro-p9-AII" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
