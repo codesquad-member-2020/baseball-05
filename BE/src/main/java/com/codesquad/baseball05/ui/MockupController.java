@@ -40,7 +40,7 @@ public class MockupController {
                 1L,
                 true,
                 new MatchTeamDTO("기아", null),
-                new MatchTeamDTO("롯", "Huey")
+                new MatchTeamDTO("롯데", "Huey")
         );
 
         tables.add(firstMatch);
@@ -69,7 +69,7 @@ public class MockupController {
     @GetMapping("/games/rounds")
     public Object ready(@RequestParam Long matchesId) {
         Team homeTeam = new Team("한화", 1, true );
-        Team awayTeam = new Team("두산", 5, false);
+        Team awayTeam = new Team("두", 5, false);
 
         PitcherDTO pitcher = new PitcherDTO("최동원", 39);
         BatterDTO batter2 = new BatterDTO("이용대", 2, 1);
