@@ -21,7 +21,7 @@ final class PlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTitleView()
-        configurePlayViewModel()
+        configurePlayTableViewModel()
         configureObservers()
         configureUseCase()
     }
@@ -30,7 +30,7 @@ final class PlayViewController: UIViewController {
         headerView.delegate = self
     }
     
-    private func configurePlayViewModel() {
+    private func configurePlayTableViewModel() {
         playTablesViewModel = PlayTablesViewModel(currentPlayers: [CurrentPlayer(name: "최동원",
                                                                      mounts: 39,
                                                                      hits: 0,
