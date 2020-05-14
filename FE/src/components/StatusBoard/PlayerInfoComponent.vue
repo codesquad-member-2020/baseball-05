@@ -65,7 +65,7 @@ export default {
   position: absolute;
   display: flex;
   right: 15%;
-  bottom: -75%;
+  bottom: -95%;
   background-color: #00000099;
   margin: 0 auto;
   width: 800px;
@@ -78,9 +78,9 @@ export default {
   position: absolute;
   width: 100%;
   background: #ffffff00;
-  height: 15%;
+  height: 25%;
   z-index: 1;
-  bottom: -95px;
+  bottom: -140px;
 }
 
 /* .player-toggle-container:hover {
@@ -119,7 +119,7 @@ td {
 
 @keyframes fadeIn {
   0% {
-    bottom: -75%;
+    bottom: -95%;
   }
   100% {
     bottom: -10%;
@@ -131,7 +131,7 @@ td {
     bottom: -10%;
   }
   100% {
-    bottom: -75%;
+    bottom: -95%;
   }
 }
 </style>

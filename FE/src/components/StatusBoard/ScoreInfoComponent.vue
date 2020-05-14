@@ -100,7 +100,7 @@ export default {
 <style scoped>
 .contained-table {
   position: absolute;
-  top: -50%;
+  top: -70%;
   right: 20%;
   background-color: #00000099;
   border: 1px solid #eee;
@@ -115,8 +115,8 @@ export default {
   width: 100%;
   background: #ffffff00;
   z-index: 1;
-  height: 15%;
-  top: -92px;
+  height: 20%;
+  top: -140px;
 }
 
 table {
@@ -228,7 +228,7 @@ td {
 
 @keyframes fadeIn {
   0% {
-    top: -50%;
+    top: -70%;
   }
   100% {
     top: -10%;
@@ -240,7 +240,7 @@ td {
     top: -10%;
   }
   100% {
-    top: -50%;
+    top: -70%;
   }
 }
 </style>
