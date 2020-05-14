@@ -1,6 +1,6 @@
 <template>
   <div class="loading-container" v-if="this.isLoading">
-    <img src="../../assets/loading.svg" alt="" />
+    <img src="../../assets/BeanEater.svg" alt="" />
   </div>
   <div v-else class="warp">
     <div class="title-container">
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import hit from '../../assets/mario.mp3';
 import { mapState } from 'vuex';
 import { fetchMatches, fetchUser } from '@/api/game';
 import axios from 'axios';
@@ -60,10 +61,15 @@ export default {
   },
 
   created() {
+    this.$confetti.start();
     this.syncData();
   },
 
   methods: {
+    sound() {
+      var play = new Audio(hit);
+      play.play();
+    },
     async fetchData() {
       const { data } = await fetchMatches();
       console.log(data);
@@ -76,7 +82,10 @@ export default {
     async isUserSelected() {
       const obj = { teamName: `${this.selectTeam}` };
       await axios
-        .post('http://3.34.15.148/api/games', { teamName: '두산' })
+        .post('http://3.34.15.148/api/games', {
+          teamName: `${this.selectTeam}`,
+          // 위에 팀네임은 this.teamName으로 수정
+        })
         .then(data => {
           this.isSelectUser = data.data;
         });
@@ -91,6 +100,7 @@ export default {
     },
 
     async onClickSelectTeam(e) {
+      this.sound();
       this.selectTeam = e.target.innerText;
       await this.isUserSelected();
       if (this.isSelectUser === 'fail') {

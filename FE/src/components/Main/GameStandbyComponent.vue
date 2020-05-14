@@ -12,6 +12,7 @@ import LoadingSpinner from '@/components/common/LoadingSpinner';
 
 export default {
   created() {
+    this.$confetti.stop();
     // /api/start를 setTimeout으로 계속 요청 보내야 함
   },
   components: {
