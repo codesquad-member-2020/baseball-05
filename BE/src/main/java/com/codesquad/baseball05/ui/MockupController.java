@@ -25,22 +25,22 @@ public class MockupController {
         Matches firstMatch = new Matches(
                 1L,
                 false,
-                new MatchTeamDTO("Marvel", "Ever"),
-                new MatchTeamDTO("Captain", "Jason")
+                new MatchTeamDTO("한화", "Ever"),
+                new MatchTeamDTO("두산", "Jason")
         );
 
         Matches secondMatch = new Matches(
                 1L,
                 true,
-                new MatchTeamDTO("Twins", null),
-                new MatchTeamDTO("Tigers", "Solar")
+                new MatchTeamDTO("LG", "Solar"),
+                new MatchTeamDTO("삼성", null)
         );
 
         Matches thirdMatch = new Matches(
                 1L,
                 true,
-                new MatchTeamDTO("Rockets", null),
-                new MatchTeamDTO("Dodgers", "Huey")
+                new MatchTeamDTO("기아", null),
+                new MatchTeamDTO("롯", "Huey")
         );
 
         tables.add(firstMatch);
@@ -68,8 +68,8 @@ public class MockupController {
     //현황판(처음 시작 화면)
     @GetMapping("/games/rounds")
     public Object ready(@RequestParam Long matchesId) {
-        Team homeTeam = new Team("Captain", 1, true );
-        Team awayTeam = new Team("Marvel", 5, false);
+        Team homeTeam = new Team("한화", 1, true );
+        Team awayTeam = new Team("두", 5, false);
 
         PitcherDTO pitcher = new PitcherDTO("최동원", 39);
         BatterDTO batter2 = new BatterDTO("이용대", 2, 1);
@@ -114,11 +114,11 @@ public class MockupController {
     @GetMapping("/scores")
     public Object viewScoreBoard() {
         List<ScoreBoardDto> matchScore = new ArrayList<>();
-        ScoreBoardDto tigersScoreBoardDto = new ScoreBoardDto("Tigers");
+        ScoreBoardDto tigersScoreBoardDto = new ScoreBoardDto("한화");
         tigersScoreBoardDto.score(1);
         tigersScoreBoardDto.score(0);
         tigersScoreBoardDto.score(2);
-        ScoreBoardDto twinsScoreBoardDto = new ScoreBoardDto("twins");
+        ScoreBoardDto twinsScoreBoardDto = new ScoreBoardDto("두산");
         twinsScoreBoardDto.score(0);
         twinsScoreBoardDto.score(3);
         matchScore.add(tigersScoreBoardDto);
@@ -149,7 +149,7 @@ public class MockupController {
         roundRecordDtos.add(rr8);
         roundRecordDtos.add(rr9);
 
-        RosterBoard rosterBoard1 = new RosterBoard("Captain");
+        RosterBoard rosterBoard1 = new RosterBoard("한화");
         rosterBoard1.setRoundRecordDtos(roundRecordDtos);
         rosterBoard1.setCurrentPlayer("류현진");
         rosterBoard1.setIsOffense(false);
@@ -159,7 +159,7 @@ public class MockupController {
         totals.put("outs", 5);
         rosterBoard1.setTotals(totals);
 
-        RosterBoard rosterBoard2 = new RosterBoard("Marvel");
+        RosterBoard rosterBoard2 = new RosterBoard("두산");
         rosterBoard2.setRoundRecordDtos(roundRecordDtos);
         rosterBoard2.setCurrentPlayer("최동수");
         rosterBoard2.setIsOffense(true);
