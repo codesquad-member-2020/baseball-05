@@ -37,4 +37,11 @@ public class UserDAO {
         String findByUserIdSql = "SELECT id FROM user WHERE user_id = :userId";
         return namedParameterJdbcTemplate.queryForObject(findByUserIdSql, namedParameters, Long.class);
     }
+
+    public void deleteTeam(Long id) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", id);
+
+        String deleteTeamSql = "UPDATE user SET team_id=NULL WHERE id = :id";
+        namedParameterJdbcTemplate.update(deleteTeamSql, namedParameters);
+    }
 }
