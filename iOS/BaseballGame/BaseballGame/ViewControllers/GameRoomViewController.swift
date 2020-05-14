@@ -106,11 +106,25 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     private func configureGameRoomViewModels(gameRooms: [GameRoom]) {
         self.gameRoomViewModels = GameRoomViewModels(with: gameRooms)
         configureGameRoomDataSource()
+        updateRoomViewModels()
     }
     
     private func configureGameRoomDataSource() {
         DispatchQueue.main.async {
             self.gameRoomCollectionView.dataSource = self.gameRoomViewModels
+        }
+    }
+    
+    private func updateRoomViewModels() {
+        DispatchQueue(label: "updateRooms").asyncAfter(deadline: .now() + 2) {
+            GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
+                                            with: GameRoomUseCase.GameRoomTask(networkDispatcher: NetworkManager()))
+            { gameRooms in
+                guard let gameRooms = gameRooms else { return }
+                self.gameRoomViewModels = GameRoomViewModels(with: gameRooms)
+                self.configureGameRoomDataSource()
+            }
+            self.updateRoomViewModels()
         }
     }
 }
