@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class PlayViewModel: NSObject {
+final class PlayTablesViewModel: NSObject {
     private let currentPlayerViewModels: CurrentPlayerViewModels
     private let roundInfoViewModels: RoundInfoViewModels
     private weak var currentPlayerTableView: UITableView?
@@ -25,7 +25,7 @@ final class PlayViewModel: NSObject {
     }
 }
 
-extension PlayViewModel: UITableViewDataSource {
+extension PlayTablesViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView === currentPlayerTableView {
             return currentPlayerViewModels.count

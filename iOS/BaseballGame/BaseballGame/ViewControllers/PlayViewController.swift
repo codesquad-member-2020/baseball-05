@@ -12,7 +12,8 @@ final class PlayViewController: UIViewController {
     @IBOutlet weak var headerView: GameHeaderView!
     @IBOutlet weak var currentPlayerTable: UITableView!
     @IBOutlet weak var roundInfoTable: UITableView!
-    private var playViewModel: PlayViewModel!
+    
+    private var playViewModel: PlayTablesViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ final class PlayViewController: UIViewController {
     }
     
     private func configurePlayViewModel() {
-        playViewModel = PlayViewModel(currentPlayers: [CurrentPlayer(name: "최동원",
+        playViewModel = PlayTablesViewModel(currentPlayers: [CurrentPlayer(name: "최동원",
                                                                      mounts: 39,
                                                                      hits: 0,
                                                                      isPitcher: true),
@@ -56,7 +57,7 @@ final class PlayViewController: UIViewController {
         guard let roomID = roomID else { return }
         PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: NetworkManager())) { playDataResponse in
             guard let playDataResponse = playDataResponse else { return }
-            print(playDataResponse)
+            
         }
     }
     
