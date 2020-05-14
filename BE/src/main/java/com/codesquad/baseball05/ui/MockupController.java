@@ -67,7 +67,7 @@ public class MockupController {
 
     //현황판(처음 시작 화면)
     @GetMapping("/games/rounds")
-    public Object ready() {
+    public Object ready(@RequestParam Long matchesId) {
         Team homeTeam = new Team("Captain", 1, true );
         Team awayTeam = new Team("Marvel", 5, false);
 
@@ -99,7 +99,7 @@ public class MockupController {
         plate = new Plate(7, 1, batter2, rounds);
         plates.add(plate);
 
-        Inning inning = new Inning(2);
+        Inning inning = new Inning(2, true);
 
         GameStatusDTO gameStatus = new GameStatusDTO(true, homeTeam, awayTeam, players, inning, plates);
         return new ResponseEntity<>(gameStatus, HttpStatus.OK);
@@ -107,7 +107,7 @@ public class MockupController {
 
     //현황판(피치 후)
     @PostMapping("/games/rounds")
-    public Object pitch() {
+    public Object pitch(@RequestParam Long matchesId) {
         return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
     }
 
