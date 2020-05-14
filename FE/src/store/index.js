@@ -5,7 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    isOffense: true,
+    matchId: 0,
+    throwBall: false,
+    flyBall: false,
     currentBatter: true,
     basePlayers: [],
     matchesList: [],
