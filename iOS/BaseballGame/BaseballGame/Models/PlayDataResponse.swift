@@ -44,9 +44,13 @@ struct Inning: Codable {
     let half: Half
 }
 
-enum Half: String, Codable {
+enum Half: String, Codable, CustomStringConvertible {
     case top = "초"
     case bottom = "말"
+    
+    var description: String {
+        return self.rawValue
+    }
 }
 
 struct Plate: Codable {

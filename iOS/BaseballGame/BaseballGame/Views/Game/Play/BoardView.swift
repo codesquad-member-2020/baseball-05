@@ -29,4 +29,10 @@ final class BoardView: UIView, WithXib {
         sbosView.ballView.updateCountViews(count: sbo.ballCount)
         sbosView.outView.updateCountViews(count: sbo.outCount)
     }
+    
+    func configureInningInfoLabels(inning: Inning) {
+        inningLabel.text = "\(String(inning.id))회"
+        halfLabel.text = inning.half.description
+        offenseOrDefense.text = "must fix"
+    }
 }

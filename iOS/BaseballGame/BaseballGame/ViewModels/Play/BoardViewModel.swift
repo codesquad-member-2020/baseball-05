@@ -14,9 +14,11 @@ final class BoardViewModel {
     }
     
     let sboViewModel: SBOsViewModel
+    let inningViewModel: InningViewModel
     
-    init(sboViewModel: SBOsViewModel) {
+    init(sboViewModel: SBOsViewModel, inningViewModel: InningViewModel) {
         self.sboViewModel = sboViewModel
+        self.inningViewModel = inningViewModel
         NotificationCenter.default.post(name: Notification.boardModelsDidChange, object: self)
     }
 }
@@ -30,3 +32,11 @@ final class SBOsViewModel: ViewModelBinding {
     }
 }
 
+final class InningViewModel: ViewModelBinding {
+    typealias Key = Inning
+    let inning: Inning
+    
+    init(inning: Inning) {
+        self.inning = inning
+    }
+}

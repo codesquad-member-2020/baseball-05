@@ -33,19 +33,19 @@ final class PlayViewController: UIViewController {
     
     private func configurePlayTableViewModel() {
         playTablesViewModel = PlayTablesViewModel(currentPlayers: [CurrentPlayer(name: "최동원",
-                                                                     mounts: 39,
-                                                                     hits: 0,
-                                                                     isPitcher: true),
-                                                       CurrentPlayer(name: "김광진",
-                                                                     mounts: 1,
-                                                                     hits: 0,
-                                                                     isPitcher: false)],
-                                      roundInfos: [RoundInfo(decision: "볼", strike: 1, ball: 1),
-                                                   RoundInfo(decision: "볼", strike: 1, ball: 2),
-                                                   RoundInfo(decision: "볼", strike: 1, ball: 3),
-                                                   RoundInfo(decision: "스트라이크", strike: 2, ball: 3)],
-                                      currentPlayerTableView: currentPlayerTable,
-                                      roundInfoTableView: roundInfoTable)
+                                                                                 mounts: 39,
+                                                                                 hits: 0,
+                                                                                 isPitcher: true),
+                                                                   CurrentPlayer(name: "김광진",
+                                                                                 mounts: 1,
+                                                                                 hits: 0,
+                                                                                 isPitcher: false)],
+                                                  roundInfos: [RoundInfo(decision: "볼", strike: 1, ball: 1),
+                                                               RoundInfo(decision: "볼", strike: 1, ball: 2),
+                                                               RoundInfo(decision: "볼", strike: 1, ball: 3),
+                                                               RoundInfo(decision: "스트라이크", strike: 2, ball: 3)],
+                                                  currentPlayerTableView: currentPlayerTable,
+                                                  roundInfoTableView: roundInfoTable)
         configureCurrentPlayerTableDataSource()
         configureRoundInfoTableDataSource()
     }
@@ -81,6 +81,7 @@ final class PlayViewController: UIViewController {
     @objc private func configureBoardView() {
         DispatchQueue.main.async {
             self.boardView.configureSBOsView(sbo: self.boardViewModel.sboViewModel.sbo)
+            self.boardView.configureInningInfoLabels(inning: self.boardViewModel.inningViewModel.inning)
         }
     }
     
@@ -96,9 +97,9 @@ final class PlayViewController: UIViewController {
     
     private func configureScoreViewModel(_ playDataResponse: PlayDataResponse) {
         self.scoreViewModel = ScoreViewModel(awayTeamName: playDataResponse.awayTeam.name,
-        awayScore: playDataResponse.awayTeam.score,
-        homeTeamName: playDataResponse.homeTeam.name,
-        homeScore: playDataResponse.homeTeam.score)
+                                             awayScore: playDataResponse.awayTeam.score,
+                                             homeTeamName: playDataResponse.homeTeam.name,
+                                             homeScore: playDataResponse.homeTeam.score)
     }
     
     private func configureBoardViewModel(_ playDataResponse: PlayDataResponse) {
@@ -107,12 +108,15 @@ final class PlayViewController: UIViewController {
         let outCount = latestPlate.outs
         if let latestRound = latestPlate.rounds.last  {
             self.boardViewModel = BoardViewModel(sboViewModel: SBOsViewModel(sbo: SBO(strikeCount: latestRound.strike,
-                                                                                     ballCount: latestRound.ball,
-                                                                                     outCount: outCount)))
+                                                                                      ballCount: latestRound.ball,
+                                                                                      outCount: outCount)),
+                                                 inningViewModel: InningViewModel(inning: playDataResponse.inning)
+            )
         } else {
             self.boardViewModel = BoardViewModel(sboViewModel: SBOsViewModel(sbo: SBO(strikeCount: 0,
-                                                                                     ballCount: 0,
-                                                                                     outCount: outCount)))
+                                                                                      ballCount: 0,
+                                                                                      outCount: outCount)),
+                                                 inningViewModel: InningViewModel(inning: playDataResponse.inning))
         }
     }
 }
