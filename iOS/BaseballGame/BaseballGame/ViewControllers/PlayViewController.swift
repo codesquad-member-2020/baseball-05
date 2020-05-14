@@ -54,8 +54,9 @@ final class PlayViewController: UIViewController {
     
     private func configureUseCase() {
         guard let roomID = roomID else { return }
-        PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: MockRoundsSuccess())) { playDataResponse in
-            
+        PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: NetworkManager())) { playDataResponse in
+            guard let playDataResponse = playDataResponse else { return }
+            print(playDataResponse)
         }
     }
     
