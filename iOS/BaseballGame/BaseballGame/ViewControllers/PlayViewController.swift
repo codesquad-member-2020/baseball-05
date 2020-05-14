@@ -111,13 +111,14 @@ final class PlayViewController: UIViewController {
         }
     }
     
+    private let updatePlayDataQueue = DispatchQueue(label: "updatePlayData")
     private func requestOppenentPitchCompleted() {
         guard let roomID = roomID else { return }
         PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: NetworkManager())) { playDataResponse in
             guard let playDataResponse = playDataResponse else { return }
             guard let isOffense = self.isOffense(half: playDataResponse.inning.half) else { return }
             if isOffense {
-                DispatchQueue(label: "updatePlayData").asyncAfter(deadline: .now() + 3) {
+                self.updatePlayDataQueue.asyncAfter(deadline: .now() + 3) {
                     self.requestOppenentPitchCompleted()
                 }
             } else {
@@ -206,6 +207,8 @@ final class PlayViewController: UIViewController {
 
 extension PlayViewController: TitleViewDelegate {
     func closeButtonDidTouch() {
-        dismiss(animated: true)
+        dismiss(animated: true) {
+            self.updatePlayDataQueue.suspend()
+        }
     }
 }
