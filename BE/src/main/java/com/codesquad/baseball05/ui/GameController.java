@@ -1,6 +1,6 @@
 package com.codesquad.baseball05.ui;
 
-import com.codesquad.baseball05.domain.game.dto.UserMatchesDTO;
+import com.codesquad.baseball05.domain.game.dto.AllTablesDTO;
 import com.codesquad.baseball05.infra.dao.GameDao;
 import com.codesquad.baseball05.infra.dao.SelectDao;
 import lombok.RequiredArgsConstructor;
@@ -30,13 +30,12 @@ public class GameController {
 
     @GetMapping("/rounds")
     public Object ready(@RequestParam Long matchesId) {
-        UserMatchesDTO userMatchesDTO = selectDao.makeUserMatchesDTO(matchesId);
+        AllTablesDTO allTablesDTO = selectDao.makeUserMatchesDTO(matchesId);
         return gameDao.ready();
     }
 
     @PostMapping("/rounds")
     public Object pitch(@RequestParam Long matchesId) throws SQLException {
-        UserMatchesDTO userMatchesDTO = selectDao.makeUserMatchesDTO(matchesId);
-        return gameDao.pitch(userMatchesDTO, matchesId);
+        return gameDao.pitch(selectDao, matchesId);
     }
 }

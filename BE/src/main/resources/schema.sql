@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`inning`
 CREATE TABLE IF NOT EXISTS `baseball`.`half`
 (
     id              BIGINT PRIMARY KEY AUTO_INCREMENT,
-    last_bat_player INT,
+    last_bat_player INT DEFAULT 0,
     total_plate     INT DEFAULT 0,
     outs            INT DEFAULT 0,
     hit             INT DEFAULT 0,

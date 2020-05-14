@@ -1,13 +1,15 @@
 package com.codesquad.baseball05.domain.game.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 import java.util.List;
 
 @Getter
+@Setter
+@NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Plate {
 
     @Id
