@@ -103,6 +103,48 @@ final class PlayViewController: UIViewController {
             self.configureScoreViewModel(playDataResponse)
             self.configureBoardViewModel(playDataResponse)
             self.configurePlayTableViewModel(playDataResponse)
+            
+            guard let isOffense = self.boardViewModel.inningViewModel.isOffense, isOffense else { return }
+            if isOffense {
+                self.requestOppenentPitchCompleted()
+            }
+        }
+    }
+    
+    private func requestOppenentPitchCompleted() {
+        guard let roomID = roomID else { return }
+        PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: NetworkManager())) { playDataResponse in
+            guard let playDataResponse = playDataResponse else { return }
+            guard let isOffense = self.isOffense(half: playDataResponse.inning.half) else { return }
+            if isOffense {
+                DispatchQueue(label: "updatePlayData").asyncAfter(deadline: .now() + 3) {
+                    self.requestOppenentPitchCompleted()
+                }
+            } else {
+                self.configureScoreViewModel(playDataResponse)
+                self.configureBoardViewModel(playDataResponse)
+                self.configurePlayTableViewModel(playDataResponse)
+            }
+        }
+    }
+    
+    private func isOffense(half: Half) -> Bool? {
+        guard let kind = userTeamKind else { return nil }
+        switch kind {
+        case .away:
+            switch half {
+            case .top:
+                return true
+            case .bottom:
+                return false
+            }
+        case .home:
+            switch half {
+            case .top:
+                return false
+            case .bottom:
+                return true
+            }
         }
     }
     
@@ -134,7 +176,7 @@ final class PlayViewController: UIViewController {
     
     private func configurePlayTableViewModel(_ playDataResponse: PlayDataResponse) {
         let pitcher = CurrentPitcher(name: playDataResponse.currentPlayers.pitcher.name,
-                                            pitches: playDataResponse.currentPlayers.pitcher.pitches)
+                                     pitches: playDataResponse.currentPlayers.pitcher.pitches)
         let batter = CurrentBatter(name: playDataResponse.currentPlayers.batter.name,
                                    mounts: playDataResponse.currentPlayers.batter.mounts,
                                    hits: playDataResponse.currentPlayers.batter.hits)
@@ -143,7 +185,7 @@ final class PlayViewController: UIViewController {
                                                            rounds: latestPlate.rounds, currentPlayerTableView: currentPlayerTable, roundInfoTableView: roundInfoTable)
         } else {
             self.playTablesViewModel = PlayTablesViewModel(currentPlayers: [pitcher, batter],
-            rounds: [], currentPlayerTableView: currentPlayerTable, roundInfoTableView: roundInfoTable)
+                                                           rounds: [], currentPlayerTableView: currentPlayerTable, roundInfoTableView: roundInfoTable)
         }
         configureCurrentPlayerTableDataSource()
         configureRoundInfoTableDataSource()
