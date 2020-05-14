@@ -8,7 +8,7 @@ const router = new VueRouter({
   routes: [
     {
       path: '/',
-      redirect: '/login',
+      redirect: '/select',
     },
     {
       path: '/login',
@@ -19,7 +19,7 @@ const router = new VueRouter({
       component: () => import('@/views/SelectTeamView.vue'),
     },
     {
-      path: '/test',
+      path: '/game/:id',
       component: () => import('@/views/GroundView.vue'),
     },
     {
