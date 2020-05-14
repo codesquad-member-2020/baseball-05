@@ -1,21 +1,27 @@
 package com.codesquad.baseball05.ui;
 
 import com.codesquad.baseball05.application.GameService;
-import com.codesquad.baseball05.domain.game.dto.ScoreBoardDTO;
+import com.codesquad.baseball05.domain.game.dto.AllTablesDTO;
+import com.codesquad.baseball05.infra.dao.GameDAO;
+import com.codesquad.baseball05.infra.dao.SelectDAO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.SQLException;
 import java.util.Map;
 
 @RequestMapping("/games")
+@RequiredArgsConstructor
+
 @RestController
 public class GameController {
     private final GameService gameService;
 
-    public GameController(GameService gameService) {
-        this.gameService = gameService;
-    }
+    private final GameDAO gameDAO;
+
+    private final SelectDAO selectDao;
 
     @PostMapping()
     public ResponseEntity<ResponseBodyWrapper> selectTeam(@RequestBody Map<String, Object> requestBody) {
@@ -28,18 +34,19 @@ public class GameController {
         return ResponseEntity.ok(ResponseBodyWrapper.ok(resultOfSelect));
     }
 
-    @PatchMapping()
-    public ResponseEntity<HttpStatus> end(@RequestBody Object gameId) {
+    @PatchMapping("")
+    public ResponseEntity<HttpStatus> terminateGame(@RequestBody Map<String, Long> gameIdMap) {
+        gameDAO.terminateGame(gameIdMap.get("gameId"));
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    @GetMapping("/rounds")
-    public ScoreBoardDTO ready(@RequestParam Boolean status) {
-        return new ScoreBoardDTO("한호");
+    public Object ready(@RequestParam Long matchesId) {
+        AllTablesDTO allTablesDTO = selectDao.makeUserMatchesDTO(matchesId);
+        return gameDAO.ready();
     }
 
     @PostMapping("/rounds")
-    public ScoreBoardDTO pitch() {
-        return new ScoreBoardDTO("한화");
+    public Object pitch(@RequestParam Long matchesId) throws SQLException {
+        return gameDAO.pitch(selectDao, matchesId);
     }
 }

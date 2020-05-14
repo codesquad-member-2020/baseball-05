@@ -10,7 +10,7 @@ DROP TABLE IF EXISTS `baseball`.`plate`;
 DROP TABLE IF EXISTS `baseball`.`round`;
 
 -- -----------------------------------------------------
--- Table `baseball`.`team`
+-- Table `baseball`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `baseball`.`user`
 (
@@ -25,11 +25,11 @@ CREATE TABLE IF NOT EXISTS `baseball`.`user`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `baseball`.`matches`
 (
-    id                BIGINT PRIMARY KEY AUTO_INCREMENT,
-    user_a BIGINT REFERENCES user (id),
-    user_b BIGINT REFERENCES user (id),
-    home_team         VARCHAR(45) NULL,
-    away_team         VARCHAR(45) NULL
+    id        BIGINT PRIMARY KEY AUTO_INCREMENT,
+    user_a    BIGINT REFERENCES user (id),
+    user_b    BIGINT REFERENCES user (id),
+    home_team VARCHAR(45) NULL,
+    away_team VARCHAR(45) NULL
 );
 
 -- -----------------------------------------------------
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `baseball`.`player`
 (
     id              BIGINT PRIMARY KEY AUTO_INCREMENT,
     line_up         INT,
-    team_id         VARCHAR(45) REFERENCES team (id),
+    team_id         BIGINT REFERENCES team (id),
     name            VARCHAR(45),
     batting_average DOUBLE,
     is_pitcher      BOOLEAN
@@ -60,12 +60,13 @@ CREATE TABLE IF NOT EXISTS `baseball`.`player`
 CREATE TABLE IF NOT EXISTS `baseball`.`record`
 (
     id              BIGINT PRIMARY KEY AUTO_INCREMENT,
-    player_id   BIGINT REFERENCES player (id),
-    mounts           INT,
+    player_id       BIGINT REFERENCES player (id),
+    pitch           INT,
+    mounts          INT,
     hit             INT,
     strike          INT,
     ball            INT,
-    outs           INT,
+    outs            INT,
     batting_average DOUBLE
 );
 
@@ -96,14 +97,12 @@ CREATE TABLE IF NOT EXISTS `baseball`.`inning`
 CREATE TABLE IF NOT EXISTS `baseball`.`half`
 (
     id              BIGINT PRIMARY KEY AUTO_INCREMENT,
-    last_bat_player INT,
+    last_bat_player INT DEFAULT 0,
     total_plate     INT DEFAULT 0,
-    outs           INT DEFAULT 0,
+    outs            INT DEFAULT 0,
     hit             INT DEFAULT 0,
-    point           INT DEFAULT 0,
-    first_baseman  VARCHAR(45) NULL,
-    second_baseman VARCHAR(45) NULL,
-    third_baseman  VARCHAR(45) NULL
+    point           INT DEFAULT 0
+
 );
 
 -- -----------------------------------------------------
@@ -114,9 +113,12 @@ CREATE TABLE IF NOT EXISTS `baseball`.`half`
 CREATE TABLE IF NOT EXISTS `baseball`.`plate`
 (
     id             BIGINT PRIMARY KEY AUTO_INCREMENT,
-    half_id        INT REFERENCES half (id),
+    half_id        BIGINT REFERENCES half (id),
     strike         INT DEFAULT 0,
-    ball           INT DEFAULT 0
+    ball           INT DEFAULT 0,
+    first_baseman  VARCHAR(45) NULL,
+    second_baseman VARCHAR(45) NULL,
+    third_baseman  VARCHAR(45) NULL
 );
 
 -- -----------------------------------------------------
@@ -132,4 +134,3 @@ CREATE TABLE IF NOT EXISTS `baseball`.`round`
     ball        INT DEFAULT 0,
     hit_or_out  ENUM ('hit', 'out')
 );
-

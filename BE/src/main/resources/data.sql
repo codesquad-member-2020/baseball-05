@@ -8,12 +8,58 @@ INSERT INTO team (name) VALUE ('삼성');
 INSERT INTO team (name) VALUE ('기아');
 INSERT INTO team (name) VALUE ('롯데');
 
+
 -- -----------------------------------------------------
--- Table `baseball`.`matches`
+-- MATCHES TEST --
 -- -----------------------------------------------------
-INSERT INTO matches (id, home_team, away_team) VALUE (1, '한화', '두산');
-INSERT INTO matches (id, home_team, away_team) VALUE (2, 'LG', '삼성');
-INSERT INTO matches (id, home_team, away_team) VALUE (3, '기아', '롯데');
+INSERT INTO matches (id, user_a, user_b, home_team, away_team) VALUE (1, 1, 2, '한화', '두산');
+INSERT INTO matches (id, user_a, user_b, home_team, away_team) VALUE (2, 3, null, 'LG', '삼성');
+INSERT INTO matches (id, user_a, user_b, home_team, away_team) VALUE (3, null, null, '기아', '롯데');
+
+-- -----------------------------------------------------
+-- Test Data
+-- -----------------------------------------------------
+-- user
+INSERT INTO user (id, team_id, user_id, email) VALUE (1, 1, 'huey', 'huey@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (2, 2, 'jason', 'jason@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (3, 3, 'ever', 'ever@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (4, null, 'solar', 'solar@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (5, null, 'haha', 'haha@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (6, null, 'hihi', 'hihi@codesquad.com');
+
+
+-- -----------------------------------------------------
+-- GAME TEST --
+-- -----------------------------------------------------
+INSERT INTO game (id, match_id) VALUE (1, 1);
+
+-- -----------------------------------------------------
+-- INNING TEST --
+-- -----------------------------------------------------
+
+INSERT INTO inning (id, game_id, first_half_id, second_half_id, half) VALUE (1, 1, 1, null, true);
+
+-- -----------------------------------------------------
+-- HALF TEST --
+-- -----------------------------------------------------
+INSERT INTO half (id, last_bat_player, total_plate, outs, hit, point) VALUE (1, 1, 0, 1, 1, 1);
+
+-- -----------------------------------------------------
+-- PLATE TEST --
+-- -----------------------------------------------------
+INSERT INTO plate (id, half_id, strike, ball, first_baseman, second_baseman,
+                   third_baseman) VALUE (1, 1, 0, 0, '박건우', null, null);
+INSERT INTO plate (id, half_id, strike, ball, first_baseman, second_baseman,
+                   third_baseman) VALUE (2, 3, 1, 0, '이홍련', null, null);
+
+-- -----------------------------------------------------
+-- ROUND TEST --
+-- -----------------------------------------------------
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (1, 1, '박건우', 0, 0, 'hit');
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (2, 1, '이홍련', 1, 0, null);
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (3, 1, '이홍련', 1, 0, null);
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (4, 1, '이홍련', 1, 0, null);
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (5, 1, '이홍련', 0, 0, 'out');
 
 -- -----------------------------------------------------
 -- Table `baseball`.`player`
@@ -85,67 +131,25 @@ INSERT INTO player (line_up, team_id, name, batting_average, is_pitcher) VALUE (
 INSERT INTO player (line_up, team_id, name, batting_average, is_pitcher) VALUE (8, 6, '고승민', 0.253, false);
 INSERT INTO player (line_up, team_id, name, batting_average, is_pitcher) VALUE (9, 6, '윌슨', 0.252, true);
 
--- -----------------------------------------------------
--- Test Data
--- -----------------------------------------------------
--- user
-INSERT INTO user (id, team_id, user_id, email) VALUE (1, 3, 'huey', 'huey@codesquad.com');
-INSERT INTO user (id, team_id, user_id, email) VALUE (2, 4, 'jason', 'jason@codesquad.com');
-INSERT INTO user (id, team_id, user_id, email) VALUE (3, null, 'ever', 'ever@codesquad.com');
-INSERT INTO user (id, team_id, user_id, email) VALUE (4, null, 'solar', 'solar@codesquad.com');
-INSERT INTO user (id, team_id, user_id, email) VALUE (5, null, 'haha', 'haha@codesquad.com');
-INSERT INTO user (id, team_id, user_id, email) VALUE (6, null, 'hihi', 'hihi@codesquad.com');
-
--- matches
-UPDATE matches SET user_a=1, user_b=2 WHERE id=2;
-
--- game
-INSERT INTO game (id, match_id) VALUE (1, 2);
-
--- ---------------------------------------------------------
--- score board 세팅
--- ---------------------------------------------------------
-insert into inning (game_id, first_half_id, second_half_id, half) VALUE (1, null, null, 'top');
-insert into inning (game_id, first_half_id, second_half_id, half) VALUE (1, null, null, 'top');
-insert into inning (game_id, first_half_id, second_half_id, half) VALUE (1, null, null, 'top');
-
-insert into half (id, last_bat_player, total_plate, outs, hit, point, first_baseman, second_baseman, third_baseman) value (1, 0, 0, 0, 0, 0, null, null, null);
-insert into half (id, last_bat_player, total_plate, outs, hit, point, first_baseman, second_baseman, third_baseman) value (2, 0, 0, 0, 0, 0, null, null, null);
-insert into half (id, last_bat_player, total_plate, outs, hit, point, first_baseman, second_baseman, third_baseman) value (3, 0, 0, 0, 0, 0, null, null, null);
-insert into half (id, last_bat_player, total_plate, outs, hit, point, first_baseman, second_baseman, third_baseman) value (4, 0, 0, 0, 0, 0, null, null, null);
-insert into half (id, last_bat_player, total_plate, outs, hit, point, first_baseman, second_baseman, third_baseman) value (5, 0, 0, 0, 0, 0, null, null, null);
-
-update half set last_bat_player=7, total_plate=8, outs=3, hit=5, point=2 where id=1;
-update half set last_bat_player=3, total_plate=3, outs=3, hit=0, point=0 where id=2;
-update half set last_bat_player=5, total_plate=1, outs=3, hit=7, point=4 where id=3;
-update half set last_bat_player=9, total_plate=3, outs=3, hit=9, point=6 where id=4;
-update half set last_bat_player=1, total_plate=8, outs=3, hit=5, point=2 where id=5;
-
-UPDATE inning set first_half_id=1, half='top' WHERE id=1;
-UPDATE inning set second_half_id=2, half='bottom' WHERE id=1;
-UPDATE inning set first_half_id=3, half='top' WHERE id=2;
-UPDATE inning set second_half_id=4, half='bottom' WHERE id=2;
-UPDATE inning set first_half_id=5, half='top' WHERE id=3;
 
 -- ---------------------------------------------------------
 -- record 세팅
 -- ---------------------------------------------------------
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (1, 3, 0, 9, 2, 3);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (2, 3, 0, 3, 2, 1);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (3, 3, 2, 8, 5, 2);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (4, 3, 1, 2, 5, 0);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (5, 2, 0, 6, 1, 2);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (6, 2, 1, 2, 4, 2);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (7, 2, 2, 3, 2, 0);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (8, 2, 0, 3, 9, 1);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (9, 2, 1, 3, 2, 1);
-
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (10, 2, 1, 3, 2, 1);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (11, 3, 0, 3, 2, 1);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (12, 3, 1, 2, 5, 0);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (13, 3, 0, 9, 2, 3);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (14, 2, 0, 3, 9, 1);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (15, 2, 0, 6, 1, 2);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (16, 3, 2, 8, 5, 2);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (17, 2, 2, 3, 2, 0);
-INSERT INTO record (player_id, mounts, hit, strike, ball, outs) VALUE (18, 2, 2, 3, 2, 0);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (1, 0, 3, 0, 9, 2, 3);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (2, 0, 3, 0, 3, 2, 1);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (3, 0, 3, 2, 8, 5, 2);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (4, 0, 3, 1, 2, 5, 0);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (5, 0, 2, 0, 6, 1, 2);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (6, 10, 2, 1, 2, 4, 2);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (7, 0, 2, 2, 3, 2, 0);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (8, 0, 2, 0, 3, 9, 1);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (9, 0, 2, 1, 3, 2, 1);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (10, 20, 2, 1, 3, 2, 1);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (11, 0, 3, 0, 3, 2, 1);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (12, 0, 3, 1, 2, 5, 0);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (13, 0, 3, 0, 9, 2, 3);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (14, 0, 2, 0, 3, 9, 1);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (15, 0, 2, 0, 6, 1, 2);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (16, 0, 3, 2, 8, 5, 2);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (17, 0, 2, 2, 3, 2, 0);
+INSERT INTO record (player_id, pitch, mounts, hit, strike, ball, outs) VALUE (18, 0, 2, 2, 3, 2, 0);

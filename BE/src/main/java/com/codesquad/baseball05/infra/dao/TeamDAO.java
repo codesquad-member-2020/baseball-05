@@ -12,6 +12,7 @@ import java.util.List;
 
 @Repository
 public class TeamDAO {
+
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
     public TeamDAO(DataSource dataSource) {
@@ -58,5 +59,4 @@ public class TeamDAO {
             return dto;
         };
     }
-
 }
