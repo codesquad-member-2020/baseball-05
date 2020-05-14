@@ -9,7 +9,7 @@ public class BatterDTO {
 
     private String name;
 
-    private int mouts;
+    private int mounts;
 
     private int hits;
 }
