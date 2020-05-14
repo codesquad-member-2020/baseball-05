@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import hit from '../assets/hit.mp3';
 import { mapState } from 'vuex';
 
 export default {
@@ -22,13 +23,24 @@ export default {
     // 나중에 mutations 에 연결해서 써야할듯
   },
   methods: {
+    sound() {
+      var play = new Audio(hit);
+      play.play();
+    },
     throwBall() {
+      this.$store.state.throwBall = !this.$store.state.throwBall;
+      setTimeout(() => {
+        this.$store.state.flyBall = !this.$store.state.flyBall;
+      }, 1000);
       this.$store.state.battingDelay = true;
+      this.sound();
       setTimeout(() => {
         this.$store.state.waitBatter = true;
+        this.$store.state.throwBall = !this.$store.state.throwBall;
         setTimeout(() => {
           this.$store.state.battingDelay = false;
           this.$store.state.waitBatter = false;
+          this.$store.state.flyBall = !this.$store.state.flyBall;
         }, 2000);
         this.setBaseRun();
       }, 2000);
