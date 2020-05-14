@@ -1,6 +1,7 @@
 package com.codesquad.baseball05.application;
 
-import com.codesquad.baseball05.infra.MatchDAO;
+import com.codesquad.baseball05.domain.dto.MatchDTO;
+import com.codesquad.baseball05.infra.GameDAO;
 import com.codesquad.baseball05.infra.TeamDAO;
 import com.codesquad.baseball05.infra.UserDAO;
 import org.slf4j.Logger;
@@ -13,16 +14,17 @@ public class GameService {
 
     private final UserDAO userDAO;
     private final TeamDAO teamDAO;
-    private final MatchDAO matchDAO;
+    private final GameDAO gameDAO;
+    private final MatchService matchService;
 
-    public GameService(UserDAO userDAO, TeamDAO teamDAO, MatchDAO matchDAO) {
+    public GameService(UserDAO userDAO, TeamDAO teamDAO, GameDAO gameDAO, MatchService matchService) {
         this.userDAO = userDAO;
         this.teamDAO = teamDAO;
-        this.matchDAO = matchDAO;
+        this.gameDAO = gameDAO;
+        this.matchService = matchService;
     }
 
     public boolean selectTeam(String teamName) {
-        // 존재하는 team인지 여부 확인
         if (!teamDAO.isExistedTeam(teamName)) {
             return false;
         }
@@ -33,9 +35,21 @@ public class GameService {
         // 선점 안 된 팀인 경우 update
         String userId = "ever";
         userDAO.choiceTeam(userId, teamName);
-        MatchService matchService = new MatchService(matchDAO);
         Long user = userDAO.findByUserId(userId);
-        matchService.updateUserAtMatch(user, teamName);
+        MatchDTO matchDTO = matchService.updateUserAtMatch(user, teamName);
+
+        if (matchService.isMatchCompleted(matchDTO.getId())) {
+            updateGame(matchDTO.getId());
+        }
         return true;
     }
+
+    public boolean isStartedGame(Long matchId) {
+        return gameDAO.findByMatchId(matchId) != null;
+    }
+
+    public void updateGame(Long matchId) {
+        gameDAO.updateMatch(matchId);
+    }
+
 }

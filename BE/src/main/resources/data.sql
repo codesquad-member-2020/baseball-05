@@ -89,14 +89,16 @@ INSERT INTO player (line_up, team_id, name, batting_average, is_pitcher) VALUE (
 -- Test Data
 -- -----------------------------------------------------
 -- user
-INSERT INTO user (id, team_id, user_id, email) VALUE (1, 3, 'ever', 'ever@codesquad.com');
-INSERT INTO user (id, team_id, user_id, email) VALUE (2, 4, 'solar', 'solar@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (1, 3, 'huey', 'huey@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (2, 4, 'jason', 'jason@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (3, 3, 'ever', 'ever@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (4, 4, 'solar', 'solar@codesquad.com');
 
 -- matches
 UPDATE matches SET user_a=1, user_b=2 WHERE id=2;
 
 -- game
-INSERT INTO game (id, match_id) VALUE (1, 1);
+INSERT INTO game (id, match_id) VALUE (1, 2);
 
 -- ---------------------------------------------------------
 -- score board 세팅

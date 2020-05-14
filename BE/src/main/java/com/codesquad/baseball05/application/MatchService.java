@@ -12,7 +12,7 @@ public class MatchService {
         this.matchDAO = matchDAO;
     }
 
-    public void updateUserAtMatch(Long userId, String teamName) {
+    public MatchDTO updateUserAtMatch(Long userId, String teamName) {
         MatchDTO matchDTO = matchDAO.findByTeamName(teamName);
         if ( matchDTO.userA != 0 ) {
             matchDTO.setUserB(userId);
@@ -20,6 +20,16 @@ public class MatchService {
             matchDTO.setUserA(userId);
         }
         matchDAO.updateUser(matchDTO);
+
+        return matchDTO;
+    }
+
+    public boolean isMatchCompleted(Long matchId) {
+        MatchDTO matchDTO = matchDAO.findById(matchId);
+        if ( matchDTO.userA != null && matchDTO.userB != 0 ) {
+            return true;
+        }
+        return false;
     }
 
 }

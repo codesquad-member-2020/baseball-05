@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 @Repository
 public class GameDAO {
@@ -21,7 +23,7 @@ public class GameDAO {
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("matchId", matchId);
 
         String findByMatchIdSql = "SELECT id FROM game WHERE match_id = :matchId";
-        return namedParameterJdbcTemplate.queryForObject(findByMatchIdSql, namedParameters, Long.class);
+        return Optional.ofNullable(namedParameterJdbcTemplate.queryForObject(findByMatchIdSql, namedParameters, Long.class)).orElseThrow(NoSuchElementException::new);
     }
 
     public List<Long> findFirstHalfId(Long gameId) {
@@ -67,6 +69,13 @@ public class GameDAO {
 
         String findCurrentBatterNameByTeamIdSql = "SELECT name FROM player JOIN half ON player.line_up = half.last_bat_player WHERE half.id = :halfId and player.team_id = :teamId;";
         return namedParameterJdbcTemplate.queryForObject(findCurrentBatterNameByTeamIdSql, namedParameters, String.class);
+    }
+
+    public void updateMatch(Long matchId) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("matchId", matchId);
+
+        String updateMatchSql = "INSERT INTO game (match_id) VALUE (:matchId);";
+        namedParameterJdbcTemplate.update(updateMatchSql, namedParameters);
     }
 
 }

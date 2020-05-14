@@ -18,7 +18,6 @@ public class UserDAO {
     public Boolean isSelectedTeam(String teamName) { //select 선점된 팀이면 true?
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("teamName", teamName);
 
-        //Todo : 존재하지 않는 팀 정보일 경우 에러처리
         String isSelectedTeamSql = "SELECT exists( SELECT id  FROM user WHERE team_id = (" +
                                     " SELECT id FROM team WHERE name = :teamName ))";
         return namedParameterJdbcTemplate.queryForObject(isSelectedTeamSql, namedParameters, Boolean.class);
