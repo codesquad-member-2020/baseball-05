@@ -57,7 +57,14 @@ final class PlayViewController: UIViewController {
     @objc private func configureBoardView() {
         DispatchQueue.main.async {
             self.boardView.configureSBOsView(sbo: self.boardViewModel.sboViewModel.sbo)
-            self.boardView.configureInningInfoLabels(inning: self.boardViewModel.inningViewModel.inning)
+            
+            let inningViewModel = self.boardViewModel.inningViewModel
+            self.boardView.inningLabel.text = "\(String(inningViewModel.userInning.inningCount))회"
+            self.boardView.halfLabel.text = inningViewModel.userInning.half.description
+            self.boardView.offenseOrDefense.text = inningViewModel.offenseOrDefenseText()
+            
+            guard let isOffense = inningViewModel.isOffense else { return }
+            self.boardView.pitchButton.isHidden = isOffense ? true : false 
         }
     }
     
@@ -69,6 +76,7 @@ final class PlayViewController: UIViewController {
     }
     
     var roomID: Int?
+    var userTeamKind: TeamKind?
     private func configureUseCase() {
         guard let roomID = roomID else { return }
         PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: NetworkManager())) { playDataResponse in
@@ -94,13 +102,14 @@ final class PlayViewController: UIViewController {
             self.boardViewModel = BoardViewModel(sboViewModel: SBOsViewModel(sbo: SBO(strikeCount: latestRound.strike,
                                                                                       ballCount: latestRound.ball,
                                                                                       outCount: outCount)),
-                                                 inningViewModel: InningViewModel(inning: playDataResponse.inning)
+                                                 inningViewModel: UserInningViewModel(userInning: UserInning(inning: playDataResponse.inning, kind: userTeamKind))
             )
         } else {
             self.boardViewModel = BoardViewModel(sboViewModel: SBOsViewModel(sbo: SBO(strikeCount: 0,
                                                                                       ballCount: 0,
                                                                                       outCount: outCount)),
-                                                 inningViewModel: InningViewModel(inning: playDataResponse.inning))
+                                                 inningViewModel: UserInningViewModel(userInning: UserInning(inning: playDataResponse.inning, kind: userTeamKind))
+            )
         }
     }
     

@@ -14,9 +14,9 @@ final class BoardViewModel {
     }
     
     let sboViewModel: SBOsViewModel
-    let inningViewModel: InningViewModel
+    let inningViewModel: UserInningViewModel
     
-    init(sboViewModel: SBOsViewModel, inningViewModel: InningViewModel) {
+    init(sboViewModel: SBOsViewModel, inningViewModel: UserInningViewModel) {
         self.sboViewModel = sboViewModel
         self.inningViewModel = inningViewModel
         NotificationCenter.default.post(name: Notification.boardModelsDidChange, object: self)
@@ -32,11 +32,40 @@ final class SBOsViewModel: ViewModelBinding {
     }
 }
 
-final class InningViewModel: ViewModelBinding {
-    typealias Key = Inning
-    let inning: Inning
+final class UserInningViewModel: ViewModelBinding {
+    typealias Key = UserInning
+    let userInning: UserInning
     
-    init(inning: Inning) {
-        self.inning = inning
+    init(userInning: UserInning) {
+        self.userInning = userInning
+    }
+    
+    func offenseOrDefenseText() -> String? {
+        guard let isOffense = isOffense else { return nil }
+        if isOffense {
+            return "공격"
+        } else {
+            return "수비"
+        }
+    }
+    
+    var isOffense: Bool? {
+        guard let kind = userInning.kind else { return nil }
+        switch kind {
+        case .away:
+            switch userInning.half {
+            case .top:
+                return true
+            case .bottom:
+                return false
+            }
+        case .home:
+            switch userInning.half {
+            case .top:
+                return false
+            case .bottom:
+                return true
+            }
+        }
     }
 }

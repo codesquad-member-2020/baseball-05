@@ -12,6 +12,7 @@
                 <outlet property="halfLabel" destination="sP5-F4-RKI" id="AAX-tp-zcn"/>
                 <outlet property="inningLabel" destination="gWe-Rj-fbp" id="Oar-aW-4oG"/>
                 <outlet property="offenseOrDefense" destination="G0f-yb-vdg" id="E1t-LY-5kl"/>
+                <outlet property="pitchButton" destination="2zr-4E-rPt" id="W3D-Y1-CdM"/>
                 <outlet property="sbosView" destination="V7p-z4-5NK" id="TjR-EP-ig4"/>
             </connections>
         </placeholder>
