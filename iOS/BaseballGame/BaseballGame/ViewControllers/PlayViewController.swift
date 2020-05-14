@@ -17,6 +17,7 @@ final class PlayViewController: UIViewController {
     
     private var playTablesViewModel: PlayTablesViewModel!
     private var scoreViewModel: ScoreViewModel!
+    private var boardViewModel: BoardViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,6 +63,10 @@ final class PlayViewController: UIViewController {
                                                selector: #selector(configureScoreView),
                                                name: ScoreViewModel.Notification.scoreDataDidChange,
                                                object: scoreViewModel)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(configureBoardView),
+                                               name: BoardViewModel.Notification.boardModelsDidChange,
+                                               object: boardViewModel)
     }
     
     @objc private func configureScoreView() {
@@ -73,18 +78,43 @@ final class PlayViewController: UIViewController {
         }
     }
     
-    private func configureUseCase() {
-        guard let roomID = roomID else { return }
-        PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: NetworkManager())) { playDataResponse in
-            guard let playDataResponse = playDataResponse else { return }
-            self.scoreViewModel = ScoreViewModel(awayTeamName: playDataResponse.awayTeam.name,
-                                                 awayScore: playDataResponse.awayTeam.score,
-                                                 homeTeamName: playDataResponse.homeTeam.name,
-                                                 homeScore: playDataResponse.homeTeam.score)
+    @objc private func configureBoardView() {
+        DispatchQueue.main.async {
+            self.boardView.configureSBOsView(sbo: self.boardViewModel.sboViewModel.sbo)
         }
     }
     
     var roomID: Int?
+    private func configureUseCase() {
+        guard let roomID = roomID else { return }
+        PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: NetworkManager())) { playDataResponse in
+            guard let playDataResponse = playDataResponse else { return }
+            self.configureScoreViewModel(playDataResponse)
+            self.configureBoardViewModel(playDataResponse)
+        }
+    }
+    
+    private func configureScoreViewModel(_ playDataResponse: PlayDataResponse) {
+        self.scoreViewModel = ScoreViewModel(awayTeamName: playDataResponse.awayTeam.name,
+        awayScore: playDataResponse.awayTeam.score,
+        homeTeamName: playDataResponse.homeTeam.name,
+        homeScore: playDataResponse.homeTeam.score)
+    }
+    
+    private func configureBoardViewModel(_ playDataResponse: PlayDataResponse) {
+        guard let latestPlate = playDataResponse.plates.last else { return }
+        
+        let outCount = latestPlate.outs
+        if let latestRound = latestPlate.rounds.last  {
+            self.boardViewModel = BoardViewModel(sboViewModel: SBOsViewModel(sbo: SBO(strikeCount: latestRound.strike,
+                                                                                     ballCount: latestRound.ball,
+                                                                                     outCount: outCount)))
+        } else {
+            self.boardViewModel = BoardViewModel(sboViewModel: SBOsViewModel(sbo: SBO(strikeCount: 0,
+                                                                                     ballCount: 0,
+                                                                                     outCount: outCount)))
+        }
+    }
 }
 
 extension PlayViewController: TitleViewDelegate {

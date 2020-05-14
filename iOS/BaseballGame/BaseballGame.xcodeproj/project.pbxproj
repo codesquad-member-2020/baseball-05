@@ -22,6 +22,8 @@
 		5A4B9AE5246D240E000F5FA8 /* MockRoundsSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AE4246D240E000F5FA8 /* MockRoundsSuccess.swift */; };
 		5A4B9AE7246D258F000F5FA8 /* PlayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AE6246D258F000F5FA8 /* PlayUseCase.swift */; };
 		5A4B9AEB246D2CBF000F5FA8 /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AEA246D2CBF000F5FA8 /* ScoreViewModel.swift */; };
+		5A4B9AED246D34CD000F5FA8 /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AEC246D34CD000F5FA8 /* BoardViewModel.swift */; };
+		5A4B9AEF246D3571000F5FA8 /* SBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AEE246D3571000F5FA8 /* SBO.swift */; };
 		5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50924601708002ECB3A /* AppDelegate.swift */; };
 		5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50B24601708002ECB3A /* SceneDelegate.swift */; };
 		5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */; };
@@ -130,6 +132,8 @@
 		5A4B9AE4246D240E000F5FA8 /* MockRoundsSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRoundsSuccess.swift; sourceTree = "<group>"; };
 		5A4B9AE6246D258F000F5FA8 /* PlayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayUseCase.swift; sourceTree = "<group>"; };
 		5A4B9AEA246D2CBF000F5FA8 /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
+		5A4B9AEC246D34CD000F5FA8 /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
+		5A4B9AEE246D3571000F5FA8 /* SBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBO.swift; sourceTree = "<group>"; };
 		5A7DD50624601708002ECB3A /* BaseballGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7DD50924601708002ECB3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A7DD50B24601708002ECB3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -359,6 +363,7 @@
 				5A8B9AA9246BDD2C0090AAC3 /* ResultResponse.swift */,
 				5A8B9AAD246BE4200090AAC3 /* SelectingTeamName.swift */,
 				5A4B9AE2246D0F4D000F5FA8 /* PlayDataResponse.swift */,
+				5A4B9AEE246D3571000F5FA8 /* SBO.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -492,6 +497,7 @@
 				5A9FF8DC246A980200005C36 /* RoundInfoViewModel.swift */,
 				5A9FF8DE246A980D00005C36 /* RoundInfoViewModels.swift */,
 				5A4B9AEA246D2CBF000F5FA8 /* ScoreViewModel.swift */,
+				5A4B9AEC246D34CD000F5FA8 /* BoardViewModel.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -683,6 +689,7 @@
 				5A8B9AC6246C1AD60090AAC3 /* MockRoomIsFullFail.swift in Sources */,
 				5A9FF8DB246A97F200005C36 /* CurrentPlayerViewModels.swift in Sources */,
 				5A814F5E246451B2001C768D /* MainViewController.swift in Sources */,
+				5A4B9AEF246D3571000F5FA8 /* SBO.swift in Sources */,
 				5A89B6562467B4DD00AA82F1 /* BoardLabel.swift in Sources */,
 				5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */,
 				5A8B9AC2246C182F0090AAC3 /* MockRoomIsFullSuccess.swift in Sources */,
@@ -707,6 +714,7 @@
 				5A9FF8CC246A384500005C36 /* PlayerInfoViewModels.swift in Sources */,
 				5A814F122462DEDF001C768D /* ViewModelBinding.swift in Sources */,
 				5A89B65A2467BD0600AA82F1 /* SBOView.swift in Sources */,
+				5A4B9AED246D34CD000F5FA8 /* BoardViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

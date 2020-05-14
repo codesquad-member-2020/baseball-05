@@ -23,4 +23,10 @@ final class BoardView: UIView, WithXib {
         super.init(coder: coder)
         insertXibView()
     }
+    
+    func configureSBOsView(sbo: SBO) {
+        sbosView.strikeView.updateCountViews(count: sbo.strikeCount)
+        sbosView.ballView.updateCountViews(count: sbo.ballCount)
+        sbosView.outView.updateCountViews(count: sbo.outCount)
+    }
 }
