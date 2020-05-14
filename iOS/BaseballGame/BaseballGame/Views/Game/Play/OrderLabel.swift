@@ -11,17 +11,12 @@ import UIKit
 final class OrderLabel: UILabel {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        configureText()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configure()
-    }
-    
-    private func configure() {
         configureText()
-        backgroundColor = .black
     }
     
     private func configureText() {

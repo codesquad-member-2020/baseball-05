@@ -658,7 +658,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-ch-Jat" customClass="OrderLabel" customModule="BaseballGame" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ul6-ch-Jat" customClass="OrderView" customModule="BaseballGame" customModuleProvider="target">
                                                     <rect key="frame" x="26.5" y="11" width="22" height="22"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <constraints>
@@ -693,7 +693,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="countLabel" destination="cGz-UJ-Qdb" id="24T-E4-WRU"/>
-                                            <outlet property="orderLabel" destination="ul6-ch-Jat" id="ttY-tf-KXU"/>
+                                            <outlet property="orderView" destination="ul6-ch-Jat" id="ttY-tf-KXU"/>
                                             <outlet property="sboLabel" destination="BxA-jK-v9O" id="fVy-1e-3gt"/>
                                         </connections>
                                     </tableViewCell>
