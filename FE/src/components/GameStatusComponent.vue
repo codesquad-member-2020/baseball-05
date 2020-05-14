@@ -196,8 +196,8 @@ export default {
 .isOffense {
   color: red;
   position: absolute;
-  top: -12px;
-  right: 20px;
+  top: -20px;
+  right: 8px;
   font-size: 13px;
 }
 
