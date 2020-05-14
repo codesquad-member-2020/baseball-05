@@ -1,4 +1,4 @@
-package com.codesquad.baseball05.infra;
+package com.codesquad.baseball05.infra.dao;
 
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;

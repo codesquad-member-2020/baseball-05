@@ -17,6 +17,12 @@ class GameDAOTest {
     @Test
     void findFirstHalfId() {
         List<Long> firstHalfId = gameDAO.findFirstHalfId(1L);
-        assertThat(firstHalfId).isNotNull();
+        assertNotNull(firstHalfId);
+    }
+
+    @Test
+    void findCurrentHalf() {
+        String currentHalf = gameDAO.findInningByGameId(1L);
+        assertThat(currentHalf).isEqualTo("top");
     }
 }

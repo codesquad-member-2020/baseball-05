@@ -1,5 +1,6 @@
 package com.codesquad.baseball05.infra;
 
+import com.codesquad.baseball05.infra.dao.UserDAO;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

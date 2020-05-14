@@ -1,13 +1,13 @@
 package com.codesquad.baseball05.application;
 
-import com.codesquad.baseball05.domain.dto.InningDTO;
-import com.codesquad.baseball05.domain.dto.MatchDTO;
-import com.codesquad.baseball05.domain.dto.RosterBoardDTO;
-import com.codesquad.baseball05.domain.dto.ScoreBoardDTO;
-import com.codesquad.baseball05.infra.GameDAO;
-import com.codesquad.baseball05.infra.HalfDAO;
-import com.codesquad.baseball05.infra.MatchDAO;
-import com.codesquad.baseball05.infra.TeamDAO;
+import com.codesquad.baseball05.domain.game.dto.InningDTO;
+import com.codesquad.baseball05.domain.matches.dto.MatchDTO;
+import com.codesquad.baseball05.domain.game.dto.RosterBoardDTO;
+import com.codesquad.baseball05.domain.game.dto.ScoreBoardDTO;
+import com.codesquad.baseball05.infra.dao.GameDAO;
+import com.codesquad.baseball05.infra.dao.HalfDAO;
+import com.codesquad.baseball05.infra.dao.MatchDAO;
+import com.codesquad.baseball05.infra.dao.TeamDAO;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

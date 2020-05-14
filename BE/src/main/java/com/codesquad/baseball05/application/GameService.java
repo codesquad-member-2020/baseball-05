@@ -1,9 +1,9 @@
 package com.codesquad.baseball05.application;
 
-import com.codesquad.baseball05.domain.dto.MatchDTO;
-import com.codesquad.baseball05.infra.GameDAO;
-import com.codesquad.baseball05.infra.TeamDAO;
-import com.codesquad.baseball05.infra.UserDAO;
+import com.codesquad.baseball05.domain.matches.dto.MatchDTO;
+import com.codesquad.baseball05.infra.dao.GameDAO;
+import com.codesquad.baseball05.infra.dao.TeamDAO;
+import com.codesquad.baseball05.infra.dao.UserDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;

@@ -1,7 +1,7 @@
 package com.codesquad.baseball05.application;
 
-import com.codesquad.baseball05.infra.GameDAO;
-import com.codesquad.baseball05.infra.MatchDAO;
+import com.codesquad.baseball05.infra.dao.GameDAO;
+import com.codesquad.baseball05.infra.dao.MatchDAO;
 import org.springframework.stereotype.Service;
 
 @Service

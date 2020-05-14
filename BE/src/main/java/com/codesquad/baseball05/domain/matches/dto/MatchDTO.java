@@ -1,4 +1,4 @@
-package com.codesquad.baseball05.domain.dto;
+package com.codesquad.baseball05.domain.matches.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

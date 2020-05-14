@@ -1,6 +1,6 @@
-package com.codesquad.baseball05.infra;
+package com.codesquad.baseball05.infra.dao;
 
-import com.codesquad.baseball05.domain.dto.InningDTO;
+import com.codesquad.baseball05.domain.game.dto.InningDTO;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;

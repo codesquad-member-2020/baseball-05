@@ -91,8 +91,8 @@ INSERT INTO player (line_up, team_id, name, batting_average, is_pitcher) VALUE (
 -- user
 INSERT INTO user (id, team_id, user_id, email) VALUE (1, 3, 'huey', 'huey@codesquad.com');
 INSERT INTO user (id, team_id, user_id, email) VALUE (2, 4, 'jason', 'jason@codesquad.com');
-INSERT INTO user (id, team_id, user_id, email) VALUE (3, 3, 'ever', 'ever@codesquad.com');
-INSERT INTO user (id, team_id, user_id, email) VALUE (4, 4, 'solar', 'solar@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (3, null, 'ever', 'ever@codesquad.com');
+INSERT INTO user (id, team_id, user_id, email) VALUE (4, null, 'solar', 'solar@codesquad.com');
 
 -- matches
 UPDATE matches SET user_a=1, user_b=2 WHERE id=2;

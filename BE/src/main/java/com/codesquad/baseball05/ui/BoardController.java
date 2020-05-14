@@ -1,8 +1,8 @@
 package com.codesquad.baseball05.ui;
 
 import com.codesquad.baseball05.application.BoardService;
-import com.codesquad.baseball05.domain.dto.RosterBoardDTO;
-import com.codesquad.baseball05.domain.dto.ScoreBoardDTO;
+import com.codesquad.baseball05.domain.game.dto.RosterBoardDTO;
+import com.codesquad.baseball05.domain.game.dto.ScoreBoardDTO;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,12 +1,10 @@
-package com.codesquad.baseball05.domain.dto;
+package com.codesquad.baseball05.domain.game.dto;
 
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Getter
 @Setter
