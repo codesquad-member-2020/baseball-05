@@ -526,11 +526,6 @@
                                             <constraint firstAttribute="width" secondItem="o0Q-Hm-fNb" secondAttribute="height" multiplier="14:10" id="tr8-00-cMU"/>
                                             <constraint firstItem="nVw-tg-xeD" firstAttribute="top" secondItem="o0Q-Hm-fNb" secondAttribute="top" id="xmb-0m-JE0"/>
                                         </constraints>
-                                        <connections>
-                                            <outlet property="ballView" destination="3ii-ab-PXe" id="dgM-fy-Wkz"/>
-                                            <outlet property="outView" destination="ztM-E3-dzb" id="Ttp-q3-wOD"/>
-                                            <outlet property="strikeView" destination="nVw-tg-xeD" id="y6H-no-rbC"/>
-                                        </connections>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2회" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIq-aM-1AQ" userLabel="Inning Label" customClass="BoardLabel" customModule="BaseballGame" customModuleProvider="target">
                                         <rect key="frame" x="315" y="15" width="25" height="21"/>
