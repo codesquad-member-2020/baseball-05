@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A0F790E246CFA8A00AA8C0B /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0F790D246CFA8A00AA8C0B /* OrderView.swift */; };
 		5A0F7914246D068B00AA8C0B /* SBOsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F7913246D068B00AA8C0B /* SBOsView.xib */; };
+		5A0F7916246D088100AA8C0B /* BoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A0F7915246D088100AA8C0B /* BoardView.xib */; };
 		5A481FC62467CB6300BBDC00 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FC52467CB6300BBDC00 /* BoardView.swift */; };
 		5A481FC82467CEF600BBDC00 /* CurrentPlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FC72467CEF600BBDC00 /* CurrentPlayerCell.swift */; };
 		5A481FCA2467D6B100BBDC00 /* PlayTableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FC92467D6B100BBDC00 /* PlayTableLabel.swift */; };
@@ -111,6 +112,7 @@
 /* Begin PBXFileReference section */
 		5A0F790D246CFA8A00AA8C0B /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 		5A0F7913246D068B00AA8C0B /* SBOsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SBOsView.xib; sourceTree = "<group>"; };
+		5A0F7915246D088100AA8C0B /* BoardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BoardView.xib; sourceTree = "<group>"; };
 		5A481FC52467CB6300BBDC00 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		5A481FC72467CEF600BBDC00 /* CurrentPlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPlayerCell.swift; sourceTree = "<group>"; };
 		5A481FC92467D6B100BBDC00 /* PlayTableLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayTableLabel.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 				5A0F7913246D068B00AA8C0B /* SBOsView.xib */,
 				5A89B65B2467C85C00AA82F1 /* SBOsView.swift */,
 				5A481FC52467CB6300BBDC00 /* BoardView.swift */,
+				5A0F7915246D088100AA8C0B /* BoardView.xib */,
 				5A481FC72467CEF600BBDC00 /* CurrentPlayerCell.swift */,
 				5A481FCF2467F9D600BBDC00 /* RoundInfoCell.swift */,
 				5A481FC92467D6B100BBDC00 /* PlayTableLabel.swift */,
@@ -584,6 +587,7 @@
 			files = (
 				5A8B9AB6246BEC5B0090AAC3 /* TeamSelectSuccessStub.json in Resources */,
 				5A7DD5162460170A002ECB3A /* LaunchScreen.storyboard in Resources */,
+				5A0F7916246D088100AA8C0B /* BoardView.xib in Resources */,
 				5A8B9AC8246C1B280090AAC3 /* RoomIsFullFailStub.json in Resources */,
 				5A0F7914246D068B00AA8C0B /* SBOsView.xib in Resources */,
 				5A8B9ABC246C0AF90090AAC3 /* TeamSelectFailStub.json in Resources */,

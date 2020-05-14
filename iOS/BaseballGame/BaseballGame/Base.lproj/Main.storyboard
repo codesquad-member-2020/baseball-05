@@ -575,12 +575,6 @@
                                     <constraint firstAttribute="trailing" secondItem="Ky5-km-ZdB" secondAttribute="trailing" constant="15" id="Zqx-sc-Zk9"/>
                                     <constraint firstItem="LIq-aM-1AQ" firstAttribute="top" secondItem="nVw-tg-xeD" secondAttribute="top" id="oGL-iy-f55"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="halfLabel" destination="eJB-sg-M1p" id="LYX-8Z-Zp4"/>
-                                    <outlet property="inningLabel" destination="LIq-aM-1AQ" id="sPI-PP-gsk"/>
-                                    <outlet property="offenseOrDefense" destination="Ky5-km-ZdB" id="Ls4-ip-vBs"/>
-                                    <outlet property="sbosView" destination="o0Q-Hm-fNb" id="VtW-lZ-xs6"/>
-                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0pg-RC-Isx" userLabel="Current Player Table">
                                 <rect key="frame" x="0.0" y="313.5" width="375" height="115.5"/>

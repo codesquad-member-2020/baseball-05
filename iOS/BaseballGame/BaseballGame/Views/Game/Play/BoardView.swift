@@ -8,7 +8,8 @@
 
 import UIKit
 
-final class BoardView: UIView {
+@IBDesignable 
+final class BoardView: UIView, WithXib {
     @IBOutlet weak var sbosView: SBOsView!
     @IBOutlet weak var inningLabel: BoardLabel!
     @IBOutlet weak var halfLabel: BoardLabel!
