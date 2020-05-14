@@ -22,40 +22,12 @@ final class PlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTitleView()
-        configurePlayTableViewModel()
         configureObservers()
         configureUseCase()
     }
     
     private func configureTitleView() {
         headerView.delegate = self
-    }
-    
-    private func configurePlayTableViewModel() {
-        playTablesViewModel = PlayTablesViewModel(currentPlayers: [CurrentPlayer(name: "최동원",
-                                                                                 mounts: 39,
-                                                                                 hits: 0,
-                                                                                 isPitcher: true),
-                                                                   CurrentPlayer(name: "김광진",
-                                                                                 mounts: 1,
-                                                                                 hits: 0,
-                                                                                 isPitcher: false)],
-                                                  roundInfos: [RoundInfo(decision: "볼", strike: 1, ball: 1),
-                                                               RoundInfo(decision: "볼", strike: 1, ball: 2),
-                                                               RoundInfo(decision: "볼", strike: 1, ball: 3),
-                                                               RoundInfo(decision: "스트라이크", strike: 2, ball: 3)],
-                                                  currentPlayerTableView: currentPlayerTable,
-                                                  roundInfoTableView: roundInfoTable)
-        configureCurrentPlayerTableDataSource()
-        configureRoundInfoTableDataSource()
-    }
-    
-    private func configureCurrentPlayerTableDataSource() {
-        currentPlayerTable.dataSource = playTablesViewModel
-    }
-    
-    private func configureRoundInfoTableDataSource() {
-        roundInfoTable.dataSource = playTablesViewModel
     }
     
     private func configureObservers()  {
@@ -67,6 +39,10 @@ final class PlayViewController: UIViewController {
                                                selector: #selector(configureBoardView),
                                                name: BoardViewModel.Notification.boardModelsDidChange,
                                                object: boardViewModel)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(updateTablesCell),
+                                               name: PlayTablesViewModel.Notification.tablesModelDidChange,
+                                               object: playTablesViewModel)
     }
     
     @objc private func configureScoreView() {
@@ -85,6 +61,13 @@ final class PlayViewController: UIViewController {
         }
     }
     
+    @objc private func updateTablesCell() {
+        DispatchQueue.main.async {
+            self.currentPlayerTable.reloadData()
+            self.roundInfoTable.reloadData()
+        }
+    }
+    
     var roomID: Int?
     private func configureUseCase() {
         guard let roomID = roomID else { return }
@@ -92,6 +75,7 @@ final class PlayViewController: UIViewController {
             guard let playDataResponse = playDataResponse else { return }
             self.configureScoreViewModel(playDataResponse)
             self.configureBoardViewModel(playDataResponse)
+            self.configurePlayTableViewModel(playDataResponse)
         }
     }
     
@@ -117,6 +101,35 @@ final class PlayViewController: UIViewController {
                                                                                       ballCount: 0,
                                                                                       outCount: outCount)),
                                                  inningViewModel: InningViewModel(inning: playDataResponse.inning))
+        }
+    }
+    
+    private func configurePlayTableViewModel(_ playDataResponse: PlayDataResponse) {
+        let pitcher = CurrentPitcher(name: playDataResponse.currentPlayers.pitcher.name,
+                                            pitches: playDataResponse.currentPlayers.pitcher.pitches)
+        let batter = CurrentBatter(name: playDataResponse.currentPlayers.batter.name,
+                                   mounts: playDataResponse.currentPlayers.batter.mounts,
+                                   hits: playDataResponse.currentPlayers.batter.hits)
+        if let latestPlate = playDataResponse.plates.last {
+            self.playTablesViewModel = PlayTablesViewModel(currentPlayers: [pitcher, batter],
+                                                           rounds: latestPlate.rounds, currentPlayerTableView: currentPlayerTable, roundInfoTableView: roundInfoTable)
+        } else {
+            self.playTablesViewModel = PlayTablesViewModel(currentPlayers: [pitcher, batter],
+            rounds: [], currentPlayerTableView: currentPlayerTable, roundInfoTableView: roundInfoTable)
+        }
+        configureCurrentPlayerTableDataSource()
+        configureRoundInfoTableDataSource()
+    }
+    
+    private func configureCurrentPlayerTableDataSource() {
+        DispatchQueue.main.async {
+            self.currentPlayerTable.dataSource = self.playTablesViewModel
+        }
+    }
+    
+    private func configureRoundInfoTableDataSource() {
+        DispatchQueue.main.async {
+            self.roundInfoTable.dataSource = self.playTablesViewModel
         }
     }
 }

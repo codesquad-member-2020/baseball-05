@@ -9,19 +9,25 @@
 import UIKit
 
 final class PlayTablesViewModel: NSObject {
+    enum Notification {
+        static let tablesModelDidChange = Foundation.Notification.Name("tablesModelDidChange")
+    }
+    
     private let currentPlayerViewModels: CurrentPlayerViewModels
     private let roundInfoViewModels: RoundInfoViewModels
     private weak var currentPlayerTableView: UITableView?
     private weak var roundInfoTableView: UITableView?
     
     init(currentPlayers: [CurrentPlayer],
-         roundInfos: [RoundInfo],
+         rounds: [Round],
          currentPlayerTableView: UITableView,
          roundInfoTableView: UITableView) {
         self.currentPlayerViewModels = CurrentPlayerViewModels(currentPlayers: currentPlayers)
-        self.roundInfoViewModels = RoundInfoViewModels(roundInfos: roundInfos)
+        self.roundInfoViewModels = RoundInfoViewModels(rounds: rounds)
         self.currentPlayerTableView = currentPlayerTableView
         self.roundInfoTableView = roundInfoTableView
+        super.init()
+        NotificationCenter.default.post(name: Notification.tablesModelDidChange, object: self)
     }
 }
 
@@ -50,7 +56,7 @@ extension PlayTablesViewModel: UITableViewDataSource {
             guard let roundInfoViewModel = roundInfoViewModels.viewModel(at: indexPath.row)
                 else { return RoundInfoCell()}
             roundInfoCell.configure(orderText: String(indexPath.row + 1),
-                                    roundInfo: roundInfoViewModel.roundInfo)
+                                    roundInfo: roundInfoViewModel.round)
             return roundInfoCell
         }
         return UITableViewCell()

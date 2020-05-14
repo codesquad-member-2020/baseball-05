@@ -31,6 +31,12 @@ final class CurrentPlayerCell: UITableViewCell, IdentifiableView {
     
     func configure(currentPlayer: CurrentPlayer) {
         playerName.text = currentPlayer.name
-        valueLabel.text = String(currentPlayer.mounts)
+        if let pitcher = currentPlayer as? CurrentPitcher {
+            playerRole.text = "투수"
+            valueLabel.text = "#\(pitcher.pitches)"
+        } else if let batter = currentPlayer as? CurrentBatter {
+            playerRole.text = "타자"
+            valueLabel.text = "\(batter.mounts)타석 \(batter.hits)안타"
+        }
     }
 }

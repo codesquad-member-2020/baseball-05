@@ -9,10 +9,10 @@
 import Foundation
 
 final class RoundInfoViewModel: ViewModelBinding {
-    typealias Key = RoundInfo
-    let roundInfo: RoundInfo
+    typealias Key = Round
+    let round: Round
     
-    init(roundInfo: RoundInfo) {
-        self.roundInfo = roundInfo
+    init(round: Round) {
+        self.round = round
     }
 }

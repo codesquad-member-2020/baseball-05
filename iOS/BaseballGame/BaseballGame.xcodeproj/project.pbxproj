@@ -96,7 +96,6 @@
 		5A9FF8DD246A980200005C36 /* RoundInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8DC246A980200005C36 /* RoundInfoViewModel.swift */; };
 		5A9FF8DF246A980D00005C36 /* RoundInfoViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8DE246A980D00005C36 /* RoundInfoViewModels.swift */; };
 		5A9FF8E1246A98F300005C36 /* CurrentPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8E0246A98F300005C36 /* CurrentPlayer.swift */; };
-		5A9FF8E3246A9D8D00005C36 /* RoundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9FF8E2246A9D8D00005C36 /* RoundInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,7 +211,6 @@
 		5A9FF8DC246A980200005C36 /* RoundInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfoViewModel.swift; sourceTree = "<group>"; };
 		5A9FF8DE246A980D00005C36 /* RoundInfoViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfoViewModels.swift; sourceTree = "<group>"; };
 		5A9FF8E0246A98F300005C36 /* CurrentPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPlayer.swift; sourceTree = "<group>"; };
-		5A9FF8E2246A9D8D00005C36 /* RoundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,7 +357,6 @@
 				5A814EF124627EB0001C768D /* GameRoom.swift */,
 				5A9FF8C8246A37B700005C36 /* PlayerInfo.swift */,
 				5A9FF8E0246A98F300005C36 /* CurrentPlayer.swift */,
-				5A9FF8E2246A9D8D00005C36 /* RoundInfo.swift */,
 				5A8B9AA9246BDD2C0090AAC3 /* ResultResponse.swift */,
 				5A8B9AAD246BE4200090AAC3 /* SelectingTeamName.swift */,
 				5A4B9AE2246D0F4D000F5FA8 /* PlayDataResponse.swift */,
@@ -708,7 +705,6 @@
 				5A814EF62462810B001C768D /* Request.swift in Sources */,
 				5A814F6E24669226001C768D /* IdentifiableViewController.swift in Sources */,
 				5A8B9AA4246BB1010090AAC3 /* UserLabel.swift in Sources */,
-				5A9FF8E3246A9D8D00005C36 /* RoundInfo.swift in Sources */,
 				5A814F5824643A9D001C768D /* UIColorExtension.swift in Sources */,
 				5A814F032462AB84001C768D /* GameRoomUseCase.swift in Sources */,
 				5A9FF8CC246A384500005C36 /* PlayerInfoViewModels.swift in Sources */,

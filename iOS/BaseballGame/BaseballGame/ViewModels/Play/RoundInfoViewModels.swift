@@ -11,8 +11,8 @@ import Foundation
 final class RoundInfoViewModels {
     private let roundInfoViewModels: [RoundInfoViewModel]
     
-    init(roundInfos: [RoundInfo]) {
-        self.roundInfoViewModels = roundInfos.map { RoundInfoViewModel(roundInfo: $0) }.reversed()
+    init(rounds: [Round]) {
+        self.roundInfoViewModels = rounds.map { RoundInfoViewModel(round: $0) }.reversed()
     }
     
     var count: Int {
