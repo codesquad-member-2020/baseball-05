@@ -85,4 +85,11 @@ public class GameDAO {
         return namedParameterJdbcTemplate.queryForObject(existMatchSql, namedParameters, Boolean.class);
     }
 
+    public void deleteMatch(Long matchId) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("matchId", matchId);
+
+        String deleteMatchSql = "DELETE FROM game WHERE match_id = :matchId";
+        namedParameterJdbcTemplate.update(deleteMatchSql, namedParameters);
+    }
+
 }
