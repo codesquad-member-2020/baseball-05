@@ -49,11 +49,11 @@ INSERT INTO plate (id, half_id, strike, ball, first_baseman, second_baseman,
 -- -----------------------------------------------------
 -- ROUND TEST --
 -- -----------------------------------------------------
-INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (1, 1, '손광민', 0, 0, '안타');
-INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (2, 1, '김태균', 1, 0, null);
-INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (3, 1, '김태균', 1, 0, null);
-INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (4, 1, '김태균', 1, 0, null);
-INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (5, 1, '김태균', 0, 0, '아웃');
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (1, 1, '박건우', 0, 0, '안타');
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (2, 1, '이홍련', 1, 0, null);
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (3, 1, '이홍련', 1, 0, null);
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (4, 1, '이홍련', 1, 0, null);
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (5, 1, '이홍련', 0, 0, '아웃');
 
 -- -----------------------------------------------------
 -- Table `baseball`.`player`

@@ -81,17 +81,18 @@ public class GameDao {
                 "WHERE g.id = ?";
 
         RowMapper<PlateDTO> plateRowMapper = (rs, rowNum) -> {
+            GameBatterDTO batter = makeBatterDTO(verifiedHomeTeam, matchesId, rowNum);
             return new PlateDTO(rs.getLong("p_id"),
                     rs.getInt("h1_outs"),
-                    makeBatterDTO(verifiedHomeTeam, matchesId, rowNum),
-                    makeRoundDTOList(matchesId)
+                    batter,
+                    makeRoundDTOList(matchesId, batter.getName())
                     );
         };
 
         return this.jdbcTemplate.query(sql, new Object[]{matchesId}, plateRowMapper);
     }
 
-    private List<RoundDTO> makeRoundDTOList(Long matchesId) {
+    private List<RoundDTO> makeRoundDTOList(Long matchesId, String playerName) {
         String sql = "SELECT r.strike AS r_strike, " +
                 "r.ball AS r_ball, " +
                 "r.hit_or_out AS r_hit_or_out " +
@@ -102,7 +103,7 @@ public class GameDao {
                 "LEFT OUTER JOIN half h2 ON i.second_half_id = h2.id " +
                 "LEFT OUTER JOIN plate p ON h1.id = p.half_id OR h2.id = p.half_id " +
                 "LEFT OUTER JOIN round r ON p.id = r.plate_id " +
-                "WHERE g.id = ?";
+                "WHERE g.id = ? AND r.player_name = ?";
 
         RowMapper<RoundDTO> roundRowMapper = (rs, rowNum) -> {
             return new RoundDTO(rs.getString("r_hit_or_out"),
@@ -110,7 +111,7 @@ public class GameDao {
                     rs.getInt("r_ball"));
         };
 
-        return this.jdbcTemplate.query(sql, new Object[]{matchesId}, roundRowMapper);
+        return this.jdbcTemplate.query(sql, new Object[]{matchesId, playerName}, roundRowMapper);
     }
 
     private InningDTO makeInningDTO(Long matchesId) {
