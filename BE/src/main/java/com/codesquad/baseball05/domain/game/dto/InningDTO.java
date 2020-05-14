@@ -1,6 +1,5 @@
 package com.codesquad.baseball05.domain.game.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,6 +11,5 @@ public class InningDTO {
 
     private Long id;
 
-    @JsonProperty("isFirstHalf")
-    private boolean isFirstHalf;
+    private String half;
 }

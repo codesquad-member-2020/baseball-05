@@ -121,7 +121,8 @@ public class GameDao {
                 "WHERE g.id = ?";
 
         RowMapper<InningDTO> pitchResultDtoRowMapper = (rs, rowNum) -> {
-            return new InningDTO(rs.getLong("i_id"), isTopHalf(matchesId));
+            String half = isTopHalf(matchesId) ? "초" : "말";
+            return new InningDTO(rs.getLong("i_id"), half);
         };
 
         return this.jdbcTemplate.queryForObject(sql, new Object[]{matchesId}, pitchResultDtoRowMapper);
