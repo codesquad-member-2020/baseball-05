@@ -12,7 +12,13 @@ import XCTest
 final class CodableTests: XCTestCase {
     func testGameInfoModelSuccess() {
         guard let jsonData = Data.jsonData(forResource: "TeamInfoSuccessStub") else { return }
-        guard let gameInfo = try? JSONDecoder().decode(GameRoom.self, from: jsonData) else { return }
+        let gameInfo = try? JSONDecoder().decode(GameRoom.self, from: jsonData)
         XCTAssertNotNil(gameInfo)
+    }
+    
+    func testRoundsSuccess() {
+        guard let jsonData = Data.jsonData(forResource: "RoundsSuccessStub") else { return }
+        let roundsResponse = try? JSONDecoder().decode(RoundsResponse.self, from: jsonData)
+        XCTAssertNotNil(roundsResponse)
     }
 }
