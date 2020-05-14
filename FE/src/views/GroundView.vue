@@ -9,10 +9,12 @@
     <score-info-component></score-info-component>
     <player-info-component></player-info-component>
     <score-component :propsData="initGameRenderData"></score-component>
+    <game-exit-component></game-exit-component>
   </div>
 </template>
 
 <script>
+import GameExitComponent from '@/components/GameExitComponent';
 import GroundComponent from '@/components/GroundComponent';
 import PlayButton from '@/components/PlayButton';
 import GameLogComponent from '@/components/Game/GameLogComponent';
@@ -39,10 +41,12 @@ export default {
     PlayerInfoComponent,
     GameStatusComponent,
     ScoreComponent,
+    GameExitComponent,
   },
   methods: {
     async fetchData() {
-      const { data } = await fetchGames(this.$store.state.isOffense);
+      const { data } = await fetchGames(this.$store.state.matchId);
+      console.log(data);
       this.initGameRenderData = data;
     },
   },
@@ -52,6 +56,7 @@ export default {
 <style>
 #app {
   background: #000;
+  z-index: 1;
 }
 
 .ground-container {

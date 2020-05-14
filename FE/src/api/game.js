@@ -13,7 +13,7 @@ function fetchRoters() {
 }
 
 function fetchGames(isOffense) {
-  return instance.get(`games/rounds?isOffense=${isOffense}`);
+  return instance.get(`games/rounds?matchesId=${isOffense}`);
 }
 
 function fetchUser(selectTeamObj) {
