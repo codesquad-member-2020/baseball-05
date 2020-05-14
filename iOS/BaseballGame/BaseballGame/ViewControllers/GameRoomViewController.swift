@@ -40,6 +40,11 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         configureUseCaseRecursively()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        isPresent = false
+    }
+    
     private func configureGameTitleLabel() {
         view.addSubview(gameRoomTitleLabel)
         
