@@ -30,7 +30,7 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         configurePrevButton()
         configureCollectionView()
         configureObserver()
-        configureUseCase()
+        configureUseCaseRecursively()
     }
     
     private func configureGameTitleLabel() {
@@ -94,37 +94,26 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         }
     }
     
-    private func configureUseCase() {
+    private func configureUseCaseRecursively() {
         GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
                                         with: GameRoomUseCase.GameRoomTask(networkDispatcher: NetworkManager()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             self.configureGameRoomViewModels(gameRooms: gameRooms)
+            DispatchQueue(label: "updateRooms").asyncAfter(deadline: .now() + 2) {
+                self.configureUseCaseRecursively()
+            }
         }
     }
     
     private func configureGameRoomViewModels(gameRooms: [GameRoom]) {
         self.gameRoomViewModels = GameRoomViewModels(with: gameRooms)
         configureGameRoomDataSource()
-        updateRoomViewModels()
     }
     
     private func configureGameRoomDataSource() {
         DispatchQueue.main.async {
             self.gameRoomCollectionView.dataSource = self.gameRoomViewModels
-        }
-    }
-    
-    private func updateRoomViewModels() {
-        DispatchQueue(label: "updateRooms").asyncAfter(deadline: .now() + 2) {
-            GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
-                                            with: GameRoomUseCase.GameRoomTask(networkDispatcher: NetworkManager()))
-            { gameRooms in
-                guard let gameRooms = gameRooms else { return }
-                self.gameRoomViewModels = GameRoomViewModels(with: gameRooms)
-                self.configureGameRoomDataSource()
-            }
-            self.updateRoomViewModels()
         }
     }
 }
