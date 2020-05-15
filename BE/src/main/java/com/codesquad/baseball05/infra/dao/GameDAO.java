@@ -5,7 +5,6 @@ import com.codesquad.baseball05.domain.game.entity.Half;
 import com.codesquad.baseball05.domain.game.entity.Inning;
 import com.codesquad.baseball05.domain.game.entity.Plate;
 import com.codesquad.baseball05.domain.game.entity.Round;
-import com.codesquad.baseball05.domain.matches.entity.Matches;
 import com.codesquad.baseball05.domain.team.entity.Player;
 import com.codesquad.baseball05.domain.team.entity.Record;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -118,7 +117,8 @@ public class GameDAO {
     }
 
     public Object pitch(SelectDAO selectDao, Long matchesId) throws SQLException {
-        AllTablesDTO allTablesDTO = setHomeAndOffense(selectDao.makeUserMatchesDTO(matchesId));
+        AllTablesDTO allTablesDTO = selectDao.makeUserMatchesDTO(matchesId);
+        allTablesDTO.setHomeAndOffense();
 
         GameTeamDTO homeTeam = makeTeamDTO(allTablesDTO, true);
         GameTeamDTO awayTeam = makeTeamDTO(allTablesDTO, false);
@@ -135,7 +135,7 @@ public class GameDAO {
     private GameTeamDTO makeTeamDTO(AllTablesDTO allTablesDTO, boolean isFindHome) {
         boolean isUserAHome = allTablesDTO.getUserA().isHome();
 
-        if(isFindHome) {
+        if (isFindHome) {
             return isUserAHome ? makeGameTeamDTO(allTablesDTO, allTablesDTO.getUserA()) : makeGameTeamDTO(allTablesDTO, allTablesDTO.getUserB());
         } else {
             return isUserAHome ? makeGameTeamDTO(allTablesDTO, allTablesDTO.getUserB()) : makeGameTeamDTO(allTablesDTO, allTablesDTO.getUserA());
@@ -177,6 +177,7 @@ public class GameDAO {
             if (plateDTOS.size() > 3) {
                 break;
             }
+
             Plate nowPlate = plates.get(plates.size() - playerIndex);
             GameBatterDTO batter = makeBatterDTO(allTablesDTO, playerIndex - 1);
             PlateDTO plateDTO = new PlateDTO(nowPlate.getId(), half.getOuts(), batter, makeRoundDTOList(allTablesDTO, batter.getName()));
@@ -237,25 +238,6 @@ public class GameDAO {
         List<Inning> innings = allTablesDTO.getGame().getInnings();
         Inning nowInning = innings.get(innings.size() - 1);
         return nowInning.isFirstHalf();
-    }
-
-
-    private AllTablesDTO setHomeAndOffense(AllTablesDTO allTablesDTO) throws SQLException {
-        Matches matches = allTablesDTO.getMatches();
-        boolean isUserAHome = allTablesDTO.getUserA().getTeam().getName().equals(matches.getHomeTeam());
-
-        boolean isUserAOffense = isUserAHome ^ isTopHalf(allTablesDTO);
-
-        if(isUserAOffense) {
-            allTablesDTO.getUserA().setOffense(true);
-        } else {
-            allTablesDTO.getUserB().setOffense(true);
-        }
-
-        allTablesDTO.getUserA().setHome(isUserAHome);
-        allTablesDTO.getUserB().setHome(!isUserAHome);
-
-        return allTablesDTO;
     }
 
     private List<Record> findAllRecords(Long playerId) {
