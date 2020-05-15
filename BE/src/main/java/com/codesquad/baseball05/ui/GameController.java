@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.Cookie;
 import java.sql.SQLException;
 import java.util.Map;
 
@@ -25,12 +24,12 @@ public class GameController {
     private final SelectDAO selectDao;
 
     @PostMapping()
-    public ResponseEntity<ResponseBodyWrapper> selectTeam(@RequestBody Map<String, Object> requestBody, @CookieValue(value="userId", required = false) Cookie userIdCookie) {
-        if (userIdCookie == null) {
-            return ResponseEntity.badRequest().body(ResponseBodyWrapper.failed("쿠키가 없어요."));
+    public ResponseEntity<ResponseBodyWrapper> selectTeam(@RequestBody Map<String, Object> requestBody) {
+        String userId = "hihi";
+        if (requestBody.get("userId") != null) {
+            userId = (String) requestBody.get("userId");
         }
 
-        String userId = userIdCookie.getValue();
         // cookie 안의 유저가 맞는 유저인지 체크 필요
         // 동일한 쿠키값으로 다른 팀을 선택하면 게임중인 매치가 초기화 되지 않음 -> 종료하고 넘어가야 함
 

@@ -24,7 +24,9 @@ public class UserController {
         // DB에 존재하는 user_id 이면 세션 생성
         // 근데 이미 team_id 가 셋팅이 되어있는 상태라면 ?
         Cookie cookie = new Cookie("userId", userService.signin(user.get("userId")));
+        cookie.setPath("/");
         response.addCookie(cookie);
+
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }
