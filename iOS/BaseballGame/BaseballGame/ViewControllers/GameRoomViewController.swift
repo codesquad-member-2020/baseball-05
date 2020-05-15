@@ -160,7 +160,7 @@ extension GameRoomViewController: UICollectionViewDelegate {
     
     private func requestSelectedRoomIsFullRecursively(roomID: Int, kind: TeamKind) {
         RoomIsFullUseCase.requestResultResponse(from: RoomIsFullUseCase.RoomIsFullRequest(roomID: roomID),
-                                                with: RoomIsFullUseCase.RoomIsFullTask(networkDispatcher: MockRoomIsFullSuccess()))
+                                                with: RoomIsFullUseCase.RoomIsFullTask(networkDispatcher: NetworkManager()))
         { status in
             guard let status = status else { return }
             if status == .success {
@@ -187,7 +187,7 @@ extension GameRoomViewController: UICollectionViewDelegate {
         let teamChoiceAction = UIAlertAction(title: team.teamName, style: .default) { action in
             guard let teamName = action.title else { return }
             TeamSelectingUseCase.requestRoomSelectResponse(from: TeamSelectingUseCase.TeamSelectingRequest(teamName: teamName),
-                                                           with: TeamSelectingUseCase.TeamSelectingTask(networkDispatcher: MockTeamSelectSuccess()))
+                                                           with: TeamSelectingUseCase.TeamSelectingTask(networkDispatcher: NetworkManager()))
             { status in
                 guard let status = status else { return }
                 if status == .fail {

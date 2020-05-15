@@ -11,7 +11,7 @@ import Foundation
 struct TeamSelectingUseCase {
     struct TeamSelectingRequest: Request {
         var path: String {
-            return "http://15.165.69.44:8080/mock/games"
+            return "http://3.34.15.148/api/games"
         }
         var httpMethod: HTTPMethod {
             return .post
