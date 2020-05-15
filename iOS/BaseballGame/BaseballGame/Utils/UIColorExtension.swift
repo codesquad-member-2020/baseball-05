@@ -30,6 +30,7 @@ extension UIColor {
 }
 
 extension UIColor {
-    static let GreyBeigeColor = UIColor(rgb: 0x4c4c45)!
+    static let GreyBeigeColor = UIColor(rgb: 0x4c4c45)!    
+    static let beigeColor = UIColor(rgb: 0xF5F5DC)!
 }
 

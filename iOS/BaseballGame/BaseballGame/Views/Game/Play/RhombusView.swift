@@ -9,12 +9,12 @@
 import UIKit
 
 final class RhombusView: UIView {
-    private let color: UIColor
+    var color: UIColor!
     
-    init(frame: CGRect = .zero, color: UIColor) {
-        self.color = color
+    override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .clear
+        translatesAutoresizingMaskIntoConstraints = false
+        backgroundColor = .clear
     }
     
     required init?(coder: NSCoder) {
