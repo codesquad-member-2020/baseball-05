@@ -12,7 +12,6 @@
                 <outlet property="halfLabel" destination="sP5-F4-RKI" id="AAX-tp-zcn"/>
                 <outlet property="inningLabel" destination="gWe-Rj-fbp" id="Oar-aW-4oG"/>
                 <outlet property="offenseOrDefense" destination="G0f-yb-vdg" id="E1t-LY-5kl"/>
-                <outlet property="pitchButton" destination="2zr-4E-rPt" id="W3D-Y1-CdM"/>
                 <outlet property="sbosView" destination="V7p-z4-5NK" id="TjR-EP-ig4"/>
             </connections>
         </placeholder>
@@ -68,23 +67,10 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zr-4E-rPt" customClass="PitchButton" customModule="BaseballGame" customModuleProvider="target">
-                    <rect key="frame" x="131.5" y="108" width="112.5" height="28"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="2zr-4E-rPt" secondAttribute="height" multiplier="105:26" id="0q7-dv-jXg"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                    <state key="normal" title="PITCH">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gWe-Rj-fbp" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="V7p-z4-5NK" secondAttribute="trailing" constant="8" symbolic="YES" id="1Lw-6P-LjW"/>
-                <constraint firstItem="2zr-4E-rPt" firstAttribute="centerX" secondItem="os8-tu-fn4" secondAttribute="centerX" id="7kq-WF-iLQ"/>
-                <constraint firstItem="2zr-4E-rPt" firstAttribute="width" secondItem="os8-tu-fn4" secondAttribute="width" multiplier="0.3" id="Be8-RU-T3H"/>
                 <constraint firstItem="V7p-z4-5NK" firstAttribute="leading" secondItem="os8-tu-fn4" secondAttribute="leading" constant="15" id="DpX-rB-5IZ"/>
                 <constraint firstAttribute="trailing" secondItem="sP5-F4-RKI" secondAttribute="trailing" constant="15" id="SO7-Wr-id3"/>
                 <constraint firstItem="G0f-yb-vdg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="V7p-z4-5NK" secondAttribute="trailing" constant="8" symbolic="YES" id="VLx-Ah-aK0"/>
@@ -95,7 +81,6 @@
                 <constraint firstAttribute="trailing" secondItem="G0f-yb-vdg" secondAttribute="trailing" constant="15" id="nR6-hN-fsl"/>
                 <constraint firstItem="G0f-yb-vdg" firstAttribute="top" secondItem="yO2-Gm-XiJ" secondAttribute="top" id="q6U-kx-0yM"/>
                 <constraint firstItem="gWe-Rj-fbp" firstAttribute="trailing" secondItem="sP5-F4-RKI" secondAttribute="leading" constant="-5" id="rbG-TZ-xkQ"/>
-                <constraint firstItem="2zr-4E-rPt" firstAttribute="centerY" secondItem="os8-tu-fn4" secondAttribute="centerY" constant="-3" id="tFn-uS-r1h"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="RIq-hS-KBr"/>
