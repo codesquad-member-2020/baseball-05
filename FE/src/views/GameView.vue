@@ -51,7 +51,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .component-container {
   margin: 0 auto;
   background-color: #ccc;

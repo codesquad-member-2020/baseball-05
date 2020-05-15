@@ -39,7 +39,6 @@ export default {
     },
 
     syncData() {
-      console.log(this.isUserSearch);
       if (this.isUserSearch)
         return this.$router.push({
           path: `/game/${this.$route.params.id}`,
@@ -57,16 +56,12 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  background: #000;
-}
-
+<style scoped>
 .loading-container {
+  width: 100%;
+  height: 100%;
+  background: #000;
   color: red;
-  /* border: 1px solid #ccc; */
-  /* background-color: #00000080; */
-  border-radius: 3px;
   position: absolute;
   top: 50%;
   left: 50%;

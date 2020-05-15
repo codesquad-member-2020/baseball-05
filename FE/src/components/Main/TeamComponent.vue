@@ -75,6 +75,7 @@ export default {
     async fetchData() {
       const { data } = await fetchMatches();
       this.matchList = data;
+      console.log(data);
       if (this.matchList && this.isLoading === true) {
         this.isLoading = !this.isLoading;
       }
