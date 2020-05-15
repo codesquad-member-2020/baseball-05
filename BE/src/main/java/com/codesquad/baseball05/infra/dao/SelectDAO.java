@@ -86,7 +86,6 @@ public class SelectDAO {
             half.setHit(rs.getInt("h.hit"));
             half.setPoint(rs.getInt("h.point"));
             half.setPlates(finaAllPlateByHalfId(rs.getLong("h.id")));
-            log.info("half : {}", half);
             return half;
         };
 

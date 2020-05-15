@@ -1,8 +1,9 @@
 package com.codesquad.baseball05.ui;
 
 import com.codesquad.baseball05.application.GameService;
-import com.codesquad.baseball05.domain.game.dto.AllTablesDTO;
+import com.codesquad.baseball05.domain.game.dto.PitchResultDTO;
 import com.codesquad.baseball05.infra.dao.GameDAO;
+import com.codesquad.baseball05.infra.dao.PitchDAO;
 import com.codesquad.baseball05.infra.dao.SelectDAO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,8 @@ public class GameController {
     private final GameService gameService;
 
     private final GameDAO gameDAO;
+
+    private final PitchDAO pitchDAO;
 
     private final SelectDAO selectDao;
 
@@ -40,13 +43,14 @@ public class GameController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
-    public Object ready(@RequestParam Long matchesId) {
-        AllTablesDTO allTablesDTO = selectDao.makeUserMatchesDTO(matchesId);
-        return gameDAO.ready();
+    @GetMapping("/rounds")
+    public PitchResultDTO ready(@RequestParam Long matchesId) throws SQLException {
+        return gameDAO.ready(selectDao, matchesId);
     }
 
     @PostMapping("/rounds")
-    public Object pitch(@RequestParam Long matchesId) throws SQLException {
-        return gameDAO.pitch(selectDao, matchesId);
+    public ResponseEntity<HttpStatus> pitch(@RequestParam Long matchesId) throws SQLException {
+        pitchDAO.pitch(selectDao, matchesId);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }

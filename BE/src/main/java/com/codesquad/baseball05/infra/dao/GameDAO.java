@@ -112,11 +112,7 @@ public class GameDAO {
         disconnectMatchWithUser(matchesId);
     }
 
-    public Object ready() {
-        return null;
-    }
-
-    public Object pitch(SelectDAO selectDao, Long matchesId) throws SQLException {
+    public PitchResultDTO ready(SelectDAO selectDao, Long matchesId) throws SQLException {
         AllTablesDTO allTablesDTO = selectDao.makeUserMatchesDTO(matchesId);
         allTablesDTO.setHomeAndOffense();
 
