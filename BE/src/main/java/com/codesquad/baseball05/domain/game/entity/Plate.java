@@ -19,11 +19,5 @@ public class Plate {
 
     private int ball;
 
-    private String firstBaseMan;
-
-    private String secondBaseMan;
-
-    private String thirdBaseMan;
-
     private List<Round> rounds;
 }

@@ -42,24 +42,21 @@ INSERT INTO inning (id, game_id, first_half_id, second_half_id, half) VALUE (1, 
 -- -----------------------------------------------------
 -- HALF TEST --
 -- -----------------------------------------------------
-INSERT INTO half (id, last_bat_player, total_plate, outs, hit, point) VALUE (1, 1, 0, 1, 1, 1);
+-- outs 적용
+INSERT INTO half (id, last_bat_player, total_plate, outs, hit, point) VALUE (1, 1, 0, 0, 1, 0);
 
 -- -----------------------------------------------------
 -- PLATE TEST --
 -- -----------------------------------------------------
-INSERT INTO plate (id, half_id, strike, ball, first_baseman, second_baseman,
-                   third_baseman) VALUE (1, 1, 0, 0, '박건우', null, null);
-INSERT INTO plate (id, half_id, strike, ball, first_baseman, second_baseman,
-                   third_baseman) VALUE (2, 1, 3, 0, '이홍련', null, null);
+INSERT INTO plate (id, half_id, strike, ball) VALUE (1, 1, 0, 0);
+INSERT INTO plate (id, half_id, strike, ball) VALUE (2, 1, 2, 0);
 
 -- -----------------------------------------------------
 -- ROUND TEST --
 -- -----------------------------------------------------
 INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (1, 1, '박건우', 0, 0, 'hit');
-INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (2, 1, '이홍련', 1, 0, null);
-INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (3, 1, '이홍련', 1, 0, null);
-INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (4, 1, '이홍련', 1, 0, null);
-INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (5, 1, '이홍련', 0, 0, 'out');
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (2, 2, '이홍련', 1, 0, null);
+INSERT INTO round (id, plate_id, player_name, strike, ball, hit_or_out) VALUE (3, 2, '이홍련', 1, 0, null);
 
 -- -----------------------------------------------------
 -- Table `baseball`.`player`

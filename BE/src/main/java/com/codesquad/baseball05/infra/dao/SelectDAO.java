@@ -93,16 +93,13 @@ public class SelectDAO {
     }
 
     private List<Plate> finaAllPlateByHalfId(Long halfId) {
-        String sql = "SELECT p.id, p.strike, p.ball, p.first_baseman, p.second_baseman, p.third_baseman FROM plate p WHERE p.half_id = ?";
+        String sql = "SELECT p.id, p.strike, p.ball FROM plate p WHERE p.half_id = ?";
 
         RowMapper<Plate> plateRowMapper = (rs, rowNum) -> {
             Plate plate = new Plate();
             plate.setId(rs.getLong("p.id"));
             plate.setStrike(rs.getInt("p.strike"));
             plate.setBall(rs.getInt("p.ball"));
-            plate.setFirstBaseMan(rs.getString("p.first_baseman"));
-            plate.setSecondBaseMan(rs.getString("p.second_baseman"));
-            plate.setThirdBaseMan(rs.getString("p.third_baseman"));
             plate.setRounds(findAllRoundById(rs.getLong("p.id")));
             return plate;
         };

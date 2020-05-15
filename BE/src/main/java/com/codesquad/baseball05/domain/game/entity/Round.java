@@ -1,15 +1,13 @@
 package com.codesquad.baseball05.domain.game.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.springframework.data.annotation.Id;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Round {
 
     @Id
@@ -21,5 +19,9 @@ public class Round {
 
     private int ball;
 
-    private String hitOrOut;
+    public String hitOrOut;
+
+    public Round(String playerName) {
+        this.playerName = playerName;
+    }
 }
