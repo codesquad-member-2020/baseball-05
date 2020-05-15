@@ -40,7 +40,7 @@ public class MockupController {
                 1L,
                 true,
                 new MatchTeamDTO("기아", null),
-                new MatchTeamDTO("롯데", "Huey")
+                new MatchTeamDTO("롯데", null)
         );
 
         tables.add(firstMatch);
