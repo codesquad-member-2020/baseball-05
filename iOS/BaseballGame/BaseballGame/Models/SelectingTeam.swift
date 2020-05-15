@@ -8,8 +8,9 @@
 
 import Foundation
 
-struct SelectingTeamName: Codable {
+struct SelectingTeam: Codable {
     let teamName: String
+    let userId: String
     
     func encodeToJSONData() -> Data? {
         return try? JSONEncoder().encode(self)

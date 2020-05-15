@@ -160,10 +160,10 @@ extension GameRoomViewController: UICollectionViewDelegate {
     
     private func requestSelectedRoomIsFullRecursively(roomID: Int, kind: TeamKind) {
         RoomIsFullUseCase.requestResultResponse(from: RoomIsFullUseCase.RoomIsFullRequest(roomID: roomID),
-                                                with: RoomIsFullUseCase.RoomIsFullTask(networkDispatcher: MockRoomIsFullSuccess()))
+                                                with: RoomIsFullUseCase.RoomIsFullTask(networkDispatcher: NetworkManager()))
         { status in
             guard let status = status else { return }
-            if status == .success {
+            if status == true {
                 self.showGameTabBarController(roomID: roomID, kind: kind)
             } else {
                 DispatchQueue(label: "reqeustRoomIsFull").asyncAfter(deadline: .now() + 1) {
@@ -174,20 +174,22 @@ extension GameRoomViewController: UICollectionViewDelegate {
     }
     
     private func showGameTabBarController(roomID: Int, kind: TeamKind) {
-        guard let gameTabBarController = storyboard?.instantiateViewController(withIdentifier: "GameTabBarController")
-            else { return }
-        gameTabBarController.modalPresentationStyle = .fullScreen
-        guard let playViewController = gameTabBarController.children.first as? PlayViewController else { return }
-        playViewController.roomID = roomID
-        playViewController.userTeamKind = kind
-        present(gameTabBarController, animated: true)
+        DispatchQueue.main.async {
+            guard let gameTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "GameTabBarController")
+                else { return }
+            gameTabBarController.modalPresentationStyle = .fullScreen
+            guard let playViewController = gameTabBarController.children.first as? PlayViewController else { return }
+            playViewController.roomID = roomID
+            playViewController.userTeamKind = kind
+            self.present(gameTabBarController, animated: true)
+        }
     }
     
     private func teamChoiceAction(team: Team, resultHandler: @escaping (Bool?) ->()) -> UIAlertAction {
         let teamChoiceAction = UIAlertAction(title: team.teamName, style: .default) { action in
             guard let teamName = action.title else { return }
             TeamSelectingUseCase.requestRoomSelectResponse(from: TeamSelectingUseCase.TeamSelectingRequest(teamName: teamName),
-                                                           with: TeamSelectingUseCase.TeamSelectingTask(networkDispatcher: MockTeamSelectSuccess()))
+                                                           with: TeamSelectingUseCase.TeamSelectingTask(networkDispatcher: NetworkManager()))
             { status in
                 guard let status = status else { return }
                 if status == .fail {

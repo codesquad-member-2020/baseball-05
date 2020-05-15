@@ -81,7 +81,7 @@ final class PlayViewController: UIViewController {
                                   with: PitchUseCase.PitchTask(networkDispatcher: NetworkManager()))
         { resultResponse in
             guard let resultResponse = resultResponse else { return }
-            if resultResponse.result == .success {
+            if resultResponse.status == .success {
                 self.configureUseCase()
             }
         }

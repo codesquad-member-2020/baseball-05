@@ -18,8 +18,9 @@ struct TeamSelectingUseCase {
         }
         var httpBody: Data?
         
-        init(teamName: String) {
-            self.httpBody = SelectingTeamName(teamName: teamName).encodeToJSONData()
+        init(teamName: String, userId: String = "solar") {
+            self.httpBody = SelectingTeam(teamName: teamName,
+                                          userId: userId).encodeToJSONData()
         }
     }
     
@@ -45,7 +46,9 @@ struct TeamSelectingUseCase {
                                           with teamSelectTask: TeamSelectingTask,
                                           completionHandler: @escaping (Status?) -> ()) {
         teamSelectTask.perform(teamSelectRequest) { teamSelectResponse in
-            completionHandler(teamSelectResponse?.result)
+            completionHandler(teamSelectResponse?.status)
         }
     }
 }
+
+

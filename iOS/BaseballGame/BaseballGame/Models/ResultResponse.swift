@@ -9,10 +9,14 @@
 import Foundation
 
 struct ResultResponse: Codable {
-    let result: Status
+    let status: Status
 }
 
 enum Status: String, Codable {
     case success
     case fail
+}
+
+struct StatusBoolResponse: Codable {
+    let status: Bool
 }

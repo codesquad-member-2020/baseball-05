@@ -11,10 +11,10 @@ import Foundation
 struct RoomIsFullUseCase {
     struct RoomIsFullRequest: Request {
         var path: String {
-            return "http://15.165.69.44:8080/api/start/\(roomID)"
+            return "http://3.34.15.148/api/start?matchId=\(roomID)"
         }
         var httpMethod: HTTPMethod {
-            return .post
+            return .get
         }
         var roomID: Int
         
@@ -24,7 +24,7 @@ struct RoomIsFullUseCase {
     }
     
     struct RoomIsFullTask: NetworkTask {
-        typealias Output = ResultResponse
+        typealias Output = StatusBoolResponse
         
         private let networkDispatcher: NetworkDispatcher
         
@@ -43,9 +43,9 @@ struct RoomIsFullUseCase {
     
     static func requestResultResponse(from roomIsFullRequest: RoomIsFullRequest,
                                       with roomIsFullTask: RoomIsFullTask,
-                                      completionHandler: @escaping (Status?) -> ()) {
+                                      completionHandler: @escaping (Bool?) -> ()) {
         roomIsFullTask.perform(roomIsFullRequest) { resultResponse in
-            completionHandler(resultResponse?.result)
+            completionHandler(resultResponse?.status)
         }
     }
 }
