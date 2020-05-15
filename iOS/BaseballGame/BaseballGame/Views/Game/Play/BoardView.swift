@@ -15,14 +15,28 @@ final class BoardView: UIView, WithXib {
     @IBOutlet weak var offenseOrDefense: BoardLabel!
     @IBOutlet weak var pitchButton: PitchButton!
     
+    private let groundView = GroundView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         insertXibView()
+        configurGroundView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         insertXibView()
+        configurGroundView()
+    }
+    
+    private func configurGroundView() {
+        guard let view = subviews.first else { return }
+        view.addSubview(groundView)
+        
+        groundView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5).isActive = true
+        groundView.heightAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5).isActive = true
+        groundView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
+        groundView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
     }
     
     func configureSBOsView(sbo: SBO) {

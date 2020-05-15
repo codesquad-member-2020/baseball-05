@@ -12,6 +12,7 @@ final class HomeBase: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = .clear
     }
     
     required init?(coder: NSCoder) {
