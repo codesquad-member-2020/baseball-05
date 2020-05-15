@@ -9,7 +9,7 @@
 import UIKit
 
 final class RhombusView: UIView {
-    var color: UIColor!
+    private var color: UIColor!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,5 +33,17 @@ final class RhombusView: UIView {
         rhombusPath.addLine(to: CGPoint(x: 0, y: heightPoint))
         self.color.setFill()
         rhombusPath.fill()
+    }
+    
+    func set(color: UIColor) {
+        self.color = color
+    }
+    
+    func setColorEmpty() {
+        self.color = .white
+    }
+    
+    func setColorFull() {
+        self.color = .yellow
     }
 }

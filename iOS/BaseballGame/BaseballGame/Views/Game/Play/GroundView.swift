@@ -49,7 +49,7 @@ final class GroundView: UIView {
     }
     
     private func configureRhombusView() {
-        rhombusView.color = UIColor.beigeColor
+        rhombusView.set(color: .beigeColor)
         addSubview(rhombusView)
         
         rhombusView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -59,7 +59,7 @@ final class GroundView: UIView {
     }
     
     private func configureFirstBase() {
-        firstBase.color = .white
+        firstBase.setColorEmpty()
         addSubview(firstBase)
         
         firstBase.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 5).isActive = true
@@ -69,7 +69,7 @@ final class GroundView: UIView {
     }
     
     private func configureSecondeBase() {
-        secondBase.color = .white
+        secondBase.setColorEmpty()
         addSubview(secondBase)
         
         secondBase.topAnchor.constraint(equalTo: self.topAnchor, constant: -5).isActive = true
@@ -79,7 +79,7 @@ final class GroundView: UIView {
     }
     
     private func configureThirdBase() {
-        thirdBase.color = .white
+        thirdBase.setColorEmpty()
         addSubview(thirdBase)
         
         thirdBase.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: -5).isActive = true
