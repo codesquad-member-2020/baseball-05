@@ -50,7 +50,7 @@ INSERT INTO half (id, last_bat_player, total_plate, outs, hit, point) VALUE (1, 
 INSERT INTO plate (id, half_id, strike, ball, first_baseman, second_baseman,
                    third_baseman) VALUE (1, 1, 0, 0, '박건우', null, null);
 INSERT INTO plate (id, half_id, strike, ball, first_baseman, second_baseman,
-                   third_baseman) VALUE (2, 3, 1, 0, '이홍련', null, null);
+                   third_baseman) VALUE (2, 1, 3, 0, '이홍련', null, null);
 
 -- -----------------------------------------------------
 -- ROUND TEST --

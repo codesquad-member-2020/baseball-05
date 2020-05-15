@@ -176,7 +176,7 @@ public class GameDAO {
 
             Plate nowPlate = plates.get(plates.size() - playerIndex);
             GameBatterDTO batter = makeBatterDTO(allTablesDTO, playerIndex - 1);
-            PlateDTO plateDTO = new PlateDTO(nowPlate.getId(), half.getOuts(), batter, makeRoundDTOList(allTablesDTO, batter.getName()));
+            PlateDTO plateDTO = new PlateDTO(nowPlate.getId(), nowPlate.getStrike(), nowPlate.getBall(), half.getOuts(), batter, makeRoundDTOList(allTablesDTO, batter.getName()));
             plateDTOS.add(plateDTO);
             playerIndex++;
         }

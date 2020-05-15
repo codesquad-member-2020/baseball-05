@@ -65,6 +65,10 @@ public class PitchDAO {
         insertRound(offenseTeam, nowPlate, nowRound);
     }
 
+    private void updatePlate() {
+
+    }
+
     private void insertRound(UserTeamDTO offenseTeam, Plate nowPlate, Round nowRound) {
         Long plateId = nowPlate.getId();
         Player lastPlayer = getLastPlayer(offenseTeam, nowRound);
@@ -105,8 +109,6 @@ public class PitchDAO {
         }
 
         int finalLineUp = lineUp;
-
-        log.info("lineUp : {}", finalLineUp);
 
         return offenseTeam.getTeam()
                 .getPlayers()

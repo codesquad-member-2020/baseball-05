@@ -15,6 +15,10 @@ public class PlateDTO {
 
     private Long id;
 
+    private int strike;
+
+    private int ball;
+
     private int outs;
 
     private GameBatterDTO batter;

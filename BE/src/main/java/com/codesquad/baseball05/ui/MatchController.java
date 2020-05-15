@@ -13,10 +13,6 @@ public class MatchController {
 
     private final MatchesDAO matchesDao;
 
-//    private final UserDao userDao;
-//
-//    private final TeamDao teamDao;
-
     @GetMapping("/api/matches")
     public Object listMatches() {
         return matchesDao.listMatches();
