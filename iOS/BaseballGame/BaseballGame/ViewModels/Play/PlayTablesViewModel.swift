@@ -8,24 +8,33 @@
 
 import UIKit
 
-final class PlayViewModel: NSObject {
+final class PlayTablesViewModel: NSObject {
+    enum Notification {
+        static let tablesModelDidChange = Foundation.Notification.Name("tablesModelDidChange")
+    }
+    
     private let currentPlayerViewModels: CurrentPlayerViewModels
     private let roundInfoViewModels: RoundInfoViewModels
+    private let isOffense: Bool
     private weak var currentPlayerTableView: UITableView?
     private weak var roundInfoTableView: UITableView?
     
     init(currentPlayers: [CurrentPlayer],
-         roundInfos: [RoundInfo],
+         rounds: [Round],
          currentPlayerTableView: UITableView,
-         roundInfoTableView: UITableView) {
+         roundInfoTableView: UITableView,
+         isOffense: Bool) {
         self.currentPlayerViewModels = CurrentPlayerViewModels(currentPlayers: currentPlayers)
-        self.roundInfoViewModels = RoundInfoViewModels(roundInfos: roundInfos)
+        self.roundInfoViewModels = RoundInfoViewModels(rounds: rounds)
         self.currentPlayerTableView = currentPlayerTableView
         self.roundInfoTableView = roundInfoTableView
+        self.isOffense = isOffense
+        super.init()
+        NotificationCenter.default.post(name: Notification.tablesModelDidChange, object: self)
     }
 }
 
-extension PlayViewModel: UITableViewDataSource {
+extension PlayTablesViewModel: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView === currentPlayerTableView {
             return currentPlayerViewModels.count
@@ -42,7 +51,7 @@ extension PlayViewModel: UITableViewDataSource {
             guard let currentPlayerViewModel = currentPlayerViewModels.viewModel(at: indexPath.row)
                 else { return CurrentPlayerCell() }
             
-            currentPlayerCell.configure(currentPlayer: currentPlayerViewModel.currentPlayer)
+            currentPlayerCell.configure(currentPlayer: currentPlayerViewModel.currentPlayer, by: isOffense)
             return currentPlayerCell
         } else if tableView === roundInfoTableView {
             guard let roundInfoCell = tableView.dequeueReusableCell(withIdentifier:
@@ -50,7 +59,7 @@ extension PlayViewModel: UITableViewDataSource {
             guard let roundInfoViewModel = roundInfoViewModels.viewModel(at: indexPath.row)
                 else { return RoundInfoCell()}
             roundInfoCell.configure(orderText: String(indexPath.row + 1),
-                                    roundInfo: roundInfoViewModel.roundInfo)
+                                    roundInfo: roundInfoViewModel.round)
             return roundInfoCell
         }
         return UITableViewCell()

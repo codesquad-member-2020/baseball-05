@@ -19,3 +19,8 @@ struct Team: Codable {
     let teamName: String
     let userName: String?
 }
+
+enum TeamKind {
+    case away
+    case home
+}

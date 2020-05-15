@@ -16,6 +16,7 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         label.textColor = GameRoomViewModels.titleColor
         return label
     }()
+    
     private let prevButton = PrevButton()
     private var gameRoomCollectionView: GameRoomCollectionView!
     private var gameRoomViewModels: GameRoomViewModels!
@@ -30,6 +31,10 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
         configurePrevButton()
         configureCollectionView()
         configureObserver()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         configureUseCase()
     }
     
@@ -96,7 +101,7 @@ final class GameRoomViewController: UIViewController, IdentifiableViewController
     
     private func configureUseCase() {
         GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
-                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomsSuccess()))
+                                        with: GameRoomUseCase.GameRoomTask(networkDispatcher: NetworkManager()))
         { gameRooms in
             guard let gameRooms = gameRooms else { return }
             self.configureGameRoomViewModels(gameRooms: gameRooms)
@@ -140,38 +145,41 @@ extension GameRoomViewController: UICollectionViewDelegate {
         
         let awayTeamChoiceAction = teamChoiceAction(team: gameRoom.awayTeam) { result in
             guard let result = result else { return }
-            if result { self.requestSelectedRoomIsFullRecursively(roomID: gameRoom.id) }
+            if result { self.requestSelectedRoomIsFullRecursively(roomID: gameRoom.id, kind: .away) }
         }
         actionSheet.addAction(awayTeamChoiceAction)
         
         let homeTeamChoiceAction = teamChoiceAction(team: gameRoom.homeTeam) { result in
             guard let result = result else { return }
-            if result { self.requestSelectedRoomIsFullRecursively(roomID: gameRoom.id) }
+            if result { self.requestSelectedRoomIsFullRecursively(roomID: gameRoom.id, kind: .home) }
         }
         actionSheet.addAction(homeTeamChoiceAction)
         
         present(actionSheet, animated: true)
     }
     
-    private func requestSelectedRoomIsFullRecursively(roomID: Int) {
+    private func requestSelectedRoomIsFullRecursively(roomID: Int, kind: TeamKind) {
         RoomIsFullUseCase.requestResultResponse(from: RoomIsFullUseCase.RoomIsFullRequest(roomID: roomID),
                                                 with: RoomIsFullUseCase.RoomIsFullTask(networkDispatcher: MockRoomIsFullSuccess()))
         { status in
             guard let status = status else { return }
             if status == .success {
-                self.showGameTabBarController()
+                self.showGameTabBarController(roomID: roomID, kind: kind)
             } else {
                 DispatchQueue(label: "reqeustRoomIsFull").asyncAfter(deadline: .now() + 1) {
-                    self.requestSelectedRoomIsFullRecursively(roomID: roomID)
+                    self.requestSelectedRoomIsFullRecursively(roomID: roomID, kind: kind)
                 }
             }
         }
     }
     
-    private func showGameTabBarController() {
+    private func showGameTabBarController(roomID: Int, kind: TeamKind) {
         guard let gameTabBarController = storyboard?.instantiateViewController(withIdentifier: "GameTabBarController")
             else { return }
         gameTabBarController.modalPresentationStyle = .fullScreen
+        guard let playViewController = gameTabBarController.children.first as? PlayViewController else { return }
+        playViewController.roomID = roomID
+        playViewController.userTeamKind = kind
         present(gameTabBarController, animated: true)
     }
     

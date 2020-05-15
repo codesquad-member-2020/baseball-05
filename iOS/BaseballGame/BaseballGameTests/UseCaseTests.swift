@@ -11,7 +11,7 @@ import XCTest
 
 final class UseCaseTests: XCTestCase {
     func testGameInfoUseCaseSuccess() {
-        let gameInfoRequest = GameRoomUseCase.GameRoomRequest(path: "mock")
+        let gameInfoRequest = GameRoomUseCase.GameRoomRequest()
         let mockGameInfoSuccess = MockGameRoomsSuccess()
         mockGameInfoSuccess.execute(request: gameInfoRequest) { data, urlResponse, error in
             XCTAssertNotNil(data)
@@ -27,7 +27,7 @@ final class UseCaseTests: XCTestCase {
                                             XCTAssertNotNil(gameInfo)
         }
         
-        GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(path: "mock"),
+        GameRoomUseCase.requestGameRoom(from: GameRoomUseCase.GameRoomRequest(),
                                         with: GameRoomUseCase.GameRoomTask(networkDispatcher: MockGameRoomsSuccess())) {
                         XCTAssertNotNil($0)
         }

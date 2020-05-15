@@ -9,7 +9,7 @@
 import UIKit
 
 final class RoundInfoCell: UITableViewCell, IdentifiableView {
-    @IBOutlet weak var orderLabel: OrderLabel!
+    @IBOutlet weak var orderView: OrderView!
     @IBOutlet weak var sboLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!  
     
@@ -29,8 +29,8 @@ final class RoundInfoCell: UITableViewCell, IdentifiableView {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure(orderText: String, roundInfo: RoundInfo) {
-        orderLabel.text = orderText
+    func configure(orderText: String, roundInfo: Round) {
+        orderView.orderLabel.text = orderText
         sboLabel.text = roundInfo.decision
         countLabel.text = "\(roundInfo.strike)-\(roundInfo.ball)"
     }

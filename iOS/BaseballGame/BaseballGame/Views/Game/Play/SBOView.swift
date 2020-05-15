@@ -12,7 +12,9 @@ import UIKit
 final class SBOView: UIView, WithXib {
     @IBOutlet weak var sboLabel: BoardLabel!
     @IBOutlet weak var countStack: UIStackView!
+    
     private var countViews: [CountView]!
+    var countColor: UIColor!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,5 +44,16 @@ final class SBOView: UIView, WithXib {
             views.append(view)
         }
         return views
+    }
+    
+    func updateCountViews(count: Int) {
+        hideAllCountView()
+        for index in 0 ..< count {
+            countViews[index].show(color: countColor)
+        }
+    }
+    
+    func hideAllCountView() {
+        countViews.forEach { $0.hide() }
     }
 }

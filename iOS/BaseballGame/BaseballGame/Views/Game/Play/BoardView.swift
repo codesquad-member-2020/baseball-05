@@ -8,17 +8,26 @@
 
 import UIKit
 
-final class BoardView: UIView {
+final class BoardView: UIView, WithXib {
     @IBOutlet weak var sbosView: SBOsView!
     @IBOutlet weak var inningLabel: BoardLabel!
     @IBOutlet weak var halfLabel: BoardLabel!
     @IBOutlet weak var offenseOrDefense: BoardLabel!
+    @IBOutlet weak var pitchButton: PitchButton!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        insertXibView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        insertXibView()
+    }
+    
+    func configureSBOsView(sbo: SBO) {
+        sbosView.strikeView.updateCountViews(count: sbo.strikeCount)
+        sbosView.ballView.updateCountViews(count: sbo.ballCount)
+        sbosView.outView.updateCountViews(count: sbo.outCount)
     }
 }
