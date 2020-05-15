@@ -14,7 +14,7 @@ final class RhombusView: UIView {
     init(frame: CGRect = .zero, color: UIColor) {
         self.color = color
         super.init(frame: frame)
-        translatesAutoresizingMaskIntoConstraints = false
+        self.layer.borderWidth = 0.5
     }
     
     required init?(coder: NSCoder) {
