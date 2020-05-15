@@ -35,7 +35,7 @@ public class GameService {
         // 선점 안 된 팀인 경우 update
         String userId = "ever";
         userDAO.choiceTeam(userId, teamName);
-        Long user = userDAO.findByUserId(userId);
+        Long user = userDAO.findIdByUserId(userId);
         MatchDTO matchDTO = matchService.updateUserAtMatch(user, teamName);
 
         if (matchService.isMatchCompleted(matchDTO.getId())) {
