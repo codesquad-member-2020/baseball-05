@@ -59,7 +59,7 @@ public class UserDAO {
             User user = new User();
             user.setId(rs.getLong("id"));
             user.setUserId(rs.getString("user_id"));
-            user.setTeamId(rs.getLong("team_id"));
+            user.setTeam_id(rs.getLong("team_id"));
             user.setEmail(rs.getString("email"));
             return user;
         };
