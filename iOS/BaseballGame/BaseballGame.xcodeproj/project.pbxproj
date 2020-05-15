@@ -26,6 +26,7 @@
 		5A4B9AEF246D3571000F5FA8 /* SBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AEE246D3571000F5FA8 /* SBO.swift */; };
 		5A4B9AF3246D738F000F5FA8 /* UserInning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AF2246D738F000F5FA8 /* UserInning.swift */; };
 		5A4B9AF5246D97DD000F5FA8 /* PitchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AF4246D97DD000F5FA8 /* PitchUseCase.swift */; };
+		5A4B9AF7246E22A3000F5FA8 /* RhombusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AF6246E22A3000F5FA8 /* RhombusView.swift */; };
 		5A7DD50A24601708002ECB3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50924601708002ECB3A /* AppDelegate.swift */; };
 		5A7DD50C24601708002ECB3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50B24601708002ECB3A /* SceneDelegate.swift */; };
 		5A7DD50E24601708002ECB3A /* GameRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7DD50D24601708002ECB3A /* GameRoomViewController.swift */; };
@@ -137,6 +138,7 @@
 		5A4B9AEE246D3571000F5FA8 /* SBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBO.swift; sourceTree = "<group>"; };
 		5A4B9AF2246D738F000F5FA8 /* UserInning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInning.swift; sourceTree = "<group>"; };
 		5A4B9AF4246D97DD000F5FA8 /* PitchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchUseCase.swift; sourceTree = "<group>"; };
+		5A4B9AF6246E22A3000F5FA8 /* RhombusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhombusView.swift; sourceTree = "<group>"; };
 		5A7DD50624601708002ECB3A /* BaseballGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7DD50924601708002ECB3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A7DD50B24601708002ECB3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				5A481FCB2467DCA200BBDC00 /* PitchButton.swift */,
 				5A481FD12467FBC700BBDC00 /* OrderLabel.swift */,
 				5A0F790D246CFA8A00AA8C0B /* OrderView.swift */,
+				5A4B9AF6246E22A3000F5FA8 /* RhombusView.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -661,6 +664,7 @@
 				5A7DD54A24604DE9002ECB3A /* GameRoomCollectionView.swift in Sources */,
 				5A9FF8D9246A97D400005C36 /* CurrentPlayerViewModel.swift in Sources */,
 				5A8B9AC0246C12D60090AAC3 /* RoomIsFullUseCase.swift in Sources */,
+				5A4B9AF7246E22A3000F5FA8 /* RhombusView.swift in Sources */,
 				5A481FD02467F9D600BBDC00 /* RoundInfoCell.swift in Sources */,
 				5A0F790E246CFA8A00AA8C0B /* OrderView.swift in Sources */,
 				5A814F6C24666502001C768D /* ScoresViewController.swift in Sources */,
