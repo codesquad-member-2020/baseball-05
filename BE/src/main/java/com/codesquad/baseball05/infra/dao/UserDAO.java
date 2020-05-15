@@ -1,5 +1,8 @@
 package com.codesquad.baseball05.infra.dao;
 
+import com.codesquad.baseball05.domain.user.User;
+import com.codesquad.baseball05.infra.exception.NotFoundUserException;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -31,11 +34,35 @@ public class UserDAO {
         namedParameterJdbcTemplate.update(choiceTeamSql, namedParameters);
     }
 
-    public Long findByUserId(String userId) {
+    public Long findIdByUserId(String userId) {
         SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("userId", userId);
 
         String findByUserIdSql = "SELECT id FROM user WHERE user_id = :userId";
         return namedParameterJdbcTemplate.queryForObject(findByUserIdSql, namedParameters, Long.class);
+    }
+
+    public User findByUserId(String userId) {
+        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("userId", userId);
+
+        String findByUserIdSql = "SELECT * FROM user WHERE user_id = :userId";
+        User user;
+        try {
+            user = namedParameterJdbcTemplate.queryForObject(findByUserIdSql, namedParameters, getUserRowMapper());
+        } catch (Exception e) {
+            throw new NotFoundUserException("유저가 없어요");
+        }
+        return user;
+    }
+
+    private RowMapper<User> getUserRowMapper() {
+        return (rs, rowNum) -> {
+            User user = new User();
+            user.setId(rs.getLong("id"));
+            user.setUserId(rs.getString("user_id"));
+            user.setTeamId(rs.getLong("team_id"));
+            user.setEmail(rs.getString("email"));
+            return user;
+        };
     }
 
     public void deleteTeam(Long id) {
