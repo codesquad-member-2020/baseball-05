@@ -15,17 +15,20 @@ final class PlayTablesViewModel: NSObject {
     
     private let currentPlayerViewModels: CurrentPlayerViewModels
     private let roundInfoViewModels: RoundInfoViewModels
+    private let isOffense: Bool
     private weak var currentPlayerTableView: UITableView?
     private weak var roundInfoTableView: UITableView?
     
     init(currentPlayers: [CurrentPlayer],
          rounds: [Round],
          currentPlayerTableView: UITableView,
-         roundInfoTableView: UITableView) {
+         roundInfoTableView: UITableView,
+         isOffense: Bool) {
         self.currentPlayerViewModels = CurrentPlayerViewModels(currentPlayers: currentPlayers)
         self.roundInfoViewModels = RoundInfoViewModels(rounds: rounds)
         self.currentPlayerTableView = currentPlayerTableView
         self.roundInfoTableView = roundInfoTableView
+        self.isOffense = isOffense
         super.init()
         NotificationCenter.default.post(name: Notification.tablesModelDidChange, object: self)
     }
@@ -48,7 +51,7 @@ extension PlayTablesViewModel: UITableViewDataSource {
             guard let currentPlayerViewModel = currentPlayerViewModels.viewModel(at: indexPath.row)
                 else { return CurrentPlayerCell() }
             
-            currentPlayerCell.configure(currentPlayer: currentPlayerViewModel.currentPlayer)
+            currentPlayerCell.configure(currentPlayer: currentPlayerViewModel.currentPlayer, by: isOffense)
             return currentPlayerCell
         } else if tableView === roundInfoTableView {
             guard let roundInfoCell = tableView.dequeueReusableCell(withIdentifier:

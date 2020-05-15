@@ -181,12 +181,20 @@ final class PlayViewController: UIViewController {
         let batter = CurrentBatter(name: playDataResponse.currentPlayers.batter.name,
                                    mounts: playDataResponse.currentPlayers.batter.mounts,
                                    hits: playDataResponse.currentPlayers.batter.hits)
+        guard let isOffense = isOffense(half: playDataResponse.inning.half) else { return }
+        
         if let latestPlate = playDataResponse.plates.last {
             self.playTablesViewModel = PlayTablesViewModel(currentPlayers: [pitcher, batter],
-                                                           rounds: latestPlate.rounds, currentPlayerTableView: currentPlayerTable, roundInfoTableView: roundInfoTable)
+                                                           rounds: latestPlate.rounds,
+                                                           currentPlayerTableView: currentPlayerTable,
+                                                           roundInfoTableView: roundInfoTable,
+                                                           isOffense: isOffense)
         } else {
             self.playTablesViewModel = PlayTablesViewModel(currentPlayers: [pitcher, batter],
-                                                           rounds: [], currentPlayerTableView: currentPlayerTable, roundInfoTableView: roundInfoTable)
+                                                           rounds: [],
+                                                           currentPlayerTableView: currentPlayerTable,
+                                                           roundInfoTableView: roundInfoTable,
+                                                           isOffense:  isOffense)
         }
         configureCurrentPlayerTableDataSource()
         configureRoundInfoTableDataSource()
