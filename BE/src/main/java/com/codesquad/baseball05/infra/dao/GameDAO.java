@@ -132,6 +132,16 @@ public class GameDAO {
         return new PitchResultDTO(isTopHalf(allTablesDTO), homeTeam, awayTeam, players, inning, plates);
     }
 
+    private GameTeamDTO makeTeamDTO(AllTablesDTO allTablesDTO, boolean isFindHome) {
+        boolean isUserAHome = allTablesDTO.getUserA().isHome();
+
+        if(isFindHome) {
+            return isUserAHome ? makeGameTeamDTO(allTablesDTO, allTablesDTO.getUserA()) : makeGameTeamDTO(allTablesDTO, allTablesDTO.getUserB());
+        } else {
+            return isUserAHome ? makeGameTeamDTO(allTablesDTO, allTablesDTO.getUserB()) : makeGameTeamDTO(allTablesDTO, allTablesDTO.getUserA());
+        }
+    }
+
     private List<RoundDTO> makeRoundDTOList(AllTablesDTO allTablesDTO, String playerName) {
         List<Inning> innings = allTablesDTO.getGame().getInnings();
         Inning nowInning = innings.get(innings.size() - 1);
@@ -151,8 +161,6 @@ public class GameDAO {
 
         return roundDTOS;
     }
-
-
 
     private List<PlateDTO> makePlateDTOList(AllTablesDTO allTablesDTO) {
         List<Inning> innings = allTablesDTO.getGame().getInnings();
@@ -204,20 +212,14 @@ public class GameDAO {
         return new GameBatterDTO(player.getName(), record.getMounts(), record.getHit());
     }
 
-    private GamePitcherDTO makePitcherDTO(AllTablesDTO verifiedHomeTeam) {
-        List<Player> players = verifiedHomeTeam.getUserA().isOffense() ? verifiedHomeTeam.getUserA().getTeam().getPlayers() : verifiedHomeTeam.getUserB().getTeam().getPlayers();
+    private GamePitcherDTO makePitcherDTO(AllTablesDTO allTablesDTO) {
+        List<Player> players = allTablesDTO.getUserA().isOffense() ? allTablesDTO.getUserB().getTeam().getPlayers() : allTablesDTO.getUserA().getTeam().getPlayers();
 
         Player player = players.stream().filter(Player::getIsPitcher).findFirst().orElseThrow(() -> new RuntimeException("투수가 없습니다!"));
 
         List<Record> records = findAllRecords(player.getId());
 
         return new GamePitcherDTO(player.getName(), records.get(records.size() - 1).getPitch());
-    }
-
-    private GameTeamDTO makeTeamDTO(AllTablesDTO allTablesDTO, boolean isFindHome) {
-        boolean isUserAHome = allTablesDTO.getUserA().isHome();
-        boolean isReturnA = isFindHome ^ isUserAHome;
-        return isReturnA ? makeGameTeamDTO(allTablesDTO, allTablesDTO.getUserB()) : makeGameTeamDTO(allTablesDTO, allTablesDTO.getUserA());
     }
 
     private GameTeamDTO makeGameTeamDTO(AllTablesDTO allTablesDTO, UserTeamDTO userTeamDTO) {
@@ -240,17 +242,18 @@ public class GameDAO {
 
     private AllTablesDTO setHomeAndOffense(AllTablesDTO allTablesDTO) throws SQLException {
         Matches matches = allTablesDTO.getMatches();
-        boolean isHome = allTablesDTO.getUserA().getTeam().equals(matches.getHomeTeam());
-        boolean isTeamAOffense = isTopHalf(allTablesDTO) ^ isHome;
+        boolean isUserAHome = allTablesDTO.getUserA().getTeam().getName().equals(matches.getHomeTeam());
 
-        if(isTeamAOffense) {
+        boolean isUserAOffense = isUserAHome ^ isTopHalf(allTablesDTO);
+
+        if(isUserAOffense) {
             allTablesDTO.getUserA().setOffense(true);
         } else {
             allTablesDTO.getUserB().setOffense(true);
         }
 
-        allTablesDTO.getUserA().setHome(isHome);
-        allTablesDTO.getUserB().setHome(!isHome);
+        allTablesDTO.getUserA().setHome(isUserAHome);
+        allTablesDTO.getUserB().setHome(!isUserAHome);
 
         return allTablesDTO;
     }
