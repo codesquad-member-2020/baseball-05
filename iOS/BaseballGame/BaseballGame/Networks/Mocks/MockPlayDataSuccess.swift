@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct MockRoundsSuccess: NetworkDispatcher {
+struct MockPlayDataSuccess: NetworkDispatcher {
     func execute(request: Request, completionHandler: @escaping (Data?, URLResponse?, Error?) -> ()) {
-        guard let jsonData = Data.jsonData(forResource: "RoundsSuccessStub") else { return }
+        guard let jsonData = Data.jsonData(forResource: "PlayDataSuccessStub") else { return }
         completionHandler(jsonData, nil, nil)
     }
 }
