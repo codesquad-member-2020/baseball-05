@@ -213,7 +213,7 @@ final class PlayViewController: UIViewController {
     }
 }
 
-extension PlayViewController: TitleViewDelegate {
+extension PlayViewController: GameHeaderViewDelegate {
     func closeButtonDidTouch() {
         dismiss(animated: true) {
             self.updatePlayDataQueue.suspend()

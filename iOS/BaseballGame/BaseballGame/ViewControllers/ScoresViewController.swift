@@ -9,7 +9,7 @@
 import UIKit
 
 final class ScoresViewController: UIViewController {
-    @IBOutlet weak var titleView: GameHeaderView!
+    @IBOutlet weak var gameHeaderView: GameHeaderView!
     @IBOutlet weak var playerInfoTable: UITableView!
     @IBOutlet weak var inningTitleStack: InningTitleStack!
     @IBOutlet weak var awayTeamStack: TeamStackView!
@@ -34,7 +34,7 @@ final class ScoresViewController: UIViewController {
     }
     
     private func configureTitleView() {
-        titleView.delegate = self
+        gameHeaderView.delegate = self
     }
     
     private func configurePlayerInfoTableDataSource() {
@@ -59,7 +59,7 @@ final class ScoresViewController: UIViewController {
     }
 }
 
-extension ScoresViewController: TitleViewDelegate {
+extension ScoresViewController: GameHeaderViewDelegate {
     func closeButtonDidTouch() {
         dismiss(animated: true)
     }

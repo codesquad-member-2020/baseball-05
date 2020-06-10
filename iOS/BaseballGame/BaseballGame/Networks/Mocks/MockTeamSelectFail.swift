@@ -13,4 +13,4 @@ struct MockTeamSelectFail: NetworkDispatcher {
         let jsonData = Data.jsonData(forResource: "TeamSelectFailStub")
         completionHandler(jsonData, nil, nil)
     }
-}
+} 
