@@ -19,6 +19,14 @@ final class PlayViewController: UIViewController {
     private var scoreViewModel: ScoreViewModel!
     private var boardViewModel: BoardViewModel!
     
+    deinit {
+        boardView.pitchButton.removeTarget(
+            self,
+            action: #selector(requestPitch),
+            for: .touchUpInside
+        )
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTitleView()
@@ -70,9 +78,11 @@ final class PlayViewController: UIViewController {
     }
     
     private func configurePitchButtonTarget() {
-        boardView.pitchButton.addTarget(self,
-                                        action: #selector(requestPitch),
-                                        for: .touchUpInside)
+        boardView.pitchButton.addTarget(
+            self,
+            action: #selector(requestPitch),
+            for: .touchUpInside
+        )
     }
     
     @objc private func requestPitch() {
