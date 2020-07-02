@@ -9,12 +9,12 @@
 import UIKit
 
 
-protocol TitleViewDelegate {
+protocol GameHeaderViewDelegate: class {
     func closeButtonDidTouch()
 }
 
 final class GameHeaderView: UIView, WithXib {
-    var delegate: TitleViewDelegate?
+    weak var delegate: GameHeaderViewDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)

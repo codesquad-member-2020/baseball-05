@@ -98,7 +98,7 @@ final class PlayViewController: UIViewController {
     var userTeamKind: TeamKind?
     private func configureUseCase() {
         guard let roomID = roomID else { return }
-        PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: NetworkManager())) { playDataResponse in
+        PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: MockPlayDataSuccess())) { playDataResponse in
             guard let playDataResponse = playDataResponse else { return }
             self.configureScoreViewModel(playDataResponse)
             self.configureBoardViewModel(playDataResponse)
@@ -213,7 +213,7 @@ final class PlayViewController: UIViewController {
     }
 }
 
-extension PlayViewController: TitleViewDelegate {
+extension PlayViewController: GameHeaderViewDelegate {
     func closeButtonDidTouch() {
         dismiss(animated: true) {
             self.updatePlayDataQueue.suspend()
