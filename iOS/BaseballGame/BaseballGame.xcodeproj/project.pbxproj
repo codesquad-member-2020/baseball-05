@@ -17,9 +17,9 @@
 		5A481FCE2467E0BC00BBDC00 /* CountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FCD2467E0BC00BBDC00 /* CountView.swift */; };
 		5A481FD02467F9D600BBDC00 /* RoundInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FCF2467F9D600BBDC00 /* RoundInfoCell.swift */; };
 		5A481FD22467FBC700BBDC00 /* OrderLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A481FD12467FBC700BBDC00 /* OrderLabel.swift */; };
-		5A4B9AE1246D0DF1000F5FA8 /* RoundsSuccessStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A4B9AE0246D0DF1000F5FA8 /* RoundsSuccessStub.json */; };
+		5A4B9AE1246D0DF1000F5FA8 /* PlayDataSuccessStub.json in Resources */ = {isa = PBXBuildFile; fileRef = 5A4B9AE0246D0DF1000F5FA8 /* PlayDataSuccessStub.json */; };
 		5A4B9AE3246D0F4D000F5FA8 /* PlayDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AE2246D0F4D000F5FA8 /* PlayDataResponse.swift */; };
-		5A4B9AE5246D240E000F5FA8 /* MockRoundsSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AE4246D240E000F5FA8 /* MockRoundsSuccess.swift */; };
+		5A4B9AE5246D240E000F5FA8 /* MockPlayDataSuccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AE4246D240E000F5FA8 /* MockPlayDataSuccess.swift */; };
 		5A4B9AE7246D258F000F5FA8 /* PlayUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AE6246D258F000F5FA8 /* PlayUseCase.swift */; };
 		5A4B9AEB246D2CBF000F5FA8 /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AEA246D2CBF000F5FA8 /* ScoreViewModel.swift */; };
 		5A4B9AED246D34CD000F5FA8 /* BoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4B9AEC246D34CD000F5FA8 /* BoardViewModel.swift */; };
@@ -131,9 +131,9 @@
 		5A481FCD2467E0BC00BBDC00 /* CountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountView.swift; sourceTree = "<group>"; };
 		5A481FCF2467F9D600BBDC00 /* RoundInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundInfoCell.swift; sourceTree = "<group>"; };
 		5A481FD12467FBC700BBDC00 /* OrderLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderLabel.swift; sourceTree = "<group>"; };
-		5A4B9AE0246D0DF1000F5FA8 /* RoundsSuccessStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RoundsSuccessStub.json; sourceTree = "<group>"; };
+		5A4B9AE0246D0DF1000F5FA8 /* PlayDataSuccessStub.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PlayDataSuccessStub.json; sourceTree = "<group>"; };
 		5A4B9AE2246D0F4D000F5FA8 /* PlayDataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayDataResponse.swift; sourceTree = "<group>"; };
-		5A4B9AE4246D240E000F5FA8 /* MockRoundsSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockRoundsSuccess.swift; sourceTree = "<group>"; };
+		5A4B9AE4246D240E000F5FA8 /* MockPlayDataSuccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPlayDataSuccess.swift; sourceTree = "<group>"; };
 		5A4B9AE6246D258F000F5FA8 /* PlayUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayUseCase.swift; sourceTree = "<group>"; };
 		5A4B9AEA246D2CBF000F5FA8 /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
 		5A4B9AEC246D34CD000F5FA8 /* BoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewModel.swift; sourceTree = "<group>"; };
@@ -356,7 +356,7 @@
 				5A8B9ABB246C0AF90090AAC3 /* TeamSelectFailStub.json */,
 				5A8B9AC3246C19C30090AAC3 /* RoomIsFullSuccessStub.json */,
 				5A8B9AC7246C1B280090AAC3 /* RoomIsFullFailStub.json */,
-				5A4B9AE0246D0DF1000F5FA8 /* RoundsSuccessStub.json */,
+				5A4B9AE0246D0DF1000F5FA8 /* PlayDataSuccessStub.json */,
 			);
 			path = StubDatas;
 			sourceTree = "<group>";
@@ -396,7 +396,7 @@
 				5A8B9ABD246C0B200090AAC3 /* MockTeamSelectFail.swift */,
 				5A8B9AC1246C182F0090AAC3 /* MockRoomIsFullSuccess.swift */,
 				5A8B9AC5246C1AD60090AAC3 /* MockRoomIsFullFail.swift */,
-				5A4B9AE4246D240E000F5FA8 /* MockRoundsSuccess.swift */,
+				5A4B9AE4246D240E000F5FA8 /* MockPlayDataSuccess.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -622,7 +622,7 @@
 				5A7DD5162460170A002ECB3A /* LaunchScreen.storyboard in Resources */,
 				5A0F7916246D088100AA8C0B /* BoardView.xib in Resources */,
 				5A8B9AC8246C1B280090AAC3 /* RoomIsFullFailStub.json in Resources */,
-				5A4B9AE1246D0DF1000F5FA8 /* RoundsSuccessStub.json in Resources */,
+				5A4B9AE1246D0DF1000F5FA8 /* PlayDataSuccessStub.json in Resources */,
 				5A0F7914246D068B00AA8C0B /* SBOsView.xib in Resources */,
 				5A8B9ABC246C0AF90090AAC3 /* TeamSelectFailStub.json in Resources */,
 				5A814F722466ACB0001C768D /* ScoreView.xib in Resources */,
@@ -681,7 +681,7 @@
 				5A481FC62467CB6300BBDC00 /* BoardView.swift in Sources */,
 				5A4B9AF9246E244E000F5FA8 /* HomeBase.swift in Sources */,
 				5A4B9AF5246D97DD000F5FA8 /* PitchUseCase.swift in Sources */,
-				5A4B9AE5246D240E000F5FA8 /* MockRoundsSuccess.swift in Sources */,
+				5A4B9AE5246D240E000F5FA8 /* MockPlayDataSuccess.swift in Sources */,
 				5A814F6824665B23001C768D /* GameHeaderView.swift in Sources */,
 				5A814F0A2462AD99001C768D /* MockGameRoomsSuccess.swift in Sources */,
 				5A8B9AAE246BE4200090AAC3 /* SelectingTeamName.swift in Sources */,

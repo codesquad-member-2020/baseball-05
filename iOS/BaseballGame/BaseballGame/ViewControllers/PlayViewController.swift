@@ -98,7 +98,7 @@ final class PlayViewController: UIViewController {
     var userTeamKind: TeamKind?
     private func configureUseCase() {
         guard let roomID = roomID else { return }
-        PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: MockRoundsSuccess())) { playDataResponse in
+        PlayUseCase.reqeustPlayData(from: PlayUseCase.PlayDataRequest(matchID: roomID), with: PlayUseCase.PlayDataTask(networkDispatcher: MockPlayDataSuccess())) { playDataResponse in
             guard let playDataResponse = playDataResponse else { return }
             self.configureScoreViewModel(playDataResponse)
             self.configureBoardViewModel(playDataResponse)
