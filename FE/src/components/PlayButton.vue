@@ -28,6 +28,11 @@ export default {
       play.play();
     },
     throwBall() {
+      // 던지는쪽은 post 요청 보내고, get요청 받아오면 될듯
+      // axios.post(
+      //   `http://3.34.15.148/api/games/rounds?${this.route.query.matchId}`,
+      // );
+      // 받는쪽은 게속 get요청 로직 추가
       this.$store.state.throwBall = !this.$store.state.throwBall;
       setTimeout(() => {
         this.$store.state.flyBall = !this.$store.state.flyBall;
