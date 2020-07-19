@@ -4,7 +4,7 @@
     <game-status-component
       :propsData="initGameRenderData"
     ></game-status-component>
-    <play-button></play-button>
+    <play-button :class="{ btntoggle: !buttonToggle }"></play-button>
     <game-log-component></game-log-component>
     <score-info-component></score-info-component>
     <player-info-component></player-info-component>
@@ -28,6 +28,7 @@ export default {
   data() {
     return {
       initGameRenderData: [],
+      buttonToggle: false,
     };
   },
   async created() {
@@ -48,16 +49,55 @@ export default {
       const { data } = await fetchGames(this.$store.state.matchId);
       console.log(data);
       this.initGameRenderData = data;
+      this.initRender();
+    },
+
+    initRender() {
+      console.log(this.$route.params.id); // 홈인지 어웨이인지 판단
+      console.log(this.initGameRenderData.isFirstHalf); // 초인지 말인지 판단
+      if (
+        this.initGameRenderData.isFirstHalf &&
+        this.$route.params.id === 'home'
+      ) {
+        return (this.buttonToggle = true);
+      }
+      if (
+        this.initGameRenderData.isFirstHalf &&
+        this.$route.params.id === 'away'
+      ) {
+        setTimeout(() => {
+          this.fetchData();
+        }, 3000);
+        return (this.buttonToggle = false);
+      }
+      if (
+        !this.initGameRenderData.isFirstHalf &&
+        this.$route.params.id === 'home'
+      ) {
+        setTimeout(() => {
+          this.fetchData();
+        }, 3000);
+        return (this.buttonToggle = false);
+      }
+      if (
+        !this.initGameRenderData.isFirstHalf &&
+        this.$route.params.id === 'away'
+      ) {
+        return (this.buttonToggle = true);
+      }
     },
   },
 };
 </script>
 
-<style>
-#app {
+<style scoped>
+/* #app {
   background: #000;
   z-index: 1;
-}
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+} */
 
 .ground-container {
   position: absolute;
@@ -69,5 +109,9 @@ export default {
   background: url('https://s3-us-west-2.amazonaws.com/mfbrowndesign.com/img/baseball+diamond.jpg')
     no-repeat;
   background-size: 100% 100%;
+}
+
+.btntoggle {
+  display: none;
 }
 </style>

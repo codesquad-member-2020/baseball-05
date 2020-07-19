@@ -1,24 +1,31 @@
 <template>
-  <div>
-    login Page
-    <score-info-component></score-info-component>
-    <player-info-component></player-info-component>
-    <loading-spinner></loading-spinner>
+  <div class="login-container">
+    <login-component></login-component>
   </div>
 </template>
 
 <script>
-import ScoreInfoComponent from '@/components/StatusBoard/ScoreInfoComponent';
-import PlayerInfoComponent from '@/components/StatusBoard/PlayerInfoComponent';
-import LoadingSpinner from '@/components/common/LoadingSpinner';
+import LoginComponent from '@/components/Login/LoginComponent';
 
 export default {
   components: {
-    LoadingSpinner,
-    ScoreInfoComponent,
-    PlayerInfoComponent,
+    LoginComponent,
   },
 };
 </script>
 
-<style></style>
+<style>
+.login-container {
+  /* border: 1px solid #ccc; */
+  background-color: #00000099;
+  border-radius: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin: 0 auto;
+  width: 600px;
+  height: 200px;
+}
+</style>
