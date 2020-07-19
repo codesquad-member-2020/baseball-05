@@ -73,20 +73,28 @@ export default {
       sound.play();
     },
     async fetchData() {
-      const { data } = await fetchMatches();
-      this.matchList = data;
+      // const { data } = await fetchMatches();
+      await axios.get('http://3.34.15.148/api/api/matches').then(data => {
+        this.matchList = data.data;
+      });
       if (this.matchList && this.isLoading === true) {
         this.isLoading = !this.isLoading;
       }
     },
 
-    async isUserSelected() {
-      const obj = { teamName: `${this.selectTeam}` };
-      await axios.post('http://3.34.15.148/api/games', obj).then(data => {
-        console.log(data.data.status);
-        this.isSelectUser = data.data.status;
-        console.log(this.isSelectUser);
-      });
+    isUserSelected() {
+      const obj = {
+        teamName: `${this.selectTeam}`.trim(),
+        userId: this.$store.state.userName,
+      };
+      axios
+        .post('http://3.34.15.148/api/games', obj)
+        .then(data => {
+          console.log(data);
+          this.isSelectUser = data.data.status;
+          console.log(this.isSelectUser);
+        })
+        .catch(data => console.log(data));
     },
 
     async syncData() {

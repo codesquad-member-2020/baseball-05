@@ -6,7 +6,7 @@
 export default {};
 </script>
 
-<style>
+<style scoped>
 .playerImg {
   position: absolute;
   bottom: 30px;
